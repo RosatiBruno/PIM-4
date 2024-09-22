@@ -1,0 +1,11 @@
+C:\Users\Bruno\Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.csproj.AssemblyReference.cache
+C:\Users\Bruno\Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.Form1.resources
+C:\Users\Bruno\Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.Form2.resources
+C:\Users\Bruno\Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.Properties.Resources.resources
+C:\Users\Bruno\Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.csproj.GenerateResource.cache
+C:\Users\Bruno\Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.csproj.CoreCompileInputs.cache
+C:\Users\Bruno\Desktop\TelaPimExercicio\TelaPimExercicio\bin\Debug\TelaPimExercicio.exe.config
+C:\Users\Bruno\Desktop\TelaPimExercicio\TelaPimExercicio\bin\Debug\TelaPimExercicio.exe
+C:\Users\Bruno\Desktop\TelaPimExercicio\TelaPimExercicio\bin\Debug\TelaPimExercicio.pdb
+C:\Users\Bruno\Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.exe
+C:\Users\Bruno\Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.pdb
