@@ -1,0 +1,9 @@
+Informações:
+
+
+NOK - Necessário autenticação por e-mail ao logar
+NOK - TI -> Tem acesso a TUDO, Cadastra, Edita, Inativa, ele faz tudo no sistema!
+NOK - Gerente -> Visualiza tudo + Adiciona, Edita e Inativa qualquer Fornecedor, Pedido, Produto e Produção.
+NOK - Funcionário -> Apenas visualiza os Itens
+
+NOK - Ao cadastrar um pedido, a parte de Vendas deve atualizar automaticamente para já constar a venda.

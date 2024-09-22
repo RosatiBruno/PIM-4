@@ -50,6 +50,7 @@
     <Compile Include="ColorBackground.cs" />
     <Compile Include="ColorBar.cs" />
     <Compile Include="ColorBar2.cs" />
+    <Compile Include="ColorSquare.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

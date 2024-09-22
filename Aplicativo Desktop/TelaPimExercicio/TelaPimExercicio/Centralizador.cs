@@ -17,6 +17,8 @@ namespace TelaPimExercicio
             int margem = 10; // Margem Vertical entre os itens
             int larguraMaxima = form.ClientSize.Width;
 
+            
+
             // Alinha a LabelId ao canto esquerdo dos TXTId
             txtId.Location = new Point((larguraMaxima - txtId.Width) / 2, (form.ClientSize.Height - txtId.Height) / 2 - 20);
             lblId.Location = new Point(txtId.Left, txtId.Top - lblId.Height - 10);
@@ -46,6 +48,16 @@ namespace TelaPimExercicio
             txtId.Font = new Font(txtId.Font.FontFamily, tamanhoFonte);
             txtSenha.Font = new Font(txtSenha.Font.FontFamily, tamanhoFonte);
             btnLogin.Font = new Font(btnLogin.Font.FontFamily, tamanhoFonte);
+
+            //Deixa a cor de fundo das Label igual a cor do quadrado
+            lblId.BackColor = ColorTranslator.FromHtml("#D9D9D9");
+            lblSenha.BackColor = ColorTranslator.FromHtml("#D9D9D9");
+            lblLogin.BackColor = ColorTranslator.FromHtml("#D9D9D9");
+            lblBemVindo.BackColor = ColorTranslator.FromHtml("#D9D9D9");
+
+            //Deixando a fonte em negrito (Login)
+            lblLogin.Font = new Font(lblId.Font, FontStyle.Bold);
+
         }
     }
 }

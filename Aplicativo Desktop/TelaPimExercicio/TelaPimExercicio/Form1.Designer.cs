@@ -84,9 +84,9 @@
             this.lblBemVindo.AutoSize = true;
             this.lblBemVindo.Location = new System.Drawing.Point(304, 191);
             this.lblBemVindo.Name = "lblBemVindo";
-            this.lblBemVindo.Size = new System.Drawing.Size(179, 13);
+            this.lblBemVindo.Size = new System.Drawing.Size(122, 13);
             this.lblBemVindo.TabIndex = 5;
-            this.lblBemVindo.Text = "Bem-vindo(a) ao sistema da UrbAgro";
+            this.lblBemVindo.Text = "Bem-vindo(a) ao sistema";
             // 
             // lblLogin
             // 

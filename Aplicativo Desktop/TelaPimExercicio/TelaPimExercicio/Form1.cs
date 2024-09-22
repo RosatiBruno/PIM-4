@@ -11,15 +11,17 @@ namespace TelaPimExercicio
         private ColorBar colorBar;
         private ColorBackground colorBg;
         private Centralizador centralizador;
+        private ColorSquare colorSquare;
 
         public Form1()
         {
             InitializeComponent();
 
-            //Definindo o tamanho da tela
+            //Definindo o tamanho da tela   ------------------------------------------- TIRAR ESSAS LIMITAÇÕES E DEIXAR RESPNSIVO!
             this.Size = new System.Drawing.Size(800, 600);
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            //   ---------------------------------------------------------------------- TIRAR ESSAS LIMITAÇÕES E DEIXAR RESPNSIVO!
 
             //Criando e adicionando a logo
             logo = new Logo(this);
@@ -28,6 +30,10 @@ namespace TelaPimExercicio
             //Criando e adicionando a barra verde superior
             colorBar = new ColorBar(this);
             this.Controls.Add(colorBar.Panel);
+
+            //Criando e adicionando o quadrado cinza
+            colorSquare = new ColorSquare(this);
+            this.Controls.Add(colorSquare.Panel);        
 
             //Criando e adicionando a cor verde de fundo
             colorBg = new ColorBackground(this);
@@ -49,7 +55,7 @@ namespace TelaPimExercicio
             tempSenha = txtSenha.Text;
 
             //Verificação para login
-            if (tempId == "teste" && tempSenha == "1234")
+            if (tempId == "func" && tempSenha == "1234" || tempId == "gerente" && tempSenha == "1234" || tempId == "ti" && tempSenha == "1234")
             {
                 Form2 form2 = new Form2();
                 form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
