@@ -65,6 +65,7 @@ namespace TelaPimExercicio
             else
             {
                 MessageBox.Show("Login ou senha incorretos! Tente novamente!", "Erro ao efetuar o Login!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSenha.Text = ""; //Ao errar o login, a senha digitada é apagada automaticamente
             }
         }
     }
