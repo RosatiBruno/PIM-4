@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastrarFunc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarFunc.Designer.cs">
+      <DependentUpon>CadastrarFunc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Centralizador.cs" />
     <Compile Include="Centralizador2.cs" />
     <Compile Include="ColorBackground.cs" />
@@ -80,6 +86,27 @@
     <Compile Include="TelaPedidos.Designer.cs">
       <DependentUpon>TelaPedidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelaProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaProd.Designer.cs">
+      <DependentUpon>TelaProd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaProdutos.Designer.cs">
+      <DependentUpon>TelaProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaVendas.Designer.cs">
+      <DependentUpon>TelaVendas.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CadastrarFunc.resx">
+      <DependentUpon>CadastrarFunc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +127,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelaPedidos.resx">
       <DependentUpon>TelaPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaProd.resx">
+      <DependentUpon>TelaProd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaProdutos.resx">
+      <DependentUpon>TelaProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaVendas.resx">
+      <DependentUpon>TelaVendas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

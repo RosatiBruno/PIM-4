@@ -22,3 +22,7 @@ C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercici
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.pdb
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaFornecedores.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaPedidos.resources
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaProdutos.resources
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.CadastrarFunc.resources
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaVendas.resources
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaProd.resources

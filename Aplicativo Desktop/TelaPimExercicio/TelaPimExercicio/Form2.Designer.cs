@@ -65,6 +65,7 @@
             this.btnProdutos.TabIndex = 2;
             this.btnProdutos.Text = "Produtos";
             this.btnProdutos.UseVisualStyleBackColor = true;
+            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
             // 
             // btnProducao
             // 
@@ -74,6 +75,7 @@
             this.btnProducao.TabIndex = 5;
             this.btnProducao.Text = "Produção";
             this.btnProducao.UseVisualStyleBackColor = true;
+            this.btnProducao.Click += new System.EventHandler(this.btnProducao_Click);
             // 
             // btnVendas
             // 
@@ -83,6 +85,7 @@
             this.btnVendas.TabIndex = 4;
             this.btnVendas.Text = "Vendas";
             this.btnVendas.UseVisualStyleBackColor = true;
+            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
             // 
             // btnCadastrarFunc
             // 
@@ -92,6 +95,7 @@
             this.btnCadastrarFunc.TabIndex = 3;
             this.btnCadastrarFunc.Text = "Cadastrar Funcionário";
             this.btnCadastrarFunc.UseVisualStyleBackColor = true;
+            this.btnCadastrarFunc.Click += new System.EventHandler(this.btnCadastrarFunc_Click);
             // 
             // btnLogout
             // 

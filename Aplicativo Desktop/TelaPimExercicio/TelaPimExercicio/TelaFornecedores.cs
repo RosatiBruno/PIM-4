@@ -28,6 +28,9 @@ namespace TelaPimExercicio
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.MaximizeBox = true;
 
+            //Abre em Tela Cheia - Verificar a Necessidade e a Viabilidade
+            //this.WindowState = FormWindowState.Maximized;
+
             //Definindo o tamanho mínimo da tela para 800x600
             this.MinimumSize = new Size(800, 600);
 
@@ -50,6 +53,9 @@ namespace TelaPimExercicio
 
             //Iniciando o Logout
             logout = new Logout(this);
+
+            //Centraliza no Monitor/Tela
+            CenterToScreen();
         }
 
         private void TelaFornecedores_Resize(object sender, EventArgs e)
@@ -87,6 +93,8 @@ namespace TelaPimExercicio
         {
             Form2 form2 = new Form2();
             form2.FormClosed += (s, args) => this.Close();
+            form2.Size = this.Size;
+            form2.StartPosition = FormStartPosition.CenterScreen;
             form2.Show();
             this.Hide();
         }

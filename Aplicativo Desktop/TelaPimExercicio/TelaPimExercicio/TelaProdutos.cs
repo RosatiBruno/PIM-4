@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace TelaPimExercicio
 {
-    public partial class TelaPedidos : Form
+    public partial class TelaProdutos : Form
     {
 
         private Logo logo;
@@ -20,7 +20,7 @@ namespace TelaPimExercicio
         private Centralizador2 centralizador2;
         private Logout logout;
 
-        public TelaPedidos()
+        public TelaProdutos()
         {
             InitializeComponent();
 
@@ -73,7 +73,7 @@ namespace TelaPimExercicio
             centralizador2 = new Centralizador2(this);
 
             //Reposiciona o botão de voltar no canto inferior esquerdo
-            btnRetornar2.Location = new Point(btnRetornar2.Location.X, this.ClientSize.Height - btnRetornar2.Height - 35); //35 é a margem inferior
+            btnRetornar.Location = new Point(btnRetornar.Location.X, this.ClientSize.Height - btnRetornar.Height - 35); //35 é a margem inferior
 
         }
 
@@ -82,8 +82,14 @@ namespace TelaPimExercicio
 
         }
 
+        //Botão de Logout sai do Programa
+        private void btnLogout_Click_1(object sender, EventArgs e)
+        {
+            logout.ShowLogoutDialog();
+        }
+
         //Botão Retornar volta ao Menu Inicial (Form2)
-        private void btnRetornar2_Click_1(object sender, EventArgs e)
+        private void btnRetornar_Click_1(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.FormClosed += (s, args) => this.Close();
@@ -91,12 +97,6 @@ namespace TelaPimExercicio
             form2.StartPosition = FormStartPosition.CenterScreen;
             form2.Show();
             this.Hide();
-        }
-
-        //Botão de Logout sai do Programa
-        private void btnLogout2_Click_1(object sender, EventArgs e)
-        {
-            logout.ShowLogoutDialog();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace TelaPimExercicio
         private ColorBackground colorBg;
         private Centralizador centralizador;
         private ColorSquare colorSquare;
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +20,9 @@ namespace TelaPimExercicio
             //Permitindo o redimensionamento da tela
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.MaximizeBox = true;
+
+            //Abre em Tela Cheia - Verificar a Necessidade e a Viabilidade
+            //this.WindowState = FormWindowState.Maximized;
 
             //Definindo o tamanho mínimo da tela para 800x600
             this.MinimumSize = new Size(800, 600);
@@ -46,6 +49,9 @@ namespace TelaPimExercicio
 
             //Atualiza os componente ao redimensionar a tela (?????????????? Confirmar com a professora Vanessa sexta-feira)
             this.Resize += Form1_Resize;
+
+            //Centraliza no Monitor/Tela
+            CenterToScreen();
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -78,6 +84,8 @@ namespace TelaPimExercicio
             {
                 Form2 form2 = new Form2();
                 form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
+                form2.Size = this.Size;
+                form2.StartPosition = FormStartPosition.CenterScreen;
                 form2.Show();
                 this.Hide(); //Oculta o Form1 enquanto o Form2 está aberto
             }

@@ -19,6 +19,8 @@ namespace TelaPimExercicio
             if (resultado == DialogResult.Yes)
             {
                 Form1 form1 = new Form1();
+                form1.Size = currentForm.Size;
+                form1.StartPosition = FormStartPosition.CenterScreen;
                 form1.FormClosed += (s, args) => currentForm.Close();
                 form1.Show();
                 currentForm.Hide();

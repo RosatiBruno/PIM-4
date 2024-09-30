@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace TelaPimExercicio
 {
-    public partial class TelaPedidos : Form
+    public partial class TelaProdutos : Form
     {
 
         private Logo logo;
@@ -20,16 +20,13 @@ namespace TelaPimExercicio
         private Centralizador2 centralizador2;
         private Logout logout;
 
-        public TelaPedidos()
+        public TelaProdutos()
         {
             InitializeComponent();
 
             //Permitindo o redimensionamento da tela
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.MaximizeBox = true;
-
-            //Abre em Tela Cheia - Verificar a Necessidade e a Viabilidade
-            //this.WindowState = FormWindowState.Maximized;
 
             //Definindo o tamanho mínimo da tela para 800x600
             this.MinimumSize = new Size(800, 600);
@@ -53,9 +50,6 @@ namespace TelaPimExercicio
 
             //Iniciando o Logout
             logout = new Logout(this);
-
-            //Centraliza no Monitor/Tela
-            CenterToScreen();
         }
 
         private void TelaFornecedores_Resize(object sender, EventArgs e)
@@ -73,7 +67,7 @@ namespace TelaPimExercicio
             centralizador2 = new Centralizador2(this);
 
             //Reposiciona o botão de voltar no canto inferior esquerdo
-            btnRetornar2.Location = new Point(btnRetornar2.Location.X, this.ClientSize.Height - btnRetornar2.Height - 35); //35 é a margem inferior
+            btnRetornar.Location = new Point(btnRetornar.Location.X, this.ClientSize.Height - btnRetornar.Height - 35); //35 é a margem inferior
 
         }
 
@@ -82,21 +76,19 @@ namespace TelaPimExercicio
 
         }
 
+        //Botão de Logout sai do Programa
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            logout.ShowLogoutDialog();
+        }
+
         //Botão Retornar volta ao Menu Inicial (Form2)
-        private void btnRetornar2_Click_1(object sender, EventArgs e)
+        private void btnRetornar_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.FormClosed += (s, args) => this.Close();
-            form2.Size = this.Size;
-            form2.StartPosition = FormStartPosition.CenterScreen;
             form2.Show();
             this.Hide();
-        }
-
-        //Botão de Logout sai do Programa
-        private void btnLogout2_Click_1(object sender, EventArgs e)
-        {
-            logout.ShowLogoutDialog();
         }
     }
 }
