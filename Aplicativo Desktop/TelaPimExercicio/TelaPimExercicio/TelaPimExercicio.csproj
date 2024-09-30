@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Centralizador.cs" />
+    <Compile Include="Centralizador2.cs" />
     <Compile Include="ColorBackground.cs" />
     <Compile Include="ColorBar.cs" />
     <Compile Include="ColorBar2.cs" />
@@ -64,8 +65,21 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Logo.cs" />
+    <Compile Include="Logout.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TelaFornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaFornecedores.Designer.cs">
+      <DependentUpon>TelaFornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaPedidos.Designer.cs">
+      <DependentUpon>TelaPedidos.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +95,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TelaFornecedores.resx">
+      <DependentUpon>TelaFornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaPedidos.resx">
+      <DependentUpon>TelaPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

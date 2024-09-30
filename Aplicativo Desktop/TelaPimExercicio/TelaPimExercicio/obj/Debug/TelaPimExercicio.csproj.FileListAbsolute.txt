@@ -20,3 +20,5 @@ C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercici
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.csproj.CoreCompileInputs.cache
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.exe
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.pdb
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaFornecedores.resources
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaPedidos.resources

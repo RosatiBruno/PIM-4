@@ -45,6 +45,7 @@
             this.btnFornecedores.TabIndex = 0;
             this.btnFornecedores.Text = "Fornecedores";
             this.btnFornecedores.UseVisualStyleBackColor = true;
+            this.btnFornecedores.Click += new System.EventHandler(this.btnFornecedores_Click);
             // 
             // btnPedidos
             // 

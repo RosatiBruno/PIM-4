@@ -17,11 +17,12 @@ namespace TelaPimExercicio
         {
             InitializeComponent();
 
-            //Definindo o tamanho da tela   ------------------------------------------- TIRAR ESSAS LIMITAÇÕES E DEIXAR RESPNSIVO!
-            this.Size = new System.Drawing.Size(800, 600);
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            //   ---------------------------------------------------------------------- TIRAR ESSAS LIMITAÇÕES E DEIXAR RESPNSIVO!
+            //Permitindo o redimensionamento da tela
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.MaximizeBox = true;
+
+            //Definindo o tamanho mínimo da tela para 800x600
+            this.MinimumSize = new Size(800, 600);
 
             //Criando e adicionando a logo
             logo = new Logo(this);
@@ -43,6 +44,24 @@ namespace TelaPimExercicio
             centralizador = new Centralizador(this);
             centralizador.Centralizar(txtId, txtSenha, lblId, lblSenha, btnLogin, lblLogin, lblBemVindo);
 
+            //Atualiza os componente ao redimensionar a tela (?????????????? Confirmar com a professora Vanessa sexta-feira)
+            this.Resize += Form1_Resize;
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            //Redimensionar e reposicionar os componentes com base no novo tamanho da janela
+            colorBg.Panel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height); //Ajustar o fundo
+            colorBar.Panel.Width = this.ClientSize.Width; //Ajustar a largura da barra
+
+            //Recalcular a centralização dos componentes
+            centralizador.Centralizar(txtId, txtSenha, lblId, lblSenha, btnLogin, lblLogin, lblBemVindo);
+
+            //Centralizar o quadrado cinza
+            colorSquare.Panel.Location = new Point((this.ClientSize.Width - colorSquare.Panel.Width) / 2,
+                                                   (this.ClientSize.Height - colorSquare.Panel.Height) / 2);
+            // Centralizar a logo
+            logo.Picture.Location = new Point((this.ClientSize.Width - logo.Picture.Width) / 2, logo.Picture.Top);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
