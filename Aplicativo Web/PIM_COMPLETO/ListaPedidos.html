@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pedidos</title>
+    <link rel="stylesheet" href="listapedido.css"> <!-- Link para o CSS externo -->
+</head>
+<body>
+    <div class="container"> <!-- Container principal que envolve todo o conteúdo da página -->
+        <aside class="sidebar"> <!-- Seção lateral para exibir a imagem de perfil e o logo da empresa -->
+            <img src="profile.png" alt="Imagem de Perfil" class="profile-image"> <!-- Imagem do perfil do usuário -->
+            <h2>Gabriel Igor Dias Gomes</h2> <!-- Nome do usuário -->
+            <img src="logo.png" alt="Logo UrbAgro" class="logo"> <!-- Logo da UrbAgro -->
+        </aside>
+
+        <main class="content"> <!-- Seção principal que contém a lista de pedidos -->
+            <h1>Lista de Pedidos</h1> <!-- Título da página -->
+
+            <!-- Div para exibir a lista de pedidos gerada dinamicamente pelo JavaScript -->
+            <div class="lista-pedidos"></div>
+
+            <div class="button-container"> <!-- Contêiner que agrupa os botões da página -->
+                <button class="novo-pedido">CADASTRAR NOVO PEDIDO</button> <!-- Botão para cadastrar novo pedido -->
+                <button class="back-button">← Voltar</button> <!-- Botão para voltar à página anterior -->
+                <button class="delete-button">Excluir Pedido</button> <!-- Botão para excluir um pedido -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Função para carregar e exibir os pedidos na tela ListaPedidos.html
+        function carregarPedidosNaTela() {
+            let pedidos = JSON.parse(localStorage.getItem('pedidos')) || []; // Busca os pedidos do localStorage
+            const listaPedidosContainer = document.querySelector('.lista-pedidos'); // Seleciona o contêiner da lista de pedidos
+
+            // Limpa a div antes de adicionar novos elementos
+            listaPedidosContainer.innerHTML = '';
+
+            // Verifica se há pedidos
+            if (pedidos.length > 0) {
+                pedidos.forEach(pedido => {
+                    // Cria um elemento HTML para cada pedido
+                    const pedidoItem = document.createElement('div');
+                    pedidoItem.classList.add('pedido-item');
+                    pedidoItem.innerHTML = `
+                        <p>ID do Pedido: ${pedido.idPedido}</p>
+                        <p>Nome do Cliente: ${pedido.nomeCliente}</p>
+                        <p>Data do Pedido: ${pedido.dataPedido}</p>
+                        <p>Total: R$ ${pedido.total}</p>
+                        <button class="edit-button" data-id="${pedido.idPedido}">Editar</button>
+                    `;
+
+                    // Adiciona o evento de clique no botão de editar para exibir os dados em uma tela branca
+                    pedidoItem.querySelector('.edit-button').addEventListener('click', () => {
+                        exibirDetalhesPedido(pedido);
+                    });
+
+                    // Adiciona o item à lista de pedidos
+                    listaPedidosContainer.appendChild(pedidoItem);
+                });
+            } else {
+                listaPedidosContainer.innerHTML = '<p>Nenhum pedido encontrado.</p>'; // Exibe uma mensagem se não houver pedidos
+            }
+        }
+
+        // Função para exibir uma tela branca com os detalhes do pedido
+        function exibirDetalhesPedido(pedido) {
+            // Cria um modal simples para exibir os detalhes do pedido
+            const modal = document.createElement('div');
+            modal.classList.add('modal');
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <h2>Detalhes do Pedido</h2>
+                    <p>ID: ${pedido.idPedido}</p>
+                    <p>Nome do Cliente: ${pedido.nomeCliente}</p>
+                    <p>Data do Pedido: ${pedido.dataPedido}</p>
+                    <p>Total: R$ ${pedido.total}</p>
+                    <button class="close-modal">Fechar</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            // Evento para fechar o modal
+            modal.querySelector('.close-modal').addEventListener('click', () => {
+                modal.remove();
+            });
+        }
+
+        // Inicializa o sistema de gerenciamento de pedidos após o carregamento do DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            new NovoPedido('.novo-pedido', 'NovoPedido.html');
+            new VoltarButton('.back-button', 'inicial.html');
+
+            const excluirButton = document.querySelector('.delete-button');
+            if (excluirButton) {
+                excluirButton.addEventListener('click', () => {
+                    const idPedido = prompt("Digite o ID do pedido que deseja excluir:");
+                    if (idPedido) {
+                        deletarPedido(idPedido);
+                    }
+                });
+            }
+
+            carregarPedidosNaTela(); // Chama a função para carregar e exibir os pedidos na tela
+        });
+
+        // Função para deletar um pedido pelo ID
+        function deletarPedido(id) {
+            if (confirm(`Tem certeza que deseja excluir o pedido com ID ${id}?`)) {
+                let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+
+                // Filtra os pedidos para remover o que tem o ID correspondente
+                pedidos = pedidos.filter(pedido => pedido.idPedido !== id);
+
+                // Atualiza o localStorage com a lista de pedidos filtrada
+                localStorage.setItem('pedidos', JSON.stringify(pedidos));
+
+                alert(`Pedido com ID ${id} excluído com sucesso!`);
+                window.location.reload(); // Atualiza a página
+            }
+        }
+    </script>
+
+    <script src="listapedido.js"></script> <!-- Link para o arquivo JavaScript -->
+</body>
+</html>

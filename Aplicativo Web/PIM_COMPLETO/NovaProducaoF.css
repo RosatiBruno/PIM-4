@@ -1,0 +1,131 @@
+* {
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o padding padrão de todos os elementos */
+    box-sizing: border-box; /* Define o modelo de box para incluir padding e bordas nas dimensões totais do elemento */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Define a fonte padrão como Arial, com uma fonte alternativa sans-serif */
+    display: flex; /* Define o corpo como um flex container */
+    height: 100vh; /* O corpo ocupa toda a altura da viewport */
+    justify-content: center; /* Centraliza o conteúdo do corpo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo do corpo verticalmente */
+    background-color: #f9f9f9; /* Define a cor de fundo do corpo */
+}
+
+.container {
+    display: flex; /* Define o container como um flex container para organizar a sidebar e o conteúdo principal */
+    width: 100%; /* O container ocupa 100% da largura da viewport */
+    height: 100vh; /* O container ocupa toda a altura da viewport */
+}
+
+.sidebar {
+    width: 20%; /* A sidebar ocupa 20% da largura do container */
+    background-color: #c0e1c4; /* Define a cor de fundo da sidebar */
+    display: flex; /* A sidebar é um flex container */
+    flex-direction: column; /* Organiza os elementos da sidebar em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: space-between; /* Distribui o espaço entre os itens, empurrando os elementos para os extremos */
+    padding: 20px 0; /* Adiciona padding vertical ao redor do conteúdo da sidebar */
+}
+
+.profile {
+    text-align: center; /* Centraliza o texto dentro da seção de perfil */
+}
+
+.profile img {
+    width: 80px; /* Define a largura da imagem do perfil */
+    height: 80px; /* Define a altura da imagem do perfil */
+    border-radius: 50%; /* Arredonda a imagem do perfil, tornando-a circular */
+    margin-bottom: 10px; /* Adiciona espaço abaixo da imagem do perfil */
+}
+
+.profile h2 {
+    font-size: 18px; /* Define o tamanho da fonte do cabeçalho do perfil */
+    color: #333; /* Define a cor do texto do cabeçalho do perfil */
+}
+
+.logo {
+    text-align: center; /* Centraliza o texto dentro da seção do logo */
+}
+
+.logo img {
+    width: 60px; /* Define a largura da imagem do logo */
+    margin-bottom: 10px; /* Adiciona espaço abaixo da imagem do logo */
+}
+
+.logo h3 {
+    font-size: 20px; /* Define o tamanho da fonte do cabeçalho do logo */
+    color: #333; /* Define a cor do texto do cabeçalho do logo */
+}
+
+.content {
+    width: 80%; /* A área de conteúdo ocupa 80% da largura do container */
+    padding: 40px; /* Adiciona padding ao redor do conteúdo da área principal */
+}
+
+.content h1 {
+    text-align: center; /* Centraliza o texto do cabeçalho */
+    margin-bottom: 30px; /* Adiciona espaço abaixo do cabeçalho */
+    font-size: 24px; /* Define o tamanho da fonte do cabeçalho da área de conteúdo */
+    color: #333; /* Define a cor do texto do cabeçalho da área de conteúdo */
+}
+
+.form-row {
+    display: flex; /* A linha do formulário é um flex container */
+    justify-content: space-between; /* Distribui o espaço entre os elementos filhos */
+    margin-bottom: 20px; /* Adiciona espaço abaixo da linha do formulário */
+}
+
+.form-group {
+    flex-basis: 48%; /* Define a base do flex item como 48% da largura do contêiner, permitindo dois itens lado a lado */
+}
+
+.form-group label {
+    display: block; /* Exibe o rótulo como um bloco */
+    font-size: 14px; /* Define o tamanho da fonte do rótulo */
+    margin-bottom: 5px; /* Adiciona espaço abaixo do rótulo */
+}
+
+.form-group input {
+    width: 100%; /* O campo de entrada ocupa 100% da largura do seu contêiner pai */
+    padding: 10px; /* Adiciona padding ao redor do campo de entrada */
+    border-radius: 20px; /* Arredonda os cantos do campo de entrada */
+    border: 1px solid #ccc; /* Adiciona uma borda cinza clara ao campo de entrada */
+    background-color: #e3e3e3; /* Define a cor de fundo do campo de entrada */
+}
+
+.form-buttons {
+    text-align: right; /* Alinha os botões do formulário à direita */
+}
+
+.submit-button {
+    padding: 10px 30px; /* Adiciona padding ao redor do botão de submissão */
+    background-color: #c0e1c4; /* Define a cor de fundo do botão de submissão */
+    color: #333; /* Define a cor do texto do botão de submissão */
+    border: none; /* Remove a borda padrão do botão de submissão */
+    border-radius: 20px; /* Arredonda os cantos do botão de submissão */
+    cursor: pointer; /* Muda o cursor para "pointer" ao passar o mouse sobre o botão de submissão */
+}
+
+.back-button {
+    position: absolute; /* Define o posicionamento absoluto do botão de voltar */
+    bottom: 20px; /* Posiciona o botão 20px a partir da parte inferior do contêiner pai */
+    left: 30px; /* Posiciona o botão 30px a partir da borda esquerda do contêiner pai */
+}
+
+.back-button img {
+    width: 40px; /* Define a largura da imagem do botão de voltar */
+    height: 40px; /* Define a altura da imagem do botão de voltar */
+}
+
+.home-icon {
+    position: absolute; /* Define o posicionamento absoluto do ícone de home */
+    top: 20px; /* Posiciona o ícone 20px a partir do topo do contêiner pai */
+    right: 30px; /* Posiciona o ícone 30px a partir da borda direita do contêiner pai */
+}
+
+.home-icon img {
+    width: 40px; /* Define a largura da imagem do ícone de home */
+    height: 40px; /* Define a altura da imagem do ícone de home */
+}

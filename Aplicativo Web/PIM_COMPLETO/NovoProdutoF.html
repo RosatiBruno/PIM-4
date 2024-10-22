@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Define o documento como HTML5 e especifica que o idioma é português do Brasil -->
+    
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 para suportar caracteres especiais -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ajusta a página para ser responsiva em diferentes tamanhos de tela, especialmente em dispositivos móveis -->
+
+    <title>Novo Produto</title>
+    <!-- Define o título da página que aparece na aba do navegador -->
+
+    <link rel="stylesheet" href="NovoProdutosF.css">
+    <!-- Vincula um arquivo externo de estilo CSS, chamado 'NovoProdutosF.css', para estilizar a página -->
+
+    <script src="NovoProdutosF.js" defer></script>
+    <!-- Vincula um arquivo JavaScript externo, chamado 'NovoProdutosF.js', que será carregado de forma deferida (carregado após o HTML) -->
+</head>
+<body>
+    <!-- Corpo da página, onde todo o conteúdo visual será exibido -->
+
+    <div class="container">
+        <!-- Div principal que agrupa todo o conteúdo da página -->
+
+        <aside class="sidebar">
+            <!-- Seção lateral (sidebar), geralmente usada para exibir navegação ou informações adicionais -->
+
+            <div class="profile">
+                <!-- Div que exibe o perfil do usuário -->
+                
+                <img src="profile.png" alt="Foto de perfil">
+                <!-- Exibe a imagem do perfil do usuário com o atributo alt para acessibilidade -->
+
+                <h2>Gabriel Igor Dias Gomes</h2>
+                <!-- Exibe o nome do usuário abaixo da imagem de perfil -->
+            </div>
+
+            <div class="logo">
+                <!-- Div que exibe o logotipo da empresa -->
+                
+                <img src="logo.png" alt="Logo UrbAgro">
+                <!-- Exibe a imagem do logotipo da UrbAgro com o atributo alt descritivo -->
+
+                <h3>UrbAgro</h3>
+                <!-- Exibe o nome da empresa UrbAgro abaixo do logotipo -->
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- Seção principal que contém o conteúdo principal da página -->
+
+            <h1>Novo Produto</h1>
+            <!-- Título principal da página, indicando que a página é de cadastro de novo produto -->
+
+            <form>
+                <!-- Formulário para adicionar um novo produto -->
+
+                <div class="form-group">
+                    <!-- Grupo de campo do formulário para o nome do produto -->
+                    
+                    <label for="nome-produto">Nome do Produto</label>
+                    <!-- Rótulo que descreve o campo para inserir o nome do produto -->
+
+                    <input type="text" id="nome-produto" name="nome-produto" maxlength="100" placeholder="Até 100 caracteres" required>
+                    <!-- Campo de entrada de texto para o nome do produto, limitado a 100 caracteres e com um placeholder descritivo -->
+                </div>
+
+                <div class="form-group">
+                    <!-- Grupo de campo do formulário para o ID do pedido -->
+                    
+                    <label for="id-pedido">ID do Pedido</label>
+                    <!-- Rótulo que descreve o campo para inserir o ID do pedido -->
+
+                    <input type="text" id="id-pedido" name="id-pedido" maxlength="10" placeholder="Até 2 caracteres" required>
+                    <!-- Campo de entrada de texto para o ID do pedido, limitado a 10 caracteres, com um placeholder -->
+                </div>
+
+                <div class="form-group">
+                    <!-- Grupo de campo do formulário para a quantidade do produto -->
+                    
+                    <label for="quantidade">Quantidade</label>
+                    <!-- Rótulo que descreve o campo para inserir a quantidade -->
+
+                    <input type="number" id="quantidade" name="quantidade" min="1" max="1000" required placeholder="1 a 1000">
+                    <!-- Campo de entrada numérica para a quantidade, limitado entre 1 e 1000, com um placeholder descritivo -->
+                </div>
+
+                <div class="form-group">
+                    <!-- Grupo de campo do formulário para o valor do produto -->
+                    
+                    <label for="valor">Valor</label>
+                    <!-- Rótulo que descreve o campo para inserir o valor do produto -->
+
+                    <input type="text" id="valor" name="valor" maxlength="10" placeholder="Ex: 100.00" required>
+                    <!-- Campo de entrada de texto para o valor do produto, com um limite de 10 caracteres e um exemplo de formato (100.00) -->
+                </div>
+
+                <div class="form-group">
+                    <!-- Grupo de campo do formulário para a empresa responsável -->
+                    
+                    <label for="empresa-responsavel">Empresa Responsável</label>
+                    <!-- Rótulo que descreve o campo para inserir o nome da empresa responsável pela produção -->
+
+                    <input type="text" id="empresa-responsavel" name="empresa-responsavel" maxlength="100" placeholder="Até 100 caracteres" required>
+                    <!-- Campo de entrada de texto para o nome da empresa responsável, limitado a 100 caracteres com um placeholder -->
+                </div>
+
+                <div class="buttons">
+                    <!-- Div que agrupa os botões do formulário -->
+
+                    <button type="button" class="back-button">&larr; Voltar</button>
+                    <!-- Botão para voltar à página anterior, com uma seta apontando para a esquerda, classe 'back-button' para estilização -->
+
+                    <button type="submit" class="add-button">ADICIONAR</button>
+                    <!-- Botão de submissão do formulário, com o texto 'ADICIONAR', classe 'add-button' para estilização -->
+                </div>
+            </form>
+        </main>
+
+        <img id="homeButton" src="web-house.png" alt="Home" class="home-icon">
+        <!-- Ícone de "Home" que redireciona para a página inicial, com a classe 'home-icon' para estilização -->
+    </div>
+</body>
+</html>

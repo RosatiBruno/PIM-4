@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Remove margens e espaçamentos padrão de todos os elementos e usa o modelo de box-sizing que inclui margens e bordas nas dimensões dos elementos */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F4F4F4;
+    /* Define a fonte do corpo, centraliza o conteúdo no centro da tela e define uma altura de 100% da viewport com um fundo cinza claro */
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    height: 70%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Define o container como flexbox, com 80% da largura e 70% da altura da viewport, e aplica uma sombra leve para criar profundidade */
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #C9E6C5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    /* Define a barra lateral ocupando 25% da largura, com um layout de coluna, espaçamento entre elementos e centralização horizontal, com fundo verde claro */
+}
+
+.profile {
+    text-align: center;
+    /* Centraliza o texto no elemento de perfil */
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    /* Define a imagem de perfil com bordas arredondadas (circular) e tamanho fixo de 80x80 pixels */
+}
+
+h2 {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+    /* Define o tamanho e a cor do texto para o título <h2> e adiciona um espaçamento superior */
+}
+
+.logo {
+    margin-bottom: 20px;
+    /* Adiciona um espaçamento inferior ao elemento de logo */
+}
+
+.logo-img {
+    width: 80px;
+    /* Define a largura da imagem de logo */
+}
+
+.back-button {
+    background-color: #A5CBA6;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    /* Estiliza o botão de voltar com fundo verde, sem bordas, arredondado e com cursor de ponteiro */
+}
+
+.main {
+    width: 75%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Define a área principal ocupando 75% da largura, com layout em coluna, centraliza o conteúdo e define o fundo branco */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    /* Define o título principal com espaçamento inferior e tamanho de fonte grande */
+}
+
+.employee-list {
+    list-style: none;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Remove os marcadores de lista, define a largura em 70% e organiza os itens de forma vertical com espaçamento entre eles */
+}
+
+.employee-list li {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+    /* Define o estilo dos itens da lista de funcionários com fundo cinza claro, bordas arredondadas, centralização do texto e tamanho de fonte médio */
+}
+
+.new-register {
+    margin-top: 30px;
+    background-color: #c6e2b3;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    /* Estiliza o botão de novo cadastro com fundo verde claro, bordas arredondadas e cursor de ponteiro */
+}
+
+.new-register:hover {
+    background-color: #c6e2b3;
+    /* Mantém a cor do botão ao passar o mouse sobre ele */
+}
+
+.back-button {
+    background-color: #a1d2a6;
+    /* Aplica um fundo verde claro ao botão de voltar */
+}
+
+.inativar-button {
+    background-color: #c6e2b3;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    /* Estiliza o botão de inativar com fundo verde claro, bordas arredondadas e espaçamento superior */
+}
+
+.inativar-button:hover {
+    background-color: #c6e2b3;
+    /* Mantém a cor do botão ao passar o mouse sobre ele */
+}
+
+.delete-button {
+    margin-top: 10px;
+    background-color: #e57373;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    /* Estiliza o botão de exclusão com fundo vermelho, texto branco, bordas arredondadas e cursor de ponteiro */
+}
+
+.delete-button:hover {
+    background-color: #ef5350;
+    /* Altera a cor do fundo do botão de exclusão para vermelho mais escuro ao passar o mouse sobre ele */
+}
+
+/* Estilos para o modal */
+.modal {
+    display: none; /* Inicialmente escondido */
+    position: fixed; /* Fica fixo na tela */
+    z-index: 1; /* Fica sobre outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total da tela */
+    height: 100%; /* Altura total da tela */
+    overflow: auto; /* Habilita rolagem se necessário */
+    background-color: rgb(0, 0, 0); /* Cor de fundo preta */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo com opacidade */
+}
+
+.modal-content {
+    background-color: #fefefe; /* Fundo do conteúdo do modal */
+    margin: 15% auto; /* Centraliza o modal verticalmente */
+    padding: 20px; /* Espaçamento interno do modal */
+    border: 1px solid #888; /* Borda do modal */
+    width: 80%; /* Largura do modal */
+    max-width: 600px; /* Largura máxima do modal */
+    border-radius: 10px; /* Bordas arredondadas do modal */
+}
+
+.close {
+    color: #aaa; /* Cor do botão de fechar */
+    float: right; /* Alinha à direita */
+    font-size: 28px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Cor do botão de fechar ao passar o mouse ou focar */
+    text-decoration: none; /* Remove sublinhado */
+    cursor: pointer; /* Muda o cursor para ponteiro */
+}

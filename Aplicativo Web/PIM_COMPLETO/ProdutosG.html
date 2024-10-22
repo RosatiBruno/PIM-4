@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- Declara que o documento é um HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma do conteúdo como Português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para responsividade em dispositivos móveis -->
+    <title>Produtos</title> <!-- Define o título da página que aparece na aba do navegador -->
+    <link rel="stylesheet" href="ProdutosG.css"> <!-- Link para o arquivo CSS que estiliza a página de produtos -->
+</head>
+<body>
+    <div class="container"> <!-- Container principal que envolve todo o conteúdo da página -->
+        <div class="sidebar"> <!-- Seção lateral para exibir informações do usuário e logo -->
+            <img src="profile.png" alt="Profile Picture" class="profile-picture"> <!-- Imagem do perfil do usuário com texto alternativo e classe para estilização -->
+            <h2>Gabriel Igor Dias Gomes</h2> <!-- Nome do usuário exibido -->
+            <div class="logo"> <!-- Seção para o logo da UrbAgro -->
+                <img src="logo.png" alt="UrbAgro Logo"> <!-- Imagem do logo da UrbAgro com texto alternativo -->
+                <h3>UrbAgro</h3> <!-- Nome da empresa exibido abaixo do logo -->
+            </div>
+        </div>
+        <div class="content"> <!-- Seção principal para exibir a lista de produtos -->
+            <h1>Produtos</h1> <!-- Título da seção que indica que a página é para exibir produtos -->
+            <ul class="product-list"> <!-- Lista não ordenada para exibir os produtos -->
+                <li id="alface">ALFACE</li> <!-- Item da lista com ID exclusivo para ALFACE -->
+                <li id="batata">BATATA</li> <!-- Item da lista para BATATA -->
+                <li id="mandioquinha">MANDIOQUINHA</li> <!-- Item da lista para MANDIOQUINHA -->
+                <li id="cenoura">CENOURA</li> <!-- Item da lista para CENOURA -->
+                <li id="couve">COUVE</li> <!-- Item da lista para COUVE -->
+                <li id="repolho">REPOLHO</li> <!-- Item da lista para REPOLHO -->
+            </ul>
+            <div class="buttons"> <!-- Seção para os botões de ação -->
+                <button class="back-button">&#8592;</button> <!-- Botão para voltar, representado por uma seta -->
+                <button class="new-product-button">CADASTRAR NOVO PRODUTO</button> <!-- Botão para adicionar um novo produto -->
+                <button class="delete-button">EXCLUIR PRODUTO</button> <!-- Botão para excluir um produto, que foi adicionado -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para exibir detalhes da produção -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span> <!-- Botão para fechar o modal -->
+            <h2>Detalhes da Produção</h2>
+            <p id="modal-details">Aqui vão os detalhes da produção...</p> <!-- Parágrafo para exibir detalhes -->
+        </div>
+    </div>
+
+    <script src="ProdutosG.js"></script> <!-- Link para o arquivo JavaScript que adiciona funcionalidades à página -->
+</body>
+</html>

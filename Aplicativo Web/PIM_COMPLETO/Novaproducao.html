@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- Declara que o documento é um HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma do conteúdo como Português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para responsividade em dispositivos móveis -->
+    <title>Cadastrar Nova Produção</title> <!-- Define o título da página que aparece na aba do navegador -->
+    <link rel="stylesheet" href="Novaproducao.css"> <!-- Link para o arquivo CSS que estiliza a página de cadastro de nova produção -->
+</head>
+<body>
+    <div class="container"> <!-- Container principal que envolve todo o conteúdo da página -->
+        <!-- Sidebar -->
+        <div class="sidebar"> <!-- Seção lateral de navegação -->
+            <div class="profile"> <!-- Seção de perfil do usuário -->
+                <img src="profile.png" alt="Gabriel Igor Dias Gomes"> <!-- Imagem do perfil do usuário com texto alternativo -->
+                <h2>Gabriel Igor Dias Gomes</h2> <!-- Nome do usuário exibido -->
+            </div>
+            <div class="logo"> <!-- Seção para o logo da UrbAgro -->
+                <img src="logo.png" alt="UrbAgro"> <!-- Imagem do logo da UrbAgro com texto alternativo -->
+                <h3>UrbAgro</h3> <!-- Nome da empresa exibido abaixo do logo -->
+            </div>
+        </div>
+
+        <!-- Form Section -->
+        <div class="content"> <!-- Seção principal para o formulário de cadastro -->
+            <h1>Cadastrar Nova Produção</h1> <!-- Título da seção de cadastro de nova produção -->
+            <form action="#"> <!-- Início do formulário; a ação é definida como "#", indicando que não será enviado para lugar algum -->
+                <div class="form-row"> <!-- Linha para agrupar campos de formulário -->
+                    <div class="form-group"> <!-- Grupo de campos para ID da Produção -->
+                        <label for="idProducao">ID da Produção</label> <!-- Rótulo para o campo ID da Produção -->
+                        <input type="text" id="idProducao" maxlength="10" placeholder="Até 2 caracteres"> <!-- Campo de entrada para o ID da Produção, com limite de 10 caracteres e placeholder -->
+                    </div>
+                    <div class="form-group"> <!-- Grupo de campos para Data da Produção -->
+                        <label for="dataProducao">Data da Produção</label> <!-- Rótulo para o campo Data da Produção -->
+                        <input type="date" id="dataProducao"> <!-- Campo de entrada para selecionar a data da produção -->
+                    </div>
+                </div>
+
+                <div class="form-row"> <!-- Linha para agrupar mais campos de formulário -->
+                    <div class="form-group"> <!-- Grupo de campos para Quantidade Produzida -->
+                        <label for="quantidade">Quantidade Produzida</label> <!-- Rótulo para o campo Quantidade Produzida -->
+                        <input type="number" id="quantidade" min="1" placeholder="Ex: 100"> <!-- Campo de entrada para a quantidade produzida, aceitando apenas números e com um mínimo de 1 -->
+                    </div>
+                    <div class="form-group"> <!-- Grupo de campos para Produto Produzido -->
+                        <label for="produto">Produto Produzido</label> <!-- Rótulo para o campo Produto Produzido -->
+                        <input type="text" id="produto" maxlength="30" placeholder="Até 30 caracteres"> <!-- Campo de entrada para o nome do produto, com limite de 30 caracteres e placeholder -->
+                    </div>
+                </div>
+
+                <div class="form-row"> <!-- Linha para agrupar um campo de formulário -->
+                    <div class="form-group"> <!-- Grupo de campos para Responsável pela Produção -->
+                        <label for="responsavel">Responsável pela Produção</label> <!-- Rótulo para o campo Responsável pela Produção -->
+                        <input type="text" id="responsavel" maxlength="50" placeholder="Até 50 caracteres"> <!-- Campo de entrada para o nome do responsável, com limite de 50 caracteres e placeholder -->
+                    </div>
+                </div>
+
+                <div class="form-buttons"> <!-- Seção para os botões do formulário -->
+                    <button type="submit" class="submit-button">CADASTRAR</button> <!-- Botão para enviar o formulário -->
+                </div>
+            </form>
+        </div>
+
+        <!-- Back Button -->
+        <div class="back-button"> <!-- Seção para o botão de voltar -->
+            <a href="#"><img src="back-arrow.png" alt="Voltar"></a> <!-- Link com ícone de voltar que leva à página anterior -->
+        </div>
+
+        <!-- Home Icon -->
+        <div class="home-icon"> <!-- Seção para o ícone de home -->
+            <a href="#"><img src="web-house.png" alt="Home"></a> <!-- Link com ícone de home que leva à página inicial -->
+        </div>
+        <script src="NovaProducao.js"></script> <!-- Link para o arquivo JavaScript que pode gerenciar funcionalidades da página de cadastro de nova produção -->
+    </div>
+</body>
+</html>

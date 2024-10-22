@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Pedido</title>
+    <link rel="stylesheet" href="EditarPedidoG.css">
+    <script src="EditarPedidoG.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile">
+                <img src="profile.png" alt="Foto de Gabriel Igor Dias Gomes" class="profile-picture">
+                <div class="profile-name">Gabriel Igor Dias Gomes</div>
+            </div>
+            <div class="logo">
+                <img src="logo.png" alt="Logo UrbAgro">
+            </div>
+            <img id="homeButton" src="web-house.png" alt="Home" class="home-icon">
+        </div>
+        <div class="main-content">
+            <div class="header">
+                Editar Pedido
+            </div>
+            <div class="form">
+                <div class="form-group">
+                    <label for="product-name">Nome do Produto</label>
+                    <input type="text" id="product-name" value="Alface" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="order-id">ID_Pedido</label>
+                    <input type="text" id="order-id" value="02" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantidade</label>
+                    <input type="text" id="quantity" value="150 un." readonly>
+                </div>
+                <div class="form-group">
+                    <label for="value">Valor</label>
+                    <input type="text" id="value" value="1,99" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="company">Empresa Responsável pela Compra</label>
+                    <input type="text" id="company" value="Empresa X" readonly>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" onclick="goBack()">&#x2190;</button>
+                    <button type="button" id="save-button">SALVAR</button>
+                    <button class="inativar-button">EXCLUIR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- Declara que o documento é um HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma do conteúdo como Português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para responsividade em dispositivos móveis -->
+    <title>Tela de Login - UrbAgro</title> <!-- Define o título da página que aparece na aba do navegador -->
+    <link rel="stylesheet" href="login.css"> <!-- Link para o arquivo CSS que estiliza a página -->
+</head>
+<body>
+    <div class="login-container"> <!-- Container principal para os elementos de login -->
+        <img src="logo.png" alt="Logo UrbAgro"> <!-- Imagem do logo da UrbAgro com texto alternativo -->
+        <h2>Login</h2> <!-- Cabeçalho da seção de login -->
+        <p>Bem-vindo(a) ao sistema da UrbAgro</p> <!-- Mensagem de boas-vindas para o usuário -->
+        <form action="#" method="POST"> <!-- Formulário que será enviado via POST, com ação definida como "#" -->
+            <!-- Input de ID restrito a 4 dígitos numéricos -->
+            <input type="text" name="id" placeholder="ID" maxlength="4" pattern="\d{1,4}" title="O ID deve ter até 4 dígitos numéricos." required>
+            <!-- O input aceita apenas 4 dígitos numéricos e é obrigatório -->
+
+            <!-- Input de senha restrito a 4 dígitos numéricos -->
+            <input type="password" name="senha" placeholder="SENHA" maxlength="4" pattern="\d{1,4}" title="A senha deve ter até 4 dígitos numéricos." required>
+            <!-- O input aceita apenas 4 dígitos numéricos, é do tipo senha (mascarado) e é obrigatório -->
+
+            <a href="#" id="forgot-password-link">ESQUECI MINHA SENHA</a> <!-- Link para recuperação de senha -->
+            <input type="submit" value="ENTRAR"> <!-- Botão para enviar o formulário -->
+        </form>
+    </div>
+    <script src="login.js"></script> <!-- Link para o arquivo JavaScript que pode gerenciar funcionalidades do login -->
+</body>
+</html>

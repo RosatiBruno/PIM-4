@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão do corpo como Arial, com uma alternativa sans-serif */
+    display: flex; /* Define o corpo como um flex container */
+    flex-direction: row; /* Organiza os filhos do corpo em uma linha (horizontalmente) */
+    height: 100vh; /* Define a altura do corpo como 100% da altura da viewport */
+    margin: 0; /* Remove a margem padrão do corpo */
+    padding: 0; /* Remove o preenchimento padrão do corpo */
+    background-color: #f4f4f4; /* Define a cor de fundo do corpo como um cinza claro */
+}
+
+.sidebar {
+    width: 25%; /* Define a largura da barra lateral como 25% da largura da tela */
+    background-color: #c2e0b4; /* Define a cor de fundo da barra lateral como um verde claro */
+    display: flex; /* Define a barra lateral como um flex container */
+    flex-direction: column; /* Organiza os itens da barra lateral em uma coluna */
+    align-items: center; /* Centraliza os itens da barra lateral horizontalmente */
+    padding: 20px; /* Adiciona um espaçamento interno de 20 pixels ao redor do conteúdo da barra lateral */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve à direita da barra lateral */
+}
+
+.sidebar img {
+    border-radius: 50%; /* Torna a imagem de perfil circular */
+    width: 100px; /* Define a largura da imagem da barra lateral como 100 pixels */
+    height: 100px; /* Define a altura da imagem da barra lateral como 100 pixels */
+    margin-bottom: 10px; /* Adiciona uma margem inferior de 10 pixels à imagem */
+}
+
+.sidebar h2 {
+    font-size: 18px; /* Define o tamanho da fonte do título na barra lateral */
+    color: #333; /* Define a cor do texto do título como um cinza escuro */
+    text-align: center; /* Centraliza o texto do título */
+    margin: 10px 0; /* Adiciona uma margem vertical de 10 pixels ao título */
+}
+
+.content {
+    width: 75%; /* Define a largura da área de conteúdo como 75% da largura da tela */
+    padding: 20px; /* Adiciona um espaçamento interno de 20 pixels ao redor do conteúdo */
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical caso o conteúdo exceda a altura disponível */
+}
+
+.search-bar {
+    display: flex; /* Define a barra de pesquisa como um flex container */
+    align-items: center; /* Centraliza verticalmente os itens da barra de pesquisa */
+    margin-bottom: 20px; /* Adiciona uma margem inferior de 20 pixels à barra de pesquisa */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve à barra de pesquisa */
+}
+
+.search-bar input {
+    width: calc(100% - 50px); /* Define a largura do campo de entrada para ocupar o espaço restante, menos 50 pixels */
+    padding: 10px; /* Adiciona um preenchimento interno de 10 pixels ao campo de entrada */
+    font-size: 16px; /* Define o tamanho da fonte do campo de entrada */
+    border: 1px solid #ccc; /* Define uma borda cinza clara ao redor do campo de entrada */
+    border-radius: 5px 0 0 5px; /* Arredonda as bordas esquerda do campo de entrada */
+    outline: none; /* Remove a borda padrão ao focar no campo de entrada */
+    transition: border-color 0.3s; /* Adiciona uma transição suave à mudança da cor da borda */
+}
+
+.search-bar input:focus {
+    border-color: #6aa84f; /* Altera a cor da borda do campo de entrada quando ele está em foco */
+}
+
+.search-bar button {
+    width: 50px; /* Define a largura do botão da barra de pesquisa como 50 pixels */
+    background-color: #6aa84f; /* Define a cor de fundo do botão como um verde */
+    color: white; /* Define a cor do texto do botão como branco */
+    border: none; /* Remove as bordas padrão do botão */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    border-radius: 0 5px 5px 0; /* Arredonda as bordas direita do botão */
+    transition: background-color 0.3s; /* Adiciona uma transição suave à mudança da cor de fundo */
+}
+
+.search-bar button:hover {
+    background-color: #4b8b3b; /* Altera a cor de fundo do botão quando o mouse passa sobre ele */
+}
+
+.supplier-list {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o preenchimento padrão da lista */
+    display: flex; /* Define a lista de fornecedores como um flex container */
+    flex-direction: column; /* Organiza os itens da lista em uma coluna */
+    gap: 1.5rem; /* Adiciona um espaço de 1.5rem entre os itens da lista */
+}
+
+.supplier-list li {
+    background-color: #e0e0e0; /* Define a cor de fundo dos itens da lista como um cinza claro */
+    padding: 15px; /* Adiciona um preenchimento interno de 15 pixels aos itens da lista */
+    border-radius: 8px; /* Arredonda as bordas dos itens da lista */
+    font-weight: bold; /* Define o peso da fonte dos itens da lista como negrito */
+    font-size: 18px; /* Define o tamanho da fonte dos itens da lista */
+    cursor: pointer; /* Altera o cursor para indicar que os itens são clicáveis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve aos itens da lista */
+    transition: transform 0.2s, background-color 0.3s; /* Adiciona transições suaves para transformações e mudanças de cor de fundo */
+}
+
+.supplier-list li:hover {
+    transform: translateY(-2px); /* Eleva levemente o item da lista ao passar o mouse sobre ele */
+    background-color: #f1f1f1; /* Altera a cor de fundo do item da lista quando o mouse passa sobre ele */
+}
+
+.buttons {
+    display: flex; /* Define o contêiner de botões como um flex container */
+    justify-content: space-between; /* Distribui os botões com espaço entre eles */
+    align-items: center; /* Centraliza os botões verticalmente */
+    margin-top: 20px; /* Adiciona uma margem superior de 20 pixels ao contêiner de botões */
+}
+
+.buttons button {
+    padding: 10px 20px; /* Adiciona um preenchimento interno de 10 pixels verticalmente e 20 pixels horizontalmente aos botões */
+    background-color: #c2e0b4; /* Define a cor de fundo dos botões como um verde claro */
+    border: none; /* Remove as bordas padrão dos botões */
+    border-radius: 5px; /* Arredonda as bordas dos botões */
+    font-size: 16px; /* Define o tamanho da fonte dos botões */
+    cursor: pointer; /* Altera o cursor para indicar que os botões são clicáveis */
+    transition: background-color 0.3s; /* Adiciona uma transição suave à mudança da cor de fundo dos botões */
+}
+
+.buttons button:hover {
+    background-color: #a8d3a1; /* Altera a cor de fundo dos botões quando o mouse passa sobre eles */
+}
+
+.buttons .inactivate-button {
+    background-color: #ff6961; /* Define a cor de fundo do botão de inativar como um vermelho claro */
+    color: white; /* Define a cor do texto do botão de inativar como branco */
+}
+
+.buttons .inactivate-button:hover {
+    background-color: #e55b55; /* Altera a cor de fundo do botão de inativar ao passar o mouse sobre ele */
+}
+
+.buttons .inactivated-suppliers-button {
+    background-color: #6aa84f; /* Define a cor de fundo do botão de fornecedores inativados como um verde */
+    color: white; /* Define a cor do texto do botão de fornecedores inativados como branco */
+}
+
+.buttons .inactivated-suppliers-button:hover {
+    background-color: #4b8b3b; /* Altera a cor de fundo do botão de fornecedores inativados ao passar o mouse sobre ele */
+}
+
+.fornecedor-item {
+    border: 1px solid #ccc; /* Define uma borda cinza clara ao redor do item do fornecedor */
+    border-radius: 8px; /* Arredonda as bordas do item do fornecedor */
+    padding: 1rem; /* Adiciona um preenchimento interno de 1 rem ao item do fornecedor */
+    background-color: #f9f9f9; /* Define a cor de fundo do item do fornecedor como um cinza muito claro */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve ao item do fornecedor */
+    transition: transform 0.2s; /* Adiciona uma transição suave à transformação do item do fornecedor */
+}
+
+.fornecedor-item:hover {
+    transform: translateY(-2px); /* Eleva levemente o item do fornecedor ao passar o mouse sobre ele */
+}
+
+.fornecedor-card {
+    margin: 0; /* Remove a margem do cartão do fornecedor */
+}
+
+.fornecedor-card h3 {
+    margin-bottom: 0.5rem; /* Adiciona uma margem inferior de 0.5rem ao título do cartão do fornecedor */
+    font-size: 20px; /* Define o tamanho da fonte do título do cartão do fornecedor */
+}
+
+.fornecedor-card p {
+    margin: 0.2rem 0; /* Adiciona uma margem vertical de 0.2rem aos parágrafos do cartão do fornecedor */
+    font-size: 16px; /* Define o tamanho da fonte dos parágrafos do cartão do fornecedor */
+}

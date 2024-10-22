@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Define o tipo do documento como HTML5 e o idioma da página como português brasileiro -->
+    
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 para garantir a correta exibição de caracteres especiais -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura a página para ser responsiva, adaptando-se automaticamente ao tamanho da tela, como em dispositivos móveis -->
+
+    <title>Fornecedores</title>
+    <!-- Define o título da página, que aparece na aba do navegador -->
+
+    <link rel="stylesheet" href="FornecedoresF.css">
+    <!-- Vincula o arquivo CSS externo 'FornecedoresF.css', que contém a estilização da página -->
+</head>
+<body>
+    <!-- Início do corpo da página, onde todo o conteúdo visível será renderizado -->
+
+    <div class="sidebar">
+        <!-- Cria uma barra lateral (sidebar) onde a imagem do perfil e o nome do usuário são exibidos -->
+
+        <img src="profile.png" alt="Gabriel Igor Dias Gomes">
+        <!-- Imagem do perfil do usuário com o atributo 'alt' para acessibilidade, exibindo o nome do usuário -->
+
+        <h2>Gabriel Igor Dias Gomes</h2>
+        <!-- Exibe o nome do usuário abaixo da imagem de perfil -->
+
+        <div class="logo">
+            <!-- Cria uma div para o logotipo da empresa -->
+            <img src="logo.png" alt="UrbAgro">
+            <!-- Imagem do logotipo da UrbAgro com o atributo 'alt' para acessibilidade -->
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- Seção principal da página, onde os fornecedores e os controles de busca são exibidos -->
+
+        <div class="search-bar">
+            <!-- Barra de pesquisa onde o usuário pode inserir um CNPJ ou CPF para buscar um fornecedor específico -->
+            
+            <input type="text" placeholder="Digite o CNPJ/CPF do Fornecedor">
+            <!-- Campo de entrada de texto para a busca por CNPJ ou CPF -->
+
+            <button>
+                <!-- Botão de busca que, ao ser clicado, deve realizar a pesquisa -->
+                <img src="https://via.placeholder.com/20" alt="Buscar">
+                <!-- Ícone de lupa dentro do botão, com um placeholder para a imagem de busca -->
+            </button>
+        </div>
+
+        <ul class="supplier-list">
+            <!-- Lista não ordenada que exibe os nomes dos fornecedores cadastrados -->
+
+            <li id="empresa1">EMPRESA 1</li>
+            <!-- Item da lista que representa um fornecedor com o ID 'empresa1' (pode ser usado para redirecionamento ou manipulação via JavaScript) -->
+
+            <li id="empresa2">EMPRESA 2</li>
+            <!-- Item da lista para 'EMPRESA 2' com um ID único -->
+
+            <li id="empresa3">EMPRESA 3</li>
+            <!-- Item da lista para 'EMPRESA 3' com um ID único -->
+
+            <li id="empresa4">EMPRESA 4</li>
+            <!-- Item da lista para 'EMPRESA 4' com um ID único -->
+
+            <li id="empresa5">EMPRESA 5</li>
+            <!-- Item da lista para 'EMPRESA 5' com um ID único -->
+
+            <li id="empresa6">EMPRESA 6</li>
+            <!-- Item da lista para 'EMPRESA 6' com um ID único -->
+        </ul>
+
+        <div class="buttons">
+            <!-- Div que agrupa os botões de navegação da página -->
+            
+            <button class="back-button">←</button>
+            <!-- Botão de voltar, que provavelmente redireciona o usuário para a página anterior -->
+
+            <button>CADASTRAR NOVO FORNECEDOR</button>
+            <!-- Botão que deve redirecionar o usuário para a página de cadastro de novos fornecedores -->
+        </div>
+    </div>
+
+    <script src="FornecedoresF.js"></script>
+    <!-- Vincula o arquivo JavaScript 'FornecedoresF.js', que provavelmente contém a lógica de navegação e interatividade da página -->
+</body>
+</html>
