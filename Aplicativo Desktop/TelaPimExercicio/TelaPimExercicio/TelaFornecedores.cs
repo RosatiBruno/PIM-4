@@ -113,7 +113,9 @@ namespace TelaPimExercicio
             fornecedor.Representante,
             fornecedor.RazaoSocial,
             fornecedor.MateriaPrima,
-            fornecedor.SituacaoFornecedor
+            fornecedor.SituacaoFornecedor,
+            fornecedor.Complemento,
+            fornecedor.CEP
         });
                 lvBuscarFornecedor.Items.Add(item);
             }

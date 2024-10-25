@@ -40,18 +40,20 @@
             this.lvBuscarFornecedor = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CNPJouCPF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Telefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CNPJouCPF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Endereco = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Cidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Estado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Representante = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.RazaoSocial = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MateriaPrima = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Situacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnCadastrarNovoFornecedor = new System.Windows.Forms.Button();
             this.btnInativarFornecedor = new System.Windows.Forms.Button();
-            this.RazaoSocial = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Complemento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CEP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // btnLogout
@@ -108,9 +110,9 @@
             this.lblBuscarFornecedor.AutoSize = true;
             this.lblBuscarFornecedor.Location = new System.Drawing.Point(148, 74);
             this.lblBuscarFornecedor.Name = "lblBuscarFornecedor";
-            this.lblBuscarFornecedor.Size = new System.Drawing.Size(170, 13);
+            this.lblBuscarFornecedor.Size = new System.Drawing.Size(276, 13);
             this.lblBuscarFornecedor.TabIndex = 11;
-            this.lblBuscarFornecedor.Text = "Digite o CNPJ/CPF do Fornecedor";
+            this.lblBuscarFornecedor.Text = "Digite o CNPJ/CPF do Fornecedor que Deseja Encontrar";
             // 
             // btnBuscarFornecedor
             // 
@@ -136,7 +138,9 @@
             this.Representante,
             this.RazaoSocial,
             this.MateriaPrima,
-            this.Situacao});
+            this.Situacao,
+            this.Complemento,
+            this.CEP});
             this.lvBuscarFornecedor.HideSelection = false;
             this.lvBuscarFornecedor.Location = new System.Drawing.Point(151, 142);
             this.lvBuscarFornecedor.Name = "lvBuscarFornecedor";
@@ -155,17 +159,15 @@
             this.Nome.Text = "Nome";
             this.Nome.Width = 100;
             // 
-            // CNPJouCPF
-            // 
-            this.CNPJouCPF.DisplayIndex = 3;
-            this.CNPJouCPF.Text = "CNPJ/CPF";
-            this.CNPJouCPF.Width = 100;
-            // 
             // Telefone
             // 
-            this.Telefone.DisplayIndex = 2;
             this.Telefone.Text = "Telefone";
             this.Telefone.Width = 100;
+            // 
+            // CNPJouCPF
+            // 
+            this.CNPJouCPF.Text = "CNPJ/CPF";
+            this.CNPJouCPF.Width = 100;
             // 
             // Endereco
             // 
@@ -190,6 +192,12 @@
             // 
             this.Representante.Text = "Representante";
             this.Representante.Width = 100;
+            // 
+            // RazaoSocial
+            // 
+            this.RazaoSocial.DisplayIndex = 11;
+            this.RazaoSocial.Text = "Razão Social";
+            this.RazaoSocial.Width = 100;
             // 
             // MateriaPrima
             // 
@@ -222,11 +230,15 @@
             this.btnInativarFornecedor.Text = "Inativar Fornecedor";
             this.btnInativarFornecedor.UseVisualStyleBackColor = true;
             // 
-            // RazaoSocial
+            // Complemento
             // 
-            this.RazaoSocial.DisplayIndex = 11;
-            this.RazaoSocial.Text = "Razão Social";
-            this.RazaoSocial.Width = 100;
+            this.Complemento.Text = "Complemento";
+            this.Complemento.Width = 100;
+            // 
+            // CEP
+            // 
+            this.CEP.Text = "CEP";
+            this.CEP.Width = 100;
             // 
             // TelaFornecedores
             // 
@@ -273,5 +285,7 @@
         private System.Windows.Forms.Button btnCadastrarNovoFornecedor;
         private System.Windows.Forms.Button btnInativarFornecedor;
         private System.Windows.Forms.ColumnHeader RazaoSocial;
+        private System.Windows.Forms.ColumnHeader Complemento;
+        private System.Windows.Forms.ColumnHeader CEP;
     }
 }

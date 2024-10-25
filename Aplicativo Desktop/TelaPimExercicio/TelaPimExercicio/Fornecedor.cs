@@ -22,6 +22,8 @@ namespace TelaPimExercicio
         public string RazaoSocial { get; set; }
         public string MateriaPrima { get; set; }
         public string SituacaoFornecedor { get; set; }
+        public string Complemento { get; set; }
+        public string CEP { get; set; }
     }
 
     public static class RepositorioFornecedores

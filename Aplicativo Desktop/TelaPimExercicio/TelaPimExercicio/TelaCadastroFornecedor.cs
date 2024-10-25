@@ -137,6 +137,8 @@ namespace TelaPimExercicio
                 RazaoSocial = txtRazaoSocialFornecedor.Text,
                 MateriaPrima = txtMateriaPrima.Text,
                 SituacaoFornecedor = txtSituacaoFornecedor.Text,
+                Complemento = txtComplementoFornecedor.Text,
+                CEP = txtCepFornecedor.Text,
             };
 
             //Dialogo de confirmação de cadastro
