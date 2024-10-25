@@ -1,0 +1,84 @@
+/* Estilos para o corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão como Arial ou sans-serif */
+    background-color: #6F7F63; /* Cor de fundo da página */
+    margin: 0; /* Remove as margens padrão da página */
+    padding: 0; /* Remove os preenchimentos padrão da página */
+    display: flex; /* Usa Flexbox para organizar o conteúdo */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    height: 100vh; /* Define a altura da página como 100% da altura da viewport */
+}
+
+/* Estilos para os containers de login e de recuperação de senha */
+.login-container, .forgot-password-container {
+    background-color: #CED4C0; /* Cor de fundo dos containers */
+    width: 100%; /* Largura total disponível */
+    max-width: 400px; /* Largura máxima de 400px */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra leve ao redor do container */
+    padding: 20px; /* Espaçamento interno de 20px */
+    text-align: center; /* Centraliza o texto dentro do container */
+}
+
+/* Estilos para as imagens dentro dos containers de login e recuperação de senha */
+.login-container img, .forgot-password-container img {
+    width: 150px; /* Define a largura da imagem como 150px */
+    margin-bottom: 20px; /* Adiciona uma margem inferior de 20px */
+}
+
+/* Estilos para os títulos (h2) dentro dos containers de login e recuperação de senha */
+.login-container h2, .forgot-password-container h2 {
+    color: #4A5241; /* Define a cor do texto do título como cinza escuro (#4A5241) */
+    margin-bottom: 20px; /* Adiciona uma margem inferior de 20px */
+}
+
+/* Estilos para os formulários dentro dos containers de login e recuperação de senha */
+.login-container form, .forgot-password-container form {
+    display: flex; /* Usa Flexbox para organizar o conteúdo do formulário */
+    flex-direction: column; /* Organiza os elementos do formulário em coluna */
+}
+
+/* Estilos para os campos de texto, senha e email dentro dos formulários */
+.login-container input[type="text"],
+.login-container input[type="password"],
+.forgot-password-container input[type="email"] {
+    padding: 10px; /* Espaçamento interno de 10px */
+    margin: 10px 0; /* Margem superior e inferior de 10px */
+    border: 1px solid #ddd; /* Borda sólida cinza clara (#ddd) */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte dos campos de entrada */
+}
+
+/* Estilos para os botões de envio dentro dos formulários de login e recuperação de senha */
+.login-container input[type="submit"],
+.forgot-password-container input[type="submit"] {
+    background-color: #B0D69A; /* Cor de fundo dos botões de envio */
+    color: white; /* Cor do texto dos botões */
+    padding: 10px; /* Espaçamento interno de 10px */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Define o cursor como pointer (indicando que o botão pode ser clicado) */
+    font-size: 16px; /* Define o tamanho da fonte */
+}
+
+/* Estilos de hover para os botões de envio */
+.login-container input[type="submit"]:hover,
+.forgot-password-container input[type="submit"]:hover {
+    background-color: #A3C68B; /* Cor de fundo quando o botão é sobrevoado */
+}
+
+/* Estilos para os links dentro dos containers de login e recuperação de senha */
+.login-container a,
+.forgot-password-container a {
+    color: #4A5241; /* Define a cor dos links como cinza escuro (#4A5241) */
+    font-size: 14px; /* Define o tamanho da fonte dos links */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    margin-top: 10px; /* Adiciona uma margem superior de 10px */
+}
+
+/* Estilos de hover para os links */
+.login-container a:hover,
+.forgot-password-container a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao link quando é sobrevoado */
+}

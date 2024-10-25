@@ -1,0 +1,126 @@
+/* Estiliza o corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão como Arial com fallback para sans-serif */
+    margin: 0; /* Remove a margem padrão do corpo */
+    padding: 0; /* Remove o preenchimento padrão do corpo */
+    background-color: #f5f5f5; /* Define a cor de fundo como um cinza muito claro */
+}
+
+/* Estiliza o contêiner principal */
+.container {
+    display: flex; /* Define o contêiner como flexível, permitindo que seus filhos se ajustem em linha */
+    height: 100vh; /* Define a altura do contêiner como 100% da altura da janela de visualização */
+}
+
+/* Estiliza a barra lateral */
+.sidebar {
+    width: 25%; /* Define a largura da barra lateral como 25% da largura total */
+    background-color: #c7e3cc; /* Define a cor de fundo da barra lateral como um verde claro */
+    padding: 20px; /* Adiciona um preenchimento interno de 20px */
+    box-sizing: border-box; /* Inclui o preenchimento e a borda na largura total do elemento */
+    display: flex; /* Define a barra lateral como flexível */
+    flex-direction: column; /* Organiza os itens na barra lateral em uma coluna */
+    align-items: center; /* Centraliza os itens da barra lateral horizontalmente */
+    justify-content: center; /* Centraliza os itens da barra lateral verticalmente */
+}
+
+/* Estiliza a imagem do perfil na barra lateral */
+.sidebar img {
+    border-radius: 50%; /* Torna a imagem circular */
+    width: 100px; /* Define a largura da imagem como 100px */
+    height: 100px; /* Define a altura da imagem como 100px */
+}
+
+/* Estiliza o título na barra lateral */
+.sidebar h2 {
+    margin-top: 20px; /* Adiciona uma margem superior de 20px */
+    font-size: 20px; /* Define o tamanho da fonte como 20px */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estiliza a área do logotipo na barra lateral */
+.logo {
+    position: absolute; /* Posiciona o logotipo em relação ao contêiner pai */
+    bottom: 20px; /* Alinha o logotipo 20px acima da parte inferior do contêiner pai */
+    display: flex; /* Define a área do logotipo como flexível */
+    flex-direction: column; /* Organiza os itens do logotipo em uma coluna */
+    align-items: center; /* Centraliza os itens do logotipo horizontalmente */
+}
+
+/* Estiliza a imagem do logotipo */
+.logo img {
+    width: 80px; /* Define a largura da imagem do logotipo como 80px */
+}
+
+/* Estiliza o conteúdo principal */
+.content {
+    width: 75%; /* Define a largura do conteúdo principal como 75% da largura total */
+    padding: 20px; /* Adiciona um preenchimento interno de 20px */
+    box-sizing: border-box; /* Inclui o preenchimento e a borda na largura total do elemento */
+    background-color: white; /* Define a cor de fundo do conteúdo principal como branco */
+}
+
+/* Estiliza o título no conteúdo principal */
+.content h1 {
+    text-align: center; /* Centraliza o texto do título */
+    font-size: 24px; /* Define o tamanho da fonte como 24px */
+    margin-bottom: 30px; /* Adiciona uma margem inferior de 30px */
+}
+
+/* Estiliza a grade de formulário */
+.form-grid {
+    display: grid; /* Define a grade como um contêiner de grade */
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas de largura igual na grade */
+    gap: 20px; /* Adiciona um espaço de 20px entre os itens da grade */
+}
+
+/* Estiliza os rótulos nos campos do formulário */
+.form-grid label {
+    display: block; /* Define os rótulos como blocos, ocupando toda a largura disponível */
+    font-weight: bold; /* Define o texto do rótulo como negrito */
+    margin-bottom: 5px; /* Adiciona uma margem inferior de 5px aos rótulos */
+}
+
+/* Estiliza os campos de entrada do formulário */
+.form-grid input {
+    width: 100%; /* Define a largura do campo de entrada como 100% do contêiner pai */
+    padding: 10px; /* Adiciona um preenchimento interno de 10px */
+    border-radius: 10px; /* Arredonda os cantos do campo de entrada */
+    border: 1px solid #ccc; /* Define uma borda de 1px sólida e cinza clara */
+    background-color: #e0e0e0; /* Define a cor de fundo do campo de entrada como um cinza claro */
+}
+
+/* Estiliza o contêiner de botões */
+.buttons {
+    display: flex; /* Define o contêiner de botões como flexível */
+    justify-content: space-between; /* Distribui o espaço entre os botões */
+    margin-top: 20px; /* Adiciona uma margem superior de 20px */
+}
+
+/* Estiliza os botões de voltar e enviar */
+.back-button, .submit-button {
+    padding: 10px 20px; /* Adiciona um preenchimento interno de 10px em cima e embaixo, e 20px nas laterais */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 20px; /* Arredonda os cantos do botão */
+    font-size: 16px; /* Define o tamanho da fonte como 16px */
+    cursor: pointer; /* Muda o cursor para um ponteiro ao passar sobre o botão */
+}
+
+/* Estiliza o botão de voltar */
+.back-button {
+    background-color: #c6e2b3; /* Define a cor de fundo do botão de voltar como um verde claro */
+}
+
+/* Estiliza o botão de enviar */
+.submit-button {
+    background-color: #c6e2b3; /* Define a cor de fundo do botão de enviar como um verde claro */
+    float: right; /* Posiciona o botão de enviar à direita do contêiner */
+}
+
+/* Estiliza o ícone de home */
+.home-icon {
+    position: absolute; /* Posiciona o ícone em relação ao contêiner pai */
+    top: 20px; /* Alinha o ícone 20px abaixo da parte superior do contêiner pai */
+    right: 20px; /* Alinha o ícone 20px à direita do contêiner pai */
+    width: 30px; /* Define a largura do ícone como 30px */
+}

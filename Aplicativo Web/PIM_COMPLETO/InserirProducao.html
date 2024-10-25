@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbAgro - Cadastrar Nova Produção</title>
+    <link rel="stylesheet" href="InserirProducao.css">
+    <script src="InserirProducao.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img src="profile.png" alt="Gabriel Igor Dias Gomes" class="profile-pic">
+            <div class="profile-name">Gabriel Igor<br>Dias Gomes</div>
+            <div class="logo">UrbAgro</div>
+        </div>
+        <div class="main">
+            <h1>Cadastrar Nova Produção</h1>
+            <form>
+                <div class="form-group">
+                    <label for="id-producao">ID da Produção</label>
+                    <input type="text" id="id-producao" name="id-producao">
+                </div>
+                <div class="form-group">
+                    <label for="data-producao">Data da Produção</label>
+                    <input type="date" id="data-producao" name="data-producao">
+                </div>
+                <div class="form-group">
+                    <label for="quantidade-produzida">Quantidade Produzida</label>
+                    <input type="number" id="quantidade-produzida" name="quantidade-produzida">
+                </div>
+                <div class="form-group">
+                    <label for="produto-produzido">Produto Produzido</label>
+                    <input type="text" id="produto-produzido" name="produto-produzido">
+                </div>
+                <div class="form-group">
+                    <label for="responsavel">Responsável pela Produção</label>
+                    <input type="text" id="responsavel" name="responsavel">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="back-btn">←</button>
+                    <button type="submit" class="submit-btn">CADASTRAR</button>
+
+                </div>
+            </form>
+        </div>
+        <img id="homeButton" src="web-house.png" alt="Home" class="home-icon">
+    </div>
+</body>
+</html>

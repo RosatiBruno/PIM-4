@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Define o conjunto de caracteres e a escala de visualização, título da página e inclui o arquivo CSS externo -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Fornecedores Inativos</title>
+    <!-- Vincula o arquivo de estilo CSS -->
+    <link rel="stylesheet" href="listafornecedorinativog.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar com perfil e logo -->
+        <div class="sidebar">
+            <!-- Seção do perfil, incluindo a imagem e o nome do usuário -->
+            <div class="profile">
+                <img src="profile.png" alt="Foto de perfil" class="profile-img">
+                <p class="profile-name">Gabriel Igor Dias Gomes</p>
+            </div>
+            <!-- Seção do logotipo da empresa -->
+            <div class="logo">
+                <img src="logo.png" alt="UrbAgro Logo">
+            </div>
+        </div>
+
+        <!-- Conteúdo principal da página -->
+        <div class="main-content">
+            <!-- Título da página -->
+            <h1>Fornecedores Inativos</h1>
+            <!-- Seção que lista os fornecedores inativos -->
+            <div class="orders">
+                <!-- Div onde os fornecedores inativados serão exibidos dinamicamente -->
+                <div class="supplier-list-inactive">
+                    <!-- Exemplo de um item de fornecedor inativo -->
+                    <div class="supplier-item">
+                        <!-- Informações sobre o fornecedor inativo -->
+                        <div class="supplier-info">
+                            <!-- Nome do fornecedor inativo -->
+                            <p class="supplier-name">Fornecedor Inativo 1</p>
+                            <!-- Status do fornecedor -->
+                            <p class="supplier-status">Status: Inativo</p>
+                        </div>
+                        <!-- Botão para reativar o fornecedor inativo -->
+                        <button class="reactivate-button">Reativar Fornecedor</button>
+                    </div>
+
+                    <!-- Outro exemplo de fornecedor inativo -->
+                    <div class="supplier-item">
+                        <!-- Informações do fornecedor inativo -->
+                        <div class="supplier-info">
+                            <!-- Nome do fornecedor -->
+                            <p class="supplier-name">Fornecedor Inativo 2</p>
+                            <!-- Status do fornecedor -->
+                            <p class="supplier-status">Status: Inativo</p>
+                        </div>
+                        <!-- Botão para reativar o fornecedor -->
+                        <button class="reactivate-button">Reativar Fornecedor</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de ações, como o botão de voltar -->
+        <div class="actions">
+            <!-- Botão de voltar para a página anterior -->
+            <button class="back-button"><img src="back-icon.png" alt="Voltar"></button>
+            <!-- Botão de reativar fornecedor (opcional, caso queira uma ação geral) -->
+            <button class="reactivate-button">Reativar Fornecedor</button>
+        </div>
+    </div>
+
+    <!-- Importa um script JavaScript externo para funcionalidades adicionais -->
+    <script src="listafornecedorinativog.js"></script>
+</body>
+</html>

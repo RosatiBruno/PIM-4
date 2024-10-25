@@ -35,11 +35,12 @@
             this.lblId = new System.Windows.Forms.Label();
             this.lblBemVindo = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
+            this.btnSair = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(331, 397);
+            this.btnLogin.Location = new System.Drawing.Point(307, 397);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(108, 33);
             this.btnLogin.TabIndex = 0;
@@ -97,11 +98,22 @@
             this.lblLogin.TabIndex = 6;
             this.lblLogin.Text = "Login";
             // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(421, 397);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(108, 33);
+            this.btnSair.TabIndex = 7;
+            this.btnSair.Text = "Fechar";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.lblBemVindo);
             this.Controls.Add(this.lblSenha);
@@ -125,6 +137,7 @@
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblBemVindo;
         private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Button btnSair;
     }
 }
 

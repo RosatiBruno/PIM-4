@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    /* Remove margens e paddings padrões, define o box-sizing para garantir que o padding e a borda sejam incluídos nas dimensões do elemento, e define uma fonte padrão */
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    /* Define o body como um flex container para que o conteúdo seja disposto flexivelmente e ocupa toda a altura da janela (100vh = 100% da altura da viewport) */
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    /* O container é um flex container e ocupa 100% da largura disponível */
+}
+
+.sidebar {
+    background-color: #e0f2e9;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    /* Define uma sidebar que ocupa 20% da largura, com um layout em coluna, centralizando seu conteúdo, e aplica padding ao redor do conteúdo */
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 50px;
+    /* Centraliza o conteúdo do perfil e adiciona um espaçamento abaixo dele */
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    /* Define a imagem do perfil como um círculo, com dimensões fixas, e muda o cursor para "pointer" ao passar o mouse, indicando que a imagem é clicável */
+}
+
+.profile p {
+    margin-top: 10px;
+    color: #333;
+    /* Adiciona um espaçamento acima do parágrafo do perfil e define a cor do texto */
+}
+
+.profile span {
+    font-weight: bold;
+    /* Define o texto do span em negrito */
+}
+
+.logo img {
+    width: 100px;
+    margin-top: auto;
+    /* Define a largura da imagem da logo e empurra-a para o final da sidebar usando o margin-top: auto */
+}
+
+.main-content {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    /* O conteúdo principal ocupa 80% da largura, é um flex container que permite quebra de linha (wrap), centraliza os itens e adiciona espaçamento (gap) entre os elementos */
+}
+
+.menu-item {
+    background-color: #dcdcdc;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    text-align: center;
+    /* Define o estilo dos itens de menu, com fundo cinza claro, tamanho fixo, layout flex em coluna, conteúdo centralizado e bordas arredondadas */
+}
+
+.menu-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    /* Define o tamanho das imagens dos itens de menu e adiciona um espaçamento inferior */
+}
+
+.menu-item p {
+    font-size: 18px;
+    color: #333;
+    /* Define o tamanho da fonte e a cor do texto dos itens de menu */
+}
+
+/* Estilos do menu lateral (lado esquerdo) */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 1000;
+    /* Define o menu lateral fixo na esquerda da tela, com largura de 250px, altura total da página, fundo escuro e cor do texto branca. Ele inicia escondido (display: none) e tem z-index alto para sobrepor o conteúdo */
+}
+
+.side-menu.active {
+    display: flex;
+    /* Quando o menu está ativo (classe active), ele se torna visível e funciona como um flex container */
+}
+
+.menu-option {
+    padding: 15px 0;
+    cursor: pointer;
+    color: #fff;
+    border-bottom: 1px solid #444;
+    /* Estilo das opções do menu, com padding vertical, cursor pointer, cor branca e uma borda inferior */
+}
+
+.menu-option:hover {
+    background-color: #444;
+    /* Ao passar o mouse, muda o fundo da opção do menu para um cinza mais escuro */
+}
+
+/* Ajusta a barra de menu em relação ao layout da página */
+.main-content {
+    transition: margin-left 0.3s ease;
+    /* Adiciona uma transição suave ao conteúdo principal quando o menu lateral for ativado, movendo o conteúdo */
+}
+
+.side-menu.active + .main-content {
+    margin-left: 250px;
+    /* Quando o menu lateral está ativo, o conteúdo principal é deslocado 250px para a direita, criando espaço para o menu */
+}

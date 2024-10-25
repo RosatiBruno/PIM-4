@@ -1,0 +1,163 @@
+body {
+    margin: 0; /* Remove a margem padrão do body */
+    font-family: Arial, sans-serif; /* Define a fonte do texto como Arial ou uma fonte sans-serif alternativa */
+    display: flex; /* Define o body como um flex container */
+    height: 100vh; /* Define a altura do body como 100% da altura da viewport */
+}
+
+.container {
+    display: flex; /* Organiza os elementos filhos como flex items */
+    width: 100%; /* Define a largura da container como 100% da largura do seu elemento pai */
+}
+
+.sidebar {
+    background-color: #d4f1d0; /* Define a cor de fundo da barra lateral como um verde claro */
+    width: 20%; /* Define a largura da barra lateral como 20% da largura da container */
+    padding: 20px; /* Adiciona espaçamento interno de 20 pixels ao redor do conteúdo da barra lateral */
+    text-align: center; /* Centraliza o texto dentro da barra lateral */
+}
+
+.profile-picture {
+    width: 100px; /* Define a largura da imagem de perfil como 100 pixels */
+    height: 100px; /* Define a altura da imagem de perfil como 100 pixels */
+    border-radius: 50%; /* Torna a imagem de perfil circular */
+}
+
+.sidebar h2 {
+    font-size: 1.2em; /* Define o tamanho da fonte do título como 1.2 vezes o tamanho da fonte padrão */
+    margin: 10px 0; /* Adiciona uma margem superior e inferior de 10 pixels ao título */
+}
+
+.logo {
+    display: flex; /* Define a logo como um flex container */
+    align-items: center; /* Alinha os itens da logo verticalmente ao centro */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    margin-top: 20px; /* Adiciona um espaçamento superior de 20 pixels à logo */
+}
+
+.logo img {
+    width: 50px; /* Define a largura da imagem do logo como 50 pixels */
+    height: 50px; /* Define a altura da imagem do logo como 50 pixels */
+    margin-right: 10px; /* Adiciona um espaçamento à direita da imagem do logo */
+}
+
+.logo h3 {
+    font-size: 1.5em; /* Define o tamanho da fonte do título da logo como 1.5 vezes o tamanho da fonte padrão */
+    color: black; /* Define a cor do texto da logo como preto */
+}
+
+.content {
+    background-color: #fff; /* Define a cor de fundo da área de conteúdo como branca */
+    width: 80%; /* Define a largura da área de conteúdo como 80% da largura da container */
+    padding: 20px; /* Adiciona espaçamento interno de 20 pixels ao redor do conteúdo */
+    text-align: center; /* Centraliza o texto dentro da área de conteúdo */
+}
+
+.content h1 {
+    margin-bottom: 20px; /* Adiciona uma margem inferior de 20 pixels ao título dentro da área de conteúdo */
+}
+
+.product-list {
+    list-style: none; /* Remove os marcadores padrão da lista */
+    padding: 0; /* Remove o preenchimento padrão da lista */
+}
+
+.product-list li {
+    background-color: #e0e0e0; /* Define a cor de fundo dos itens da lista como um cinza claro */
+    margin: 10px 0; /* Adiciona uma margem superior e inferior de 10 pixels aos itens da lista */
+    padding: 15px; /* Adiciona espaçamento interno de 15 pixels ao redor do conteúdo do item da lista */
+    border-radius: 10px; /* Arredonda as bordas dos itens da lista */
+    font-size: 1.2em; /* Define o tamanho da fonte dos itens da lista como 1.2 vezes o tamanho da fonte padrão */
+}
+
+.buttons {
+    display: flex; /* Define a seção de botões como um flex container */
+    justify-content: space-between; /* Distribui os botões com espaço entre eles */
+    margin-top: 20px; /* Adiciona um espaçamento superior de 20 pixels à seção de botões */
+}
+
+.back-button, .new-product-button {
+    background-color: #c6e2b3; /* Define a cor de fundo dos botões como um verde claro */
+    border: none; /* Remove as bordas padrão dos botões */
+    padding: 10px 20px; /* Adiciona espaçamento interno de 10 pixels verticalmente e 20 pixels horizontalmente */
+    font-size: 1em; /* Define o tamanho da fonte dos botões como o tamanho padrão */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    border-radius: 5px; /* Arredonda as bordas dos botões */
+}
+
+.back-button {
+    background-color: #c6e2b3; /* Define a cor de fundo do botão de voltar como um verde claro */
+}
+
+.new-product-button {
+    background-color: #c6e2b3; /* Define a cor de fundo do botão de novo produto como um verde claro */
+}
+
+.inativar-button {
+    background-color: #c6e2b3; /* Define a cor de fundo do botão de inativar como um verde claro */
+    color: black; /* Define a cor do texto do botão de inativar como preto */
+    border: none; /* Remove as bordas padrão do botão */
+    padding: 10px 20px; /* Adiciona espaçamento interno de 10 pixels verticalmente e 20 pixels horizontalmente */
+    font-size: 16px; /* Define o tamanho da fonte do botão de inativar como 16 pixels */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    border-radius: 5px; /* Arredonda as bordas do botão de inativar */
+    margin-top: 10px; /* Adiciona uma margem superior de 10 pixels ao botão de inativar */
+}
+
+.inativar-button:hover {
+    background-color: #c6e2b3; /* Mantém a mesma cor de fundo ao passar o mouse sobre o botão de inativar */
+}
+
+.delete-button {
+    margin-top: 10px; /* Adiciona uma margem superior de 10 pixels ao botão de excluir */
+    background-color: #e57373; /* Define a cor de fundo do botão de excluir como um vermelho suave */
+    color: white; /* Define a cor do texto do botão de excluir como branco */
+    padding: 10px 20px; /* Adiciona espaçamento interno de 10 pixels verticalmente e 20 pixels horizontalmente */
+    border: none; /* Remove as bordas padrão do botão */
+    border-radius: 5px; /* Arredonda as bordas do botão de excluir */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    font-size: 16px; /* Define o tamanho da fonte do botão de excluir como 16 pixels */
+}
+
+.delete-button:hover {
+    background-color: #ef5350; /* Muda a cor de fundo para um vermelho mais escuro ao passar o mouse sobre o botão de excluir */
+}
+
+/* Estilos para o modal */
+.modal {
+    display: none; /* Esconde o modal por padrão */
+    position: fixed; /* Fixa o modal na tela */
+    z-index: 1000; /* Define o índice de empilhamento do modal */
+    left: 0; /* Alinha o modal à esquerda */
+    top: 0; /* Alinha o modal ao topo */
+    width: 100%; /* Define a largura do modal como 100% */
+    height: 100%; /* Define a altura do modal como 100% */
+    overflow: auto; /* Adiciona rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+}
+
+/* Estilos para o conteúdo do modal */
+.modal-content {
+    background-color: #ffffff; /* Fundo branco para o conteúdo do modal */
+    margin: 15% auto; /* Margens para centralizar o conteúdo */
+    padding: 20px; /* Espaçamento interno */
+    border: 1px solid #888; /* Borda cinza ao redor do conteúdo */
+    width: 80%; /* Largura do conteúdo do modal */
+    max-width: 500px; /* Largura máxima do modal */
+}
+
+/* Estilos para o botão de fechar do modal */
+.close-button {
+    color: #aaa; /* Cor do texto do botão de fechar */
+    float: right; /* Alinha o botão à direita */
+    font-size: 28px; /* Tamanho da fonte do botão */
+    font-weight: bold; /* Texto em negrito */
+}
+
+/* Estilo para o botão de fechar ao passar o mouse */
+.close-button:hover,
+.close-button:focus {
+    color: black; /* Muda a cor para preto ao passar o mouse */
+    text-decoration: none; /* Remove a decoração do texto */
+    cursor: pointer; /* Altera o cursor para pointer */
+}

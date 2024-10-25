@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- Declara que o documento é um HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma do conteúdo como Português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para responsividade em dispositivos móveis -->
+    <title>Fornecedores</title> <!-- Define o título da página que aparece na aba do navegador -->
+    <link rel="stylesheet" href="fornecedores.css"> <!-- Link para o arquivo CSS que estiliza a página de fornecedores -->
+</head>
+<body>
+    <div class="sidebar"> <!-- Seção lateral que contém as informações do usuário -->
+        <img src="profile.png" alt="Gabriel Igor Dias Gomes"> <!-- Imagem do perfil do usuário com texto alternativo -->
+        <h2>Gabriel Igor Dias Gomes</h2> <!-- Nome do usuário exibido -->
+        <div class="logo"> <!-- Div que contém o logo da empresa -->
+            <img src="logo.png" alt="UrbAgro"> <!-- Imagem do logo da UrbAgro com texto alternativo -->
+        </div>
+    </div>
+    <div class="content"> <!-- Seção principal que contém a lista de fornecedores e a barra de pesquisa -->
+        <div class="search-bar"> <!-- Div que agrupa a barra de pesquisa -->
+            <input type="text" placeholder="Digite o CNPJ/CPF do Fornecedor"> <!-- Campo de entrada para buscar fornecedores pelo CNPJ/CPF, com um placeholder informativo -->
+            <button> <!-- Botão para acionar a pesquisa -->
+                <img src="https://via.placeholder.com/20" alt="Buscar"> <!-- Ícone de busca representado por uma imagem -->
+            </button>
+        </div>
+        <ul class="supplier-list"> <!-- Lista não ordenada que contém os fornecedores -->
+            <li id="empresa1">EMPRESA 1</li> <!-- Item da lista representando um fornecedor com ID único -->
+            <li id="empresa2">EMPRESA 2</li>
+            <li id="empresa3">EMPRESA 3</li>
+            <li id="empresa4">EMPRESA 4</li>
+            <li id="empresa5">EMPRESA 5</li>
+            <li id="empresa6">EMPRESA 6</li>
+        </ul>
+        <div class="buttons"> <!-- Div que agrupa os botões de ação -->
+            <button class="back-button">←</button> <!-- Botão para voltar à página anterior, representado por uma seta -->
+            <button>CADASTRAR NOVO FORNECEDOR</button> <!-- Botão para adicionar um novo fornecedor -->
+            <button class="inactivate-button">INATIVAÇÃO DE FORNECEDOR</button> <!-- Botão para inativar um fornecedor selecionado -->
+            <button class="inactivated-suppliers-button">LISTA FORNECEDORES INATIVADOS</button> <!-- Botão para visualizar fornecedores que foram inativados -->
+        </div>
+    </div>
+
+    <!-- Modal para detalhes do fornecedor -->
+    <div id="fornecedorModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Detalhes do Fornecedor</h3>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="fornecedores.js"></script> <!-- Link para o arquivo JavaScript que adiciona funcionalidades à página -->
+</body>
+</html>

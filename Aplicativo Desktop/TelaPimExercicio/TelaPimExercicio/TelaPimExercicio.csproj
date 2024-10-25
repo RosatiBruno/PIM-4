@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlteradorFonteCadastrarFuncionario.cs" />
+    <Compile Include="AlteradorFonteFornecedores.cs" />
+    <Compile Include="AlteradorFonteMenu.cs" />
+    <Compile Include="AlteradorFontePedidos.cs" />
+    <Compile Include="AlteradorFonteProdutos.cs" />
     <Compile Include="CadastrarFunc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +154,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Engrenagem.png" />
+    <Content Include="fornecedores-icon.png" />
+    <Content Include="Logout.png" />
+    <Content Include="pedidos-icon.png" />
+    <Content Include="producao-icon.png" />
+    <Content Include="produtos-icon.png" />
+    <Content Include="registro.png" />
+    <Content Include="SetinhaVoltar.png" />
+    <Content Include="SetinhaVoltar2.png" />
+    <Content Include="vendas-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

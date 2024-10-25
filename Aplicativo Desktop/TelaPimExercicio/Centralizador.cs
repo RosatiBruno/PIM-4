@@ -12,7 +12,7 @@ namespace TelaPimExercicio
             this.form = form;
         }
 
-        public void Centralizar(TextBox txtId, TextBox txtSenha, Label lblId, Label lblSenha, Button btnLogin)
+        public void Centralizar(TextBox txtId, TextBox txtSenha, Label lblId, Label lblSenha, Button btnLogin, Label lblLogin, Label lblBemVindo)
         {
             int margem = 10; // Margem Vertical entre os itens
             int larguraMaxima = form.ClientSize.Width;
@@ -28,7 +28,7 @@ namespace TelaPimExercicio
             // Converte a senha digitada em '****'
             txtSenha.UseSystemPasswordChar = true;
 
-            // Centraliza o Botão
+            // Centraliza o Botão btnLogin
             btnLogin.Location = new Point((larguraMaxima - btnLogin.Width) / 2, txtSenha.Bottom + margem * 5);
 
             // Aumenta as fontes do Form1

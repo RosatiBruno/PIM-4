@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- Declara que o documento é um HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma do conteúdo como Português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para responsividade em dispositivos móveis -->
+    <title>Lista de Fornecedores Inativos</title> <!-- Define o título da página que aparece na aba do navegador -->
+    <link rel="stylesheet" href="listafornecedorinativo.css"> <!-- Link para o arquivo CSS que estiliza a página de fornecedores inativos -->
+</head>
+<body>
+    <div class="container"> <!-- Div principal que envolve todo o conteúdo da página -->
+        <!-- Sidebar com perfil e logo -->
+        <div class="sidebar"> <!-- Seção lateral que contém as informações do usuário e o logo da empresa -->
+            <div class="profile"> <!-- Div que contém as informações do perfil do usuário -->
+                <img src="profile.png" alt="Foto de perfil" class="profile-img"> <!-- Imagem do perfil do usuário com texto alternativo -->
+                <p class="profile-name">Gabriel Igor Dias Gomes</p> <!-- Nome do usuário exibido -->
+            </div>
+            <div class="logo"> <!-- Div que contém o logo da empresa -->
+                <img src="logo.png" alt="UrbAgro Logo"> <!-- Imagem do logo da UrbAgro com texto alternativo -->
+            </div>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="main-content"> <!-- Seção principal que contém o título e a lista de fornecedores inativos -->
+            <h1>Fornecedores Inativos</h1> <!-- Título da página -->
+            <div class="orders"> <!-- Div que agrupa a lista de fornecedores inativos -->
+                <!-- Fornecedores inativados serão carregados aqui -->
+                <div class="supplier-list-inactive"> <!-- Div que contém a lista de fornecedores inativos -->
+                    <!-- Exemplo de um fornecedor inativo -->
+                    <div class="supplier-item"> <!-- Div que representa um fornecedor inativo -->
+                        <div class="supplier-info"> <!-- Div que agrupa as informações do fornecedor -->
+                            <p class="supplier-name">Fornecedor Inativo 1</p> <!-- Nome do fornecedor inativo -->
+                            <p class="supplier-status">Status: Inativo</p> <!-- Status do fornecedor -->
+                        </div>
+                        <!-- Botão de Reativar Fornecedor -->
+                        <button class="reactivate-button">Reativar Fornecedor</button> <!-- Botão que permite reativar o fornecedor -->
+                    </div>
+
+                    <div class="supplier-item"> <!-- Outro exemplo de fornecedor inativo -->
+                        <div class="supplier-info"> <!-- Agrupa as informações do fornecedor -->
+                            <p class="supplier-name">Fornecedor Inativo 2</p> <!-- Nome do fornecedor inativo -->
+                            <p class="supplier-status">Status: Inativo</p> <!-- Status do fornecedor -->
+                        </div>
+                        <!-- Botão de Reativar Fornecedor -->
+                        <button class="reactivate-button">Reativar Fornecedor</button> <!-- Botão que permite reativar o fornecedor -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ações, como o botão de voltar -->
+        <div class="actions"> <!-- Div que contém botões de ação -->
+            <button class="back-button"><img src="back-icon.png" alt="Voltar"></button> <!-- Botão para voltar à página anterior, com ícone -->
+            <button class="reactivate-button">Reativar Fornecedor</button> <!-- Botão que permite reativar um fornecedor selecionado -->
+        </div>
+    </div>
+
+    <!-- Script externo -->
+    <script src="listafornecedorinativo.js"></script> <!-- Link para o arquivo JavaScript que adiciona funcionalidades à página -->
+</body>
+</html>

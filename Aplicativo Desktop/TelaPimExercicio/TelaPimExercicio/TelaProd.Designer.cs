@@ -28,28 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaProd));
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnRetornar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // btnLogout
             // 
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnLogout.ImageKey = "Logout.png";
+            this.btnLogout.ImageList = this.imageList2;
             this.btnLogout.Location = new System.Drawing.Point(27, 12);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(71, 48);
+            this.btnLogout.Size = new System.Drawing.Size(71, 59);
             this.btnLogout.TabIndex = 11;
             this.btnLogout.Text = "Logout";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnRetornar
             // 
+            this.btnRetornar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRetornar.ImageKey = "SetinhaVoltar2.png";
+            this.btnRetornar.ImageList = this.imageList1;
             this.btnRetornar.Location = new System.Drawing.Point(151, 493);
             this.btnRetornar.Name = "btnRetornar";
             this.btnRetornar.Size = new System.Drawing.Size(77, 29);
             this.btnRetornar.TabIndex = 12;
-            this.btnRetornar.Text = "⬅";
+            this.btnRetornar.Text = "Voltar";
+            this.btnRetornar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRetornar.UseVisualStyleBackColor = true;
             this.btnRetornar.Click += new System.EventHandler(this.btnRetornar_Click);
             // 
@@ -61,6 +73,18 @@
             this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Tela Produção";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "SetinhaVoltar2.png");
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "Logout.png");
             // 
             // TelaProd
             // 
@@ -82,5 +106,7 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnRetornar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ImageList imageList2;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

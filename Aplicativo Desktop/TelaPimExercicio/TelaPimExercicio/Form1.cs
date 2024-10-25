@@ -12,7 +12,8 @@ namespace TelaPimExercicio
         private ColorBackground colorBg;
         private Centralizador centralizador;
         private ColorSquare colorSquare;
-        
+
+
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace TelaPimExercicio
             this.MaximizeBox = true;
 
             //Abre em Tela Cheia - Verificar a Necessidade e a Viabilidade
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
 
             //Definindo o tamanho mínimo da tela para 800x600
             this.MinimumSize = new Size(800, 600);
@@ -45,14 +46,16 @@ namespace TelaPimExercicio
 
             //Inicializando o centralizador
             centralizador = new Centralizador(this);
-            centralizador.Centralizar(txtId, txtSenha, lblId, lblSenha, btnLogin, lblLogin, lblBemVindo);
+            centralizador.Centralizar(txtId, txtSenha, lblId, lblSenha, btnLogin, btnSair, lblLogin, lblBemVindo);
+            btnSair.Location = new Point(btnLogin.Right + 10, btnLogin.Top); // Alinha ao lado do btnLogin
 
-            //Atualiza os componente ao redimensionar a tela (?????????????? Confirmar com a professora Vanessa sexta-feira)
+            //Atualiza os componente ao redimensionar a tela
             this.Resize += Form1_Resize;
 
-            //Centraliza no Monitor/Tela
+            //Centraliza no Monitor/Tela - É efetivo apenas quando a tela não está maximizada
             CenterToScreen();
         }
+
 
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -61,28 +64,50 @@ namespace TelaPimExercicio
             colorBar.Panel.Width = this.ClientSize.Width; //Ajustar a largura da barra
 
             //Recalcular a centralização dos componentes
-            centralizador.Centralizar(txtId, txtSenha, lblId, lblSenha, btnLogin, lblLogin, lblBemVindo);
+            centralizador.Centralizar(txtId, txtSenha, lblId, lblSenha, btnLogin, btnSair, lblLogin, lblBemVindo);
 
             //Centralizar o quadrado cinza
             colorSquare.Panel.Location = new Point((this.ClientSize.Width - colorSquare.Panel.Width) / 2,
                                                    (this.ClientSize.Height - colorSquare.Panel.Height) / 2);
-            // Centralizar a logo
+            //Centralizar a logo
             logo.Picture.Location = new Point((this.ClientSize.Width - logo.Picture.Width) / 2, logo.Picture.Top);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //Declaração das variáveis de login
+            //Declaração das variáveis de login & verificação do tipo do login
             string tempId, tempSenha;
+            string userType = "";
 
             //Pega os dados digitados e passa para as variáveis para verificação.
             tempId = txtId.Text;
             tempSenha = txtSenha.Text;
 
-            //Verificação para login
-            if (tempId == "func" && tempSenha == "1234" || tempId == "gerente" && tempSenha == "1234" || tempId == "ti" && tempSenha == "1234")
+            //Verificação para login & passagem do tipo de login
+            if (tempId == "func" && tempSenha == "1234")
             {
-                Form2 form2 = new Form2();
+                userType = "funcionario";
+                Form2 form2 = new Form2(userType);
+                form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
+                form2.Size = this.Size;
+                form2.StartPosition = FormStartPosition.CenterScreen;
+                form2.Show();
+                this.Hide(); //Oculta o Form1 enquanto o Form2 está aberto
+            }
+            else if (tempId == "gerente" && tempSenha == "1234")
+            {
+                userType = "gerente";
+                Form2 form2 = new Form2(userType);
+                form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
+                form2.Size = this.Size;
+                form2.StartPosition = FormStartPosition.CenterScreen;
+                form2.Show();
+                this.Hide(); //Oculta o Form1 enquanto o Form2 está aberto
+            }
+            else if (tempId == "ti" && tempSenha == "1234")
+            {
+                userType = "ti";
+                Form2 form2 = new Form2(userType);
                 form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
                 form2.Size = this.Size;
                 form2.StartPosition = FormStartPosition.CenterScreen;
@@ -94,6 +119,12 @@ namespace TelaPimExercicio
                 MessageBox.Show("Login ou senha incorretos! Tente novamente!", "Erro ao efetuar o Login!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSenha.Text = ""; //Ao errar o login, a senha digitada é apagada automaticamente
             }
+        }
+
+        //Fecha o programa ao clicar
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

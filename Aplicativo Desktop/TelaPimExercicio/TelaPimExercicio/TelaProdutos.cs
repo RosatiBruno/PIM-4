@@ -19,17 +19,26 @@ namespace TelaPimExercicio
         private ColorBackground colorBg;
         private Centralizador2 centralizador2;
         private Logout logout;
+        private string userType;
+        private AlteradorFonteProdutos alteradorFonteProdutos;
 
-        public TelaProdutos()
+        public TelaProdutos(string userType)
         {
             InitializeComponent();
+
+            //Desativar o botão ao estar logado sem ser como T.I
+            this.userType = userType;
+
+            //Alterar o tamanho da fonte
+            alteradorFonteProdutos = new AlteradorFonteProdutos(this);
+            alteradorFonteProdutos.AlterarFonteProdutos(btnLogout, btnRetornar);
 
             //Permitindo o redimensionamento da tela
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.MaximizeBox = true;
 
             //Abre em Tela Cheia - Verificar a Necessidade e a Viabilidade
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
 
             //Definindo o tamanho mínimo da tela para 800x600
             this.MinimumSize = new Size(800, 600);
@@ -91,7 +100,7 @@ namespace TelaPimExercicio
         //Botão Retornar volta ao Menu Inicial (Form2)
         private void btnRetornar_Click_1(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            Form2 form2 = new Form2(userType);
             form2.FormClosed += (s, args) => this.Close();
             form2.Size = this.Size;
             form2.StartPosition = FormStartPosition.CenterScreen;
