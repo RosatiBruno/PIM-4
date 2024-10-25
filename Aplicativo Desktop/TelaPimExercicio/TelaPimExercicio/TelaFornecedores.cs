@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TelaPimExercicio
 {
@@ -106,6 +107,37 @@ namespace TelaPimExercicio
             form2.StartPosition = FormStartPosition.CenterScreen;
             form2.Show();
             this.Hide();
+        }
+
+
+
+        //PROCURANDO DADOS NA LISTVIEW (VAI SER ALTERADO AINDA!!!! - EM DESENVOLVIMENTO)
+        private void btnBuscarFornecedor_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lvBuscarFornecedor.Items)
+            {
+                if (txtBuscarFornecedor.Text.ToLower() == item.SubItems[2].Text.ToLower()) //O nmr entre '[]' é a casa da listview q procura
+                {
+                    lvBuscarFornecedor.Focus();
+                    item.Selected = true;
+                    lvBuscarFornecedor.TopItem = item;
+                    break;
+                }
+            }
+        }
+
+        private void lvBuscarFornecedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //INSERIR DADOS FICTICIOS NA LISTVIEW PARA TESTES APENAS
+        private void button1_Click(object sender, EventArgs e)
+        {
+            lvBuscarFornecedor.Items.Add(new ListViewItem(new[] { "1", "Carlos", "12345678910", "(11) 91234-5678", "rua X", "email@email.com", "Jacareí", "SP", "Pablo", "Alface", "Ativo" }));
+            lvBuscarFornecedor.Items.Add(new ListViewItem(new[] { "2", "Pedro", "132.432.543.73", "(12) 9999-2222", "Avenida Y", "teste@email.com", "São José dos Campos", "SP", "Roberto", "Laranja", "Ativo" }));
+            lvBuscarFornecedor.Items.Add(new ListViewItem(new[] { "3", "Isabela", "77777777777", "(42) 93333-1111", "Embocadura la longe", "isa@email.com", "diadema", "SP", "Joana", "repolho", "Inativo" }));
         }
     }
 }

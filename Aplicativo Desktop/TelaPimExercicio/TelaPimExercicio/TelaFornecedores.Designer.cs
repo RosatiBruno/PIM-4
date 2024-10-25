@@ -31,10 +31,27 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaFornecedores));
             this.btnLogout = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnRetornar = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.txtBuscarFornecedor = new System.Windows.Forms.TextBox();
+            this.lblBuscarFornecedor = new System.Windows.Forms.Label();
+            this.btnBuscarFornecedor = new System.Windows.Forms.Button();
+            this.lvBuscarFornecedor = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Telefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CNPJouCPF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Endereco = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Cidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Estado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Representante = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MateriaPrima = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
+            this.Situacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnCadastrarNovoFornecedor = new System.Windows.Forms.Button();
+            this.btnInativarFornecedor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -50,6 +67,12 @@
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "Logout.png");
             // 
             // btnRetornar
             // 
@@ -73,31 +96,154 @@
             this.imageList1.Images.SetKeyName(1, "SetinhaVoltar.png");
             this.imageList1.Images.SetKeyName(2, "SetinhaVoltar2.png");
             // 
-            // label1
+            // txtBuscarFornecedor
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(350, 274);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Tela de Fornecedores";
+            this.txtBuscarFornecedor.Location = new System.Drawing.Point(151, 101);
+            this.txtBuscarFornecedor.Name = "txtBuscarFornecedor";
+            this.txtBuscarFornecedor.Size = new System.Drawing.Size(312, 20);
+            this.txtBuscarFornecedor.TabIndex = 10;
             // 
-            // imageList2
+            // lblBuscarFornecedor
             // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "Logout.png");
+            this.lblBuscarFornecedor.AutoSize = true;
+            this.lblBuscarFornecedor.Location = new System.Drawing.Point(148, 74);
+            this.lblBuscarFornecedor.Name = "lblBuscarFornecedor";
+            this.lblBuscarFornecedor.Size = new System.Drawing.Size(170, 13);
+            this.lblBuscarFornecedor.TabIndex = 11;
+            this.lblBuscarFornecedor.Text = "Digite o CNPJ/CPF do Fornecedor";
+            // 
+            // btnBuscarFornecedor
+            // 
+            this.btnBuscarFornecedor.Location = new System.Drawing.Point(573, 86);
+            this.btnBuscarFornecedor.Name = "btnBuscarFornecedor";
+            this.btnBuscarFornecedor.Size = new System.Drawing.Size(89, 35);
+            this.btnBuscarFornecedor.TabIndex = 12;
+            this.btnBuscarFornecedor.Text = "Buscar";
+            this.btnBuscarFornecedor.UseVisualStyleBackColor = true;
+            this.btnBuscarFornecedor.Click += new System.EventHandler(this.btnBuscarFornecedor_Click);
+            // 
+            // lvBuscarFornecedor
+            // 
+            this.lvBuscarFornecedor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.Nome,
+            this.CNPJouCPF,
+            this.Telefone,
+            this.Endereco,
+            this.Email,
+            this.Cidade,
+            this.Estado,
+            this.Representante,
+            this.MateriaPrima,
+            this.Situacao});
+            this.lvBuscarFornecedor.HideSelection = false;
+            this.lvBuscarFornecedor.Location = new System.Drawing.Point(151, 142);
+            this.lvBuscarFornecedor.Name = "lvBuscarFornecedor";
+            this.lvBuscarFornecedor.Size = new System.Drawing.Size(510, 335);
+            this.lvBuscarFornecedor.TabIndex = 13;
+            this.lvBuscarFornecedor.UseCompatibleStateImageBehavior = false;
+            this.lvBuscarFornecedor.View = System.Windows.Forms.View.Details;
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 30;
+            // 
+            // Nome
+            // 
+            this.Nome.Text = "Nome";
+            this.Nome.Width = 100;
+            // 
+            // Telefone
+            // 
+            this.Telefone.DisplayIndex = 2;
+            this.Telefone.Text = "Telefone";
+            this.Telefone.Width = 100;
+            // 
+            // CNPJouCPF
+            // 
+            this.CNPJouCPF.DisplayIndex = 3;
+            this.CNPJouCPF.Text = "CNPJ/CPF";
+            this.CNPJouCPF.Width = 100;
+            // 
+            // Endereco
+            // 
+            this.Endereco.Text = "Endereço";
+            this.Endereco.Width = 100;
+            // 
+            // Email
+            // 
+            this.Email.Text = "Email";
+            this.Email.Width = 100;
+            // 
+            // Cidade
+            // 
+            this.Cidade.Text = "Cidade";
+            this.Cidade.Width = 100;
+            // 
+            // Estado
+            // 
+            this.Estado.Text = "Estado";
+            // 
+            // Representante
+            // 
+            this.Representante.Text = "Representante";
+            this.Representante.Width = 100;
+            // 
+            // MateriaPrima
+            // 
+            this.MateriaPrima.Text = "Matéria Prima";
+            this.MateriaPrima.Width = 100;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(687, 284);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(68, 48);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Incluir Dados Ficticios";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Situacao
+            // 
+            this.Situacao.Text = "Situação";
+            this.Situacao.Width = 65;
+            // 
+            // btnCadastrarNovoFornecedor
+            // 
+            this.btnCadastrarNovoFornecedor.Location = new System.Drawing.Point(440, 488);
+            this.btnCadastrarNovoFornecedor.Name = "btnCadastrarNovoFornecedor";
+            this.btnCadastrarNovoFornecedor.Size = new System.Drawing.Size(91, 38);
+            this.btnCadastrarNovoFornecedor.TabIndex = 15;
+            this.btnCadastrarNovoFornecedor.Text = "Cadastrar Novo Fornecedor";
+            this.btnCadastrarNovoFornecedor.UseVisualStyleBackColor = true;
+            // 
+            // btnInativarFornecedor
+            // 
+            this.btnInativarFornecedor.Location = new System.Drawing.Point(570, 488);
+            this.btnInativarFornecedor.Name = "btnInativarFornecedor";
+            this.btnInativarFornecedor.Size = new System.Drawing.Size(91, 38);
+            this.btnInativarFornecedor.TabIndex = 16;
+            this.btnInativarFornecedor.Text = "Inativar Fornecedor";
+            this.btnInativarFornecedor.UseVisualStyleBackColor = true;
             // 
             // TelaFornecedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnInativarFornecedor);
+            this.Controls.Add(this.btnCadastrarNovoFornecedor);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lvBuscarFornecedor);
+            this.Controls.Add(this.btnBuscarFornecedor);
+            this.Controls.Add(this.lblBuscarFornecedor);
+            this.Controls.Add(this.txtBuscarFornecedor);
             this.Controls.Add(this.btnRetornar);
             this.Controls.Add(this.btnLogout);
             this.Name = "TelaFornecedores";
-            this.Text = "TelaFornecedores";
+            this.Text = "Fornecedores Cadastrados";
             this.Load += new System.EventHandler(this.TelaFornecedores_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -108,8 +254,25 @@
 
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnRetornar;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ImageList imageList2;
+        private System.Windows.Forms.TextBox txtBuscarFornecedor;
+        private System.Windows.Forms.Label lblBuscarFornecedor;
+        private System.Windows.Forms.Button btnBuscarFornecedor;
+        private System.Windows.Forms.ListView lvBuscarFornecedor;
+        private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.ColumnHeader Nome;
+        private System.Windows.Forms.ColumnHeader Telefone;
+        private System.Windows.Forms.ColumnHeader CNPJouCPF;
+        private System.Windows.Forms.ColumnHeader Endereco;
+        private System.Windows.Forms.ColumnHeader Email;
+        private System.Windows.Forms.ColumnHeader Cidade;
+        private System.Windows.Forms.ColumnHeader Estado;
+        private System.Windows.Forms.ColumnHeader Representante;
+        private System.Windows.Forms.ColumnHeader MateriaPrima;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader Situacao;
+        private System.Windows.Forms.Button btnCadastrarNovoFornecedor;
+        private System.Windows.Forms.Button btnInativarFornecedor;
     }
 }
