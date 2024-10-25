@@ -8,13 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TelaPimExercicio
 {
-    public partial class TelaFornecedores : Form
+    public partial class TelaCadastroFornecedor : Form
     {
-
         private Logo logo;
         private ColorBar2 colorBar;
         private ColorBackground colorBg;
@@ -22,13 +21,9 @@ namespace TelaPimExercicio
         private Logout logout;
         private string userType;
         private AlteradorFonteFornecedores alteradorFonteFornecedores;
-
-        public TelaFornecedores(string userType)
+        public TelaCadastroFornecedor(string userType)
         {
             InitializeComponent();
-
-            //Desativar o botão ao estar logado sem ser como T.I
-            this.userType = userType;
 
             //Alterando o tamanho da fonte
             alteradorFonteFornecedores = new AlteradorFonteFornecedores(this);
@@ -59,7 +54,7 @@ namespace TelaPimExercicio
             colorBg = new ColorBackground(this);
             this.Controls.Add(colorBg.Panel);
 
-            this.Resize += TelaFornecedores_Resize;
+            this.Resize += TelaCadastroFornecedor_Resize;
 
             //Iniciando o Logout
             logout = new Logout(this);
@@ -68,7 +63,7 @@ namespace TelaPimExercicio
             CenterToScreen();
         }
 
-        private void TelaFornecedores_Resize(object sender, EventArgs e)
+        private void TelaCadastroFornecedor_Resize(object sender, EventArgs e)
         {
             //Reposiciona a logo no canto inferior esquerdo
             logo.Picture.Location = new Point(20, this.ClientSize.Height - logo.Picture.Height - 10);
@@ -87,65 +82,19 @@ namespace TelaPimExercicio
 
         }
 
-        private void TelaFornecedores_Load(object sender, EventArgs e)
-        {
-        }
-
-        //Botão de Logout sai do Programa
         private void btnLogout_Click(object sender, EventArgs e)
         {
             logout.ShowLogoutDialog();
         }
 
-        //Botão Retornar volta ao Menu Inicial (Form2)
+        //Botão Retornar volta a tela de fornecedores
         private void btnRetornar_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(userType);
-            form2.FormClosed += (s, args) => this.Close();
-            form2.Size = this.Size;
-            form2.StartPosition = FormStartPosition.CenterScreen;
-            form2.Show();
-            this.Hide();
-        }
-
-
-
-        //PROCURANDO DADOS NA LISTVIEW (VAI SER ALTERADO AINDA!!!! - EM DESENVOLVIMENTO)
-        private void btnBuscarFornecedor_Click(object sender, EventArgs e)
-        {
-            foreach (ListViewItem item in lvBuscarFornecedor.Items)
-            {
-                if (txtBuscarFornecedor.Text.ToLower() == item.SubItems[2].Text.ToLower()) //O nmr entre '[]' é a casa da listview q procura
-                {
-                    lvBuscarFornecedor.Focus();
-                    item.Selected = true;
-                    lvBuscarFornecedor.TopItem = item;
-                    break;
-                }
-            }
-        }
-
-        private void lvBuscarFornecedor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        //INSERIR DADOS FICTICIOS NA LISTVIEW PARA TESTES APENAS
-        private void button1_Click(object sender, EventArgs e)
-        {
-            lvBuscarFornecedor.Items.Add(new ListViewItem(new[] { "1", "Carlos", "12345678910", "(11) 91234-5678", "rua X", "email@email.com", "Jacareí", "SP", "Pablo", "Alface", "Ativo" }));
-            lvBuscarFornecedor.Items.Add(new ListViewItem(new[] { "2", "Pedro", "132.432.543.73", "(12) 9999-2222", "Avenida Y", "teste@email.com", "São José dos Campos", "SP", "Roberto", "Laranja", "Ativo" }));
-            lvBuscarFornecedor.Items.Add(new ListViewItem(new[] { "3", "Isabela", "77777777777", "(42) 93333-1111", "Embocadura la longe", "isa@email.com", "diadema", "SP", "Joana", "repolho", "Inativo" }));
-        }
-
-        private void btnCadastrarNovoFornecedor_Click(object sender, EventArgs e)
-        {
-            TelaCadastroFornecedor telaCadastroFornecedor = new TelaCadastroFornecedor(userType);
-            telaCadastroFornecedor.Size = this.Size; //Passa o tamanho do Form2 para o TelaFornecedores
-            telaCadastroFornecedor.StartPosition = FormStartPosition.CenterScreen; //Centraliza a nova tela na tela
-            telaCadastroFornecedor.FormClosed += (s, args) => this.Close();
-            telaCadastroFornecedor.Show();
+            TelaFornecedores telaFornecedores = new TelaFornecedores(userType);
+            telaFornecedores.FormClosed += (s, args) => this.Close();
+            telaFornecedores.Size = this.Size;
+            telaFornecedores.StartPosition = FormStartPosition.CenterScreen;
+            telaFornecedores.Show();
             this.Hide();
         }
     }

@@ -40,16 +40,16 @@
             this.lvBuscarFornecedor = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Telefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CNPJouCPF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Telefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Endereco = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Cidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Estado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Representante = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MateriaPrima = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
             this.Situacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
             this.btnCadastrarNovoFornecedor = new System.Windows.Forms.Button();
             this.btnInativarFornecedor = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -154,17 +154,17 @@
             this.Nome.Text = "Nome";
             this.Nome.Width = 100;
             // 
-            // Telefone
-            // 
-            this.Telefone.DisplayIndex = 2;
-            this.Telefone.Text = "Telefone";
-            this.Telefone.Width = 100;
-            // 
             // CNPJouCPF
             // 
             this.CNPJouCPF.DisplayIndex = 3;
             this.CNPJouCPF.Text = "CNPJ/CPF";
             this.CNPJouCPF.Width = 100;
+            // 
+            // Telefone
+            // 
+            this.Telefone.DisplayIndex = 2;
+            this.Telefone.Text = "Telefone";
+            this.Telefone.Width = 100;
             // 
             // Endereco
             // 
@@ -195,6 +195,11 @@
             this.MateriaPrima.Text = "Matéria Prima";
             this.MateriaPrima.Width = 100;
             // 
+            // Situacao
+            // 
+            this.Situacao.Text = "Situação";
+            this.Situacao.Width = 65;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(687, 284);
@@ -205,11 +210,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Situacao
-            // 
-            this.Situacao.Text = "Situação";
-            this.Situacao.Width = 65;
-            // 
             // btnCadastrarNovoFornecedor
             // 
             this.btnCadastrarNovoFornecedor.Location = new System.Drawing.Point(440, 488);
@@ -218,6 +218,7 @@
             this.btnCadastrarNovoFornecedor.TabIndex = 15;
             this.btnCadastrarNovoFornecedor.Text = "Cadastrar Novo Fornecedor";
             this.btnCadastrarNovoFornecedor.UseVisualStyleBackColor = true;
+            this.btnCadastrarNovoFornecedor.Click += new System.EventHandler(this.btnCadastrarNovoFornecedor_Click);
             // 
             // btnInativarFornecedor
             // 

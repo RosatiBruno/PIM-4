@@ -126,10 +126,15 @@ namespace TelaPimExercicio
             }
         }
 
-        //Fecha o programa ao clicar
+        //Fecha o programa após a confirmação
         private void btnSair_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult resultado = MessageBox.Show("Deseja fechar o Programa?", "Confirmação de Fechamento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

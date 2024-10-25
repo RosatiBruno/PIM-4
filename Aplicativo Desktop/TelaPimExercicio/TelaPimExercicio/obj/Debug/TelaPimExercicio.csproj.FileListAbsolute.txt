@@ -26,3 +26,4 @@ C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercici
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.CadastrarFunc.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaVendas.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaProd.resources
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaCadastroFornecedor.resources
