@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,6 +29,9 @@ namespace TelaPimExercicio
             //Alterando o tamanho da fonte
             alteradorFonteFornecedores = new AlteradorFonteFornecedores(this);
             alteradorFonteFornecedores.AlterarFonteFornecedores(btnLogout, btnRetornar);
+
+            //Desativar o botão ao estar logado sem ser como T.I
+            this.userType = userType;
 
             //Permitindo o redimensionamento da tela
             this.FormBorderStyle = FormBorderStyle.Sizable;
@@ -61,6 +65,10 @@ namespace TelaPimExercicio
 
             //Centraliza no Monitor/Tela
             CenterToScreen();
+
+            //Não permite a digitação na área de ID já que o mesmo é gerado automaticamente
+            txtIDFornecedor.Enabled = false;
+            txtIDFornecedor.Text = RepositorioFornecedores.GerarNovoID().ToString();
         }
 
         private void TelaCadastroFornecedor_Resize(object sender, EventArgs e)
@@ -97,5 +105,79 @@ namespace TelaPimExercicio
             telaFornecedores.Show();
             this.Hide();
         }
+
+        //Botão Home volta ao Menu Inicial (Form2)
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(userType);
+            form2.FormClosed += (s, args) => this.Close();
+            form2.Size = this.Size;
+            form2.StartPosition = FormStartPosition.CenterScreen;
+            form2.Show();
+            this.Hide();
+        }
+
+        //Cadastro de Fornecedor
+        private void btnConfirmarCadastroNovoFornecedor_Click(object sender, EventArgs e)
+        {
+            Fornecedor novoFornecedor = new Fornecedor
+            {
+                //Informações passadas no cadastro do Fornecedor
+
+                //ID = txtIDFornecedor.Text, //Para atribuir o ID que foi digitado
+                ID = RepositorioFornecedores.GerarNovoID(), //Para atribuir o ID sequencial automaticamente
+                Nome = txtNomeFornecedor.Text,
+                CNPJ = txtCpfCnpjFornecedor.Text,
+                Telefone = txtTelefoneFornecedor.Text,
+                Endereco = txtEnderecoFornecedor.Text,
+                Email = txtEmailFornecedor.Text,
+                Cidade = txtCidadeFornecedor.Text,
+                Estado = txtEstadoFornecedor.Text,
+                Representante = txtRepresentanteFornecedor.Text,
+                RazaoSocial = txtRazaoSocialFornecedor.Text,
+                MateriaPrima = txtMateriaPrima.Text,
+                SituacaoFornecedor = txtSituacaoFornecedor.Text,
+            };
+
+            //Dialogo de confirmação de cadastro
+            DialogResult resultado = MessageBox.Show("Deseja realiza o Cadastro?", "Confirmação de Cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                MessageBox.Show("Cadastro Realizado com Sucesso!", "Cadastro Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                //Adiciona o Fornecedor cadastrado à lista de fornecedores
+                RepositorioFornecedores.ListaFornecedores.Add(novoFornecedor);
+            }
+            else
+            {
+                MessageBox.Show("Cadastro Não Realizado!", "Cadastro Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            //Chama a função de limpar o que já está escrito após cadastrar um fornecedor
+            LimparCampos();
+        }
+
+        //Limpa tudo que foi escrito após cadastrar um Fornecedor
+        private void LimparCampos()
+        {
+            txtNomeFornecedor.Clear();
+            txtCpfCnpjFornecedor.Clear();
+            txtTelefoneFornecedor.Clear();
+            txtEnderecoFornecedor.Clear();
+            txtEmailFornecedor.Clear();
+            txtCidadeFornecedor.Clear();
+            txtEstadoFornecedor.Clear();
+            txtRepresentanteFornecedor.Clear();
+            txtRazaoSocialFornecedor.Clear();
+            txtMateriaPrima.Clear();
+            txtSituacaoFornecedor.Clear();
+            //txtCepFornecedor.Clear;
+            txtComplementoFornecedor.Clear();
+
+            //Define o foco no campo txtNomeFornecedor
+            txtNomeFornecedor.Focus();
+        }
+
     }
 }

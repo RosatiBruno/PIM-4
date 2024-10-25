@@ -87,8 +87,36 @@ namespace TelaPimExercicio
 
         }
 
+
+
+        //Chamada da função de atualização da ListView após cadastrar um Fornecedor novo
         private void TelaFornecedores_Load(object sender, EventArgs e)
         {
+            AtualizarListView();
+        }
+
+        //Função para atualizar a ListView após o cadastro de algum fornecedor
+        private void AtualizarListView()
+        {
+            lvBuscarFornecedor.Items.Clear();
+            foreach (var fornecedor in RepositorioFornecedores.ListaFornecedores)
+            {
+                ListViewItem item = new ListViewItem(new[] {
+            fornecedor.ID.ToString(),
+            fornecedor.Nome,
+            fornecedor.Telefone,
+            fornecedor.CNPJ,
+            fornecedor.Endereco,
+            fornecedor.Email,
+            fornecedor.Cidade,
+            fornecedor.Estado,
+            fornecedor.Representante,
+            fornecedor.RazaoSocial,
+            fornecedor.MateriaPrima,
+            fornecedor.SituacaoFornecedor
+        });
+                lvBuscarFornecedor.Items.Add(item);
+            }
         }
 
         //Botão de Logout sai do Programa
@@ -108,8 +136,6 @@ namespace TelaPimExercicio
             this.Hide();
         }
 
-
-
         //PROCURANDO DADOS NA LISTVIEW (VAI SER ALTERADO AINDA!!!! - EM DESENVOLVIMENTO)
         private void btnBuscarFornecedor_Click(object sender, EventArgs e)
         {
@@ -127,18 +153,9 @@ namespace TelaPimExercicio
 
         private void lvBuscarFornecedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
-
-        //INSERIR DADOS FICTICIOS NA LISTVIEW PARA TESTES APENAS
-        private void button1_Click(object sender, EventArgs e)
-        {
-            lvBuscarFornecedor.Items.Add(new ListViewItem(new[] { "1", "Carlos", "12345678910", "(11) 91234-5678", "rua X", "email@email.com", "Jacareí", "SP", "Pablo", "Alface", "Ativo" }));
-            lvBuscarFornecedor.Items.Add(new ListViewItem(new[] { "2", "Pedro", "132.432.543.73", "(12) 9999-2222", "Avenida Y", "teste@email.com", "São José dos Campos", "SP", "Roberto", "Laranja", "Ativo" }));
-            lvBuscarFornecedor.Items.Add(new ListViewItem(new[] { "3", "Isabela", "77777777777", "(42) 93333-1111", "Embocadura la longe", "isa@email.com", "diadema", "SP", "Joana", "repolho", "Inativo" }));
-        }
-
+        //Botão que vai para a tela de cadastro de novo fornecedor
         private void btnCadastrarNovoFornecedor_Click(object sender, EventArgs e)
         {
             TelaCadastroFornecedor telaCadastroFornecedor = new TelaCadastroFornecedor(userType);

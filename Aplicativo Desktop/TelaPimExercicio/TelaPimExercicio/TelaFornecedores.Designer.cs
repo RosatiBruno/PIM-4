@@ -49,9 +49,9 @@
             this.Representante = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MateriaPrima = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Situacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
             this.btnCadastrarNovoFornecedor = new System.Windows.Forms.Button();
             this.btnInativarFornecedor = new System.Windows.Forms.Button();
+            this.RazaoSocial = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // btnLogout
@@ -127,13 +127,14 @@
             this.lvBuscarFornecedor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.Nome,
-            this.CNPJouCPF,
             this.Telefone,
+            this.CNPJouCPF,
             this.Endereco,
             this.Email,
             this.Cidade,
             this.Estado,
             this.Representante,
+            this.RazaoSocial,
             this.MateriaPrima,
             this.Situacao});
             this.lvBuscarFornecedor.HideSelection = false;
@@ -192,23 +193,15 @@
             // 
             // MateriaPrima
             // 
+            this.MateriaPrima.DisplayIndex = 9;
             this.MateriaPrima.Text = "Matéria Prima";
             this.MateriaPrima.Width = 100;
             // 
             // Situacao
             // 
+            this.Situacao.DisplayIndex = 10;
             this.Situacao.Text = "Situação";
             this.Situacao.Width = 65;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(687, 284);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 48);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Incluir Dados Ficticios";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCadastrarNovoFornecedor
             // 
@@ -229,6 +222,12 @@
             this.btnInativarFornecedor.Text = "Inativar Fornecedor";
             this.btnInativarFornecedor.UseVisualStyleBackColor = true;
             // 
+            // RazaoSocial
+            // 
+            this.RazaoSocial.DisplayIndex = 11;
+            this.RazaoSocial.Text = "Razão Social";
+            this.RazaoSocial.Width = 100;
+            // 
             // TelaFornecedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,7 +235,6 @@
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.btnInativarFornecedor);
             this.Controls.Add(this.btnCadastrarNovoFornecedor);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.lvBuscarFornecedor);
             this.Controls.Add(this.btnBuscarFornecedor);
             this.Controls.Add(this.lblBuscarFornecedor);
@@ -271,9 +269,9 @@
         private System.Windows.Forms.ColumnHeader Estado;
         private System.Windows.Forms.ColumnHeader Representante;
         private System.Windows.Forms.ColumnHeader MateriaPrima;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ColumnHeader Situacao;
         private System.Windows.Forms.Button btnCadastrarNovoFornecedor;
         private System.Windows.Forms.Button btnInativarFornecedor;
+        private System.Windows.Forms.ColumnHeader RazaoSocial;
     }
 }
