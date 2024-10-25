@@ -25,7 +25,7 @@ namespace TelaPimExercicio
         {
             InitializeComponent();
 
-            //TESTE
+            //Desativar o botão ao estar logado sem ser como T.I
             this.userType = userType;
 
             //Permitindo o redimensionamento da tela
@@ -54,6 +54,10 @@ namespace TelaPimExercicio
             this.Controls.Add(colorBg.Panel);
 
             this.Resize += TelaProds_Resize;
+
+            //Alterando o tamanho da fonte
+            AlteradorFonteProducao alteradorFonte = new AlteradorFonteProducao(this);
+            alteradorFonte.AlterarFonteProducao(btnLogout, btnRetornar);
 
             //Iniciando o Logout
             logout = new Logout(this);

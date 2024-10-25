@@ -38,7 +38,7 @@ namespace TelaPimExercicio
 
             //Criando e adicionando o quadrado cinza
             colorSquare = new ColorSquare(this);
-            this.Controls.Add(colorSquare.Panel);        
+            this.Controls.Add(colorSquare.Panel);    
 
             //Criando e adicionando a cor verde de fundo
             colorBg = new ColorBackground(this);
@@ -47,7 +47,10 @@ namespace TelaPimExercicio
             //Inicializando o centralizador
             centralizador = new Centralizador(this);
             centralizador.Centralizar(txtId, txtSenha, lblId, lblSenha, btnLogin, btnSair, lblLogin, lblBemVindo);
-            btnSair.Location = new Point(btnLogin.Right + 10, btnLogin.Top); // Alinha ao lado do btnLogin
+
+            //Inicializando o centralizador do btnSair
+            ReposicionarBtnSair reposicionarBtnSair = new ReposicionarBtnSair(this);
+            reposicionarBtnSair.Centralizar(btnLogin, btnSair);
 
             //Atualiza os componente ao redimensionar a tela
             this.Resize += Form1_Resize;
@@ -65,6 +68,8 @@ namespace TelaPimExercicio
 
             //Recalcular a centralização dos componentes
             centralizador.Centralizar(txtId, txtSenha, lblId, lblSenha, btnLogin, btnSair, lblLogin, lblBemVindo);
+            ReposicionarBtnSair reposicionarBtnSair = new ReposicionarBtnSair(this);
+            reposicionarBtnSair.Centralizar(btnLogin, btnSair);
 
             //Centralizar o quadrado cinza
             colorSquare.Panel.Location = new Point((this.ClientSize.Width - colorSquare.Panel.Width) / 2,

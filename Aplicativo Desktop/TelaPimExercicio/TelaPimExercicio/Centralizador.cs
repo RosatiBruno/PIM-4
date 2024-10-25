@@ -58,7 +58,6 @@ namespace TelaPimExercicio
 
             //Deixando a fonte em negrito (Login)
             lblLogin.Font = new Font(lblId.Font, FontStyle.Bold);
-
         }
     }
 }

@@ -20,6 +20,7 @@ namespace TelaPimExercicio
         private Centralizador2 centralizador2;
         private Logout logout;
         private string userType;
+        private AlteradorFonteVendas alteradorFonteVendas;
 
         public TelaVendas(string userType)
         {
@@ -57,6 +58,9 @@ namespace TelaPimExercicio
 
             //Iniciando o Logout
             logout = new Logout(this);
+
+            alteradorFonteVendas = new AlteradorFonteVendas(this);
+            alteradorFonteVendas.AlterarFonteVendas(btnLogout, btnRetornar);
 
             //Centraliza no Monitor/Tela
             CenterToScreen();

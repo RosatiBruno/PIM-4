@@ -51,6 +51,8 @@
     <Compile Include="AlteradorFonteMenu.cs" />
     <Compile Include="AlteradorFontePedidos.cs" />
     <Compile Include="AlteradorFonteProdutos.cs" />
+    <Compile Include="AlteradorFonteVendas.cs" />
+    <Compile Include="AlterarFonteProducao.cs" />
     <Compile Include="CadastrarFunc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +81,7 @@
     <Compile Include="Logout.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReposicionarBtnSair.cs" />
     <Compile Include="TelaFornecedores.cs">
       <SubType>Form</SubType>
     </Compile>
