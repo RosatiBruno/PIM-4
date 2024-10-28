@@ -50,10 +50,11 @@
             this.RazaoSocial = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MateriaPrima = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Situacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnCadastrarNovoFornecedor = new System.Windows.Forms.Button();
-            this.btnInativarFornecedor = new System.Windows.Forms.Button();
             this.Complemento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CEP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnCadastrarNovoFornecedor = new System.Windows.Forms.Button();
+            this.btnInativarFornecedor = new System.Windows.Forms.Button();
+            this.lblTituloFornecedoresCadastrados = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -122,7 +123,7 @@
             this.btnBuscarFornecedor.TabIndex = 12;
             this.btnBuscarFornecedor.Text = "Buscar";
             this.btnBuscarFornecedor.UseVisualStyleBackColor = true;
-            this.btnBuscarFornecedor.Click += new System.EventHandler(this.btnBuscarFornecedor_Click);
+            this.btnBuscarFornecedor.Click += new System.EventHandler(this.btnBuscarFornecedor_Click_1);
             // 
             // lvBuscarFornecedor
             // 
@@ -211,6 +212,16 @@
             this.Situacao.Text = "Situação";
             this.Situacao.Width = 65;
             // 
+            // Complemento
+            // 
+            this.Complemento.Text = "Complemento";
+            this.Complemento.Width = 100;
+            // 
+            // CEP
+            // 
+            this.CEP.Text = "CEP";
+            this.CEP.Width = 100;
+            // 
             // btnCadastrarNovoFornecedor
             // 
             this.btnCadastrarNovoFornecedor.Location = new System.Drawing.Point(440, 488);
@@ -229,22 +240,23 @@
             this.btnInativarFornecedor.TabIndex = 16;
             this.btnInativarFornecedor.Text = "Inativar Fornecedor";
             this.btnInativarFornecedor.UseVisualStyleBackColor = true;
+            this.btnInativarFornecedor.Click += new System.EventHandler(this.btnInativarFornecedor_Click);
             // 
-            // Complemento
+            // lblTituloFornecedoresCadastrados
             // 
-            this.Complemento.Text = "Complemento";
-            this.Complemento.Width = 100;
-            // 
-            // CEP
-            // 
-            this.CEP.Text = "CEP";
-            this.CEP.Width = 100;
+            this.lblTituloFornecedoresCadastrados.AutoSize = true;
+            this.lblTituloFornecedoresCadastrados.Location = new System.Drawing.Point(334, 29);
+            this.lblTituloFornecedoresCadastrados.Name = "lblTituloFornecedoresCadastrados";
+            this.lblTituloFornecedoresCadastrados.Size = new System.Drawing.Size(134, 13);
+            this.lblTituloFornecedoresCadastrados.TabIndex = 43;
+            this.lblTituloFornecedoresCadastrados.Text = "Fornecedores Cadastrados";
             // 
             // TelaFornecedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.lblTituloFornecedoresCadastrados);
             this.Controls.Add(this.btnInativarFornecedor);
             this.Controls.Add(this.btnCadastrarNovoFornecedor);
             this.Controls.Add(this.lvBuscarFornecedor);
@@ -287,5 +299,6 @@
         private System.Windows.Forms.ColumnHeader RazaoSocial;
         private System.Windows.Forms.ColumnHeader Complemento;
         private System.Windows.Forms.ColumnHeader CEP;
+        private System.Windows.Forms.Label lblTituloFornecedoresCadastrados;
     }
 }

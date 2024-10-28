@@ -28,8 +28,12 @@ namespace TelaPimExercicio
 
     public static class RepositorioFornecedores
     {
-        //Lista de fornecedores
+        //Lista de fornecedores ativos
         public static List<Fornecedor> ListaFornecedores = new List<Fornecedor>();
+
+        //Lista de fornecedores inativos
+        public static List<Fornecedor> ListaFornecedoresInativos { get; set; } = new List<Fornecedor>();
+
         private static int proximoID = 1; //Contador de ID começa em 1
 
         //Gera o próximo ID automaticamente

@@ -10,7 +10,7 @@ namespace TelaPimExercicio
         public ColorSquare(Form form)
         {
             // Tamanho do "quadrado"
-            int horizontal = 300;
+            int horizontal = 370;
             int vertical = 250;
 
             Panel = new Panel

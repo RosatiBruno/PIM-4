@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -96,7 +97,7 @@ namespace TelaPimExercicio
         }
 
         //Função para atualizar a ListView após o cadastro de algum fornecedor
-        private void AtualizarListView()
+        public void AtualizarListView()
         {
             lvBuscarFornecedor.Items.Clear();
             foreach (var fornecedor in RepositorioFornecedores.ListaFornecedores)
@@ -138,25 +139,6 @@ namespace TelaPimExercicio
             this.Hide();
         }
 
-        //PROCURANDO DADOS NA LISTVIEW (VAI SER ALTERADO AINDA!!!! - EM DESENVOLVIMENTO)
-        private void btnBuscarFornecedor_Click(object sender, EventArgs e)
-        {
-            foreach (ListViewItem item in lvBuscarFornecedor.Items)
-            {
-                if (txtBuscarFornecedor.Text.ToLower() == item.SubItems[2].Text.ToLower()) //O nmr entre '[]' é a casa da listview q procura
-                {
-                    lvBuscarFornecedor.Focus();
-                    item.Selected = true;
-                    lvBuscarFornecedor.TopItem = item;
-                    break;
-                }
-            }
-        }
-
-        private void lvBuscarFornecedor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
         //Botão que vai para a tela de cadastro de novo fornecedor
         private void btnCadastrarNovoFornecedor_Click(object sender, EventArgs e)
         {
@@ -167,5 +149,42 @@ namespace TelaPimExercicio
             telaCadastroFornecedor.Show();
             this.Hide();
         }
+
+        //PROCURANDO DADOS NA LISTVIEW (VAI SER ALTERADO AINDA!!!! - EM DESENVOLVIMENTO)
+        private void btnBuscarFornecedor_Click_1(object sender, EventArgs e)
+        {
+            bool itemEncontrado = false;
+            string termoBusca = txtBuscarFornecedor.Text.ToLower().Trim();
+
+            foreach (ListViewItem item in lvBuscarFornecedor.Items)
+            {
+                if (item.SubItems[3].Text.ToLower().Contains(termoBusca)) //O nmr entre '[]' é a casa da listview q procura
+                {
+                    item.Selected = true;
+                    lvBuscarFornecedor.TopItem = item; //Traz o fornecedor procurado para o topo da lista
+                    lvBuscarFornecedor.Focus(); //Define o foco na ListView
+                    itemEncontrado = true;
+                    break;
+                }
+            }
+            //Exibe uma mensagem caso não ache nenhum Fornecedor
+            if (!itemEncontrado)
+            {
+                MessageBox.Show("Fornecedor não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        //Botão de inativar fornecedor
+        private void btnInativarFornecedor_Click(object sender, EventArgs e)
+        {
+            TelaInativarFornecedor telaInativarFornecedor = new TelaInativarFornecedor(userType);
+            telaInativarFornecedor.Size = this.Size; //Passa o tamanho do Form2 para o TelaProd
+            telaInativarFornecedor.StartPosition = FormStartPosition.CenterScreen; //Centraliza a nova tela na tela
+            telaInativarFornecedor.FormClosed += (s, args) => this.Close();
+            telaInativarFornecedor.Show();
+            this.Hide();
+        }
+
+
     }
 }
