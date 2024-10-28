@@ -92,33 +92,66 @@ namespace TelaPimExercicio
             if (tempId == "func" && tempSenha == "1234")
             {
                 userType = "funcionario";
-                Form2 form2 = new Form2(userType);
-                form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
-                form2.Size = this.Size;
-                form2.StartPosition = FormStartPosition.CenterScreen;
-                form2.Show();
-                this.Hide(); //Oculta o Form1 enquanto o Form2 está aberto
+                // Exibe a tela de confirmação de login
+                ConfirmacaoLogin confirmacaoLogin = new ConfirmacaoLogin();
+                confirmacaoLogin.ShowDialog(); // Mostra a tela como uma janela modal
+
+                // Após a confirmação do login, você pode abrir o Form2 se necessário
+                if (confirmacaoLogin.LoginConfirmado) // Supondo que você implemente uma propriedade LoginConfirmado na ConfirmacaoLogin
+                {
+                    Form2 form2 = new Form2(userType);
+                    form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
+                    form2.Size = this.Size;
+                    form2.StartPosition = FormStartPosition.CenterScreen;
+                    form2.Show();
+                    this.Hide(); //Oculta o Form1 enquanto o Form2 está aberto
+                }
             }
+
+            /*Form2 form2 = new Form2(userType);
+            form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
+            form2.Size = this.Size;
+            form2.StartPosition = FormStartPosition.CenterScreen;
+            form2.Show();
+            this.Hide(); //Oculta o Form1 enquanto o Form2 está aberto*/
+        //}
             else if (tempId == "gerente" && tempSenha == "1234")
             {
                 userType = "gerente";
-                Form2 form2 = new Form2(userType);
-                form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
-                form2.Size = this.Size;
-                form2.StartPosition = FormStartPosition.CenterScreen;
-                form2.Show();
-                this.Hide(); //Oculta o Form1 enquanto o Form2 está aberto
+                // Exibe a tela de confirmação de login
+                ConfirmacaoLogin confirmacaoLogin = new ConfirmacaoLogin();
+                confirmacaoLogin.ShowDialog(); // Mostra a tela como uma janela modal
+
+                // Após a confirmação do login, você pode abrir o Form2 se necessário
+                if (confirmacaoLogin.LoginConfirmado) // Supondo que você implemente uma propriedade LoginConfirmado na ConfirmacaoLogin
+                {
+                    Form2 form2 = new Form2(userType);
+                    form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
+                    form2.Size = this.Size;
+                    form2.StartPosition = FormStartPosition.CenterScreen;
+                    form2.Show();
+                    this.Hide(); //Oculta o Form1 enquanto o Form2 está aberto
+                }
             }
             else if (tempId == "ti" && tempSenha == "1234")
             {
                 userType = "ti";
-                Form2 form2 = new Form2(userType);
-                form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
-                form2.Size = this.Size;
-                form2.StartPosition = FormStartPosition.CenterScreen;
-                form2.Show();
-                this.Hide(); //Oculta o Form1 enquanto o Form2 está aberto
+                // Exibe a tela de confirmação de login
+                ConfirmacaoLogin confirmacaoLogin = new ConfirmacaoLogin();
+                confirmacaoLogin.ShowDialog(); // Mostra a tela como uma janela modal
+
+                // Após a confirmação do login, você pode abrir o Form2 se necessário
+                if (confirmacaoLogin.LoginConfirmado) // Supondo que você implemente uma propriedade LoginConfirmado na ConfirmacaoLogin
+                {
+                    Form2 form2 = new Form2(userType);
+                    form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
+                    form2.Size = this.Size;
+                    form2.StartPosition = FormStartPosition.CenterScreen;
+                    form2.Show();
+                    this.Hide(); //Oculta o Form1 enquanto o Form2 está aberto
+                }
             }
+            
             else
             {
                 MessageBox.Show("Login ou senha incorretos! Tente novamente!", "Erro ao efetuar o Login!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -136,5 +169,7 @@ namespace TelaPimExercicio
                 this.Close();
             }
         }
+
+
     }
 }

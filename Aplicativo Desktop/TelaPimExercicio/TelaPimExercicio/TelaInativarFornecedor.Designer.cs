@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaInativarFornecedor));
             this.btnLogout = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.lblBuscarFornecedorInativar = new System.Windows.Forms.Label();
             this.txtBuscarFornecedorInativar = new System.Windows.Forms.TextBox();
             this.btnBuscarFornecedorInativar = new System.Windows.Forms.Button();
@@ -50,9 +51,7 @@
             this.Complemento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CEP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRetornar = new System.Windows.Forms.Button();
-            this.btnInativar = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnHome = new System.Windows.Forms.Button();
             this.lblTituloInativarFornecedor = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -69,6 +68,14 @@
             this.btnLogout.Text = "Logout";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogout.UseVisualStyleBackColor = true;
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "Engrenagem.png");
+            this.imageList2.Images.SetKeyName(1, "Logout.png");
+            this.imageList2.Images.SetKeyName(2, "home.png");
             // 
             // lblBuscarFornecedorInativar
             // 
@@ -207,28 +214,11 @@
             this.btnRetornar.UseVisualStyleBackColor = true;
             this.btnRetornar.Click += new System.EventHandler(this.btnRetornar_Click);
             // 
-            // btnInativar
-            // 
-            this.btnInativar.Location = new System.Drawing.Point(570, 488);
-            this.btnInativar.Name = "btnInativar";
-            this.btnInativar.Size = new System.Drawing.Size(91, 38);
-            this.btnInativar.TabIndex = 17;
-            this.btnInativar.Text = "???";
-            this.btnInativar.UseVisualStyleBackColor = true;
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "SetinhaVoltar2.png");
-            // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "Engrenagem.png");
-            this.imageList2.Images.SetKeyName(1, "Logout.png");
-            this.imageList2.Images.SetKeyName(2, "home.png");
             // 
             // btnHome
             // 
@@ -260,7 +250,6 @@
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.lblTituloInativarFornecedor);
             this.Controls.Add(this.btnHome);
-            this.Controls.Add(this.btnInativar);
             this.Controls.Add(this.btnRetornar);
             this.Controls.Add(this.lvBuscarFornecedorInativar);
             this.Controls.Add(this.btnBuscarFornecedorInativar);
@@ -299,7 +288,6 @@
         private System.Windows.Forms.Button btnRetornar;
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button btnInativar;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label lblTituloInativarFornecedor;
     }
