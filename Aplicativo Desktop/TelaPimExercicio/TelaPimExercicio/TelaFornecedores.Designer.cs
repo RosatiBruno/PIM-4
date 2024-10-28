@@ -149,6 +149,7 @@
             this.lvBuscarFornecedor.TabIndex = 13;
             this.lvBuscarFornecedor.UseCompatibleStateImageBehavior = false;
             this.lvBuscarFornecedor.View = System.Windows.Forms.View.Details;
+            this.lvBuscarFornecedor.SelectedIndexChanged += new System.EventHandler(this.lvBuscarFornecedor_SelectedIndexChanged);
             // 
             // ID
             // 

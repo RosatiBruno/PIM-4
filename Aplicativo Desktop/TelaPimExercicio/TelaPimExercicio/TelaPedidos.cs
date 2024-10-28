@@ -86,9 +86,47 @@ namespace TelaPimExercicio
 
         }
 
-        private void TelaFornecedores_Load(object sender, EventArgs e)
-        {
 
+
+
+
+
+
+
+
+
+        //Chamada da função de atualização da ListView após cadastrar um Pedido novo
+        private void TelaPedidos_Load(object sender, EventArgs e)
+        {
+            AtualizarListView();
+        }
+
+        //Função para atualizar a ListView após o cadastro de algum pedido
+        public void AtualizarListView()
+        {
+            lvBuscarPedidos.Items.Clear();
+            foreach (var pedidos in RepositorioPedidos.ListaPedidos)
+            {
+                ListViewItem item = new ListViewItem(new[] {
+            pedidos.ID.ToString(),
+            pedidos.Nome,
+            pedidos.Quantidade.ToString(),
+            pedidos.ValorUnitario.ToString(),
+            pedidos.EmpresaCompra,
+        });
+                lvBuscarPedidos.Items.Add(item);
+            }
+        }
+
+
+
+
+
+
+
+
+        private void TelaFornecedores_Load(object sender, EventArgs e)
+        { 
         }
 
         //Botão Retornar volta ao Menu Inicial (Form2)
@@ -106,6 +144,49 @@ namespace TelaPimExercicio
         private void btnLogout2_Click_1(object sender, EventArgs e)
         {
             logout.ShowLogoutDialog();
+        }
+
+        //PROCURANDO DADOS NA LISTVIEW (VAI SER ALTERADO AINDA!!!! - EM DESENVOLVIMENTO)
+        private void btnBuscarPedido_Click(object sender, EventArgs e)
+        {
+            bool itemEncontrado = false;
+            string termoBusca = lvBuscarPedidos.Text.ToLower().Trim();
+
+            foreach (ListViewItem item in lvBuscarPedidos.Items)
+            {
+                if (item.SubItems[0].Text.ToLower().Contains(termoBusca)) //O nmr entre '[]' é a casa da listview q procura
+                {
+                    item.Selected = true;
+                    lvBuscarPedidos.TopItem = item; //Traz o pedido procurado para o topo da lista
+                    lvBuscarPedidos.Focus(); //Define o foco na ListView
+                    itemEncontrado = true;
+                    break;
+                }
+            }
+            //Exibe uma mensagem caso não ache nenhum Pedido
+            if (!itemEncontrado)
+            {
+                MessageBox.Show("Pedido não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnCadastrarNovoPedido_Click(object sender, EventArgs e)
+        {
+            TelaCadastroPedido telaCadastroPedido = new TelaCadastroPedido(userType);
+            telaCadastroPedido.Size = this.Size; //Passa o tamanho do Form2 para o TelaFornecedores
+            telaCadastroPedido.StartPosition = FormStartPosition.CenterScreen; //Centraliza a nova tela na tela
+            telaCadastroPedido.FormClosed += (s, args) => this.Close();
+            telaCadastroPedido.Show();
+            this.Hide();
+        }
+
+        private void lvBuscarPedidos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void TelaPedidos_Load_1(object sender, EventArgs e)
+        {
+            AtualizarListView();
         }
     }
 }

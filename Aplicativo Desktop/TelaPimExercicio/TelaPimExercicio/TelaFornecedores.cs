@@ -185,6 +185,9 @@ namespace TelaPimExercicio
             this.Hide();
         }
 
+        private void lvBuscarFornecedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

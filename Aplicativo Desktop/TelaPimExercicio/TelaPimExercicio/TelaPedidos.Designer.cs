@@ -34,15 +34,19 @@
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnRetornar2 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.lvPedidos = new System.Windows.Forms.ListView();
+            this.lvBuscarPedidos = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnCadastrarNovoPedido = new System.Windows.Forms.Button();
             this.Quantidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ValorUnitario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EmpresaCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnCadastrarNovoPedido = new System.Windows.Forms.Button();
             this.btnExcluirPedido = new System.Windows.Forms.Button();
             this.btnEditarPedido = new System.Windows.Forms.Button();
+            this.lblTituloPedidosCadastrados = new System.Windows.Forms.Label();
+            this.btnBuscarPedido = new System.Windows.Forms.Button();
+            this.lblBuscarFornecedor = new System.Windows.Forms.Label();
+            this.txtBuscarPedido = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnLogout2
@@ -86,21 +90,22 @@
             this.imageList1.Images.SetKeyName(0, "Logout.png");
             this.imageList1.Images.SetKeyName(1, "SetinhaVoltar2.png");
             // 
-            // lvPedidos
+            // lvBuscarPedidos
             // 
-            this.lvPedidos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvBuscarPedidos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.Nome,
             this.Quantidade,
             this.ValorUnitario,
             this.EmpresaCompra});
-            this.lvPedidos.HideSelection = false;
-            this.lvPedidos.Location = new System.Drawing.Point(148, 74);
-            this.lvPedidos.Name = "lvPedidos";
-            this.lvPedidos.Size = new System.Drawing.Size(510, 335);
-            this.lvPedidos.TabIndex = 14;
-            this.lvPedidos.UseCompatibleStateImageBehavior = false;
-            this.lvPedidos.View = System.Windows.Forms.View.Details;
+            this.lvBuscarPedidos.HideSelection = false;
+            this.lvBuscarPedidos.Location = new System.Drawing.Point(151, 142);
+            this.lvBuscarPedidos.Name = "lvBuscarPedidos";
+            this.lvBuscarPedidos.Size = new System.Drawing.Size(510, 335);
+            this.lvBuscarPedidos.TabIndex = 14;
+            this.lvBuscarPedidos.UseCompatibleStateImageBehavior = false;
+            this.lvBuscarPedidos.View = System.Windows.Forms.View.Details;
+            this.lvBuscarPedidos.SelectedIndexChanged += new System.EventHandler(this.lvBuscarPedidos_SelectedIndexChanged);
             // 
             // ID
             // 
@@ -111,15 +116,6 @@
             // 
             this.Nome.Text = "Nome";
             this.Nome.Width = 150;
-            // 
-            // btnCadastrarNovoPedido
-            // 
-            this.btnCadastrarNovoPedido.Location = new System.Drawing.Point(335, 484);
-            this.btnCadastrarNovoPedido.Name = "btnCadastrarNovoPedido";
-            this.btnCadastrarNovoPedido.Size = new System.Drawing.Size(91, 38);
-            this.btnCadastrarNovoPedido.TabIndex = 16;
-            this.btnCadastrarNovoPedido.Text = "Cadastrar Novo Pedido";
-            this.btnCadastrarNovoPedido.UseVisualStyleBackColor = true;
             // 
             // Quantidade
             // 
@@ -135,6 +131,16 @@
             // 
             this.EmpresaCompra.Text = "Empresa Responsável pela Compra";
             this.EmpresaCompra.Width = 170;
+            // 
+            // btnCadastrarNovoPedido
+            // 
+            this.btnCadastrarNovoPedido.Location = new System.Drawing.Point(335, 484);
+            this.btnCadastrarNovoPedido.Name = "btnCadastrarNovoPedido";
+            this.btnCadastrarNovoPedido.Size = new System.Drawing.Size(91, 38);
+            this.btnCadastrarNovoPedido.TabIndex = 16;
+            this.btnCadastrarNovoPedido.Text = "Cadastrar Novo Pedido";
+            this.btnCadastrarNovoPedido.UseVisualStyleBackColor = true;
+            this.btnCadastrarNovoPedido.Click += new System.EventHandler(this.btnCadastrarNovoPedido_Click);
             // 
             // btnExcluirPedido
             // 
@@ -154,20 +160,61 @@
             this.btnEditarPedido.Text = "Editar um Pedido";
             this.btnEditarPedido.UseVisualStyleBackColor = true;
             // 
+            // lblTituloPedidosCadastrados
+            // 
+            this.lblTituloPedidosCadastrados.AutoSize = true;
+            this.lblTituloPedidosCadastrados.Location = new System.Drawing.Point(334, 29);
+            this.lblTituloPedidosCadastrados.Name = "lblTituloPedidosCadastrados";
+            this.lblTituloPedidosCadastrados.Size = new System.Drawing.Size(107, 13);
+            this.lblTituloPedidosCadastrados.TabIndex = 44;
+            this.lblTituloPedidosCadastrados.Text = "Pedidos Cadastrados";
+            // 
+            // btnBuscarPedido
+            // 
+            this.btnBuscarPedido.Location = new System.Drawing.Point(573, 86);
+            this.btnBuscarPedido.Name = "btnBuscarPedido";
+            this.btnBuscarPedido.Size = new System.Drawing.Size(89, 35);
+            this.btnBuscarPedido.TabIndex = 47;
+            this.btnBuscarPedido.Text = "Buscar";
+            this.btnBuscarPedido.UseVisualStyleBackColor = true;
+            this.btnBuscarPedido.Click += new System.EventHandler(this.btnBuscarPedido_Click);
+            // 
+            // lblBuscarFornecedor
+            // 
+            this.lblBuscarFornecedor.AutoSize = true;
+            this.lblBuscarFornecedor.Location = new System.Drawing.Point(148, 74);
+            this.lblBuscarFornecedor.Name = "lblBuscarFornecedor";
+            this.lblBuscarFornecedor.Size = new System.Drawing.Size(214, 13);
+            this.lblBuscarFornecedor.TabIndex = 46;
+            this.lblBuscarFornecedor.Text = "Digite o ID do Pedido que Deseja Encontrar";
+            // 
+            // txtBuscarPedido
+            // 
+            this.txtBuscarPedido.Location = new System.Drawing.Point(151, 101);
+            this.txtBuscarPedido.Name = "txtBuscarPedido";
+            this.txtBuscarPedido.Size = new System.Drawing.Size(312, 20);
+            this.txtBuscarPedido.TabIndex = 45;
+            // 
             // TelaPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnBuscarPedido);
+            this.Controls.Add(this.lblBuscarFornecedor);
+            this.Controls.Add(this.txtBuscarPedido);
+            this.Controls.Add(this.lblTituloPedidosCadastrados);
             this.Controls.Add(this.btnEditarPedido);
             this.Controls.Add(this.btnExcluirPedido);
             this.Controls.Add(this.btnCadastrarNovoPedido);
-            this.Controls.Add(this.lvPedidos);
+            this.Controls.Add(this.lvBuscarPedidos);
             this.Controls.Add(this.btnRetornar2);
             this.Controls.Add(this.btnLogout2);
             this.Name = "TelaPedidos";
-            this.Text = "TelaPedidos";
+            this.Text = "Pedidos";
+            this.Load += new System.EventHandler(this.TelaPedidos_Load_1);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -177,7 +224,7 @@
         private System.Windows.Forms.Button btnRetornar2;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ImageList imageList2;
-        private System.Windows.Forms.ListView lvPedidos;
+        private System.Windows.Forms.ListView lvBuscarPedidos;
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.Button btnCadastrarNovoPedido;
@@ -186,5 +233,9 @@
         private System.Windows.Forms.ColumnHeader EmpresaCompra;
         private System.Windows.Forms.Button btnExcluirPedido;
         private System.Windows.Forms.Button btnEditarPedido;
+        private System.Windows.Forms.Label lblTituloPedidosCadastrados;
+        private System.Windows.Forms.Button btnBuscarPedido;
+        private System.Windows.Forms.Label lblBuscarFornecedor;
+        private System.Windows.Forms.TextBox txtBuscarPedido;
     }
 }

@@ -160,11 +160,11 @@ namespace TelaPimExercicio
         private void btnHome_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2(userType);
-             form2.FormClosed += (s, args) => this.Close();
-             form2.Size = this.Size;
-             form2.StartPosition = FormStartPosition.CenterScreen;
-             form2.Show();
-             this.Hide();
+            form2.FormClosed += (s, args) => this.Close();
+            form2.Size = this.Size;
+            form2.StartPosition = FormStartPosition.CenterScreen;
+            form2.Show();
+            this.Hide();
         }
 
         private void TelaInativarFornecedor_Load(object sender, EventArgs e)
