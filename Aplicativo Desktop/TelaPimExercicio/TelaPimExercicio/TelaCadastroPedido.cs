@@ -128,7 +128,8 @@ namespace TelaPimExercicio
                 ID = RepositorioPedidos.GerarNovoID(), //Para atribuir o ID sequencial automaticamente
                 Nome = txtNomeProduto.Text,
                 Quantidade = int.TryParse(txtQuantidadePedido.Text, out int quantidade) ? quantidade : 1,
-                ValorUnitario = int.TryParse(txtValorUnitario.Text, out int valorUnitario) ? valorUnitario : 1,
+                //ValorUnitario = int.TryParse(txtValorUnitario.Text, out int valorUnitario) ? valorUnitario : 1,
+                ValorUnitario = decimal.TryParse(txtValorUnitario.Text, out decimal valorUnitario) ? valorUnitario : 1,
                 EmpresaCompra = txtEmpresaCompra.Text,
             };
 

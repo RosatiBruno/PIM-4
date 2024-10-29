@@ -159,6 +159,7 @@
             this.btnEditarPedido.TabIndex = 18;
             this.btnEditarPedido.Text = "Editar um Pedido";
             this.btnEditarPedido.UseVisualStyleBackColor = true;
+            this.btnEditarPedido.Click += new System.EventHandler(this.btnEditarPedido_Click);
             // 
             // lblTituloPedidosCadastrados
             // 

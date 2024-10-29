@@ -124,7 +124,7 @@ namespace TelaPimExercicio
                 ID = RepositorioProdutos.GerarNovoID(), //Para atribuir o ID sequencial automaticamente
                 Nome = txtNomeProduto.Text,
                 Quantidade = int.TryParse(txtQuantidadeProduto.Text, out int quantidade) ? quantidade : 1,
-                ValorUnitario = int.TryParse(txtValorUnitarioProduto.Text, out int valorUnitario) ? valorUnitario : 1,
+                ValorUnitario = decimal.TryParse(txtValorUnitarioProduto.Text, out decimal valorUnitario) ? valorUnitario : 1,
                 EmpresaCompra = txtEmpresaCompraProduto.Text,
             };
 
@@ -158,8 +158,6 @@ namespace TelaPimExercicio
             //Define o foco no campo txtNomeFornecedor
             txtNomeProduto.Focus();
         }
-
-
 
 
     }

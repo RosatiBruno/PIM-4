@@ -13,7 +13,6 @@ namespace TelaPimExercicio
 {
     public partial class TelaPedidos : Form
     {
-
         private Logo logo;
         private ColorBar2 colorBar;
         private ColorBackground colorBg;
@@ -173,6 +172,16 @@ namespace TelaPimExercicio
             telaExcluirPedido.Size = this.Size;
             telaExcluirPedido.StartPosition = FormStartPosition.CenterScreen;
             telaExcluirPedido.Show();
+            this.Hide();
+        }
+
+        private void btnEditarPedido_Click(object sender, EventArgs e)
+        {
+            TelaEditarPedidos telaEditarPedidos = new TelaEditarPedidos(userType, this);
+            telaEditarPedidos.FormClosed += (s, args) => this.Close();
+            telaEditarPedidos.Size = this.Size;
+            telaEditarPedidos.StartPosition = FormStartPosition.CenterScreen;
+            telaEditarPedidos.Show();
             this.Hide();
         }
     }
