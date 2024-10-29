@@ -30,3 +30,4 @@ C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercici
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaInativarFornecedor.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.ConfirmacaoLogin.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaCadastroPedido.resources
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaExcluirPedido.resources

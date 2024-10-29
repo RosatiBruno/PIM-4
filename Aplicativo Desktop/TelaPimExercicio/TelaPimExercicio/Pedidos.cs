@@ -19,11 +19,11 @@ namespace TelaPimExercicio
 
     public static class RepositorioPedidos
     {
-        //Lista de fornecedores ativos
+        //Lista de pedidos ativos
         public static List<Pedidos> ListaPedidos = new List<Pedidos>();
 
-        //Lista de fornecedores inativos
-        //public static List<Pedidos> ListaPedidosInativos { get; set; } = new List<Pedidos>();
+        //Lista de pedidos excluidos
+        public static List<Pedidos> ListaPedidosExcluidos { get; set; } = new List<Pedidos>();
 
         private static int proximoID = 1; //Contador de ID começa em 1
 

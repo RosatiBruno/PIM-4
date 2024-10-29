@@ -103,6 +103,12 @@
     <Compile Include="TelaCadastroPedido.Designer.cs">
       <DependentUpon>TelaCadastroPedido.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelaExcluirPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaExcluirPedido.Designer.cs">
+      <DependentUpon>TelaExcluirPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaFornecedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelaCadastroPedido.resx">
       <DependentUpon>TelaCadastroPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaExcluirPedido.resx">
+      <DependentUpon>TelaExcluirPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaFornecedores.resx">
       <DependentUpon>TelaFornecedores.cs</DependentUpon>

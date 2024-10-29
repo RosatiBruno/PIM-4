@@ -89,7 +89,7 @@ namespace TelaPimExercicio
         }
 
 
-
+        
         //Chamada da função de atualização da ListView após cadastrar um Fornecedor novo
         private void TelaFornecedores_Load(object sender, EventArgs e)
         {
@@ -189,5 +189,7 @@ namespace TelaPimExercicio
         {
 
         }
+
+
     }
 }

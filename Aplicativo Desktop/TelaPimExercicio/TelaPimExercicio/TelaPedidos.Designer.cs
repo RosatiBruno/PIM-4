@@ -105,7 +105,6 @@
             this.lvBuscarPedidos.TabIndex = 14;
             this.lvBuscarPedidos.UseCompatibleStateImageBehavior = false;
             this.lvBuscarPedidos.View = System.Windows.Forms.View.Details;
-            this.lvBuscarPedidos.SelectedIndexChanged += new System.EventHandler(this.lvBuscarPedidos_SelectedIndexChanged);
             // 
             // ID
             // 
@@ -150,6 +149,7 @@
             this.btnExcluirPedido.TabIndex = 17;
             this.btnExcluirPedido.Text = "Excluir um Pedido";
             this.btnExcluirPedido.UseVisualStyleBackColor = true;
+            this.btnExcluirPedido.Click += new System.EventHandler(this.btnExcluirPedido_Click);
             // 
             // btnEditarPedido
             // 

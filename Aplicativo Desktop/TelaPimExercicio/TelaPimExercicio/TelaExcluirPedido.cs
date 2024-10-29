@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +10,8 @@ using System.Windows.Forms;
 
 namespace TelaPimExercicio
 {
-    public partial class TelaPedidos : Form
+    public partial class TelaExcluirPedido : Form
     {
-
         private Logo logo;
         private ColorBar2 colorBar;
         private ColorBackground colorBg;
@@ -22,7 +20,7 @@ namespace TelaPimExercicio
         private string userType;
         private AlteradorFontePedidos alteradorFontePedidos;
 
-        public TelaPedidos(string userType)
+        public TelaExcluirPedido(string userType)
         {
             InitializeComponent();
 
@@ -58,7 +56,7 @@ namespace TelaPimExercicio
             colorBg = new ColorBackground(this);
             this.Controls.Add(colorBg.Panel);
 
-            this.Resize += TelaFornecedores_Resize;
+            this.Resize += TelaExcluirPedido_Resize;
 
             //Iniciando o Logout
             logout = new Logout(this);
@@ -67,7 +65,7 @@ namespace TelaPimExercicio
             CenterToScreen();
         }
 
-        private void TelaFornecedores_Resize(object sender, EventArgs e)
+        private void TelaExcluirPedido_Resize(object sender, EventArgs e)
         {
             //Reposiciona a logo no canto inferior esquerdo
             logo.Picture.Location = new Point(20, this.ClientSize.Height - logo.Picture.Height - 10);
@@ -85,27 +83,8 @@ namespace TelaPimExercicio
             btnRetornar2.Location = new Point(btnRetornar2.Location.X, this.ClientSize.Height - btnRetornar2.Height - 35); //35 é a margem inferior
         }
 
-
-        //Função para atualizar a ListView após o cadastro de algum pedido
-        public void AtualizarListView()
-        {
-            lvBuscarPedidos.Items.Clear();
-            foreach (var pedidos in RepositorioPedidos.ListaPedidos)
-            {
-                ListViewItem item = new ListViewItem(new[] {
-            pedidos.ID.ToString(),
-            pedidos.Nome,
-            pedidos.Quantidade.ToString(),
-            pedidos.ValorUnitario.ToString(),
-            pedidos.EmpresaCompra,
-        });
-                lvBuscarPedidos.Items.Add(item);
-            }
-        }
-
-
-        //Botão Retornar volta ao Menu Inicial (Form2)
-        private void btnRetornar2_Click_1(object sender, EventArgs e)
+        //Botão Home retorna pra tela inicial
+        private void btnHome_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2(userType);
             form2.FormClosed += (s, args) => this.Close();
@@ -115,65 +94,78 @@ namespace TelaPimExercicio
             this.Hide();
         }
 
+        //Botão Retornar volta a tela de pedidos
+        private void btnRetornar2_Click(object sender, EventArgs e)
+        {
+            TelaPedidos telaPedidos = new TelaPedidos(userType);
+            telaPedidos.FormClosed += (s, args) => this.Close();
+            telaPedidos.Size = this.Size;
+            telaPedidos.StartPosition = FormStartPosition.CenterScreen;
+            telaPedidos.Show();
+            this.Hide();
+        }
 
         //Botão de Logout sai do Programa
-        private void btnLogout2_Click_1(object sender, EventArgs e)
+        private void btnLogout2_Click(object sender, EventArgs e)
         {
             logout.ShowLogoutDialog();
         }
 
-
-        //PROCURANDO DADOS NA LISTVIEW (VAI SER ALTERADO AINDA!!!! - EM DESENVOLVIMENTO)
-        private void btnBuscarPedido_Click(object sender, EventArgs e)
+        private void btnExcluirPedido_Click(object sender, EventArgs e)
         {
-            bool itemEncontrado = false;
-            string termoBusca = lvBuscarPedidos.Text.ToLower().Trim();
+            string termoBusca = txtBuscarPedidoExcluir.Text.Trim();
+            int.TryParse(termoBusca, out int idBusca);
+            Pedidos pedidos = RepositorioPedidos.ListaPedidos
+                .FirstOrDefault(f => f.ID == idBusca);
 
-            foreach (ListViewItem item in lvBuscarPedidos.Items)
+            if (pedidos != null)
             {
-                if (item.SubItems[0].Text.ToLower().Contains(termoBusca)) //O nmr entre '[]' é a casa da listview q procura
-                {
-                    item.Selected = true;
-                    lvBuscarPedidos.TopItem = item; //Traz o pedido procurado para o topo da lista
-                    lvBuscarPedidos.Focus(); //Define o foco na ListView
-                    itemEncontrado = true;
-                    break;
-                }
+                // Remove o fornecedor da lista ativa e adiciona à lista inativa
+                RepositorioPedidos.ListaPedidos.Remove(pedidos);
+                RepositorioPedidos.ListaPedidosExcluidos.Add(pedidos); // Adiciona à lista excluidos
+
+                // Atualiza a ListViews de fornecedores Inativos
+                AtualizarListViewExcluidos();
+
+                MessageBox.Show("Pedido excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            //Exibe uma mensagem caso não ache nenhum Pedido
-            if (!itemEncontrado)
+            else
             {
                 MessageBox.Show("Pedido não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-
-        //Botão de cadastro de novo pedido
-        private void btnCadastrarNovoPedido_Click(object sender, EventArgs e)
+        private void AtualizarListViewAtivos()
         {
-            TelaCadastroPedido telaCadastroPedido = new TelaCadastroPedido(userType);
-            telaCadastroPedido.Size = this.Size; //Passa o tamanho do Form2 para o TelaFornecedores
-            telaCadastroPedido.StartPosition = FormStartPosition.CenterScreen; //Centraliza a nova tela na tela
-            telaCadastroPedido.FormClosed += (s, args) => this.Close();
-            telaCadastroPedido.Show();
-            this.Hide();
+            // Acessa a tela de fornecedores ativos (lvBuscarFornecedores)
+            TelaPedidos telaPedidos = Application.OpenForms.OfType<TelaPedidos>().FirstOrDefault();
+            if (telaPedidos != null)
+            {
+                telaPedidos.AtualizarListView();
+            }
         }
 
-
-        //Chamada da função de atualização da ListView após cadastrar um Pedido novo
-        private void TelaPedidos_Load_1(object sender, EventArgs e)
+        private void AtualizarListViewExcluidos()
         {
-            AtualizarListView();
+            lvBuscarPedidosExcluidos.Items.Clear(); // Limpa os itens da ListView
+            foreach (var pedidos in RepositorioPedidos.ListaPedidosExcluidos)
+            {
+                ListViewItem item = new ListViewItem(new[]
+                {
+            pedidos.ID.ToString(),
+            pedidos.Nome,
+            pedidos.Quantidade.ToString(),
+            pedidos.ValorUnitario.ToString(),
+            pedidos.EmpresaCompra,
+        });
+                lvBuscarPedidosExcluidos.Items.Add(item); // Adiciona o fornecedor à ListView
+            }
+
         }
 
-        private void btnExcluirPedido_Click(object sender, EventArgs e)
+        private void TelaExcluirPedido_Load(object sender, EventArgs e)
         {
-            TelaExcluirPedido telaExcluirPedido = new TelaExcluirPedido(userType);
-            telaExcluirPedido.FormClosed += (s, args) => this.Close();
-            telaExcluirPedido.Size = this.Size;
-            telaExcluirPedido.StartPosition = FormStartPosition.CenterScreen;
-            telaExcluirPedido.Show();
-            this.Hide();
+            AtualizarListViewExcluidos();
         }
     }
 }

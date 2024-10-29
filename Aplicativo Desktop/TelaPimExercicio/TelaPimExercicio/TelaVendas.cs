@@ -101,5 +101,27 @@ namespace TelaPimExercicio
             form2.Show();
             this.Hide();
         }
+
+        private void TelaVendas_Load(object sender, EventArgs e)
+        {
+            AtualizarListView();
+        }
+
+        //Função para atualizar a ListView após o cadastro de algum pedido
+        public void AtualizarListView()
+        {
+            lvBuscarPedidos.Items.Clear();
+            foreach (var pedidos in RepositorioPedidos.ListaPedidos)
+            {
+                ListViewItem item = new ListViewItem(new[] {
+            pedidos.ID.ToString(),
+            pedidos.Nome,
+            pedidos.Quantidade.ToString(),
+            pedidos.ValorUnitario.ToString(),
+            pedidos.EmpresaCompra,
+        });
+                lvBuscarPedidos.Items.Add(item);
+            }
+        }
     }
 }
