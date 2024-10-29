@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +10,8 @@ using System.Windows.Forms;
 
 namespace TelaPimExercicio
 {
-    public partial class TelaProdutos : Form
+    public partial class TelaCadastrarProduto : Form
     {
-
         private Logo logo;
         private ColorBar2 colorBar;
         private ColorBackground colorBg;
@@ -22,7 +20,7 @@ namespace TelaPimExercicio
         private string userType;
         private AlteradorFonteProdutos alteradorFonteProdutos;
 
-        public TelaProdutos(string userType)
+        public TelaCadastrarProduto(string userType)
         {
             InitializeComponent();
 
@@ -58,16 +56,20 @@ namespace TelaPimExercicio
             colorBg = new ColorBackground(this);
             this.Controls.Add(colorBg.Panel);
 
-            this.Resize += TelaFornecedores_Resize;
+            this.Resize += TelaCadastrarProduto_Resize;
 
             //Iniciando o Logout
             logout = new Logout(this);
 
             //Centraliza no Monitor/Tela
             CenterToScreen();
+
+            //Não permite a digitação na área de ID já que o mesmo é gerado automaticamente
+            txtIDProduto.Enabled = false;
+            txtIDProduto.Text = RepositorioFornecedores.GerarNovoID().ToString();
         }
 
-        private void TelaFornecedores_Resize(object sender, EventArgs e)
+        private void TelaCadastrarProduto_Resize(object sender, EventArgs e)
         {
             //Reposiciona a logo no canto inferior esquerdo
             logo.Picture.Location = new Point(20, this.ClientSize.Height - logo.Picture.Height - 10);
@@ -86,14 +88,22 @@ namespace TelaPimExercicio
 
         }
 
-        //Botão de Logout sai do Programa
-        private void btnLogout_Click_1(object sender, EventArgs e)
+        private void btnRetornar_Click(object sender, EventArgs e)
+        {
+            TelaProdutos telaProdutos = new TelaProdutos(userType);
+            telaProdutos.FormClosed += (s, args) => this.Close();
+            telaProdutos.Size = this.Size;
+            telaProdutos.StartPosition = FormStartPosition.CenterScreen;
+            telaProdutos.Show();
+            this.Hide();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             logout.ShowLogoutDialog();
         }
 
-        //Botão Retornar volta ao Menu Inicial (Form2)
-        private void btnRetornar_Click_1(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2(userType);
             form2.FormClosed += (s, args) => this.Close();
@@ -103,72 +113,54 @@ namespace TelaPimExercicio
             this.Hide();
         }
 
-        //Função para atualizar a ListView após o cadastro de algum pedido
-        public void AtualizarListView()
+        private void btnConfirmarCadastroNovoProduto_Click(object sender, EventArgs e)
         {
-            lvBuscarProdutos.Items.Clear();
-            foreach (var produtos in RepositorioProdutos.ListaProdutos)
+
+            Produtos novoProduto = new Produtos
             {
-                ListViewItem item = new ListViewItem(new[] {
-            produtos.ID.ToString(),
-            produtos.Nome,
-            produtos.Quantidade.ToString(),
-            produtos.ValorUnitario.ToString(),
-            produtos.EmpresaCompra,
-        });
-                lvBuscarProdutos.Items.Add(item);
-            }
-        }
+                //Informações passadas no cadastro do Fornecedor
 
-        //Atualizar a LV ao abrir a tela
-        private void TelaProdutos_Load(object sender, EventArgs e)
-        {
-            AtualizarListView();
-        }
+                //ID = txtIDFornecedor.Text, //Para atribuir o ID que foi digitado
+                ID = RepositorioProdutos.GerarNovoID(), //Para atribuir o ID sequencial automaticamente
+                Nome = txtNomeProduto.Text,
+                Quantidade = int.TryParse(txtQuantidadeProduto.Text, out int quantidade) ? quantidade : 1,
+                ValorUnitario = int.TryParse(txtValorUnitarioProduto.Text, out int valorUnitario) ? valorUnitario : 1,
+                EmpresaCompra = txtEmpresaCompraProduto.Text,
+            };
 
-        //Botão de procurar algo na lista
-        private void btnBuscarProdutos_Click(object sender, EventArgs e)
-        {
-            bool itemEncontrado = false;
-            string termoBusca = lvBuscarProdutos.Text.ToLower().Trim();
+            //Dialogo de confirmação de cadastro
+            DialogResult resultado = MessageBox.Show("Deseja realiza o Cadastro?", "Confirmação de Cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            foreach (ListViewItem item in lvBuscarProdutos.Items)
+            if (resultado == DialogResult.Yes)
             {
-                if (item.SubItems[0].Text.ToLower().Contains(termoBusca)) //O nmr entre '[]' é a casa da listview q procura
-                {
-                    item.Selected = true;
-                    lvBuscarProdutos.TopItem = item; //Traz o pedido procurado para o topo da lista
-                    lvBuscarProdutos.Focus(); //Define o foco na ListView
-                    itemEncontrado = true;
-                    break;
-                }
+                MessageBox.Show("Cadastro Realizado com Sucesso!", "Cadastro Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //Adiciona o Fornecedor cadastrado à lista de pedido
+                RepositorioProdutos.ListaProdutos.Add(novoProduto);
             }
-            //Exibe uma mensagem caso não ache nenhum Pedido
-            if (!itemEncontrado)
+            else
             {
-                MessageBox.Show("Pedido não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cadastro Não Realizado!", "Cadastro Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+
+            //Chama a função de limpar o que já está escrito após cadastrar um fornecedor
+            LimparCampos();
         }
 
-        //Botão que vai pra tela de cadastro de novo produto
-        private void btnCadastrarNovoProduto_Click(object sender, EventArgs e)
+        //Limpa tudo que foi escrito após cadastrar um Fornecedor
+        private void LimparCampos()
         {
-            TelaCadastrarProduto telaCadastrarProduto = new TelaCadastrarProduto(userType);
-            telaCadastrarProduto.Size = this.Size; //Passa o tamanho do Form2 para o TelaFornecedores
-            telaCadastrarProduto.StartPosition = FormStartPosition.CenterScreen; //Centraliza a nova tela na tela
-            telaCadastrarProduto.FormClosed += (s, args) => this.Close();
-            telaCadastrarProduto.Show();
-            this.Hide();
+            txtNomeProduto.Clear();
+            txtQuantidadeProduto.Clear();
+            txtValorUnitarioProduto.Clear();
+            txtEmpresaCompraProduto.Clear();
+
+            //Define o foco no campo txtNomeFornecedor
+            txtNomeProduto.Focus();
         }
 
-        private void btnExcluirProduto_Click(object sender, EventArgs e)
-        {
-            TelaExcluirProduto telaExcluirProduto = new TelaExcluirProduto(userType);
-            telaExcluirProduto.Size = this.Size; //Passa o tamanho do Form2 para o TelaFornecedores
-            telaExcluirProduto.StartPosition = FormStartPosition.CenterScreen; //Centraliza a nova tela na tela
-            telaExcluirProduto.FormClosed += (s, args) => this.Close();
-            telaExcluirProduto.Show();
-            this.Hide();
-        }
+
+
+
     }
 }

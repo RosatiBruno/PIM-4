@@ -148,6 +148,7 @@ namespace TelaPimExercicio
             telaCadastroFornecedor.FormClosed += (s, args) => this.Close();
             telaCadastroFornecedor.Show();
             this.Hide();
+            
         }
 
         //PROCURANDO DADOS NA LISTVIEW (VAI SER ALTERADO AINDA!!!! - EM DESENVOLVIMENTO)
@@ -187,7 +188,6 @@ namespace TelaPimExercicio
 
         private void lvBuscarFornecedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
 

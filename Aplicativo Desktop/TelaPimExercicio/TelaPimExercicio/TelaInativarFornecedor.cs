@@ -84,25 +84,34 @@ namespace TelaPimExercicio
 
         private void btnBuscarFornecedorInativar_Click(object sender, EventArgs e)
         {
-            string termoBusca = txtBuscarFornecedorInativar.Text.ToLower().Trim();
-            Fornecedor fornecedor = RepositorioFornecedores.ListaFornecedores
-                .FirstOrDefault(f => f.CNPJ.ToLower().Contains(termoBusca)); // Supondo que você busca pelo CNPJ
-
-            if (fornecedor != null)
+            //Caso o usuário não seja do T.I ou Gerente não permite inativar um fornecedor
+            if (userType == "funcionario")
             {
-                // Remove o fornecedor da lista ativa e adiciona à lista inativa
-                RepositorioFornecedores.ListaFornecedores.Remove(fornecedor);
-                fornecedor.SituacaoFornecedor = "Inativo"; // Atualiza o status
-                RepositorioFornecedores.ListaFornecedoresInativos.Add(fornecedor); // Adiciona à lista inativa
-
-                // Atualiza a ListViews de fornecedores Inativos
-                AtualizarListViewInativos();
-
-                MessageBox.Show("Fornecedor inativado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Acesso negado! Você não tem permissão para executar essa função.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; //Impede a mudança de tela
             }
             else
             {
-                MessageBox.Show("Fornecedor não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string termoBusca = txtBuscarFornecedorInativar.Text.ToLower().Trim();
+                Fornecedor fornecedor = RepositorioFornecedores.ListaFornecedores
+                    .FirstOrDefault(f => f.CNPJ.ToLower().Contains(termoBusca)); // Supondo que você busca pelo CNPJ
+
+                if (fornecedor != null)
+                {
+                    // Remove o fornecedor da lista ativa e adiciona à lista inativa
+                    RepositorioFornecedores.ListaFornecedores.Remove(fornecedor);
+                    fornecedor.SituacaoFornecedor = "Inativo"; // Atualiza o status
+                    RepositorioFornecedores.ListaFornecedoresInativos.Add(fornecedor); // Adiciona à lista inativa
+
+                    // Atualiza a ListViews de fornecedores Inativos
+                    AtualizarListViewInativos();
+
+                    MessageBox.Show("Fornecedor inativado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Fornecedor não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
         

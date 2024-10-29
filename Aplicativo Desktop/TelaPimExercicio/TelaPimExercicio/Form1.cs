@@ -108,13 +108,6 @@ namespace TelaPimExercicio
                 }
             }
 
-            /*Form2 form2 = new Form2(userType);
-            form2.FormClosed += (s, args) => this.Close(); //Fecha o Form1 quando o Form2 é aberto
-            form2.Size = this.Size;
-            form2.StartPosition = FormStartPosition.CenterScreen;
-            form2.Show();
-            this.Hide(); //Oculta o Form1 enquanto o Form2 está aberto*/
-        //}
             else if (tempId == "gerente" && tempSenha == "1234")
             {
                 userType = "gerente";

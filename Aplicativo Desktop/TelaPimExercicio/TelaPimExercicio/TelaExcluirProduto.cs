@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace TelaPimExercicio
 {
-    public partial class TelaExcluirPedido : Form
+    public partial class TelaExcluirProduto : Form
     {
         private Logo logo;
         private ColorBar2 colorBar;
@@ -19,8 +19,7 @@ namespace TelaPimExercicio
         private Logout logout;
         private string userType;
         private AlteradorFontePedidos alteradorFontePedidos;
-
-        public TelaExcluirPedido(string userType)
+        public TelaExcluirProduto(string userType)
         {
             InitializeComponent();
 
@@ -56,7 +55,7 @@ namespace TelaPimExercicio
             colorBg = new ColorBackground(this);
             this.Controls.Add(colorBg.Panel);
 
-            this.Resize += TelaExcluirPedido_Resize;
+            this.Resize += TelaExcluirProduto_Resize;
 
             //Iniciando o Logout
             logout = new Logout(this);
@@ -65,7 +64,7 @@ namespace TelaPimExercicio
             CenterToScreen();
         }
 
-        private void TelaExcluirPedido_Resize(object sender, EventArgs e)
+        private void TelaExcluirProduto_Resize(object sender, EventArgs e)
         {
             //Reposiciona a logo no canto inferior esquerdo
             logo.Picture.Location = new Point(20, this.ClientSize.Height - logo.Picture.Height - 10);
@@ -83,6 +82,12 @@ namespace TelaPimExercicio
             btnRetornar2.Location = new Point(btnRetornar2.Location.X, this.ClientSize.Height - btnRetornar2.Height - 35); //35 é a margem inferior
         }
 
+        //Botão de Logout sai do Programa
+        private void btnLogout2_Click(object sender, EventArgs e)
+        {
+            logout.ShowLogoutDialog();
+        }
+
         //Botão Home retorna pra tela inicial
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -94,21 +99,15 @@ namespace TelaPimExercicio
             this.Hide();
         }
 
-        //Botão Retornar volta a tela de pedidos
+        //Botão Retornar volta a tela de produtos
         private void btnRetornar2_Click(object sender, EventArgs e)
         {
-            TelaPedidos telaPedidos = new TelaPedidos(userType);
-            telaPedidos.FormClosed += (s, args) => this.Close();
-            telaPedidos.Size = this.Size;
-            telaPedidos.StartPosition = FormStartPosition.CenterScreen;
-            telaPedidos.Show();
+            TelaProdutos telaProdutos = new TelaProdutos(userType);
+            telaProdutos.FormClosed += (s, args) => this.Close();
+            telaProdutos.Size = this.Size;
+            telaProdutos.StartPosition = FormStartPosition.CenterScreen;
+            telaProdutos.Show();
             this.Hide();
-        }
-
-        //Botão de Logout sai do Programa
-        private void btnLogout2_Click(object sender, EventArgs e)
-        {
-            logout.ShowLogoutDialog();
         }
 
         private void btnExcluirPedido_Click(object sender, EventArgs e)
@@ -124,56 +123,56 @@ namespace TelaPimExercicio
             {
                 string termoBusca = txtBuscarPedidoExcluir.Text.Trim();
                 int.TryParse(termoBusca, out int idBusca);
-                Pedidos pedidos = RepositorioPedidos.ListaPedidos
+                Produtos produtos = RepositorioProdutos.ListaProdutos
                     .FirstOrDefault(f => f.ID == idBusca);
 
-                if (pedidos != null)
+                if (produtos != null)
                 {
                     // Remove o fornecedor da lista ativa e adiciona à lista inativa
-                    RepositorioPedidos.ListaPedidos.Remove(pedidos);
-                    RepositorioPedidos.ListaPedidosExcluidos.Add(pedidos); // Adiciona à lista excluidos
+                    RepositorioProdutos.ListaProdutos.Remove(produtos);
+                    RepositorioProdutos.ListaProdutosExcluidos.Add(produtos); // Adiciona à lista excluidos
 
-                    // Atualiza a ListViews de fornecedores Inativos
+                    // Atualiza a ListViews de produtos Excluidos
                     AtualizarListViewExcluidos();
 
-                    MessageBox.Show("Pedido excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Produto excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Pedido não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Produto não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
         private void AtualizarListViewAtivos()
         {
-            // Acessa a tela de fornecedores ativos (lvBuscarFornecedores)
-            TelaPedidos telaPedidos = Application.OpenForms.OfType<TelaPedidos>().FirstOrDefault();
-            if (telaPedidos != null)
+            // Acessa a tela de 
+            TelaProdutos telaProdutos = Application.OpenForms.OfType<TelaProdutos>().FirstOrDefault();
+            if (telaProdutos != null)
             {
-                telaPedidos.AtualizarListView();
+                telaProdutos.AtualizarListView();
             }
         }
 
         private void AtualizarListViewExcluidos()
         {
             lvBuscarPedidosExcluidos.Items.Clear(); // Limpa os itens da ListView
-            foreach (var pedidos in RepositorioPedidos.ListaPedidosExcluidos)
+            foreach (var produtos in RepositorioProdutos.ListaProdutosExcluidos)
             {
                 ListViewItem item = new ListViewItem(new[]
                 {
-            pedidos.ID.ToString(),
-            pedidos.Nome,
-            pedidos.Quantidade.ToString(),
-            pedidos.ValorUnitario.ToString(),
-            pedidos.EmpresaCompra,
+            produtos.ID.ToString(),
+            produtos.Nome,
+            produtos.Quantidade.ToString(),
+            produtos.ValorUnitario.ToString(),
+            produtos.EmpresaCompra,
         });
                 lvBuscarPedidosExcluidos.Items.Add(item); // Adiciona o fornecedor à ListView
             }
 
         }
 
-        private void TelaExcluirPedido_Load(object sender, EventArgs e)
+        private void TelaExcluirProduto_Load(object sender, EventArgs e)
         {
             AtualizarListViewExcluidos();
         }
