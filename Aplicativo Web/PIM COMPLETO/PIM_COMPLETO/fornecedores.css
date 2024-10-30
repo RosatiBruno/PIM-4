@@ -1,0 +1,261 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #e0f2e9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar img {
+    border-radius: 50%;
+    width: 10vw; /* Usando vw para tornar responsivo */
+    height: 10vw; /* Mantendo a proporção com vw */
+    max-width: 100px; /* Largura máxima */
+    max-height: 100px; /* Altura máxima */
+    margin-bottom: 10px;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem; /* Tamanho em rem */
+    color: #333;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.content {
+    width: 75%;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+    flex-grow: 1; /* O campo de entrada crescerá para ocupar o espaço disponível */
+    padding: 10px;
+    font-size: 1rem; /* Usando rem para melhor responsividade */
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: #6aa84f;
+}
+
+.search-bar button {
+    width: 10vw; /* Usando vw para tornar responsivo */
+    min-width: 50px; /* Largura mínima */
+    background-color: #6aa84f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #4b8b3b;
+}
+
+.supplier-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.supplier-list li {
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.2rem; /* Usando rem para melhor responsividade */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.supplier-list li:hover {
+    transform: translateY(-2px);
+    background-color: #f1f1f1;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Permite que os botões se movam para a linha seguinte em telas menores */
+}
+
+.buttons button {
+    padding: 10px 2vw; /* Usando vw para um preenchimento responsivo */
+    background-color: #c2e0b4;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem; /* Usando rem para melhor responsividade */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #a8d3a1;
+}
+
+.buttons .inactivate-button {
+    background-color: #ff6961;
+    color: white;
+}
+
+.buttons .inactivate-button:hover {
+    background-color: #e55b55;
+}
+
+.buttons .inactivated-suppliers-button {
+    background-color: #6aa84f;
+    color: white;
+}
+
+.buttons .inactivated-suppliers-button:hover {
+    background-color: #4b8b3b;
+}
+
+.fornecedor-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.fornecedor-item:hover {
+    transform: translateY(-2px);
+}
+
+.fornecedor-card {
+    margin: 0;
+}
+
+.fornecedor-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem; /* Usando rem para melhor responsividade */
+}
+
+.fornecedor-card p {
+    margin: 0.2rem 0;
+    font-size: 1rem; /* Usando rem para melhor responsividade */
+}
+
+/* Estilo do modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo preto com transparência */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Espaçamento menor para centralizar melhor */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Largura do modal mais responsiva */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para dar mais destaque ao modal */
+    border-radius: 8px; /* Cantos arredondados para o modal */
+    animation: fadeIn 0.5s; /* Animação de entrada */
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* CSS para melhorar a logo */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* A barra lateral ocupa toda a largura em telas menores */
+        height: auto; /* A altura da barra lateral é automática */
+    }
+
+    .content {
+        width: 100%; /* A área de conteúdo ocupa toda a largura em telas menores */
+    }
+
+    .buttons button {
+        flex: 1; /* Os botões ocuparão o mesmo espaço disponível */
+        margin: 5px; /* Adiciona margens para espaçamento */
+    }
+
+    .search-bar input {
+        width: 70%; /* Ajusta a largura do campo de entrada */
+    }
+
+    .search-bar button {
+        width: 20%; /* Ajusta a largura do botão */
+    }
+
+    .modal-content {
+        width: 95%; /* Largura do modal em telas menores */
+        margin: 20% auto; /* Ajusta o espaçamento em telas menores */
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produção</title>
+    <link rel="stylesheet" href="ProducaoF.css">
+    <script src="ProducaoF.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile">
+                <img src="profile.png" alt="Foto de Gabriel Igor Dias Gomes">
+            </div>
+            <div class="logo">
+                <img src="logo.png" alt="Logo UrbAgro">
+            </div>
+        </div>
+
+        <div class="main">
+            <h1>Produção</h1>
+            <div class="production-list">
+                <div class="production-item" data-produto="1">PRODUÇÃO 1<span>Alface</span></div>
+                <div class="production-item" data-produto="2">PRODUÇÃO 2<span>Cenoura</span></div>
+                <div class="production-item" data-produto="3">PRODUÇÃO 3<span>Batata</span></div>
+                <div class="production-item" data-produto="4">PRODUÇÃO 4<span>Mandioquinha</span></div>
+                <div class="production-item" data-produto="5">PRODUÇÃO 5<span>Couve</span></div>
+                <div class="production-item" data-produto="6">PRODUÇÃO 6<span>Repolho</span></div>
+            </div>
+
+            <div id="productionModal" class="modal">
+                <div class="modal-content">
+                    <span id="closeModal" class="close">&times;</span>
+                    <h2>Detalhes da Produção</h2>
+                    <div id="production-details"></div>
+                </div>
+            </div>
+
+            <button class="new-production-btn">CADASTRAR NOVA PRODUÇÃO</button>
+            <button class="back-button" id="backButton">← Voltar</button>
+        </div>
+    </div>
+
+    <script>
+        // Script para exibir o nome do funcionário na mensagem de boas-vindas
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('nomeFuncionario'); // Recupera o nome do funcionário
+            document.getElementById('userName').textContent = userName || 'Funcionário'; // Exibe o nome ou um valor padrão
+        });
+    </script>
+</body>
+</html>

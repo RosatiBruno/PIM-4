@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Declara que o documento é um HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma do conteúdo como Português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para responsividade em dispositivos móveis -->
+    <title>Novo Pedido</title> <!-- Define o título da página que aparece na aba do navegador -->
+    <link rel="stylesheet" href="NovoPedido.css"> <!-- Link para o arquivo CSS que estiliza a página de novo pedido -->
+    <script src="NovoPedido.js"></script> <!-- Link para o arquivo JavaScript que adiciona funcionalidades à página -->
+</head>
+<body>
+    <div class="container"> <!-- Container principal que envolve todo o conteúdo da página -->
+        <aside class="sidebar"> <!-- Seção lateral para exibir a imagem de perfil e o logo da empresa -->
+            <div class="profile"> <!-- Div que contém as informações do perfil -->
+                <img src="profile.png" alt="Foto de perfil"> <!-- Imagem do perfil do usuário com texto alternativo -->
+            </div>
+            <div class="logo"> <!-- Div que contém o logo da empresa -->
+                <img src="logo.png" alt="Logo UrbAgro"> <!-- Imagem do logo da UrbAgro com texto alternativo -->
+                <h3>UrbAgro</h3> <!-- Nome da empresa exibido abaixo do logo -->
+            </div>
+        </aside>
+        <main class="main-content"> <!-- Seção principal que contém o formulário para criar um novo pedido -->
+            <h1>Novo Pedido</h1> <!-- Título da seção que indica que a página é para criar um novo pedido -->
+            <form> <!-- Início do formulário para cadastro de um novo pedido -->
+                <div class="form-group"> <!-- Div que agrupa os elementos do formulário -->
+                    <label for="nome-produto">Nome do Produto</label> <!-- Rótulo para o campo do nome do produto -->
+                    <input type="text" id="nome-produto" name="nome-produto" maxlength="50" placeholder="Até 50 caracteres"> <!-- Campo de entrada para o nome do produto, limitado a 50 caracteres -->
+                </div>
+                <div class="form-group"> <!-- Div que agrupa os elementos do formulário -->
+                    <label for="id-pedido">ID do Pedido</label> <!-- Rótulo para o campo do ID do pedido -->
+                    <input type="text" id="id-pedido" name="id-pedido" maxlength="10" placeholder="Máx. 2 caracteres"> <!-- Campo de entrada para o ID do pedido, limitado a 10 caracteres -->
+                </div>
+                <div class="form-group"> <!-- Div que agrupa os elementos do formulário -->
+                    <label for="quantidade">Quantidade</label> <!-- Rótulo para o campo da quantidade -->
+                    <input type="text" id="quantidade" name="quantidade" maxlength="5" placeholder="Ex: 1000"> <!-- Campo de entrada para a quantidade, limitado a 5 caracteres -->
+                </div>
+                <div class="form-group"> <!-- Div que agrupa os elementos do formulário -->
+                    <label for="valor">Valor Unitário</label> <!-- Rótulo para o campo do valor -->
+                    <input type="text" id="valor" name="valor" maxlength="10" placeholder="Ex: 1500.00"> <!-- Campo de entrada para o valor, limitado a 10 caracteres -->
+                </div>
+                <div class="form-group"> <!-- Div que agrupa os elementos do formulário -->
+                    <label for="empresa-responsavel">Empresa Responsável pela Compra</label> <!-- Rótulo para o campo da empresa responsável -->
+                    <input type="text" id="empresa-responsavel" name="empresa-responsavel" maxlength="50" placeholder="Até 50 caracteres"> <!-- Campo de entrada para o nome da empresa responsável, limitado a 50 caracteres -->
+                </div>
+                <div class="buttons"> <!-- Div que agrupa os botões de ação do formulário -->
+                    <button type="button" class="back-button">&larr; Voltar</button> <!-- Botão para voltar à página anterior, representado por uma seta -->
+                    <button type="submit" class="add-button">ADICIONAR</button> <!-- Botão para enviar o formulário e adicionar o novo pedido -->
+                </div>
+            </form> <!-- Fim do formulário -->
+        </main>
+        <img id="homeButton" src="web-house.png" alt="Home" class="home-icon"> <!-- Ícone de home que pode redirecionar para a página inicial -->
+    </div>
+</body>
+</html>

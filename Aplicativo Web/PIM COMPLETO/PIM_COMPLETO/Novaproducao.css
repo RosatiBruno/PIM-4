@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #e0f2e9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.logo h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+.content {
+    width: 80%;
+    padding: 40px;
+}
+
+.content h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex-basis: 48%;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #e3e3e3;
+}
+
+.form-buttons {
+    text-align: right;
+}
+
+.submit-button {
+    padding: 10px 30px;
+    background-color: #c0e1c4;
+    color: #333;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.back-button-container {
+    position: fixed; /* Mantém o botão na tela */
+    bottom: 40px; /* Distância do fundo */
+    left: 25%; /* Ajuste a posição horizontal */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+}
+
+.back-button {
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Ajusta o padding */
+    border: none; /* Remove bordas */
+    border-radius: 20px; /* Bordas arredondadas */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    cursor: pointer; /* Indica que é clicável */
+    overflow: hidden; /* Garante que nada saia do botão */
+    display: flex; /* Para alinhar o texto corretamente */
+    align-items: center; /* Alinha o texto verticalmente */
+    justify-content: center; /* Alinha o texto horizontalmente */
+}
+
+
+.home-icon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.home-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+.logo img {
+    width: 150px; 
+    height: auto;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease; 
+}
+
+.logo img:hover {
+    transform: scale(1.1); 
+}

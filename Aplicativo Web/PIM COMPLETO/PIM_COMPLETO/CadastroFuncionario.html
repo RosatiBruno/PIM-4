@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Funcionários</title>
+    <link rel="stylesheet" href="CadastroFuncionario.css">
+    <script src="CadastroFuncionario.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile-section">
+                <img src="profile.png" alt="Profile Image" class="profile-image">
+            </div>
+            <div class="logo">
+                <img src="logo.png" alt="UrbAgro Logo" class="logo">
+            </div>
+            <div class="back-button">
+                <button type="button" class="back-button">← Voltar</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <h1>Cadastrar Funcionário</h1>
+            <form>
+                <div class="form-group">
+                    <label for="nome">Nome Funcionário</label>
+                    <input type="text" id="nome" name="nome" maxlength="50" placeholder="Até 50 caracteres">
+                </div>
+
+                <div class="form-group">
+                    <label for="id_funcionario">Id_Funcionário</label>
+                    <input type="text" id="id_funcionario" name="id_funcionario" maxlength="10" placeholder="Até 4 caracteres">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" maxlength="50" placeholder="Ex: exemplo@dominio.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" maxlength="20" placeholder="Máx. 4 caracteres">
+                </div>
+
+                <button type="submit" class="save-button">Salvar</button>
+            </form>
+        </div>
+
+        <!-- Substituí o ícone por um botão com a classe home-button -->
+        <button class="home-button" onclick="window.location.href='inicial.html'"></button>
+    </div>
+</body>
+</html>

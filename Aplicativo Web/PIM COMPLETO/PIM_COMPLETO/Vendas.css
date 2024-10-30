@@ -1,0 +1,109 @@
+/* Estilos gerais para o corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte da página como Arial ou sans-serif */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimento padrão */
+    display: flex; /* Usa Flexbox para organizar o conteúdo */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    height: 100vh; /* Define a altura como 100% da viewport */
+    background-color: #f0f0f0; /* Define a cor de fundo da página como cinza claro */
+}
+
+/* Estilos para o container principal */
+.container {
+    width: 60%; /* Define a largura do container como 60% da largura da página */
+    background-color: #ffffff; /* Define a cor de fundo como branco */
+    border: 1px solid #ccc; /* Borda cinza clara ao redor do container */
+    border-radius: 8px; /* Arredonda os cantos do container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave ao redor do container */
+    overflow: hidden; /* Impede que o conteúdo exceda os limites do container */
+}
+
+/* Estilos para o cabeçalho da página */
+.header {
+    background-color: #e0f2e9; /* Cor de fundo verde claro para o cabeçalho */
+    padding: 20px; /* Espaçamento interno de 20px */
+    display: flex; /* Usa Flexbox para organizar os elementos */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+}
+
+/* Estilos para a seção de perfil no cabeçalho */
+.profile {
+    display: flex; /* Usa Flexbox para organizar os elementos em linha */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    margin-right: auto; /* Empurra o perfil para a esquerda */
+}
+
+/* Estilos para a imagem de perfil */
+.profile img {
+    border-radius: 50%; /* Faz com que a imagem tenha bordas arredondadas (formato circular) */
+    width: 50px; /* Define a largura da imagem como 50px */
+    height: 50px; /* Define a altura da imagem como 50px */
+    margin-right: 10px; /* Adiciona um espaço de 10px à direita da imagem */
+}
+
+/* Estilos para as informações do perfil */
+.profile-info {
+    font-size: 16px; /* Define o tamanho da fonte como 16px */
+    font-weight: bold; /* Define o texto como negrito */
+}
+
+/* Estilos para o logotipo */
+.logo {
+    margin-left: auto; /* Empurra o logotipo para a direita */
+    margin-right: 20px; /* Adiciona uma margem direita de 20px */
+}
+
+/* Estilos para a imagem do logotipo */
+.logo img {
+    height: 40px; /* Define a altura da imagem do logotipo como 40px */
+}
+
+/* Estilos para o conteúdo principal da página */
+.content {
+    padding: 20px; /* Espaçamento interno de 20px */
+}
+
+/* Estilos para o título da página */
+.title {
+    text-align: center; /* Centraliza o texto do título */
+    font-size: 24px; /* Define o tamanho da fonte como 24px */
+    margin-bottom: 20px; /* Adiciona uma margem inferior de 20px */
+}
+
+/* Estilos para a tabela */
+table {
+    width: 100%; /* Define a largura da tabela como 100% do container */
+    border-collapse: collapse; /* Remove os espaçamentos entre as células */
+    margin-bottom: 20px; /* Adiciona uma margem inferior de 20px */
+}
+
+/* Estilos para as células da tabela (tanto th quanto td) */
+th, td {
+    padding: 10px; /* Define o espaçamento interno das células como 10px */
+    text-align: center; /* Centraliza o conteúdo das células */
+    border: 1px solid #ccc; /* Adiciona uma borda cinza clara ao redor das células */
+}
+
+/* Estilos para as células do cabeçalho da tabela */
+th {
+    background-color: #e6f5e9; /* Define uma cor de fundo verde claro para as células do cabeçalho */
+}
+
+/* Estilos para o botão de voltar */
+.back-button {
+    display: flex; /* Usa Flexbox para organizar o botão */
+    justify-content: center; /* Centraliza o botão horizontalmente */
+}
+
+/* Estilos para o botão de voltar */
+.back-button button {
+    background-color: #c6e2b3; /* Define a cor de fundo do botão como verde claro */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 20px; /* Define o espaçamento interno como 10px nas laterais e 20px na horizontal */
+    font-size: 16px; /* Define o tamanho da fonte como 16px */
+    cursor: pointer; /* Altera o cursor para pointer, indicando que o botão pode ser clicado */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+}
+

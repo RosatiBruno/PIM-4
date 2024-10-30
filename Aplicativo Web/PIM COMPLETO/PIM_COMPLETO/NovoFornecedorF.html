@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Define o tipo do documento como HTML5 e o idioma da página como português brasileiro -->
+
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8, garantindo suporte a caracteres especiais -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura a página para ser responsiva, ajustando o layout conforme o tamanho da tela, útil para dispositivos móveis -->
+
+    <title>Cadastro de Fornecedores</title>
+    <!-- Define o título da página que aparecerá na aba do navegador -->
+
+    <link rel="stylesheet" href="NovoFornecedorF.css">
+    <!-- Vincula o arquivo CSS externo 'NovoFornecedorF.css' para estilizar os elementos da página -->
+</head>
+<body>
+    <!-- Início do corpo da página, onde o conteúdo visível será renderizado -->
+
+    <div class="container">
+        <!-- Contêiner principal que agrupa toda a estrutura da página -->
+
+        <div class="sidebar">
+            <!-- Cria a barra lateral que inclui a imagem do perfil do usuário e o logotipo da empresa -->
+
+            <img src="profile.png" alt="Foto de Perfil">
+            <!-- Imagem do perfil do usuário, com o texto alternativo "Foto de Perfil" para acessibilidade -->
+
+            
+            <!-- Nome do usuário exibido abaixo da imagem de perfil -->
+
+            <div class="logo">
+                <!-- Div que contém o logotipo da empresa UrbAgro -->
+
+                <img src="logo.png" alt="Logo UrbAgro">
+                <!-- Logotipo da empresa com texto alternativo 'Logo UrbAgro' -->
+
+                <p>UrbAgro</p>
+                <!-- Nome da empresa abaixo do logotipo -->
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Seção principal da página, que contém o título, formulário de cadastro e botões -->
+
+            <h1>Cadastro de Fornecedores</h1>
+            <!-- Título principal da página "Cadastro de Fornecedores" -->
+
+            <div class="form-grid">
+                <!-- Um contêiner grid que organiza os campos do formulário de cadastro em uma estrutura de grade -->
+
+                <!-- Cada div dentro do form-grid contém um campo de entrada e seu rótulo correspondente -->
+                <div>
+                    <label for="nome">Nome</label>
+                    <!-- Rótulo para o campo de nome do fornecedor -->
+                    <input type="text" id="nome" maxlength="100" placeholder="Até 100 caracteres">
+                    <!-- Campo de entrada de texto para o nome, limitado a 100 caracteres -->
+                </div>
+
+                <div>
+                    <label for="cep">CEP</label>
+                    <!-- Rótulo para o campo de CEP -->
+                    <input type="text" id="cep" maxlength="10" placeholder="Ex: 12345-678">
+                    <!-- Campo de entrada para o CEP, com limite de 10 caracteres -->
+                </div>
+
+                <div>
+                    <label for="telefone">Telefone</label>
+                    <!-- Rótulo para o campo de telefone -->
+                    <input type="text" id="telefone" maxlength="15" placeholder="Ex: (12) 34567-8901">
+                    <!-- Campo de entrada para o telefone, com limite de 15 caracteres -->
+                </div>
+
+                <div>
+                    <label for="cnpj">CNPJ/CPF</label>
+                    <!-- Rótulo para o campo de CNPJ ou CPF -->
+                    <input type="text" id="cnpj" maxlength="14" placeholder="Ex: 12.345.678/0001-90">
+                    <!-- Campo de entrada para o CNPJ/CPF, com limite de 14 caracteres -->
+                </div>
+
+                <div>
+                    <label for="endereco">Endereço</label>
+                    <!-- Rótulo para o campo de endereço -->
+                    <input type="text" id="endereco" maxlength="100" placeholder="Até 100 caracteres">
+                    <!-- Campo de entrada para o endereço, com limite de 100 caracteres -->
+                </div>
+
+                <div>
+                    <label for="email">E-mail</label>
+                    <!-- Rótulo para o campo de e-mail -->
+                    <input type="email" id="email" maxlength="50" placeholder="Até 50 caracteres">
+                    <!-- Campo de entrada de e-mail, com limite de 50 caracteres -->
+                </div>
+
+                <div>
+                    <label for="situacao">Situação do Fornecedor</label>
+                    <!-- Rótulo para o campo de situação do fornecedor -->
+                    <input type="text" id="situacao" maxlength="20" placeholder="Ativo/Inativo">
+                    <!-- Campo de entrada para a situação do fornecedor (ativo ou inativo), com limite de 20 caracteres -->
+                </div>
+
+                <div>
+                    <label for="complemento">Complemento</label>
+                    <!-- Rótulo para o campo de complemento -->
+                    <input type="text" id="complemento" maxlength="30" placeholder="Até 30 caracteres">
+                    <!-- Campo de entrada para o complemento, com limite de 30 caracteres -->
+                </div>
+
+                <div>
+                    <label for="representante">Representante</label>
+                    <!-- Rótulo para o campo de representante do fornecedor -->
+                    <input type="text" id="representante" maxlength="50" placeholder="Até 50 caracteres">
+                    <!-- Campo de entrada para o nome do representante, com limite de 50 caracteres -->
+                </div>
+
+                <div>
+                    <label for="codigo">Código</label>
+                    <!-- Rótulo para o campo de código do fornecedor -->
+                    <input type="text" id="codigo" maxlength="10" placeholder="Até 2 caracteres">
+                    <!-- Campo de entrada para o código do fornecedor, com limite de 10 caracteres -->
+                </div>
+
+                <div>
+                    <label for="cidade">Cidade</label>
+                    <!-- Rótulo para o campo de cidade -->
+                    <input type="text" id="cidade" maxlength="50" placeholder="Até 50 caracteres">
+                    <!-- Campo de entrada para o nome da cidade, com limite de 50 caracteres -->
+                </div>
+
+                <div>
+                    <label for="materia-prima">Matéria-Prima</label>
+                    <!-- Rótulo para o campo de matéria-prima fornecida -->
+                    <input type="text" id="materia-prima" maxlength="50" placeholder="Até 50 caracteres">
+                    <!-- Campo de entrada para a matéria-prima, com limite de 50 caracteres -->
+                </div>
+
+                <div>
+                    <label for="razao-social">Razão Social</label>
+                    <!-- Rótulo para o campo de razão social do fornecedor -->
+                    <input type="text" id="razao-social" maxlength="100" placeholder="Até 100 caracteres">
+                    <!-- Campo de entrada para a razão social, com limite de 100 caracteres -->
+                </div>
+
+                <div>
+                    <label for="estado">Estado</label>
+                    <!-- Rótulo para o campo de estado -->
+                    <input type="text" id="estado" maxlength="2" placeholder="Ex: SP">
+                    <!-- Campo de entrada para o estado, com limite de 2 caracteres -->
+                </div>
+            </div>
+
+            <div class="buttons">
+                <!-- Contêiner para os botões de voltar e cadastrar -->
+
+                <button class="back-button">← Voltar</button>
+                <!-- Botão de voltar, que provavelmente redireciona o usuário para a página anterior -->
+
+                <button class="submit-button">CADASTRAR</button>
+                <!-- Botão de cadastro, que deve enviar o formulário para salvar os dados do fornecedor -->
+            </div>
+
+            <img id="homeButton" src="web-house.png" alt="Home" class="home-icon">
+            <!-- Ícone de "Home" que provavelmente redireciona para a página inicial -->
+        </div>
+    </div>
+
+    <script src="NovoFornecedorF.js"></script>
+    <!-- Vincula o arquivo JavaScript 'NovoFornecedorF.js', que pode conter a lógica para manipular os eventos do formulário, como validação e envio -->
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fornecedores</title>
+    <link rel="stylesheet" href="FornecedoresG.css">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="profile.png" alt="Gabriel Igor Dias Gomes">
+        <div class="logo">
+            <img src="logo.png" alt="UrbAgro">
+        </div>
+    </div>
+    <div class="content">
+        <div class="search-bar">
+            <input type="text" placeholder="Digite o CNPJ/CPF do Fornecedor">
+            <button>
+                <img src="https://via.placeholder.com/20" alt="Buscar">
+            </button>
+        </div>
+        <ul class="supplier-list">
+            <li id="empresa1" class="fornecedor-item">EMPRESA 1</li>
+            <li id="empresa2" class="fornecedor-item">EMPRESA 2</li>
+            <li id="empresa3" class="fornecedor-item">EMPRESA 3</li>
+            <li id="empresa4" class="fornecedor-item">EMPRESA 4</li>
+            <li id="empresa5" class="fornecedor-item">EMPRESA 5</li>
+            <li id="empresa6" class="fornecedor-item">EMPRESA 6</li>
+        </ul>
+        <div class="buttons">
+            <button class="back-button">← Voltar</button>
+            <button>CADASTRAR NOVO FORNECEDOR</button>
+            <button class="inactivate-button">INATIVAÇÃO DE FORNECEDOR</button>
+            <button class="inactivated-suppliers-button">LISTA FORNECEDORES INATIVADOS</button>
+        </div>
+    </div>
+
+    <!-- Modal para detalhes do fornecedor -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="detalhes-fornecedor"></div>
+        </div>
+    </div>
+    
+    <!-- Modal para editar os dados do fornecedor -->
+    <!-- Modal de Edição de Fornecedores -->
+<div id="fornecedorModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Editar Fornecedor</h2>
+        <label for="editNome">Nome:</label>
+        <input type="text" id="editNome">
+        <label for="editCep">CEP:</label>
+        <input type="text" id="editCep">
+        <label for="editTelefone">Telefone:</label>
+        <input type="text" id="editTelefone">
+        <label for="editCNPJ">CNPJ/CPF:</label>
+        <input type="text" id="editCNPJ">
+        <label for="editEndereco">Endereço:</label>
+        <input type="text" id="editEndereco">
+        <label for="editEmail">Email:</label>
+        <input type="email" id="editEmail">
+        <label for="editSituacao">Situação:</label>
+        <input type="text" id="editSituacao">
+        <label for="editComplemento">Complemento:</label>
+        <input type="text" id="editComplemento">
+        <label for="editRepresentante">Representante:</label>
+        <input type="text" id="editRepresentante">
+        <label for="editCodigo">Código:</label>
+        <input type="text" id="editCodigo">
+        <label for="editCidade">Cidade:</label>
+        <input type="text" id="editCidade">
+        <label for="editEstado">Estado:</label>
+        <input type="text" id="editEstado">
+        <label for="editMateriaPrima">Matéria-prima:</label>
+        <input type="text" id="editMateriaPrima">
+        <label for="editRazaoSocial">Razão Social:</label>
+        <input type="text" id="editRazaoSocial">
+        <button id="salvarAlteracoes">Salvar Alterações</button>
+    </div>
+</div>
+
+
+    <script src="FornecedoresG.js"></script>
+</body>
+</html>

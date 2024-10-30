@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbAgro Dashboard</title>
+    <link rel="stylesheet" href="inicialF.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile">
+                <img src="profile.png" alt="Profile Picture">
+                <p>Olá! Que bom vê-lo novamente, <span id="usuario-nome">Usuário</span></p>
+            </div>
+            <div class="logo">
+                <img src="logo.png" alt="UrbAgro Logo">
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="menu-item">
+                <img src="fornecedores-icon.png" alt="Fornecedores Icon">
+                <p>FORNECEDORES</p>
+            </div>
+            <div class="menu-item">
+                <img src="pedidos-icon.png" alt="Pedidos Icon">
+                <p>PEDIDOS</p>
+            </div>
+            <div class="menu-item">
+                <img src="produtos-icon.png" alt="Produtos Icon">
+                <p>PRODUTOS</p>
+            </div>
+            <div class="menu-item">
+                <img src="vendas-icon.png" alt="Vendas Icon">
+                <p>VENDAS</p>
+            </div>
+            <div class="menu-item">
+                <img src="producao-icon.png" alt="Produção Icon">
+                <p>PRODUÇÃO</p>
+            </div>
+        </div>
+    </div>
+    <script src="inicialF.js"></script>
+    <script>
+        // Ao carregar a página, recupera o nome do funcionário do localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const funcionarios = JSON.parse(localStorage.getItem('funcionarios')) || [];
+            if (funcionarios.length > 0) {
+                const funcionario = funcionarios[funcionarios.length - 1]; // Pega o último funcionário cadastrado
+                const usuarioNomeSpan = document.getElementById('usuario-nome');
+                usuarioNomeSpan.textContent = funcionario.nome; // Atualiza o nome na página
+            }
+        });
+    </script>
+</body>
+</html>
