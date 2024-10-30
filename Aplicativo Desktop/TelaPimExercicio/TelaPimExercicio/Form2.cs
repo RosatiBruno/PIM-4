@@ -157,7 +157,7 @@ namespace TelaPimExercicio
             }
             else
             {
-                CadastrarFunc cadastrarFunc = new CadastrarFunc(userType);
+                TelaFuncionario cadastrarFunc = new TelaFuncionario(userType);
                 cadastrarFunc.Size = this.Size; //Passa o tamanho do Form2 para o CadastrarFunc
                 cadastrarFunc.StartPosition = FormStartPosition.CenterScreen; //Centraliza a nova tela na tela
                 cadastrarFunc.FormClosed += (s, args) => this.Close();

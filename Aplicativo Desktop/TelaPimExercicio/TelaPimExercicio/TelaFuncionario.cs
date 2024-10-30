@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace TelaPimExercicio
 {
-    public partial class CadastrarFunc : Form
+    public partial class TelaFuncionario : Form
     {
 
         private Logo logo;
@@ -22,7 +22,7 @@ namespace TelaPimExercicio
         private string userType;
         private AlteradorFonteCadastrarFuncionario alteradorFonteCadastrarFuncionario;
 
-        public CadastrarFunc(string userType)
+        public TelaFuncionario(string userType)
         {
             InitializeComponent();
 
@@ -106,6 +106,78 @@ namespace TelaPimExercicio
             form2.Size = this.Size;
             form2.StartPosition = FormStartPosition.CenterScreen;
             form2.Show();
+            this.Hide();
+        }
+
+
+
+
+
+        
+        
+        //Função para atualizar a ListView após o cadastro de algum pedido
+        public void AtualizarListView()
+        {
+            lvBuscarFuncionario.Items.Clear();
+            foreach (var funcionario in RepositorioFuncionarios.ListaFuncionarios)
+            {
+                ListViewItem item = new ListViewItem(new[] {
+            funcionario.ID.ToString(),
+            funcionario.Nome,
+            funcionario.Email,
+            funcionario.Senha,
+        });
+                lvBuscarFuncionario.Items.Add(item);
+            }
+        }
+        
+        //Atualizar a LV ao abrir a tela
+        private void TelaFuncionario_Load(object sender, EventArgs e)
+        {
+            AtualizarListView();
+        }
+
+        private void btnBuscarFuncionario_Click(object sender, EventArgs e)
+        {
+            bool itemEncontrado = false;
+            string termoBusca = lvBuscarFuncionario.Text.Trim();
+
+            foreach (ListViewItem item in lvBuscarFuncionario.Items)
+            {
+                if (item.SubItems[0].Text.Contains(termoBusca)) //O nmr entre '[]' é a casa da listview q procura
+                {
+                    item.Selected = true;
+                    lvBuscarFuncionario.TopItem = item; //Traz o pedido procurado para o topo da lista
+                    lvBuscarFuncionario.Focus(); //Define o foco na ListView
+                    itemEncontrado = true;
+                    break;
+                }
+            }
+            //Exibe uma mensagem caso não ache nenhum Pedido
+            if (!itemEncontrado)
+            {
+                MessageBox.Show("Funcionário não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        //Botão que vai pra tela de cadastro de novo funcionário
+        private void btnCadastrarNovoFuncionario_Click(object sender, EventArgs e)
+        {
+            TelaCadastrarFuncionario telaCadastrarFuncionario = new TelaCadastrarFuncionario(userType);
+            telaCadastrarFuncionario.Size = this.Size; //Passa o tamanho do Form2 para o TelaFornecedores
+            telaCadastrarFuncionario.StartPosition = FormStartPosition.CenterScreen; //Centraliza a nova tela na tela
+            telaCadastrarFuncionario.FormClosed += (s, args) => this.Close();
+            telaCadastrarFuncionario.Show();
+            this.Hide();
+        }
+
+        private void btnExcluirFuncionario_Click(object sender, EventArgs e)
+        {
+            TelaExcluirFuncionario telaExcluirFuncionario = new TelaExcluirFuncionario(userType);
+            telaExcluirFuncionario.Size = this.Size; //Passa o tamanho do Form2 para o TelaFornecedores
+            telaExcluirFuncionario.StartPosition = FormStartPosition.CenterScreen; //Centraliza a nova tela na tela
+            telaExcluirFuncionario.FormClosed += (s, args) => this.Close();
+            telaExcluirFuncionario.Show();
             this.Hide();
         }
     }

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Bruno\\Desktop\\PIM-4\\Aplicativo Desktop\\TelaPimExercicio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B30667D8-F500-4483-BFAF-53D7A8583780}|TelaPimExercicio\\TelaPimExercicio.csproj|c:\\users\\bruno\\desktop\\pim-4\\aplicativo desktop\\telapimexercicio\\telapimexercicio\\telacadastrarproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B30667D8-F500-4483-BFAF-53D7A8583780}|TelaPimExercicio\\TelaPimExercicio.csproj|solutionrelative:telapimexercicio\\telacadastrarproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B30667D8-F500-4483-BFAF-53D7A8583780}|TelaPimExercicio\\TelaPimExercicio.csproj|c:\\users\\bruno\\desktop\\pim-4\\aplicativo desktop\\telapimexercicio\\telapimexercicio\\telaexcluirfuncionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B30667D8-F500-4483-BFAF-53D7A8583780}|TelaPimExercicio\\TelaPimExercicio.csproj|solutionrelative:telapimexercicio\\telaexcluirfuncionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B30667D8-F500-4483-BFAF-53D7A8583780}|TelaPimExercicio\\TelaPimExercicio.csproj|c:\\users\\bruno\\desktop\\pim-4\\aplicativo desktop\\telapimexercicio\\telapimexercicio\\telacadastrarproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B30667D8-F500-4483-BFAF-53D7A8583780}|TelaPimExercicio\\TelaPimExercicio.csproj|solutionrelative:telapimexercicio\\telacadastrarproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B30667D8-F500-4483-BFAF-53D7A8583780}|TelaPimExercicio\\TelaPimExercicio.csproj|c:\\users\\bruno\\desktop\\pim-4\\aplicativo desktop\\telapimexercicio\\telapimexercicio\\telaexcluirfuncionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B30667D8-F500-4483-BFAF-53D7A8583780}|TelaPimExercicio\\TelaPimExercicio.csproj|solutionrelative:telapimexercicio\\telaexcluirfuncionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,26 +27,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TelaCadastrarProduto.cs",
-              "DocumentMoniker": "C:\\Users\\Bruno\\Desktop\\PIM-4\\Aplicativo Desktop\\TelaPimExercicio\\TelaPimExercicio\\TelaCadastrarProduto.cs",
-              "RelativeDocumentMoniker": "TelaPimExercicio\\TelaCadastrarProduto.cs",
-              "ToolTip": "C:\\Users\\Bruno\\Desktop\\PIM-4\\Aplicativo Desktop\\TelaPimExercicio\\TelaPimExercicio\\TelaCadastrarProduto.cs",
-              "RelativeToolTip": "TelaPimExercicio\\TelaCadastrarProduto.cs",
-              "ViewState": "AgIAAI4AAAAAAAAAAADwv6AAAAAAAAAAAAAAAA==",
+              "Title": "TelaExcluirFuncionario.cs",
+              "DocumentMoniker": "C:\\Users\\Bruno\\Desktop\\PIM-4\\Aplicativo Desktop\\TelaPimExercicio\\TelaPimExercicio\\TelaExcluirFuncionario.cs",
+              "RelativeDocumentMoniker": "TelaPimExercicio\\TelaExcluirFuncionario.cs",
+              "ToolTip": "C:\\Users\\Bruno\\Desktop\\PIM-4\\Aplicativo Desktop\\TelaPimExercicio\\TelaPimExercicio\\TelaExcluirFuncionario.cs",
+              "RelativeToolTip": "TelaPimExercicio\\TelaExcluirFuncionario.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAgwIQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T19:48:46.958Z",
+              "WhenOpened": "2024-10-30T17:20:46.279Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TelaCadastrarProduto.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Bruno\\Desktop\\PIM-4\\Aplicativo Desktop\\TelaPimExercicio\\TelaPimExercicio\\TelaCadastrarProduto.cs",
-              "RelativeDocumentMoniker": "TelaPimExercicio\\TelaCadastrarProduto.cs",
-              "ToolTip": "C:\\Users\\Bruno\\Desktop\\PIM-4\\Aplicativo Desktop\\TelaPimExercicio\\TelaPimExercicio\\TelaCadastrarProduto.cs [Design]",
-              "RelativeToolTip": "TelaPimExercicio\\TelaCadastrarProduto.cs [Design]",
+              "Title": "TelaExcluirFuncionario.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Bruno\\Desktop\\PIM-4\\Aplicativo Desktop\\TelaPimExercicio\\TelaPimExercicio\\TelaExcluirFuncionario.cs",
+              "RelativeDocumentMoniker": "TelaPimExercicio\\TelaExcluirFuncionario.cs",
+              "ToolTip": "C:\\Users\\Bruno\\Desktop\\PIM-4\\Aplicativo Desktop\\TelaPimExercicio\\TelaPimExercicio\\TelaExcluirFuncionario.cs [Design]",
+              "RelativeToolTip": "TelaPimExercicio\\TelaExcluirFuncionario.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T19:48:43.188Z",
+              "WhenOpened": "2024-10-30T17:20:35.694Z",
               "EditorCaption": " [Design]"
             }
           ]

@@ -130,11 +130,11 @@ namespace TelaPimExercicio
         private void btnBuscarProdutos_Click(object sender, EventArgs e)
         {
             bool itemEncontrado = false;
-            string termoBusca = lvBuscarProdutos.Text.ToLower().Trim();
+            string termoBusca = lvBuscarProdutos.Text.Trim();
 
             foreach (ListViewItem item in lvBuscarProdutos.Items)
             {
-                if (item.SubItems[0].Text.ToLower().Contains(termoBusca)) //O nmr entre '[]' é a casa da listview q procura
+                if (item.SubItems[0].Text.Contains(termoBusca)) //O nmr entre '[]' é a casa da listview q procura
                 {
                     item.Selected = true;
                     lvBuscarProdutos.TopItem = item; //Traz o pedido procurado para o topo da lista
@@ -146,7 +146,7 @@ namespace TelaPimExercicio
             //Exibe uma mensagem caso não ache nenhum Pedido
             if (!itemEncontrado)
             {
-                MessageBox.Show("Pedido não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Produto não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

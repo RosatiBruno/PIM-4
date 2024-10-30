@@ -33,7 +33,15 @@ namespace TelaPimExercicio
             return proximoID++;
         }
     }
+    public static class RepositorioProdutos2
+    {
+        private static int proximoID = 1; //Contador de ID começa em 1
 
-
+        //Gera o próximo ID automaticamente
+        public static int GerarNovoID()
+        {
+            return proximoID++;
+        }
+    }
 
 }

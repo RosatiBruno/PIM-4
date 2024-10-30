@@ -68,7 +68,7 @@ namespace TelaPimExercicio
 
             //Não permite a digitação na área de ID já que o mesmo é gerado automaticamente
             txtIDFornecedor.Enabled = false;
-            txtIDFornecedor.Text = RepositorioFornecedores.GerarNovoID().ToString();
+            txtIDFornecedor.Text = RepositorioFornecedores2.GerarNovoID().ToString();
         }
 
         private void TelaCadastroFornecedor_Resize(object sender, EventArgs e)
@@ -158,6 +158,9 @@ namespace TelaPimExercicio
 
             //Chama a função de limpar o que já está escrito após cadastrar um fornecedor
             LimparCampos();
+
+            //Atualiza o ID na tela de cadastro
+            txtIDFornecedor.Text = RepositorioFornecedores2.GerarNovoID().ToString();
         }
 
         //Limpa tudo que foi escrito após cadastrar um Fornecedor

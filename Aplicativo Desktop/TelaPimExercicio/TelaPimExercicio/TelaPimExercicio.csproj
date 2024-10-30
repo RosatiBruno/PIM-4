@@ -53,11 +53,24 @@
     <Compile Include="AlteradorFonteProdutos.cs" />
     <Compile Include="AlteradorFonteVendas.cs" />
     <Compile Include="AlterarFonteProducao.cs" />
-    <Compile Include="CadastrarFunc.cs">
+    <Compile Include="Funcionarios.cs" />
+    <Compile Include="TelaCadastrarFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastrarFunc.Designer.cs">
-      <DependentUpon>CadastrarFunc.cs</DependentUpon>
+    <Compile Include="TelaCadastrarFuncionario.Designer.cs">
+      <DependentUpon>TelaCadastrarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaExcluirFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaExcluirFuncionario.Designer.cs">
+      <DependentUpon>TelaExcluirFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaFuncionario.Designer.cs">
+      <DependentUpon>TelaFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="Centralizador.cs" />
     <Compile Include="Centralizador2.cs" />
@@ -164,8 +177,14 @@
     <Compile Include="TelaVendas.Designer.cs">
       <DependentUpon>TelaVendas.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CadastrarFunc.resx">
-      <DependentUpon>CadastrarFunc.cs</DependentUpon>
+    <EmbeddedResource Include="TelaCadastrarFuncionario.resx">
+      <DependentUpon>TelaCadastrarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaExcluirFuncionario.resx">
+      <DependentUpon>TelaExcluirFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaFuncionario.resx">
+      <DependentUpon>TelaFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfirmacaoLogin.resx">
       <DependentUpon>ConfirmacaoLogin.cs</DependentUpon>
