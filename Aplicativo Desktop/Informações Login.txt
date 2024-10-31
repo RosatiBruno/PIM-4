@@ -1,0 +1,29 @@
+Diferenças entre os logins:
+
+
+- TI: Tem acesso a tudo
+
+- Gerente: Pode fazer tudo EXCETO cadastrar novo funcionário
+
+- Funcionario: Cadastra tudo EXCETO funcionário // NÃO edita nem inativa NADA
+
+
+
+
+
+
+
+Todos os funcionários cadastrados pelo TI são automaticamente definidos como Funcionário, então eles tem o mesmo nível de permissão que o Func*
+
+
+
+
+
+Logins Padrões do Sistema:
+
+TI: 			Login: ti		|| Senha: 1234
+Gerente: 		Login: gerente	|| Senha: 1234
+Funcionário: 	Login: func		|| Senha: 1234
+
+
+Logins cadastrados pelo TI utilizaram o 'Nome do Funcionário' e a 'Senha' para realizar o login
