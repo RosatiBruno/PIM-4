@@ -54,17 +54,36 @@
     <Compile Include="AlteradorFonteVendas.cs" />
     <Compile Include="AlterarFonteProducao.cs" />
     <Compile Include="Funcionarios.cs" />
+    <Compile Include="Producao.cs" />
     <Compile Include="TelaCadastrarFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TelaCadastrarFuncionario.Designer.cs">
       <DependentUpon>TelaCadastrarFuncionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelaCadastrarProducao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaCadastrarProducao.Designer.cs">
+      <DependentUpon>TelaCadastrarProducao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaEditarProducao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaEditarProducao.Designer.cs">
+      <DependentUpon>TelaEditarProducao.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaExcluirFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TelaExcluirFuncionario.Designer.cs">
       <DependentUpon>TelaExcluirFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaExcluirProducao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaExcluirProducao.Designer.cs">
+      <DependentUpon>TelaExcluirProducao.cs</DependentUpon>
     </Compile>
     <Compile Include="TelaFuncionario.cs">
       <SubType>Form</SubType>
@@ -159,11 +178,11 @@
     <Compile Include="TelaPedidos.Designer.cs">
       <DependentUpon>TelaPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="TelaProd.cs">
+    <Compile Include="TelaProducao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaProd.Designer.cs">
-      <DependentUpon>TelaProd.cs</DependentUpon>
+    <Compile Include="TelaProducao.Designer.cs">
+      <DependentUpon>TelaProducao.cs</DependentUpon>
     </Compile>
     <Compile Include="TelaProdutos.cs">
       <SubType>Form</SubType>
@@ -180,8 +199,17 @@
     <EmbeddedResource Include="TelaCadastrarFuncionario.resx">
       <DependentUpon>TelaCadastrarFuncionario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TelaCadastrarProducao.resx">
+      <DependentUpon>TelaCadastrarProducao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaEditarProducao.resx">
+      <DependentUpon>TelaEditarProducao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaExcluirFuncionario.resx">
       <DependentUpon>TelaExcluirFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaExcluirProducao.resx">
+      <DependentUpon>TelaExcluirProducao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaFuncionario.resx">
       <DependentUpon>TelaFuncionario.cs</DependentUpon>
@@ -231,8 +259,8 @@
     <EmbeddedResource Include="TelaPedidos.resx">
       <DependentUpon>TelaPedidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TelaProd.resx">
-      <DependentUpon>TelaProd.cs</DependentUpon>
+    <EmbeddedResource Include="TelaProducao.resx">
+      <DependentUpon>TelaProducao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaProdutos.resx">
       <DependentUpon>TelaProdutos.cs</DependentUpon>

@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TelaPimExercicio
 {
-    public partial class TelaCadastroPedido : Form
+    public partial class TelaCadastrarProducao : Form
     {
         private Logo logo;
         private ColorBar2 colorBar;
@@ -20,8 +18,7 @@ namespace TelaPimExercicio
         private Centralizador2 centralizador2;
         private Logout logout;
         private string userType;
-        private AlteradorFontePedidos alteradorFontePedidos;
-        public TelaCadastroPedido(string userType)
+        public TelaCadastrarProducao(string userType)
         {
             InitializeComponent();
 
@@ -53,7 +50,7 @@ namespace TelaPimExercicio
             colorBg = new ColorBackground(this);
             this.Controls.Add(colorBg.Panel);
 
-            this.Resize += TelaCadastrarPedido_Resize;
+            this.Resize += TelaCadastrarProducao_Resize;
 
             //Iniciando o Logout
             logout = new Logout(this);
@@ -62,11 +59,11 @@ namespace TelaPimExercicio
             CenterToScreen();
 
             //Não permite a digitação na área de ID já que o mesmo é gerado automaticamente
-            txtIDPedido.Enabled = false;
-            txtIDPedido.Text = RepositorioPedidos2.GerarNovoID().ToString();
+            txtIDProducao.Enabled = false;
+            txtIDProducao.Text = RepositorioProducao2.GerarNovoID().ToString();
         }
 
-        private void TelaCadastrarPedido_Resize(object sender, EventArgs e)
+        private void TelaCadastrarProducao_Resize(object sender, EventArgs e)
         {
             //Reposiciona a logo no canto inferior esquerdo
             logo.Picture.Location = new Point(20, this.ClientSize.Height - logo.Picture.Height - 10);
@@ -85,28 +82,21 @@ namespace TelaPimExercicio
 
         }
 
-        private void TelaCadastroPedido_Load(object sender, EventArgs e)
-        {
-        }
-
-        //Botão de retornar volta a tela de Pedidos
-        private void btnRetornar2_Click(object sender, EventArgs e)
-        {
-            TelaPedidos telaPedidos = new TelaPedidos(userType);
-            telaPedidos.FormClosed += (s, args) => this.Close();
-            telaPedidos.Size = this.Size;
-            telaPedidos.StartPosition = FormStartPosition.CenterScreen;
-            telaPedidos.Show();
-            this.Hide();
-        }
-
-        //Botão de Logout sai do Programa
         private void btnLogout2_Click(object sender, EventArgs e)
         {
             logout.ShowLogoutDialog();
         }
 
-        //Retorna para a tela inicial
+        private void btnRetornar2_Click(object sender, EventArgs e)
+        {
+            TelaProducao telaProducao = new TelaProducao(userType);
+            telaProducao.FormClosed += (s, args) => this.Close();
+            telaProducao.Size = this.Size;
+            telaProducao.StartPosition = FormStartPosition.CenterScreen;
+            telaProducao.Show();
+            this.Hide();
+        }
+
         private void btnHome_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2(userType);
@@ -117,19 +107,18 @@ namespace TelaPimExercicio
             this.Hide();
         }
 
-        //Cadastro de Pedido
-        private void btnConfirmarCadastroNovoPedido_Click(object sender, EventArgs e)
+        private void btnConfirmarCadastroNovaProducao_Click(object sender, EventArgs e)
         {
-            Pedidos novoPedido = new Pedidos
+            Producao novaProducao = new Producao
             {
                 //Informações passadas no cadastro do Fornecedor
 
                 //ID = txtIDFornecedor.Text, //Para atribuir o ID que foi digitado
-                ID = RepositorioPedidos.GerarNovoID(), //Para atribuir o ID sequencial automaticamente
-                Nome = txtNomeProduto.Text,
-                Quantidade = int.TryParse(txtQuantidadePedido.Text, out int quantidade) ? quantidade : 1,
-                ValorUnitario = decimal.TryParse(txtValorUnitario.Text, out decimal valorUnitario) ? valorUnitario : 1,
-                EmpresaCompra = txtEmpresaCompra.Text,
+                ID = RepositorioProducao.GerarNovoID(), //Para atribuir o ID sequencial automaticamente
+                Nome = txtNomeProducao.Text,
+                Quantidade = int.TryParse(txtQuantidadeProducao.Text, out int quantidade) ? quantidade : 1,
+                Data = txtDataProducao.Text,
+                ResponsavelProducao = txtResponsavelProducao.Text,
             };
 
             //Dialogo de confirmação de cadastro
@@ -139,8 +128,8 @@ namespace TelaPimExercicio
             {
                 MessageBox.Show("Cadastro Realizado com Sucesso!", "Cadastro Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //Adiciona o Fornecedor cadastrado à lista de pedido
-                RepositorioPedidos.ListaPedidos.Add(novoPedido);
+                //Adiciona à lista de producao
+                RepositorioProducao.ListaProducao.Add(novaProducao);
             }
             else
             {
@@ -151,19 +140,17 @@ namespace TelaPimExercicio
             LimparCampos();
 
             //Atualiza o ID na tela de cadastro
-            txtIDPedido.Text = RepositorioPedidos2.GerarNovoID().ToString();
+            txtIDProducao.Text = RepositorioProducao2.GerarNovoID().ToString();
         }
-
-        //Limpa tudo que foi escrito após cadastrar um Fornecedor
         private void LimparCampos()
         {
-            txtNomeProduto.Clear();
-            txtQuantidadePedido.Clear();
-            txtValorUnitario.Clear();
-            txtEmpresaCompra.Clear();
+            txtNomeProducao.Clear();
+            txtQuantidadeProducao.Clear();
+            txtDataProducao.Clear();
+            txtResponsavelProducao.Clear();
 
             //Define o foco no campo txtNomeFornecedor
-            txtNomeProduto.Focus();
+            txtNomeProducao.Focus();
         }
 
     }

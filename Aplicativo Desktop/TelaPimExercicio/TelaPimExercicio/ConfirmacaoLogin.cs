@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Net;
 using System.Net.Mail;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace TelaPimExercicio
 {
@@ -19,7 +20,7 @@ namespace TelaPimExercicio
         private AlteradorFontePedidos alteradorFontePedidos;
         public bool LoginConfirmado { get; private set; } //Propriedade para verificar se o login foi confirmado
 
-        public ConfirmacaoLogin()
+        public ConfirmacaoLogin(string usarID)
         {
             InitializeComponent();
 
@@ -91,7 +92,7 @@ namespace TelaPimExercicio
         {
             //Mensagem de e-mail
             var mensagem = new MailMessage();
-            mensagem.From = new MailAddress("brunomito.srosati@gmail.com");
+            mensagem.From = new MailAddress("brunomito.srosati@gmail.com", "UrbAgro");
             mensagem.To.Add(emailDestinatario);
             mensagem.Subject = "Código de Confirmação";
             mensagem.Body = $"Olá! \n\nBem vindo ao sistema UrbAgro! \n\nSeu código de acesso é: {codigo} \n\nSe você não solicitou este código, por favor, ignore este e-mail. \n\nAgradecemos pela sua confiança! \n\nAtenciosamente, \nEquipe UrbAgro"; //Email
@@ -103,6 +104,10 @@ namespace TelaPimExercicio
                 smtp.EnableSsl = true; //Habilita SSL
                 smtp.Send(mensagem); //Envia o e-mail
             }
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
         }
 
     }

@@ -180,7 +180,7 @@ namespace TelaPimExercicio
         //Botão de Produção vai pra tela de Produção
         private void btnProducao_Click(object sender, EventArgs e)
         {
-            TelaProd telaProd = new TelaProd(userType);
+            TelaProducao telaProd = new TelaProducao(userType);
             telaProd.Size = this.Size; //Passa o tamanho do Form2 para o TelaProd
             telaProd.StartPosition = FormStartPosition.CenterScreen; //Centraliza a nova tela na tela
             telaProd.FormClosed += (s, args) => this.Close();

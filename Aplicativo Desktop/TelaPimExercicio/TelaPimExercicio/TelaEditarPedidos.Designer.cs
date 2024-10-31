@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaEditarPedidos));
             this.btnHome = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnLogout2 = new System.Windows.Forms.Button();
             this.lblTituloPedidosCadastrados = new System.Windows.Forms.Label();
             this.lblBuscarEditarPedido = new System.Windows.Forms.Label();
             this.txtBuscarEditarPedido = new System.Windows.Forms.TextBox();
             this.btnBuscarEditarPedido = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.btnRetornar2 = new System.Windows.Forms.Button();
             this.btnConfirmarEdicaoPedido = new System.Windows.Forms.Button();
             this.txtEditarEmpresaCompra = new System.Windows.Forms.TextBox();
@@ -65,6 +65,13 @@
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "home.png");
+            this.imageList2.Images.SetKeyName(1, "Logout.png");
             // 
             // btnLogout2
             // 
@@ -120,13 +127,6 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "SetinhaVoltar2.png");
-            // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "home.png");
-            this.imageList2.Images.SetKeyName(1, "Logout.png");
             // 
             // btnRetornar2
             // 
@@ -257,6 +257,7 @@
             this.Controls.Add(this.btnHome);
             this.Name = "TelaEditarPedidos";
             this.Text = "TelaEditarPedidos";
+            this.Load += new System.EventHandler(this.TelaEditarPedidos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -24,7 +24,6 @@ C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercici
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaPedidos.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaProdutos.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaVendas.resources
-C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaProd.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaCadastroFornecedor.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaInativarFornecedor.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.ConfirmacaoLogin.resources
@@ -36,3 +35,7 @@ C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercici
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaFuncionario.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaCadastrarFuncionario.resources
 C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaExcluirFuncionario.resources
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaCadastrarProducao.resources
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaProducao.resources
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaExcluirProducao.resources
+C:\Users\Bruno\Desktop\PIM-4\Aplicativo Desktop\TelaPimExercicio\TelaPimExercicio\obj\Debug\TelaPimExercicio.TelaEditarProducao.resources

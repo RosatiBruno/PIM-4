@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace TelaPimExercicio
 {
-    public partial class TelaEditarPedidos : Form
+    public partial class TelaEditarProducao : Form
     {
         private Logo logo;
         private ColorBar2 colorBar;
@@ -19,8 +19,8 @@ namespace TelaPimExercicio
         private Logout logout;
         private string userType;
         private AlteradorFontePedidos alteradorFontePedidos;
-        private TelaPedidos telaPedidos;
-        public TelaEditarPedidos(string userType, TelaPedidos telaPedidos)
+        private TelaProducao telaProducao;
+        public TelaEditarProducao(string userType, TelaProducao telaProducao)
         {
             InitializeComponent();
 
@@ -56,7 +56,7 @@ namespace TelaPimExercicio
             colorBg = new ColorBackground(this);
             this.Controls.Add(colorBg.Panel);
 
-            this.Resize += TelaEditarPedidos_Resize;
+            this.Resize += TelaEditarProducao_Resize;
 
             //Iniciando o Logout
             logout = new Logout(this);
@@ -65,10 +65,10 @@ namespace TelaPimExercicio
             CenterToScreen();
 
             //Não permite a digitação na área de ID já que o mesmo é gerado automaticamente
-            txtEditarIDPedido.Enabled = false;
+            txtIDProducaoEditar.Enabled = false;
         }
 
-        private void TelaEditarPedidos_Resize(object sender, EventArgs e)
+        private void TelaEditarProducao_Resize(object sender, EventArgs e)
         {
             //Reposiciona a logo no canto inferior esquerdo
             logo.Picture.Location = new Point(20, this.ClientSize.Height - logo.Picture.Height - 10);
@@ -86,10 +86,13 @@ namespace TelaPimExercicio
             btnRetornar2.Location = new Point(btnRetornar2.Location.X, this.ClientSize.Height - btnRetornar2.Height - 35); //35 é a margem inferior
         }
 
-        //Volta para o menu inicial
+        private void TelaEditarProducao_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnHome_Click(object sender, EventArgs e)
         {
-            //Retorna para a tela inicial
             Form2 form2 = new Form2(userType);
             form2.FormClosed += (s, args) => this.Close();
             form2.Size = this.Size;
@@ -98,62 +101,56 @@ namespace TelaPimExercicio
             this.Hide();
         }
 
-        //Botão Retornar volta a tela de pedidos
         private void btnRetornar2_Click(object sender, EventArgs e)
         {
-            TelaPedidos telaPedidos = new TelaPedidos(userType);
-            telaPedidos.FormClosed += (s, args) => this.Close();
-            telaPedidos.Size = this.Size;
-            telaPedidos.StartPosition = FormStartPosition.CenterScreen;
-            telaPedidos.Show();
+            TelaProducao telaProducao = new TelaProducao(userType);
+            telaProducao.FormClosed += (s, args) => this.Close();
+            telaProducao.Size = this.Size;
+            telaProducao.StartPosition = FormStartPosition.CenterScreen;
+            telaProducao.Show();
             this.Hide();
         }
 
-        //Botão de buscar o pedido para exibir suas informações para edição
-        private void btnBuscarEditarPedido_Click(object sender, EventArgs e)
+        private void btnBuscarEditarProducao_Click(object sender, EventArgs e)
         {
             // Tenta converter o ID de pedido digitado para um inteiro
-            if (int.TryParse(txtBuscarEditarPedido.Text, out int idPedido))
+            if (int.TryParse(txtBuscarEditarProducao.Text, out int idProducao))
             {
                 // Chama o método para buscar e exibir o pedido com base no ID
-                ExibirPedidoParaEdicao(idPedido);
+                ExibirProducaoParaEdicao(idProducao);
             }
             else
             {
-                MessageBox.Show("ID do pedido inválido.", "Pedido não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ID da produção inválido.", "Produção não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
-        private void ExibirPedidoParaEdicao(int idPedido)
+        private void ExibirProducaoParaEdicao(int idProducao)
         {
             // Busca o pedido na lista de pedidos pelo ID
-            var pedido = RepositorioPedidos.ListaPedidos.FirstOrDefault(p => p.ID == idPedido);
+            var producao = RepositorioProducao.ListaProducao.FirstOrDefault(p => p.ID == idProducao);
 
-            if (pedido != null)
+            if (producao != null)
             {
                 // Se o pedido for encontrado, preenche os campos de edição com os dados
-                txtEditarNomeProduto.Text = pedido.Nome;
-                txtEditarIDPedido.Text = pedido.ID.ToString();
-                txtEditarQuantidadePedido.Text = pedido.Quantidade.ToString();
-                txtEditarValorUnitario.Text = pedido.ValorUnitario.ToString("F2");
-                txtEditarEmpresaCompra.Text = pedido.EmpresaCompra;
+                txtNomeEditarProducao.Text = producao.Nome;
+                txtIDProducaoEditar.Text = producao.ID.ToString();
+                txtQuantidadeProducaoEditar.Text = producao.Quantidade.ToString();
+                txtDataProducaoEditar.Text = producao.Data;
+                txtResponsavelProducaoEditar.Text = producao.ResponsavelProducao;
             }
             else
             {
                 // Exibe mensagem se o pedido não for encontrado
-                MessageBox.Show("Pedido não encontrado. Verifique o ID e tente novamente.", "Pedido não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Produção não encontrada. Verifique o ID e tente novamente.", "Produção não encontrada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
-        //Botão de logout
         private void btnLogout2_Click(object sender, EventArgs e)
         {
             logout.ShowLogoutDialog();
         }
 
-
-        //Botão de confirmação de edição das informações alteradas do pedido
-        private void btnConfirmarEdicaoPedido_Click(object sender, EventArgs e)
+        private void btnConfirmarEdicaoProducao_Click(object sender, EventArgs e)
         {
             //Caso o usuário não seja do T.I ou Gerente não permite excluir um pedido
             if (userType == "funcionario")
@@ -164,39 +161,36 @@ namespace TelaPimExercicio
             else
             {
                 //Converte o ID do pedido para um int - Sem essa conversão da erro
-                if (int.TryParse(txtEditarIDPedido.Text, out int idPedido))
+                if (int.TryParse(txtIDProducaoEditar.Text, out int idProducao))
                 {
                     //Busca o pedido na lista de pedidos pelo ID que foi convertido
-                    var pedido = RepositorioPedidos.ListaPedidos.FirstOrDefault(p => p.ID == idPedido);
+                    var producao = RepositorioProducao.ListaProducao.FirstOrDefault(p => p.ID == idProducao);
 
-                    if (pedido != null)
+                    if (producao != null)
                     {
                         //Atualiza as informações do pedido
-                        pedido.Nome = txtEditarNomeProduto.Text;
-                        pedido.Quantidade = int.Parse(txtEditarQuantidadePedido.Text);
-                        pedido.ValorUnitario = decimal.Parse(txtEditarValorUnitario.Text);
-                        pedido.EmpresaCompra = txtEditarEmpresaCompra.Text;
+                        producao.Nome = txtNomeEditarProducao.Text;
+                        producao.Quantidade = int.Parse(txtQuantidadeProducaoEditar.Text);
+                        producao.Data = txtDataProducaoEditar.Text;
+                        producao.ResponsavelProducao = txtResponsavelProducaoEditar.Text;
 
-                        MessageBox.Show("Pedido atualizado com sucesso!", "Pedido atualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Produção atualizada com sucesso!", "Produção atualizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         //Atualiza a ListView na TelaPedidos
-                        telaPedidos?.AtualizarListView();
+                        telaProducao?.AtualizarListView();
 
                     }
                     else
                     {
-                        MessageBox.Show("Pedido não encontrado.", "Pedido não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Produção não encontrada.", "Produção não encontrada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("ID do pedido inválido.", "ID inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("ID da produção inválida.", "ID inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
 
-        private void TelaEditarPedidos_Load(object sender, EventArgs e)
-        {
-        }
     }
 }

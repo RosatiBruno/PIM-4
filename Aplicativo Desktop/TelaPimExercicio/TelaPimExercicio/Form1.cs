@@ -108,7 +108,9 @@ namespace TelaPimExercicio
                 }
 
                 // Exibe a tela de confirmação de login
-                ConfirmacaoLogin confirmacaoLogin = new ConfirmacaoLogin();
+                //ConfirmacaoLogin confirmacaoLogin = new ConfirmacaoLogin();
+                string emailCadastrado = tempId != "func" && tempId != "gerente" && tempId != "ti" ? tempId + "@example.com" : string.Empty;
+                ConfirmacaoLogin confirmacaoLogin = new ConfirmacaoLogin(emailCadastrado);
                 confirmacaoLogin.ShowDialog();
 
                 // Após a confirmação do login, abre o Form2 se confirmado
