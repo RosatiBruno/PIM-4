@@ -1,107 +1,149 @@
 // Classe para gerenciar o menu lateral
 class SideMenu {
+    // Construtor da classe SideMenu, que recebe o seletor da imagem de perfil
     constructor(profileImageSelector) {
-        // Seleciona a imagem de perfil pelo seletor fornecido
+        // Seleciona a imagem de perfil com o seletor fornecido
         this.profileImage = document.querySelector(profileImageSelector);
-        this.menuAtivo = false; // Estado para verificar se o menu está ativo ou não
-        this.initEventListeners(); // Inicializa os ouvintes de eventos
+        // Inicializa o estado do menu como inativo
+        this.menuAtivo = false;
+        // Configura os ouvintes de eventos para interações do menu
+        this.initEventListeners();
     }
 
-    // Adiciona o ouvinte de eventos para alternar o menu ao clicar na imagem de perfil
+    // Método para configurar os ouvintes de eventos
     initEventListeners() {
+        // Adiciona um ouvinte de clique na imagem de perfil para alternar o menu
         this.profileImage.addEventListener('click', (event) => this.alternarMenu(event));
     }
 
-    // Cria o menu lateral no DOM quando acionado
+    // Método para criar o menu lateral
     criarMenuLateral() {
-        const sideMenu = document.createElement('div'); // Cria o elemento do menu
+        // Cria um elemento div para o menu lateral
+        const sideMenu = document.createElement('div');
+        // Define o ID do menu lateral
         sideMenu.id = 'side-menu';
-        sideMenu.classList.add('side-menu'); // Adiciona a classe CSS ao menu
+        // Adiciona a classe CSS 'side-menu' para o estilo
+        sideMenu.classList.add('side-menu');
 
-        // Cria a opção "Sair do Sistema" dentro do menu
-        const exitOption = document.createElement('div');
-        exitOption.classList.add('menu-option');
-        exitOption.textContent = 'Sair do Sistema';
-        // Adiciona o comportamento para a opção de sair do sistema
-        exitOption.addEventListener('click', () => this.sairDoSistema());
+        // Cria a opção "Sair do Sistema" no menu, com o evento de saída
+        const exitOption = this.criarOpcaoMenu('Sair do Sistema', () => this.sairDoSistema());
+        // Cria a opção "Suporte" no menu, sem evento de clique
+        const supportOption = this.criarOpcaoMenu('Suporte');
 
-        // Cria a opção "Suporte" no menu
-        const supportOption = document.createElement('div');
-        supportOption.classList.add('menu-option');
-        supportOption.textContent = 'Suporte';
-
-        // Adiciona as opções "Sair do Sistema" e "Suporte" ao menu
+        // Adiciona as opções de saída e suporte ao menu lateral
         sideMenu.appendChild(exitOption);
         sideMenu.appendChild(supportOption);
 
-        // Adiciona o menu criado ao corpo do documento
+        // Adiciona o menu lateral ao corpo do documento (DOM)
         document.body.appendChild(sideMenu);
 
-        // Fecha o menu se o usuário clicar fora dele
+        // Configura o fechamento do menu ao clicar fora dele
+        this.fecharMenuAoCliqueFora(sideMenu);
+    }
+
+    // Método para criar uma opção de menu com texto e um manipulador de clique opcional
+    criarOpcaoMenu(text, clickHandler) {
+        // Cria um elemento div para a opção do menu
+        const option = document.createElement('div');
+        // Adiciona a classe CSS 'menu-option' para o estilo
+        option.classList.add('menu-option');
+        // Define o texto da opção
+        option.textContent = text;
+
+        // Se houver um manipulador de clique fornecido, adiciona-o ao evento de clique
+        if (clickHandler) {
+            option.addEventListener('click', clickHandler);
+        }
+
+        // Retorna a opção criada
+        return option;
+    }
+
+    // Método para fechar o menu quando clicar fora dele
+    fecharMenuAoCliqueFora(sideMenu) {
+        // Adiciona um ouvinte de clique ao documento para detectar cliques fora do menu
         document.addEventListener('click', (event) => {
+            // Verifica se o clique não foi no menu ou na imagem de perfil
             if (!sideMenu.contains(event.target) && event.target !== this.profileImage) {
-                this.fecharMenu(); // Fecha o menu caso o clique ocorra fora dele
+                // Fecha o menu se o clique foi fora
+                this.fecharMenu();
             }
         });
     }
 
-    // Abre o menu lateral ao ativá-lo
+    // Método para abrir o menu lateral
     abrirMenu() {
-        const sideMenu = document.getElementById('side-menu'); // Seleciona o menu pelo ID
+        // Seleciona o menu lateral pelo ID
+        const sideMenu = document.getElementById('side-menu');
+        // Se o menu existe, adiciona a classe 'active' para exibi-lo
         if (sideMenu) {
-            sideMenu.classList.add('active'); // Adiciona a classe CSS que o torna visível
+            sideMenu.classList.add('active');
         }
-        this.menuAtivo = true; // Atualiza o estado para indicar que o menu está ativo
+        // Define o estado do menu como ativo
+        this.menuAtivo = true;
     }
 
-    // Fecha o menu lateral
+    // Método para fechar o menu lateral
     fecharMenu() {
-        const sideMenu = document.getElementById('side-menu'); // Seleciona o menu
+        // Seleciona o menu lateral pelo ID
+        const sideMenu = document.getElementById('side-menu');
+        // Se o menu existe, remove a classe 'active' para ocultá-lo
         if (sideMenu) {
-            sideMenu.classList.remove('active'); // Remove a classe CSS que exibe o menu
+            sideMenu.classList.remove('active');
         }
-        this.menuAtivo = false; // Atualiza o estado para indicar que o menu está inativo
+        // Define o estado do menu como inativo
+        this.menuAtivo = false;
     }
 
-    // Alterna entre abrir e fechar o menu ao clicar na imagem de perfil
+    // Método para alternar o estado do menu (abre se estiver fechado e fecha se estiver aberto)
     alternarMenu(event) {
-        event.stopPropagation(); // Impede que o clique seja propagado para outros elementos
+        // Impede a propagação do evento para evitar conflitos com outros cliques
+        event.stopPropagation();
+        // Verifica se o menu está inativo
         if (!this.menuAtivo) {
-            // Se o menu não estiver ativo, cria e abre o menu
+            // Se o menu ainda não foi criado, cria-o
             if (!document.getElementById('side-menu')) {
-                this.criarMenuLateral(); // Cria o menu caso ele ainda não exista
+                this.criarMenuLateral();
             }
-            this.abrirMenu(); // Abre o menu
+            // Abre o menu
+            this.abrirMenu();
         } else {
-            // Caso contrário, fecha o menu
+            // Se o menu está ativo, fecha-o
             this.fecharMenu();
         }
     }
 
-    // Função para sair do sistema, redirecionando para a página de login após confirmação
+    // Método para confirmar e realizar a ação de sair do sistema
     sairDoSistema() {
+        // Exibe uma mensagem de confirmação
         const confirmar = confirm('Você realmente deseja sair do sistema?');
+        // Se o usuário confirmar, redireciona para a página de login
         if (confirmar) {
-            window.location.href = 'login.html'; // Redireciona para a página de login
+            window.location.href = 'login.html';
         }
     }
 }
 
 // Classe para gerenciar os ícones de navegação
 class NavigationIcons {
+    // Construtor que recebe a configuração dos ícones
     constructor(iconConfig) {
-        this.iconConfig = iconConfig; // Recebe uma configuração de ícones com seus URLs
-        this.initEventListeners(); // Inicializa os ouvintes de eventos
+        // Armazena a configuração dos ícones
+        this.iconConfig = iconConfig;
+        // Configura os ouvintes de eventos para os ícones
+        this.initEventListeners();
     }
 
-    // Adiciona ouvintes de eventos a cada ícone para redirecionar ao clicar
+    // Método para configurar os ouvintes de eventos dos ícones de navegação
     initEventListeners() {
+        // Para cada ícone na configuração, adiciona um ouvinte de clique
         this.iconConfig.forEach(icon => {
-            // Seleciona o elemento do ícone pelo atributo 'src'
+            // Seleciona o elemento da imagem do ícone com o caminho de imagem especificado
             const element = document.querySelector(`img[src="${icon.src}"]`);
+            // Se o elemento existe no DOM, adiciona um ouvinte de clique
             if (element) {
-                // Adiciona um evento de clique para redirecionar para a URL associada ao ícone
                 element.addEventListener('click', () => {
+                    // Redireciona para a URL especificada do ícone quando clicado
                     window.location.href = icon.url;
                 });
             }
@@ -111,10 +153,10 @@ class NavigationIcons {
 
 // Inicializa o sistema após o carregamento do DOM
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializa o menu lateral passando o seletor da imagem de perfil
+    // Cria uma nova instância do menu lateral, passando o seletor da imagem de perfil
     new SideMenu('.profile img');
 
-    // Configuração dos ícones de navegação com suas respectivas URLs
+    // Define os ícones de navegação com seus caminhos de imagem e URLs de redirecionamento
     const icons = [
         { src: 'pedidos-icon.png', url: 'ListaPedidos.html' },
         { src: 'fornecedores-icon.png', url: 'Fornecedores.html' },
@@ -124,6 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { src: 'produtos-icon.png', url: 'Produtos.html' }
     ];
 
-    // Inicializa os ícones de navegação com base na configuração
+    // Cria uma nova instância da classe NavigationIcons para gerenciar os ícones de navegação
     new NavigationIcons(icons);
 });

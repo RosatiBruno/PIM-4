@@ -54,6 +54,7 @@ class FornecedorSearch {
         document.getElementById('editMateriaPrima').value = fornecedor.materiaPrima;
         document.getElementById('editRazaoSocial').value = fornecedor.razaoSocial;
 
+        document.getElementById('salvarAlteracoes').onclick = () => this.salvarAlteracoes(index);
         this.openModal();
     }
 
@@ -136,6 +137,42 @@ class BackButton {
     }
 }
 
+// Classe para inativar fornecedor
+class InativarFornecedor {
+    constructor(buttonSelector, supplierListSelector) {
+        this.button = document.querySelector(buttonSelector);
+        this.supplierList = document.querySelector(supplierListSelector);
+        this.initEventListeners();
+    }
+
+    initEventListeners() {
+        this.button.addEventListener('click', () => this.inativarFornecedor());
+    }
+
+    inativarFornecedor() {
+        const fornecedorId = prompt("Informe o ID do fornecedor que deseja inativar:");
+        if (fornecedorId) {
+            const fornecedorElement = document.querySelector(`#empresa${fornecedorId}`);
+            if (fornecedorElement) {
+                const confirmacao = confirm("Tem certeza que deseja inativar este fornecedor?");
+                if (confirmacao) {
+                    let fornecedores = JSON.parse(localStorage.getItem('fornecedores')) || [];
+                    const fornecedorInativado = fornecedores.splice(fornecedorId - 1, 1)[0];
+                    localStorage.setItem('fornecedores', JSON.stringify(fornecedores));
+
+                    let fornecedoresInativos = JSON.parse(localStorage.getItem('fornecedoresInativos')) || [];
+                    fornecedoresInativos.push(fornecedorInativado);
+                    localStorage.setItem('fornecedoresInativos', JSON.stringify(fornecedoresInativos));
+
+                    fornecedorElement.remove();
+                    alert("Fornecedor inativado com sucesso!");
+                }
+            } else {
+                alert("Fornecedor não encontrado.");
+            }
+        }
+    }
+}
 
 // Função para carregar fornecedores do localStorage e exibi-los
 function carregarFornecedores() {
@@ -183,4 +220,5 @@ document.addEventListener('DOMContentLoaded', () => {
     new Navigation('.buttons button:nth-child(2)', 'NovoFornecedorF.html');
     new BackButton('.back-button', 'inicialF.html');
     carregarFornecedores();
+    new InativarFornecedor('.inactivate-button', '.supplier-list');
 });

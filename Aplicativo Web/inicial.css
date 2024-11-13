@@ -2,237 +2,177 @@
    define o box-sizing para incluir padding e border no tamanho total dos elementos,
    e define a fonte padrão como Arial ou sans-serif. */
    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui padding e borda no cálculo do tamanho total dos elementos */
+    font-family: Arial, sans-serif; /* Define a fonte padrão como Arial ou sans-serif */
 }
 
 /* Define o corpo (body) da página como um container flexível, 
    com altura total da viewport (100vh). Isso permite que os filhos sejam organizados de forma flexível. */
 body {
-    display: flex;
-    height: 100vh;
+    display: flex; /* Configura o corpo para usar flexbox */
+    height: 100vh; /* Define a altura do corpo como 100% da altura da viewport */
 }
 
 /* Estiliza a classe container como um container flexível que ocupa 100% da largura da página, 
    permitindo que seus filhos sejam organizados de forma flexível. */
 .container {
-    display: flex;
-    width: 100%;
+    display: flex; /* Configura o container para usar flexbox */
+    width: 100%; /* Define a largura do container como 100% */
 }
 
 /* Define o estilo da barra lateral (sidebar), com fundo verde claro, 
    largura de 20% da tela, e seus elementos internos são organizados em coluna e centralizados. */
 .sidebar {
-    background-color: #e0f2e9;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    background-color: #e0f2e9; /* Define a cor de fundo da barra lateral */
+    width: 20%; /* Define a largura da barra lateral como 20% da tela */
+    display: flex; /* Configura a barra lateral para usar flexbox */
+    flex-direction: column; /* Organiza os elementos internos em coluna */
+    align-items: center; /* Centraliza os elementos na barra lateral */
+    padding: 20px; /* Adiciona um preenchimento de 20 pixels em torno do conteúdo */
 }
 
 /* Estiliza o container de perfil, centralizando o texto e adicionando uma margem inferior de 50px. */
 .profile {
-    text-align: center;
-    margin-bottom: 50px;
+    text-align: center; /* Centraliza o texto dentro do perfil */
+    margin-bottom: 50px; /* Adiciona uma margem inferior de 50 pixels */
 }
 
 /* Estiliza a imagem de perfil, deixando-a circular com border-radius 50%, 
    definindo tamanho fixo de 100x100 pixels e alterando o cursor para pointer (indicando que pode ser clicada). */
 .profile img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    cursor: pointer; /* Adicionando cursor pointer para o clique */
+    border-radius: 50%; /* Faz a imagem circular */
+    width: 100px; /* Define a largura da imagem como 100 pixels */
+    height: 100px; /* Define a altura da imagem como 100 pixels */
+    cursor: pointer; /* Altera o cursor para pointer ao passar o mouse sobre a imagem */
 }
 
 /* Estiliza o parágrafo dentro do perfil, adicionando uma margem superior de 10px e mudando a cor do texto para cinza escuro (#333). */
 .profile p {
-    margin-top: 10px;
-    color: #333;
+    margin-top: 10px; /* Adiciona uma margem superior de 10 pixels */
+    color: #333; /* Define a cor do texto como cinza escuro */
 }
 
 /* Estiliza o texto dentro do span no perfil, tornando o texto em negrito. */
 .profile span {
-    font-weight: bold;
+    font-weight: bold; /* Torna o texto em negrito */
 }
 
 /* Define a largura da imagem de logo dentro do container .logo para 100px e adiciona uma margem superior automática 
    para empurrar a imagem para o fim da barra lateral. */
 .logo img {
-    width: 100px;
-    margin-top: auto;
+    width: 100px; /* Define a largura da imagem do logo como 100 pixels */
+    margin-top: auto; /* Adiciona uma margem superior automática para empurrar o logo para o fim da barra lateral */
 }
 
 /* Estiliza o conteúdo principal, ocupando 80% da largura da tela, 
    com elementos internos organizados de forma flexível, permitindo quebra de linha (flex-wrap). 
    Os itens são centralizados e espaçados por um gap de 20px, com padding interno de 20px. */
 .main-content {
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
+    width: 80%; /* Define a largura do conteúdo principal como 80% da tela */
+    display: flex; /* Configura o conteúdo principal para usar flexbox */
+    flex-wrap: wrap; /* Permite que os itens se quebrem para a linha seguinte */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    gap: 20px; /* Define um espaço de 20 pixels entre os itens */
+    padding: 20px; /* Adiciona um preenchimento interno de 20 pixels */
 }
 
 /* Estiliza cada item do menu, definindo um fundo cinza claro (#dcdcdc), 
    tamanho fixo de 200x150 pixels, organizando o conteúdo em coluna e centralizando-o. 
    Além disso, os itens têm bordas arredondadas e o texto é centralizado. */
 .menu-item {
-    background-color: #dcdcdc;
-    width: 200px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    text-align: center;
+    background-color: #dcdcdc; /* Define a cor de fundo dos itens do menu */
+    width: 200px; /* Define a largura dos itens do menu como 200 pixels */
+    height: 150px; /* Define a altura dos itens do menu como 150 pixels */
+    display: flex; /* Configura os itens do menu para usar flexbox */
+    flex-direction: column; /* Organiza o conteúdo interno em coluna */
+    align-items: center; /* Centraliza os itens na coluna */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    border-radius: 10px; /* Define bordas arredondadas para os itens do menu */
+    text-align: center; /* Centraliza o texto dentro dos itens do menu */
 }
 
 /* Estiliza as imagens dentro dos itens do menu, definindo tamanho fixo de 50x50 pixels 
    e uma margem inferior de 10px para espaçar da descrição do menu. */
 .menu-item img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
+    width: 50px; /* Define a largura das imagens dos itens do menu como 50 pixels */
+    height: 50px; /* Define a altura das imagens dos itens do menu como 50 pixels */
+    margin-bottom: 10px; /* Adiciona uma margem inferior de 10 pixels */
 }
 
 /* Estiliza o texto dentro dos itens do menu, com tamanho de fonte de 18px e cor de texto cinza escuro (#333). */
 .menu-item p {
-    font-size: 18px;
-    color: #333;
+    font-size: 18px; /* Define o tamanho da fonte como 18 pixels */
+    color: #333; /* Define a cor do texto como cinza escuro */
 }
 
 /* Estilos para o menu lateral (side-menu), que é fixo no topo à esquerda, 
    ocupando 250px de largura e altura total da tela, com fundo escuro (#333) e texto branco. 
    Inicialmente o menu está oculto (display: none), mas será exibido com display flex quando ativado. */
 .side-menu {
-    position: fixed;
-    top: 0;
-    left: 0; /* Exibe o menu na esquerda */
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    color: white;
-    display: none;
-    flex-direction: column;
-    padding: 20px;
+    position: fixed; /* Fixa o menu lateral na posição definida */
+    top: 0; /* Posiciona o menu no topo da tela */
+    left: 0; /* Posiciona o menu à esquerda da tela */
+    width: 250px; /* Define a largura do menu lateral como 250 pixels */
+    height: 100%; /* Define a altura do menu lateral como 100% da tela */
+    background-color: #333; /* Define a cor de fundo do menu lateral como cinza escuro */
+    color: white; /* Define a cor do texto no menu lateral como branco */
+    display: none; /* Inicialmente oculta o menu lateral */
+    flex-direction: column; /* Organiza o conteúdo interno em coluna */
+    padding: 20px; /* Adiciona um preenchimento de 20 pixels ao redor do conteúdo */
     z-index: 1000; /* Garante que o menu fique acima do conteúdo */
 }
 
 /* Quando o menu lateral (side-menu) estiver com a classe 'active', 
    ele será exibido usando 'display: flex' para tornar o menu visível. */
 .side-menu.active {
-    display: flex; /* Mostra o menu quando estiver ativo */
+    display: flex; /* Torna o menu lateral visível quando ativo */
 }
 
 /* Estiliza cada opção do menu lateral, adicionando preenchimento vertical de 15px, 
    cursor pointer para indicar que pode ser clicado, cor de texto branca, 
    e uma borda inferior para separação visual. */
 .menu-option {
-    padding: 15px 0;
-    cursor: pointer;
-    color: #fff;
-    border-bottom: 1px solid #444;
+    padding: 15px 0; /* Adiciona preenchimento vertical de 15 pixels */
+    cursor: pointer; /* Altera o cursor para pointer ao passar o mouse */
+    color: #fff; /* Define a cor do texto como branca */
+    border-bottom: 1px solid #444; /* Adiciona uma borda inferior de 1 pixel e cor cinza escuro */
 }
 
 /* Quando o usuário passa o mouse sobre uma opção do menu, 
    o fundo muda para um cinza escuro (#444) para dar feedback visual de interação. */
 .menu-option:hover {
-    background-color: #444;
+    background-color: #444; /* Altera a cor de fundo para cinza escuro ao passar o mouse */
 }
 
 /* Adiciona uma transição suave ao conteúdo principal quando o menu lateral está ativo, 
    movendo-o para a direita (margin-left) em 250px para acomodar o menu. */
 .main-content {
-    transition: margin-left 0.3s ease;
+    transition: margin-left 0.3s ease; /* Define uma transição suave para a margem esquerda */
 }
 
 /* Quando o menu lateral (side-menu) estiver ativo, 
-   o conteúdo principal (main-content) se desloca 250px para a direita. */
+   o conteúdo principal será movido para a direita em 250px. */
 .side-menu.active + .main-content {
-    margin-left: 250px; /* Move o conteúdo quando o menu estiver ativo */
+    margin-left: 250px; /* Mova o conteúdo principal para a direita */
 }
 
-/* Estilos responsivos para telas menores */
-@media (max-width: 768px) {
-    /* Ajusta a largura da sidebar para 40% em telas menores */
-    .sidebar {
-        width: 40%;
-    }
-
-    /* Ajusta a largura do conteúdo principal para 60% */
-    .main-content {
-        width: 60%;
-    }
-
-    /* Ajusta a largura e altura dos itens do menu */
-    .menu-item {
-        width: 150px;
-        height: 120px;
-    }
-
-    /* Ajusta o tamanho da imagem de perfil */
-    .profile img {
-        width: 80px;
-        height: 80px;
-    }
-
-    /* Ajusta o tamanho da fonte nos itens do menu */
-    .menu-item p {
-        font-size: 16px;
-    }
+/* Estiliza o botão de fechar, com cor de fundo vermelha e texto branco, 
+   tamanho fixo de 30px, bordas arredondadas e centralização. */
+.close-btn {
+    background-color: red; /* Define a cor de fundo do botão de fechar como vermelho */
+    color: white; /* Define a cor do texto no botão como branco */
+    width: 30px; /* Define a largura do botão como 30 pixels */
+    height: 30px; /* Define a altura do botão como 30 pixels */
+    border: none; /* Remove as bordas padrão do botão */
+    border-radius: 50%; /* Faz o botão circular */
+    cursor: pointer; /* Altera o cursor para pointer ao passar o mouse */
 }
 
-@media (max-width: 480px) {
-    /* Para telas muito pequenas, como smartphones */
-    .sidebar {
-        width: 100%; /* Sidebar ocupa toda a largura */
-        padding: 10px; /* Menos padding */
-    }
-
-    .main-content {
-        width: 100%; /* Conteúdo principal ocupa toda a largura */
-    }
-
-    .menu-item {
-        width: 90%; /* Itens do menu ocupam 90% da largura */
-        height: auto; /* Altura automática */
-    }
-
-    /* Ajusta o tamanho da imagem de perfil */
-    .profile img {
-        width: 60px;
-        height: 60px;
-    }
-
-    /* Ajusta o tamanho da fonte nos itens do menu */
-    .menu-item p {
-        font-size: 14px;
-    }
-}
-
-/* CSS para melhorar a logo */
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-}
-
-.logo img {
-    width: 150px; /* Ajuste o tamanho conforme necessário */
-    height: auto;
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
-    transition: transform 0.3s ease; /* Animação suave ao passar o mouse */
-}
-
-.logo img:hover {
-    transform: scale(1.1); /* Aumenta a logo ao passar o mouse */
+/* Estilo para o botão de fechar ao passar o mouse, 
+   mudando a cor de fundo para um vermelho mais escuro para dar feedback visual. */
+.close-btn:hover {
+    background-color: darkred; /* Altera a cor de fundo para vermelho escuro ao passar o mouse */
 }

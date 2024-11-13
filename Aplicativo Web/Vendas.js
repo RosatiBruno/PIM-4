@@ -1,40 +1,57 @@
-// Função para carregar os pedidos armazenados no localStorage e exibi-los na tabela
-function carregarPedidos() {
-    // Seleciona o elemento da tabela onde os pedidos serão exibidos
-    const tabelaVendas = document.getElementById('vendas-table');
-    
-    // Obtém os pedidos do localStorage e converte de JSON para array. Se não houver pedidos, define um array vazio.
-    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-
-    // Se não houver pedidos armazenados, cria uma linha na tabela informando que não há pedidos cadastrados
-    if (pedidos.length === 0) {
-        const linhaVazia = document.createElement('tr'); // Cria uma nova linha (tr) na tabela
-        // Define o conteúdo da linha com uma célula que ocupa todas as colunas, mostrando a mensagem
-        linhaVazia.innerHTML = '<td colspan="7">Nenhum pedido cadastrado.</td>';
-        tabelaVendas.appendChild(linhaVazia); // Adiciona a linha à tabela
-        return; // Finaliza a função, já que não há pedidos a exibir
+// Classe para gerenciar pedidos
+class PedidoManager {
+    // Construtor que recebe o ID da tabela onde os pedidos serão exibidos
+    constructor(tabelaId) {
+        this.tabelaVendas = document.getElementById(tabelaId); // Seleciona a tabela pelo ID fornecido e a armazena em uma propriedade
     }
 
-    // Caso haja pedidos, exibe cada um na tabela
-    pedidos.forEach((pedido) => {
-        const novaLinha = document.createElement('tr'); // Cria uma nova linha para cada pedido
-        // Calcula o total multiplicando a quantidade pelo valor do produto e limita o valor a 2 casas decimais
-        const total = (pedido.quantidade * pedido.valor).toFixed(2); 
+    // Método para carregar os pedidos armazenados no localStorage e exibi-los na tabela
+    carregarPedidos() {
+        // Recupera os pedidos armazenados no localStorage e converte de JSON para um array de objetos; caso não haja pedidos, cria um array vazio
+        const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
 
-        // Define o conteúdo da linha, preenchendo cada célula com as informações do pedido
+        // Verifica se não há pedidos; se não houver, exibe uma mensagem informando que não há pedidos cadastrados
+        if (pedidos.length === 0) {
+            this.exibirMensagemSemPedidos(); // Chama o método para exibir a mensagem de "Nenhum pedido cadastrado"
+            return; // Encerra o método para evitar processar o restante do código
+        }
+
+        // Itera sobre cada pedido no array de pedidos
+        pedidos.forEach((pedido) => {
+            this.adicionarPedidoNaTabela(pedido); // Adiciona cada pedido na tabela chamando o método específico
+        });
+    }
+
+    // Método para exibir uma mensagem informando que não há pedidos cadastrados
+    exibirMensagemSemPedidos() {
+        const linhaVazia = document.createElement('tr'); // Cria uma nova linha para a tabela
+        // Define o conteúdo da linha com a mensagem e define o atributo colspan para que a mensagem ocupe todas as colunas
+        linhaVazia.innerHTML = '<td colspan="7">Nenhum pedido cadastrado.</td>';
+        this.tabelaVendas.appendChild(linhaVazia); // Adiciona a linha à tabela
+    }
+
+    // Método para adicionar um pedido na tabela
+    adicionarPedidoNaTabela(pedido) {
+        const novaLinha = document.createElement('tr'); // Cria uma nova linha para o pedido
+        const total = (pedido.quantidade * pedido.valor).toFixed(2); // Calcula o valor total (quantidade * valor unitário) e formata para duas casas decimais
+
+        // Define o conteúdo HTML da nova linha com os dados do pedido
         novaLinha.innerHTML = `
-            <td>${pedido.idPedido}</td>                <!-- Exibe o ID do pedido -->
-            <td>${new Date().toLocaleDateString()}</td> <!-- Exibe a data atual (pode ser adaptada) -->
-            <td>${pedido.nomeProduto}</td>              <!-- Exibe o nome do produto -->
-            <td>${pedido.quantidade}</td>               <!-- Exibe a quantidade de produtos -->
-            <td>R$ ${pedido.valor}</td>                 <!-- Exibe o valor unitário do produto -->
-            <td>R$ ${total}</td>                        <!-- Exibe o total calculado (quantidade * valor) -->
-            <td>${pedido.empresaResponsavel}</td>       <!-- Exibe o nome da empresa responsável pelo pedido -->
+            <td>${pedido.idPedido}</td>
+            <td>${new Date().toLocaleDateString()}</td> <!-- Insere a data atual formatada -->
+            <td>${pedido.nomeProduto}</td>
+            <td>${pedido.quantidade}</td>
+            <td>R$ ${pedido.valor}</td>
+            <td>R$ ${total}</td>
+            <td>${pedido.empresaResponsavel}</td>
         `;
-        // Adiciona a nova linha à tabela
-        tabelaVendas.appendChild(novaLinha);
-    });
+        this.tabelaVendas.appendChild(novaLinha); // Adiciona a nova linha à tabela de vendas
+    }
 }
 
-// Chama a função para carregar os pedidos quando a página for carregada (evento 'DOMContentLoaded')
-document.addEventListener('DOMContentLoaded', carregarPedidos);
+// Inicializa o sistema após o carregamento do DOM
+document.addEventListener('DOMContentLoaded', () => {
+    // Cria uma instância de PedidoManager, passando o ID da tabela onde os pedidos serão exibidos
+    const pedidoManager = new PedidoManager('vendas-table');
+    pedidoManager.carregarPedidos(); // Chama o método para carregar e exibir os pedidos na tabela
+});

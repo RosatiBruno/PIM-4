@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Data.SqlClient;
+using System.Runtime.Remoting.Contexts;
 
 namespace TelaPimExercicio
 {
@@ -21,89 +24,94 @@ namespace TelaPimExercicio
         private string userType;
         private AlteradorFontePedidos alteradorFontePedidos;
 
+        // Conexão com o banco de dados (COMPUTADOR)
+        //private string connectionString = "Data Source=DESKTOP-0T3JO2U\\SQLURBAGRO;Initial Catalog=bdPedidos;Integrated Security=True";
+
+        // Conexão com o banco de dados (NOTEBOOK)
+        private string connectionString = "Data Source=MARCIA-DELL\\SQLURBAGRO;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+
         public TelaPedidos(string userType)
         {
             InitializeComponent();
 
-            //Desativar o botão ao estar logado sem ser como T.I
+            // Desativar o botão ao estar logado sem ser como T.I
             this.userType = userType;
 
-            //Alterar o tamanho da fonte
+            // Alterar o tamanho da fonte
             alteradorFontePedidos = new AlteradorFontePedidos(this);
             alteradorFontePedidos.AlterarFontePedidos(btnLogout2, btnRetornar2);
 
-            //Permitindo o redimensionamento da tela
+            // Permitindo o redimensionamento da tela
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.MaximizeBox = true;
-
-            //Abre em Tela Cheia - Verificar a Necessidade e a Viabilidade
             this.WindowState = FormWindowState.Maximized;
-
-            //Definindo o tamanho mínimo da tela para 800x600
             this.MinimumSize = new Size(800, 600);
 
-            //Criando e adicionando a logo
+            // Criando e adicionando a logo
             logo = new Logo(this);
             this.Controls.Add(logo.Picture);
-
-            // Posicionando a logo no canto inferior esquerdo
             logo.Picture.Location = new Point(20, this.ClientSize.Height - logo.Picture.Height - 10);
 
-            //Criando e adicionando a barra verde superior
+            // Criando e adicionando a barra verde superior
             colorBar = new ColorBar2(this);
             this.Controls.Add(colorBar.Panel);
 
-            //Criando e adicionando a cor verde de fundo
+            // Criando e adicionando a cor verde de fundo
             colorBg = new ColorBackground(this);
             this.Controls.Add(colorBg.Panel);
 
-            this.Resize += TelaFornecedores_Resize;
+            this.Resize += TelaPedidos_Resize;
 
-            //Iniciando o Logout
+            // Iniciando o Logout
             logout = new Logout(this);
 
-            //Centraliza no Monitor/Tela
+            // Centraliza no Monitor/Tela
             CenterToScreen();
         }
 
-        private void TelaFornecedores_Resize(object sender, EventArgs e)
+        private void TelaPedidos_Resize(object sender, EventArgs e)
         {
-            //Reposiciona a logo no canto inferior esquerdo
             logo.Picture.Location = new Point(20, this.ClientSize.Height - logo.Picture.Height - 10);
-
-            //Ajusta a barra verde para manter a mesma largura e aumentar apenas em altura
             colorBar.Panel.Size = new Size(colorBar.Panel.Width, this.ClientSize.Height);
-
-            //Ajusta o fundo para cobrir toda a tela ao redimensionar
             colorBg.Panel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height);
-
-            //Recalcular a centralização dos componentes
             centralizador2 = new Centralizador2(this);
-
-            //Reposiciona o botão de voltar no canto inferior esquerdo
-            btnRetornar2.Location = new Point(btnRetornar2.Location.X, this.ClientSize.Height - btnRetornar2.Height - 35); //35 é a margem inferior
+            btnRetornar2.Location = new Point(btnRetornar2.Location.X, this.ClientSize.Height - btnRetornar2.Height - 35);
         }
 
-
-        //Função para atualizar a ListView após o cadastro de algum pedido
+        // Função para atualizar a ListView a partir do banco de dados
         public void AtualizarListView()
         {
             lvBuscarPedidos.Items.Clear();
-            foreach (var pedidos in RepositorioPedidos.ListaPedidos)
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                ListViewItem item = new ListViewItem(new[] {
-            pedidos.ID.ToString(),
-            pedidos.Nome,
-            pedidos.Quantidade.ToString(),
-            pedidos.ValorUnitario.ToString(),
-            pedidos.EmpresaCompra,
-        });
-                lvBuscarPedidos.Items.Add(item);
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT idPedido, nomePedido, quantidadePedido, valorUnitarioPedido, empresaResponsavelPedido FROM bdPedidos.dbo.Pedidos";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        ListViewItem item = new ListViewItem(new[] {
+                    reader["idPedido"].ToString(),
+                    reader["nomePedido"].ToString(),
+                    reader["quantidadePedido"].ToString(),
+                    reader["valorUnitarioPedido"].ToString(),
+                    reader["empresaResponsavelPedido"].ToString()
+                });
+                        lvBuscarPedidos.Items.Add(item);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao carregar pedidos: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
-
-        //Botão Retornar volta ao Menu Inicial (Form2)
+        // Botão Retornar volta ao Menu Inicial (Form2)
         private void btnRetornar2_Click_1(object sender, EventArgs e)
         {
             Form2 form2 = new Form2(userType);
@@ -114,53 +122,62 @@ namespace TelaPimExercicio
             this.Hide();
         }
 
-
-        //Botão de Logout sai do Programa
+        // Botão de Logout sai do Programa
         private void btnLogout2_Click_1(object sender, EventArgs e)
         {
             logout.ShowLogoutDialog();
         }
 
-
-        //PROCURANDO DADOS NA LISTVIEW (VAI SER ALTERADO AINDA!!!! - EM DESENVOLVIMENTO)
+        // Função de busca de pedido na ListView
         private void btnBuscarPedido_Click(object sender, EventArgs e)
         {
-            bool itemEncontrado = false;
-            string termoBusca = lvBuscarPedidos.Text.ToLower().Trim();
+            string termoBusca = txtBuscarPedido.Text.Trim(); // Supondo que você tenha um TextBox para digitar o ID de busca
 
+            if (string.IsNullOrEmpty(termoBusca))
+            {
+                MessageBox.Show("Digite um ID para realizar a busca.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Limpar a seleção anterior
+            lvBuscarPedidos.SelectedItems.Clear();
+
+            bool pedidoEncontrado = false;
+
+            // Percorre todos os itens da ListView para procurar o ID correspondente
             foreach (ListViewItem item in lvBuscarPedidos.Items)
             {
-                if (item.SubItems[0].Text.ToLower().Contains(termoBusca)) //O nmr entre '[]' é a casa da listview q procura
+                // Verifica se o ID do pedido é igual ao termo de busca
+                if (item.SubItems[0].Text == termoBusca)  // SubItems[0] é a coluna com o ID do pedido
                 {
+                    // Destaca o item encontrado, selecionando-o
                     item.Selected = true;
-                    lvBuscarPedidos.TopItem = item; //Traz o pedido procurado para o topo da lista
-                    lvBuscarPedidos.Focus(); //Define o foco na ListView
-                    itemEncontrado = true;
-                    break;
+                    lvBuscarPedidos.TopItem = item;  // Faz o item ser visível (caso esteja fora da tela)
+                    pedidoEncontrado = true;
+                    break;  // Para a busca quando encontrar o pedido
                 }
             }
-            //Exibe uma mensagem caso não ache nenhum Pedido
-            if (!itemEncontrado)
+
+            // Caso nenhum pedido tenha sido encontrado
+            if (!pedidoEncontrado)
             {
                 MessageBox.Show("Pedido não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-
-        //Botão de cadastro de novo pedido
+        // Botão de cadastro de novo pedido
         private void btnCadastrarNovoPedido_Click(object sender, EventArgs e)
         {
             TelaCadastroPedido telaCadastroPedido = new TelaCadastroPedido(userType);
-            telaCadastroPedido.Size = this.Size; //Passa o tamanho do Form2 para o TelaFornecedores
-            telaCadastroPedido.StartPosition = FormStartPosition.CenterScreen; //Centraliza a nova tela na tela
+            telaCadastroPedido.Size = this.Size;
+            telaCadastroPedido.StartPosition = FormStartPosition.CenterScreen;
             telaCadastroPedido.FormClosed += (s, args) => this.Close();
             telaCadastroPedido.Show();
             this.Hide();
         }
 
-
-        //Chamada da função de atualização da ListView após cadastrar um Pedido novo
-        private void TelaPedidos_Load_1(object sender, EventArgs e)
+        // Carregar os pedidos ao abrir a TelaPedidos
+        private void TelaPedidos_Load(object sender, EventArgs e)
         {
             AtualizarListView();
         }
@@ -183,6 +200,11 @@ namespace TelaPimExercicio
             telaEditarPedidos.StartPosition = FormStartPosition.CenterScreen;
             telaEditarPedidos.Show();
             this.Hide();
+        }
+
+        private void TelaPedidos_Load_1(object sender, EventArgs e)
+        {
+            AtualizarListView();
         }
     }
 }

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html> <!-- Declaração do tipo de documento HTML5 -->
+<html lang="pt-BR"> <!-- Início do documento HTML com definição do idioma (Português do Brasil) -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Pedidos</title>
-    <link rel="stylesheet" href="PedidosF.css"> <!-- Link para o CSS externo -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuração para responsividade em dispositivos móveis -->
+    <title>Lista de Pedidos</title> <!-- Título da aba do navegador -->
+    <link rel="stylesheet" href="PedidosF.css"> <!-- Link para o CSS externo que estiliza a página -->
 </head>
 <body>
     <div class="container"> <!-- Container principal que envolve todo o conteúdo da página -->
@@ -29,7 +29,7 @@
     <script>
         // Função para carregar e exibir os pedidos na tela ListaPedidos.html
         function carregarPedidosNaTela() {
-            let pedidos = JSON.parse(localStorage.getItem('pedidos')) || []; // Busca os pedidos do localStorage
+            let pedidos = JSON.parse(localStorage.getItem('pedidos')) || []; // Busca os pedidos do localStorage ou cria um array vazio se não houver
             const listaPedidosContainer = document.querySelector('.lista-pedidos'); // Seleciona o contêiner da lista de pedidos
 
             // Limpa a div antes de adicionar novos elementos
@@ -37,26 +37,26 @@
 
             // Verifica se há pedidos
             if (pedidos.length > 0) {
-                pedidos.forEach(pedido => {
+                pedidos.forEach(pedido => { // Itera sobre cada pedido na lista
                     // Cria um elemento HTML para cada pedido
                     const pedidoItem = document.createElement('div');
-                    pedidoItem.classList.add('pedido-item');
-                    pedidoItem.innerHTML = `
+                    pedidoItem.classList.add('pedido-item'); // Adiciona a classe 'pedido-item' ao novo div
+                    pedidoItem.innerHTML = ` <!-- Adiciona HTML dinâmico para exibir os detalhes do pedido -->
                         <p>ID do Pedido: ${pedido.idPedido}</p>
                         <p>Nome do Produto: ${pedido.nomeProduto}</p>
                         <p>Valor Unitário: R$ ${pedido.valor}</p>
                         <p>Quantidade: ${pedido.quantidade}</p>
                         <p>Empresa Responsavel: ${pedido.empresaResponsavel}</p>
-                        <button class="edit-button" data-id="${pedido.idPedido}">Consulta</button>
+                        <button class="edit-button" data-id="${pedido.idPedido}">Consulta</button> <!-- Botão para editar o pedido -->
                     `;
 
                     // Adiciona o evento de clique no botão de editar para exibir os dados em uma tela branca
                     pedidoItem.querySelector('.edit-button').addEventListener('click', () => {
-                        exibirDetalhesPedido(pedido);
+                        exibirDetalhesPedido(pedido); // Chama a função para exibir detalhes do pedido
                     });
 
                     // Adiciona o item à lista de pedidos
-                    listaPedidosContainer.appendChild(pedidoItem);
+                    listaPedidosContainer.appendChild(pedidoItem); // Insere o novo item na lista
                 });
             } else {
                 listaPedidosContainer.innerHTML = '<p>Nenhum pedido encontrado.</p>'; // Exibe uma mensagem se não houver pedidos
@@ -67,50 +67,53 @@
         function exibirDetalhesPedido(pedido) {
             // Cria um modal simples para exibir e editar os detalhes do pedido
             const modal = document.createElement('div');
-            modal.classList.add('modal');
-            modal.innerHTML = `
+            modal.classList.add('modal'); // Adiciona a classe 'modal'
+            modal.innerHTML = ` <!-- Adiciona HTML dinâmico para o conteúdo do modal -->
                 <div class="modal-content">
                     <h2>Editar Pedido</h2>
                     <label for="nomeProduto">Nome do Produto:</label>
-                    <input type="text" id="nomeProduto" value="${pedido.nomeProduto}">
+                    <input type="text" id="nomeProduto" value="${pedido.nomeProduto}"> <!-- Campo para editar o nome do produto -->
                     
                     <label for="Quantidade">Quantidade:</label>
-                    <input type="text" id="quantidade" value="${pedido.quantidade}">
+                    <input type="text" id="quantidade" value="${pedido.quantidade}"> <!-- Campo para editar a quantidade -->
 
                     <label for="Empresa">Empresa Responsável:</label>
-                    <input type="text" id="empresa" value="${pedido.empresaResponsavel}">
+                    <input type="text" id="empresa" value="${pedido.empresaResponsavel}"> <!-- Campo para editar a empresa responsável -->
                     
                     <label for="valor">Valor Unitário:</label>
-                    <input type="number" id="valor" value="${pedido.valor}">
+                    <input type="number" id="valor" value="${pedido.valor}"> <!-- Campo para editar o valor unitário -->
                     
-                    <button class="close-modal">Fechar</button>
+                    <button class="close-modal">Fechar</button> <!-- Botão para fechar o modal -->
                 </div>
             `;
-            document.body.appendChild(modal);
+            document.body.appendChild(modal); // Adiciona o modal ao corpo do documento
 
             // Evento para fechar o modal
             modal.querySelector('.close-modal').addEventListener('click', () => {
-                modal.remove();
+                modal.remove(); // Remove o modal da página quando o botão 'Fechar' é clicado
             });
         }
 
         // Função para atualizar a tela de Vendas com os pedidos editados
         function atualizarVendasTela() {
             // Simulando a atualização da tela Vendas.html
-            console.log("Vendas atualizada com os novos dados de pedidos.");
+            console.log("Vendas atualizada com os novos dados de pedidos."); // Log de atualização
         }
 
         // Inicializa o sistema de gerenciamento de pedidos após o carregamento do DOM
         document.addEventListener('DOMContentLoaded', () => {
+            // Instância do botão para cadastrar novo pedido
             new NovoPedido('.novo-pedido', 'NovoPedidoF.html');
+            // Instância do botão para voltar à página anterior
             new VoltarButton('.back-button', 'inicialF.html');
 
+            // Seleciona o botão de exclusão
             const excluirButton = document.querySelector('.delete-button');
-            if (excluirButton) {
+            if (excluirButton) { // Verifica se o botão de exclusão existe
                 excluirButton.addEventListener('click', () => {
-                    const idPedido = prompt("Digite o ID do pedido que deseja excluir:");
+                    const idPedido = prompt("Digite o ID do pedido que deseja excluir:"); // Solicita o ID do pedido para excluir
                     if (idPedido) {
-                        deletarPedido(idPedido);
+                        deletarPedido(idPedido); // Chama a função para deletar o pedido
                     }
                 });
             }
@@ -121,6 +124,6 @@
         // Função para deletar um pedido pelo ID
     </script>
 
-    <script src="PedidosF.js"></script> <!-- Link para o arquivo JavaScript -->
+    <script src="PedidosF.js"></script> <!-- Link para o arquivo JavaScript que contém a lógica adicional -->
 </body>
 </html>

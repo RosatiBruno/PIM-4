@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,10 @@ namespace TelaPimExercicio
         private string userType;
         private AlteradorFontePedidos alteradorFontePedidos;
         private TelaPedidos telaPedidos;
+
+        // Conexão com o banco de dados (NOTEBOOK)
+        private string connectionString = "Data Source=MARCIA-DELL\\SQLURBAGRO;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+
         public TelaEditarPedidos(string userType, TelaPedidos telaPedidos)
         {
             InitializeComponent();
@@ -109,6 +114,48 @@ namespace TelaPimExercicio
             this.Hide();
         }
 
+        private Pedidos BuscarPedidoPorId(int idPedido)
+        {
+            Pedidos pedido = null;
+
+            // Conectar ao banco de dados
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Query para buscar o pedido pelo ID
+                    string query = "SELECT idPedido, nomePedido, quantidadePedido, valorUnitarioPedido, empresaResponsavelPedido " +
+                                   "FROM bdPedidos.dbo.Pedidos WHERE idPedido = @idPedido";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@idPedido", idPedido);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Se encontrar um pedido, cria o objeto Pedido e popula os dados
+                    if (reader.Read())
+                    {
+                        pedido = new Pedidos
+                        {
+                            ID = Convert.ToInt32(reader["idPedido"]),
+                            Nome = reader["nomePedido"].ToString(),
+                            Quantidade = Convert.ToInt32(reader["quantidadePedido"]),
+                            ValorUnitario = Convert.ToDecimal(reader["valorUnitarioPedido"]),
+                            EmpresaCompra = reader["empresaResponsavelPedido"].ToString()
+                        };
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao buscar o pedido: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return pedido;
+        }
+
         //Botão de buscar o pedido para exibir suas informações para edição
         private void btnBuscarEditarPedido_Click(object sender, EventArgs e)
         {
@@ -126,12 +173,12 @@ namespace TelaPimExercicio
 
         private void ExibirPedidoParaEdicao(int idPedido)
         {
-            // Busca o pedido na lista de pedidos pelo ID
-            var pedido = RepositorioPedidos.ListaPedidos.FirstOrDefault(p => p.ID == idPedido);
+            // Busca o pedido no banco de dados pelo ID
+            var pedido = BuscarPedidoPorId(idPedido);
 
             if (pedido != null)
             {
-                // Se o pedido for encontrado, preenche os campos de edição com os dados
+                // Preenche os campos de edição com os dados recuperados do banco
                 txtEditarNomeProduto.Text = pedido.Nome;
                 txtEditarIDPedido.Text = pedido.ID.ToString();
                 txtEditarQuantidadePedido.Text = pedido.Quantidade.ToString();
@@ -144,6 +191,7 @@ namespace TelaPimExercicio
                 MessageBox.Show("Pedido não encontrado. Verifique o ID e tente novamente.", "Pedido não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+    
 
         //Botão de logout
         private void btnLogout2_Click(object sender, EventArgs e)
@@ -155,37 +203,78 @@ namespace TelaPimExercicio
         //Botão de confirmação de edição das informações alteradas do pedido
         private void btnConfirmarEdicaoPedido_Click(object sender, EventArgs e)
         {
-            //Caso o usuário não seja do T.I ou Gerente não permite excluir um pedido
+            // Caso o usuário não seja do T.I ou Gerente não permite editar um pedido
             if (userType == "funcionario")
             {
                 MessageBox.Show("Acesso negado! Você não tem permissão para executar essa função.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; //Impede a mudança de tela
+                return; // Impede a mudança de tela
             }
             else
             {
-                //Converte o ID do pedido para um int - Sem essa conversão da erro
+                // Converte o ID do pedido para um int - Sem essa conversão dá erro
                 if (int.TryParse(txtEditarIDPedido.Text, out int idPedido))
                 {
-                    //Busca o pedido na lista de pedidos pelo ID que foi convertido
-                    var pedido = RepositorioPedidos.ListaPedidos.FirstOrDefault(p => p.ID == idPedido);
-
-                    if (pedido != null)
+                    // Verifica se os campos necessários estão preenchidos corretamente
+                    if (string.IsNullOrEmpty(txtEditarNomeProduto.Text) ||
+                        string.IsNullOrEmpty(txtEditarQuantidadePedido.Text) ||
+                        string.IsNullOrEmpty(txtEditarValorUnitario.Text) ||
+                        string.IsNullOrEmpty(txtEditarEmpresaCompra.Text))
                     {
-                        //Atualiza as informações do pedido
-                        pedido.Nome = txtEditarNomeProduto.Text;
-                        pedido.Quantidade = int.Parse(txtEditarQuantidadePedido.Text);
-                        pedido.ValorUnitario = decimal.Parse(txtEditarValorUnitario.Text);
-                        pedido.EmpresaCompra = txtEditarEmpresaCompra.Text;
+                        MessageBox.Show("Todos os campos devem ser preenchidos.", "Campos obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
 
-                        MessageBox.Show("Pedido atualizado com sucesso!", "Pedido atualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Tenta converter os dados do formulário
+                    if (int.TryParse(txtEditarQuantidadePedido.Text, out int quantidade) && decimal.TryParse(txtEditarValorUnitario.Text, out decimal valorUnitario))
+                    {
+                        try
+                        {
+                            // Comando SQL para atualizar os dados no banco
+                            string query = "UPDATE bdPedidos.dbo.Pedidos SET " +
+                                           "nomePedido = @nomePedido, " +
+                                           "quantidadePedido = @quantidadePedido, " +
+                                           "valorUnitarioPedido = @valorUnitarioPedido, " +
+                                           "empresaResponsavelPedido = @empresaResponsavelPedido " +
+                                           "WHERE idPedido = @idPedido";
 
-                        //Atualiza a ListView na TelaPedidos
-                        telaPedidos?.AtualizarListView();
+                            using (SqlConnection conn = new SqlConnection(connectionString))
+                            {
+                                conn.Open();
 
+                                using (SqlCommand cmd = new SqlCommand(query, conn))
+                                {
+                                    // Definir os parâmetros para evitar SQL Injection
+                                    cmd.Parameters.AddWithValue("@nomePedido", txtEditarNomeProduto.Text);
+                                    cmd.Parameters.AddWithValue("@quantidadePedido", quantidade);
+                                    cmd.Parameters.AddWithValue("@valorUnitarioPedido", valorUnitario);
+                                    cmd.Parameters.AddWithValue("@empresaResponsavelPedido", txtEditarEmpresaCompra.Text);
+                                    cmd.Parameters.AddWithValue("@idPedido", idPedido);
+
+                                    // Executa a atualização no banco
+                                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                                    if (rowsAffected > 0)
+                                    {
+                                        MessageBox.Show("Pedido atualizado com sucesso!", "Pedido atualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        // Atualiza a ListView na TelaPedidos após a alteração
+                                        telaPedidos?.AtualizarListView();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Não foi possível atualizar o pedido. Verifique o ID e tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Erro ao atualizar o pedido no banco de dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Pedido não encontrado.", "Pedido não encontrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Por favor, insira valores válidos para quantidade e valor unitário.", "Erro de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
@@ -193,6 +282,12 @@ namespace TelaPimExercicio
                     MessageBox.Show("ID do pedido inválido.", "ID inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
+            txtBuscarEditarPedido.Text = "";
+            txtEditarNomeProduto.Text = "";
+            txtEditarIDPedido.Text = "";
+            txtEditarQuantidadePedido.Text = "";
+            txtEditarValorUnitario.Text = "";
+            txtEditarEmpresaCompra.Text = "";
         }
 
         private void TelaEditarPedidos_Load(object sender, EventArgs e)

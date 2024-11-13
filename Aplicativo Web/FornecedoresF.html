@@ -1,85 +1,83 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR"> <!-- Define que este é um documento HTML5 e especifica o idioma como português do Brasil -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fornecedores</title>
-    <link rel="stylesheet" href="FornecedoresF.css">
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 para suportar caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a largura da visualização para o dispositivo, ajudando na responsividade -->
+    <title>Fornecedores</title> <!-- Título da página que aparecerá na aba do navegador -->
+    <link rel="stylesheet" href="FornecedoresF.css"> <!-- Link para o arquivo CSS que estiliza a página -->
 </head>
 <body>
-    <div class="sidebar">
-        <img src="profile.png" alt="Gabriel Igor Dias Gomes">
-        <div class="logo">
-            <img src="logo.png" alt="UrbAgro">
+    <div class="sidebar"> <!-- Div para a barra lateral -->
+        <img src="profile.png" alt="Gabriel Igor Dias Gomes"> <!-- Imagem do perfil -->
+        <div class="logo"> <!-- Div para o logotipo -->
+            <img src="logo.png" alt="UrbAgro"> <!-- Imagem do logotipo da empresa -->
         </div>
     </div>
-    <div class="content">
-        <div class="search-bar">
-            <input type="text" placeholder="Digite o CNPJ/CPF do Fornecedor">
-            <button>
-                <img src="https://via.placeholder.com/20" alt="Buscar">
+    <div class="content"> <!-- Div para o conteúdo principal da página -->
+        <div class="search-bar"> <!-- Div para a barra de busca -->
+            <input type="text" placeholder="Digite o CNPJ/CPF do Fornecedor"> <!-- Campo de entrada para o CNPJ/CPF -->
+            <button> <!-- Botão para buscar fornecedores -->
+                <img src="https://via.placeholder.com/20" alt="Buscar"> <!-- Ícone de busca dentro do botão -->
             </button>
         </div>
-        <ul class="supplier-list">
-            <li id="empresa1" class="fornecedor-item">EMPRESA 1</li>
-            <li id="empresa2" class="fornecedor-item">EMPRESA 2</li>
+        <ul class="supplier-list"> <!-- Lista não ordenada para exibir fornecedores -->
+            <li id="empresa1" class="fornecedor-item">EMPRESA 1</li> <!-- Item da lista representando um fornecedor -->
+            <li id="empresa2" class="fornecedor-item">EMPRESA 2</li> <!-- Outro fornecedor -->
             <li id="empresa3" class="fornecedor-item">EMPRESA 3</li>
             <li id="empresa4" class="fornecedor-item">EMPRESA 4</li>
             <li id="empresa5" class="fornecedor-item">EMPRESA 5</li>
             <li id="empresa6" class="fornecedor-item">EMPRESA 6</li>
         </ul>
-        <div class="buttons">
-            <button class="back-button">← Voltar</button>
-            <button>CADASTRAR NOVO FORNECEDOR</button>
+        <div class="buttons"> <!-- Div para os botões de ação -->
+            <button class="back-button">← Voltar</button> <!-- Botão para voltar à página anterior -->
+            <button>CADASTRAR NOVO FORNECEDOR</button> <!-- Botão para cadastrar um novo fornecedor -->
         </div>
     </div>
 
     <!-- Modal para detalhes do fornecedor -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div id="detalhes-fornecedor"></div>
+    <div id="modal" class="modal"> <!-- Modal que aparece ao clicar em um fornecedor -->
+        <div class="modal-content"> <!-- Conteúdo do modal -->
+            <span class="close-button">&times;</span> <!-- Botão para fechar o modal -->
+            <div id="detalhes-fornecedor"></div> <!-- Div para mostrar os detalhes do fornecedor -->
         </div>
     </div>
     
     <!-- Modal para editar os dados do fornecedor -->
-    <!-- Modal de Edição de Fornecedores -->
-<div id="fornecedorModal" class="modal">
-    <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>Editar Fornecedor</h2>
-        <label for="editNome">Nome:</label>
-        <input type="text" id="editNome">
-        <label for="editCep">CEP:</label>
-        <input type="text" id="editCep">
-        <label for="editTelefone">Telefone:</label>
-        <input type="text" id="editTelefone">
-        <label for="editCNPJ">CNPJ/CPF:</label>
-        <input type="text" id="editCNPJ">
-        <label for="editEndereco">Endereço:</label>
-        <input type="text" id="editEndereco">
-        <label for="editEmail">Email:</label>
-        <input type="email" id="editEmail">
-        <label for="editSituacao">Situação:</label>
-        <input type="text" id="editSituacao">
-        <label for="editComplemento">Complemento:</label>
-        <input type="text" id="editComplemento">
-        <label for="editRepresentante">Representante:</label>
-        <input type="text" id="editRepresentante">
-        <label for="editCodigo">Código:</label>
-        <input type="text" id="editCodigo">
-        <label for="editCidade">Cidade:</label>
-        <input type="text" id="editCidade">
-        <label for="editEstado">Estado:</label>
-        <input type="text" id="editEstado">
-        <label for="editMateriaPrima">Matéria-prima:</label>
-        <input type="text" id="editMateriaPrima">
-        <label for="editRazaoSocial">Razão Social:</label>
-        <input type="text" id="editRazaoSocial">
+    <div id="fornecedorModal" class="modal"> <!-- Modal para edição de fornecedores -->
+        <div class="modal-content"> <!-- Conteúdo do modal -->
+            <span class="close-button">&times;</span> <!-- Botão para fechar o modal -->
+            <h2>Editar Fornecedor</h2> <!-- Título do modal -->
+            <label for="editNome">Nome:</label> <!-- Rótulo para o campo de nome -->
+            <input type="text" id="editNome"> <!-- Campo de entrada para editar o nome -->
+            <label for="editCep">CEP:</label> <!-- Rótulo para o campo de CEP -->
+            <input type="text" id="editCep"> <!-- Campo de entrada para editar o CEP -->
+            <label for="editTelefone">Telefone:</label> <!-- Rótulo para o campo de telefone -->
+            <input type="text" id="editTelefone"> <!-- Campo de entrada para editar o telefone -->
+            <label for="editCNPJ">CNPJ/CPF:</label> <!-- Rótulo para o campo de CNPJ/CPF -->
+            <input type="text" id="editCNPJ"> <!-- Campo de entrada para editar o CNPJ/CPF -->
+            <label for="editEndereco">Endereço:</label> <!-- Rótulo para o campo de endereço -->
+            <input type="text" id="editEndereco"> <!-- Campo de entrada para editar o endereço -->
+            <label for="editEmail">Email:</label> <!-- Rótulo para o campo de e-mail -->
+            <input type="email" id="editEmail"> <!-- Campo de entrada para editar o e-mail -->
+            <label for="editSituacao">Situação:</label> <!-- Rótulo para o campo de situação -->
+            <input type="text" id="editSituacao"> <!-- Campo de entrada para editar a situação -->
+            <label for="editComplemento">Complemento:</label> <!-- Rótulo para o campo de complemento -->
+            <input type="text" id="editComplemento"> <!-- Campo de entrada para editar o complemento -->
+            <label for="editRepresentante">Representante:</label> <!-- Rótulo para o campo de representante -->
+            <input type="text" id="editRepresentante"> <!-- Campo de entrada para editar o representante -->
+            <label for="editCodigo">Código:</label> <!-- Rótulo para o campo de código -->
+            <input type="text" id="editCodigo"> <!-- Campo de entrada para editar o código -->
+            <label for="editCidade">Cidade:</label> <!-- Rótulo para o campo de cidade -->
+            <input type="text" id="editCidade"> <!-- Campo de entrada para editar a cidade -->
+            <label for="editEstado">Estado:</label> <!-- Rótulo para o campo de estado -->
+            <input type="text" id="editEstado"> <!-- Campo de entrada para editar o estado -->
+            <label for="editMateriaPrima">Matéria-prima:</label> <!-- Rótulo para o campo de matéria-prima -->
+            <input type="text" id="editMateriaPrima"> <!-- Campo de entrada para editar a matéria-prima -->
+            <label for="editRazaoSocial">Razão Social:</label> <!-- Rótulo para o campo de razão social -->
+            <input type="text" id="editRazaoSocial"> <!-- Campo de entrada para editar a razão social -->
+        </div>
     </div>
-</div>
 
-
-    <script src="FornecedoresF.js"></script>
+    <script src="FornecedoresF.js"></script> <!-- Script JavaScript que contém a lógica para a página -->
 </body>
 </html>

@@ -1,54 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Define o conjunto de caracteres como UTF-8 para suportar vários caracteres -->
     <meta charset="UTF-8">
+    <!-- Define a largura da página para ser igual à largura da tela do dispositivo, mantendo a escala inicial -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título da página que aparecerá na aba do navegador -->
     <title>UrbAgro Dashboard</title>
+    <!-- Link para o arquivo CSS que estiliza esta página -->
     <link rel="stylesheet" href="inicialF.css">
 </head>
 <body>
+    <!-- Container principal que agrupa todos os elementos da página -->
     <div class="container">
+        <!-- Sidebar à esquerda, que contém o perfil do usuário e o logotipo -->
         <div class="sidebar">
+            <!-- Seção de perfil com imagem e saudação ao usuário -->
             <div class="profile">
+                <!-- Imagem do perfil do usuário -->
                 <img src="profile.png" alt="Profile Picture">
+                <!-- Saudação ao usuário com um espaço para o nome -->
                 <p>Olá! Que bom vê-lo novamente, <span id="usuario-nome">Usuário</span></p>
             </div>
+            <!-- Seção para o logotipo da UrbAgro -->
             <div class="logo">
                 <img src="logo.png" alt="UrbAgro Logo">
             </div>
         </div>
+        <!-- Conteúdo principal que contém o menu de navegação -->
         <div class="main-content">
+            <!-- Item de menu para a página de Fornecedores -->
             <div class="menu-item">
                 <img src="fornecedores-icon.png" alt="Fornecedores Icon">
                 <p>FORNECEDORES</p>
             </div>
+            <!-- Item de menu para a página de Pedidos -->
             <div class="menu-item">
                 <img src="pedidos-icon.png" alt="Pedidos Icon">
                 <p>PEDIDOS</p>
             </div>
+            <!-- Item de menu para a página de Produtos -->
             <div class="menu-item">
                 <img src="produtos-icon.png" alt="Produtos Icon">
                 <p>PRODUTOS</p>
             </div>
+            <!-- Item de menu para a página de Vendas -->
             <div class="menu-item">
                 <img src="vendas-icon.png" alt="Vendas Icon">
                 <p>VENDAS</p>
             </div>
+            <!-- Item de menu para a página de Produção -->
             <div class="menu-item">
                 <img src="producao-icon.png" alt="Produção Icon">
                 <p>PRODUÇÃO</p>
             </div>
         </div>
     </div>
+    <!-- Link para o arquivo JavaScript que gerencia a funcionalidade da página -->
     <script src="inicialF.js"></script>
     <script>
-        // Ao carregar a página, recupera o nome do funcionário do localStorage
+        // Função que executa ao carregar o conteúdo da página
         document.addEventListener('DOMContentLoaded', () => {
+            // Obtém a lista de funcionários armazenada no localStorage ou inicializa um array vazio
             const funcionarios = JSON.parse(localStorage.getItem('funcionarios')) || [];
+            // Verifica se há funcionários armazenados
             if (funcionarios.length > 0) {
-                const funcionario = funcionarios[funcionarios.length - 1]; // Pega o último funcionário cadastrado
+                // Seleciona o último funcionário cadastrado na lista
+                const funcionario = funcionarios[funcionarios.length - 1];
+                // Seleciona o elemento <span> que exibe o nome do usuário
                 const usuarioNomeSpan = document.getElementById('usuario-nome');
-                usuarioNomeSpan.textContent = funcionario.nome; // Atualiza o nome na página
+                // Define o texto do <span> para o nome do último funcionário
+                usuarioNomeSpan.textContent = funcionario.nome;
             }
         });
     </script>

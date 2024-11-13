@@ -9,11 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Data.SqlClient;
 
 namespace TelaPimExercicio
 {
     public partial class TelaCadastroPedido : Form
     {
+        //private string connectionString = "Data Source=DESKTOP-0T3JO2U\\SQLURBAGRO;Initial Catalog=bdPedidos;Integrated Security=True";
+        private string connectionString = "Data Source=MARCIA-DELL\\SQLURBAGRO;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+
         private Logo logo;
         private ColorBar2 colorBar;
         private ColorBackground colorBg;
@@ -87,6 +91,7 @@ namespace TelaPimExercicio
 
         private void TelaCadastroPedido_Load(object sender, EventArgs e)
         {
+            AtualizarIDPedido();
         }
 
         //Botão de retornar volta a tela de Pedidos
@@ -117,30 +122,92 @@ namespace TelaPimExercicio
             this.Hide();
         }
 
+        //Atualiza o ID na tela de cadastro
+        private void AtualizarIDPedido()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ISNULL(MAX(idPedido), 0) + 1 FROM bdPedidos.dbo.Pedidos"; // Busca o próximo ID
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    // Pega o próximo ID do banco e define no campo txtIDPedido
+                    int novoID = Convert.ToInt32(command.ExecuteScalar());
+                    txtIDPedido.Text = novoID.ToString(); // Atualiza o campo txtIDPedido com o ID retornado
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao obter o próximo ID: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        //Obtém o ID para cadastrar o novo pedido (ID q irá aparecer no banco)
+        private int ObterProximoID()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ISNULL(MAX(idPedido), 0) + 1 FROM bdPedidos.dbo.Pedidos";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    return Convert.ToInt32(command.ExecuteScalar());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao obter próximo ID: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return 1; // Retorna 1 como padrão em caso de erro
+                }
+            }
+        }
+
+
         //Cadastro de Pedido
         private void btnConfirmarCadastroNovoPedido_Click(object sender, EventArgs e)
         {
             Pedidos novoPedido = new Pedidos
             {
-                //Informações passadas no cadastro do Fornecedor
-
-                //ID = txtIDFornecedor.Text, //Para atribuir o ID que foi digitado
-                ID = RepositorioPedidos.GerarNovoID(), //Para atribuir o ID sequencial automaticamente
+                ID = ObterProximoID(),
                 Nome = txtNomeProduto.Text,
                 Quantidade = int.TryParse(txtQuantidadePedido.Text, out int quantidade) ? quantidade : 1,
                 ValorUnitario = decimal.TryParse(txtValorUnitario.Text, out decimal valorUnitario) ? valorUnitario : 1,
                 EmpresaCompra = txtEmpresaCompra.Text,
             };
 
-            //Dialogo de confirmação de cadastro
-            DialogResult resultado = MessageBox.Show("Deseja realiza o Cadastro?", "Confirmação de Cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // Dialogo de confirmação de cadastro
+            DialogResult resultado = MessageBox.Show("Deseja realizar o Cadastro?", "Confirmação de Cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (resultado == DialogResult.Yes)
             {
-                MessageBox.Show("Cadastro Realizado com Sucesso!", "Cadastro Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "INSERT INTO bdPedidos.dbo.Pedidos (idPedido, nomePedido, quantidadePedido, valorUnitarioPedido, empresaResponsavelPedido) " +
+                                   "VALUES (@idPedido, @nomePedido, @quantidadePedido, @valorUnitarioPedido, @empresaResponsavelPedido)";
 
-                //Adiciona o Fornecedor cadastrado à lista de pedido
-                RepositorioPedidos.ListaPedidos.Add(novoPedido);
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@idPedido", novoPedido.ID);
+                    command.Parameters.AddWithValue("@nomePedido", novoPedido.Nome);
+                    command.Parameters.AddWithValue("@quantidadePedido", novoPedido.Quantidade);
+                    command.Parameters.AddWithValue("@valorUnitarioPedido", novoPedido.ValorUnitario);
+                    command.Parameters.AddWithValue("@empresaResponsavelPedido", novoPedido.EmpresaCompra);
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Cadastro realizado com sucesso!", "Cadastro Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao cadastrar pedido: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             else
             {
@@ -151,7 +218,8 @@ namespace TelaPimExercicio
             LimparCampos();
 
             //Atualiza o ID na tela de cadastro
-            txtIDPedido.Text = RepositorioPedidos2.GerarNovoID().ToString();
+            //txtIDPedido.Text = RepositorioPedidos2.GerarNovoID().ToString();
+            AtualizarIDPedido();
         }
 
         //Limpa tudo que foi escrito após cadastrar um Fornecedor

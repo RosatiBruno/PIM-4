@@ -107,7 +107,6 @@ h1 {
 }
 
 /* Estilização do botão de voltar */
-/* Estilização do botão de voltar */
 .back-button {
     background-color: #c6e2b3; /* Cor verde */
     border: 1px solid #ccc; /* Adiciona uma borda cinza clara */
@@ -121,7 +120,6 @@ h1 {
 .back-button:hover {
     background-color: #45a049; /* Muda a cor para um verde mais escuro ao passar o mouse */
 }
-
 
 /* Estilos para o modal */
 .modal {
@@ -164,29 +162,31 @@ h1 {
     cursor: pointer; /* Muda o cursor para ponteiro ao passar sobre o botão */
 }
 
+/* Estilização da imagem do logotipo */
 .logo img {
     width: 150px; /* Ajuste o tamanho conforme necessário */
-    height: auto;
+    height: auto; /* Mantém a proporção da imagem */
     border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
     transition: transform 0.3s ease; /* Animação suave ao passar o mouse */
 }
 
+/* Efeito de zoom na imagem do logotipo ao passar o mouse */
 .logo img:hover {
     transform: scale(1.1); /* Aumenta a logo ao passar o mouse */
 }
 
 /* Estilização do botão de excluir produção */
 .delete-production-btn {
-    background-color: #af4c4c; /* Define o fundo como verde */
+    background-color: #af4c4c; /* Define o fundo como vermelho */
     color: white; /* Define o texto como branco para contraste */
     border: none; /* Remove a borda do botão */
-    border-radius: 5px; /* Arredonda os cantos do botão */
-    padding: 10px 20px; /* Adiciona padding para o botão */
-    cursor: pointer; /* Muda o cursor para ponteiro */
+    padding: 10px 15px; /* Padding para o botão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para ponteiro ao passar sobre o botão */
 }
 
-/* Estado de hover para o botão de excluir produção */
+/* Estilização do estado de hover do botão de excluir produção */
 .delete-production-btn:hover {
-    background-color: #45a049; /* Verde mais escuro no hover */
+    background-color: #8b2b2b; /* Muda a cor do fundo para um vermelho mais escuro ao passar o mouse */
 }

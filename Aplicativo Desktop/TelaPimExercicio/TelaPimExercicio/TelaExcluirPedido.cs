@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,6 +19,9 @@ namespace TelaPimExercicio
         private Logout logout;
         private string userType;
         private AlteradorFontePedidos alteradorFontePedidos;
+
+        // Conexão com o banco de dados (NOTEBOOK)
+        private string connectionString = "Data Source=MARCIA-DELL\\SQLURBAGRO;Integrated Security=True;Connect Timeout=30;Encrypt=False";
 
         public TelaExcluirPedido(string userType)
         {
@@ -111,72 +114,156 @@ namespace TelaPimExercicio
             logout.ShowLogoutDialog();
         }
 
+        // Método para buscar o pedido no banco de dados usando o ID
+        private Pedidos BuscarPedidoPorId(int idPedido)
+        {
+            // Definir a consulta SQL para buscar o pedido
+            string query = "SELECT * FROM dbo.Pedidos WHERE idPedido = @idPedido";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();  // Verifica se a conexão foi aberta com sucesso
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        // Adiciona o parâmetro para a consulta com tipo explícito
+                        cmd.Parameters.Add("@idPedido", SqlDbType.Int).Value = idPedido;
+
+                        // Log para verificar o valor do parâmetro
+                        Console.WriteLine($"Consultando pedido com ID: {idPedido}");
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Preenche um objeto Pedidos com os dados retornados
+                                Pedidos pedido = new Pedidos
+                                {
+                                    ID = reader.GetInt32(reader.GetOrdinal("idPedido")),
+                                    Nome = reader.GetString(reader.GetOrdinal("nomePedido")),
+                                    Quantidade = reader.GetInt32(reader.GetOrdinal("quantidadePedido")),
+                                    ValorUnitario = reader.GetDecimal(reader.GetOrdinal("valorUnitarioPedido")),
+                                    EmpresaCompra = reader.GetString(reader.GetOrdinal("empresaResponsavelPedido"))
+                                };
+                                return pedido;
+                            }
+                            else
+                            {
+                                // Log quando não encontra nenhum pedido
+                                Console.WriteLine("Pedido não encontrado.");
+                                MessageBox.Show("Pedido não encontrado no banco de dados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return null;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                // Log do erro
+                MessageBox.Show("Erro ao consultar o banco de dados: " + ex.Message, "Erro de Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        // Método para inserir o pedido na tabela dbo.PedidosExcluidos
+        private void InserirPedidoNaTabelaExcluidos(Pedidos pedido, SqlConnection conn, SqlTransaction transaction)
+        {
+            string query = "INSERT INTO dbo.PedidosExcluidos (idPedido, nomePedido, quantidadePedido, valorUnitarioPedido, empresaResponsavelPedido) " +
+                           "VALUES (@idPedido, @nomePedido, @quantidadePedido, @valorUnitarioPedido, @empresaResponsavelPedido)";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
+                {
+                    // Adiciona os parâmetros para a consulta
+                    cmd.Parameters.AddWithValue("@idPedido", pedido.ID);
+                    cmd.Parameters.AddWithValue("@nomePedido", pedido.Nome);
+                    cmd.Parameters.AddWithValue("@quantidadePedido", pedido.Quantidade);
+                    cmd.Parameters.AddWithValue("@valorUnitarioPedido", pedido.ValorUnitario);
+                    cmd.Parameters.AddWithValue("@empresaResponsavelPedido", pedido.EmpresaCompra);
+
+                    // Executa a inserção na tabela de pedidos excluídos
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show($"Pedido com ID {pedido.ID} inserido na tabela de excluídos.", "Inserção bem-sucedida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro ao inserir o pedido na tabela de excluídos: " + ex.Message, "Erro de Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Método para excluir o pedido da tabela dbo.Pedidos e adicionar à tabela dbo.PedidosExcluidos
+        private void ExcluirPedidoDoBanco(int idPedido)
+        {
+            string queryExcluir = "DELETE FROM dbo.Pedidos WHERE idPedido = @idPedido";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Inicia a transação para garantir que ambas as operações sejam feitas com sucesso ou nenhuma delas
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // Inserir pedido na tabela dbo.PedidosExcluidos antes de excluir
+                            Pedidos pedido = BuscarPedidoPorId(idPedido); // Busca o pedido
+                            if (pedido != null)
+                            {
+                                // Inserir na tabela dbo.PedidosExcluidos
+                                InserirPedidoNaTabelaExcluidos(pedido, conn, transaction);
+                            }
+
+                            // Exclui o pedido da tabela dbo.Pedidos
+                            using (SqlCommand cmdExcluir = new SqlCommand(queryExcluir, conn, transaction))
+                            {
+                                cmdExcluir.Parameters.AddWithValue("@idPedido", idPedido);
+                                int rowsAffected = cmdExcluir.ExecuteNonQuery();
+
+                                // Log de linhas afetadas
+                                Console.WriteLine($"Linhas excluídas: {rowsAffected}");
+
+                                if (rowsAffected == 0)
+                                {
+                                    MessageBox.Show("Nenhum pedido foi excluído. Verifique o ID.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+
+                            // Commit da transação se tudo ocorrer corretamente
+                            transaction.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            // Rollback em caso de erro
+                            transaction.Rollback();
+                            MessageBox.Show("Erro ao excluir o pedido: " + ex.Message, "Erro de Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro ao conectar-se ao banco de dados: " + ex.Message, "Erro de Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Evento de clique do botão para excluir o pedido
         private void btnExcluirPedido_Click(object sender, EventArgs e)
         {
-
-            //Caso o usuário não seja do T.I ou Gerente não permite excluir um pedido
-            if (userType == "funcionario")
+            int idPedido;
+            if (!int.TryParse(txtBuscarPedidoExcluir.Text, out idPedido) || idPedido <= 0)
             {
-                MessageBox.Show("Acesso negado! Você não tem permissão para executar essa função.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; //Impede a mudança de tela
-            }
-            else
-            {
-                string termoBusca = txtBuscarPedidoExcluir.Text.Trim();
-                int.TryParse(termoBusca, out int idBusca);
-                Pedidos pedidos = RepositorioPedidos.ListaPedidos
-                    .FirstOrDefault(f => f.ID == idBusca);
-
-                if (pedidos != null)
-                {
-                    // Remove o fornecedor da lista ativa e adiciona à lista inativa
-                    RepositorioPedidos.ListaPedidos.Remove(pedidos);
-                    RepositorioPedidos.ListaPedidosExcluidos.Add(pedidos); // Adiciona à lista excluidos
-
-                    // Atualiza a ListViews de fornecedores Inativos
-                    AtualizarListViewExcluidos();
-
-                    MessageBox.Show("Pedido excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Pedido não encontrado.", "Busca", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
-
-        private void AtualizarListViewAtivos()
-        {
-            // Acessa a tela de fornecedores ativos (lvBuscarFornecedores)
-            TelaPedidos telaPedidos = Application.OpenForms.OfType<TelaPedidos>().FirstOrDefault();
-            if (telaPedidos != null)
-            {
-                telaPedidos.AtualizarListView();
-            }
-        }
-
-        private void AtualizarListViewExcluidos()
-        {
-            lvBuscarPedidosExcluidos.Items.Clear(); // Limpa os itens da ListView
-            foreach (var pedidos in RepositorioPedidos.ListaPedidosExcluidos)
-            {
-                ListViewItem item = new ListViewItem(new[]
-                {
-            pedidos.ID.ToString(),
-            pedidos.Nome,
-            pedidos.Quantidade.ToString(),
-            pedidos.ValorUnitario.ToString(),
-            pedidos.EmpresaCompra,
-        });
-                lvBuscarPedidosExcluidos.Items.Add(item); // Adiciona o fornecedor à ListView
+                MessageBox.Show("Por favor, insira um ID de pedido válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
+            ExcluirPedidoDoBanco(idPedido); // Chama o método para excluir o pedido
         }
-
-        private void TelaExcluirPedido_Load(object sender, EventArgs e)
-        {
-            AtualizarListViewExcluidos();
-        }
-
     }
 }

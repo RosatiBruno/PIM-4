@@ -1,181 +1,163 @@
-// Classe para gerenciar o redirecionamento de pedidos
+// Classe principal para gerenciar pedidos
+class PedidoManager {
+    constructor() {
+        this.pedidos = JSON.parse(localStorage.getItem('pedidos')) || []; // Obtém a lista de pedidos do localStorage
+    }
+
+    abrirModalParaEdicao(pedido) {
+        const modal = document.getElementById('modal'); // Seleciona o modal pelo ID
+        const modalDetails = document.getElementById('modal-details'); // Seleciona a parte do modal onde os detalhes serão mostrados
+
+        // Preenche o modal com campos de edição, usando os dados do pedido
+        modalDetails.innerHTML = `
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" value="${pedido.nomeProduto || ''}"><br>
+            <label for="id-pedido">ID do Pedido:</label>
+            <input type="text" id="id-pedido" value="${pedido.idPedido}" disabled><br>
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade" value="${pedido.quantidade || ''}"><br>
+            <label for="valor">Valor:</label>
+            <input type="text" id="valor" value="${pedido.valor || ''}"><br>
+            <label for="empresa-responsavel">Empresa Responsável:</label>
+            <input type="text" id="empresa-responsavel" value="${pedido.empresaResponsavel || ''}"><br>
+            <button id="salvar-alteracoes">Salvar</button>
+        `;
+        modal.style.display = "block"; // Torna o modal visível
+
+        // Adiciona um ouvinte de clique no botão de salvar alterações
+        document.getElementById('salvar-alteracoes').addEventListener('click', () => this.salvarAlteracoes(pedido.idPedido));
+    }
+
+    salvarAlteracoes(idPedido) {
+        // Mapeia os pedidos para atualizar os dados do pedido específico
+        this.pedidos = this.pedidos.map(pedido => {
+            if (pedido.idPedido === idPedido) {
+                // Atualiza os campos do pedido com os novos valores
+                pedido.nomeProduto = document.getElementById('nome').value;
+                pedido.quantidade = parseInt(document.getElementById('quantidade').value, 10);
+                pedido.valor = document.getElementById('valor').value;
+                pedido.empresaResponsavel = document.getElementById('empresa-responsavel').value;
+            }
+            return pedido; // Retorna o pedido (atualizado ou não)
+        });
+
+        localStorage.setItem('pedidos', JSON.stringify(this.pedidos)); // Salva a lista de pedidos atualizada no localStorage
+
+        this.fecharModal(); // Fecha o modal
+        alert('Alterações salvas com sucesso!'); // Exibe uma mensagem de confirmação
+        this.atualizarListaPedidos(); // Atualiza a lista de pedidos na página
+    }
+
+    atualizarListaPedidos() {
+        const pedidosContainer = document.getElementById('pedidos-lista'); // Seleciona o contêiner onde os pedidos serão listados
+        pedidosContainer.innerHTML = ''; // Limpa o contêiner antes de repopular
+
+        // Itera sobre cada pedido e cria um elemento para exibi-lo
+        this.pedidos.forEach(pedido => {
+            const pedidoElement = document.createElement('div'); // Cria um novo elemento div para cada pedido
+            pedidoElement.textContent = `ID: ${pedido.idPedido}, Nome: ${pedido.nomeProduto}, Quantidade: ${pedido.quantidade || 'N/A'}, Valor: ${pedido.valor}, Empresa: ${pedido.empresaResponsavel || 'N/A'}`; // Preenche o texto do elemento com detalhes do pedido
+            pedidoElement.dataset.id = pedido.idPedido; // Armazena o ID do pedido como um atributo data
+            pedidoElement.addEventListener('click', () => this.abrirModalParaEdicao(pedido)); // Adiciona um ouvinte de clique para abrir o modal de edição do pedido
+            pedidosContainer.appendChild(pedidoElement); // Adiciona o elemento do pedido ao contêiner
+        });
+    }
+
+    fecharModal() {
+        const modal = document.getElementById('modal'); // Seleciona o modal pelo ID
+        modal.style.display = "none"; // Oculta o modal
+    }
+}
+
+// Classe para gerenciar pedidos
 class Pedido {
-    constructor(pedidoSelector, editUrl) {
-        this.pedido = document.querySelector(pedidoSelector);
-        this.editUrl = editUrl;
-        this.initEventListeners();
+    constructor(pedidoSelector, editUrl, pedidoManager) {
+        this.pedidoElement = document.querySelector(pedidoSelector); // Seleciona o elemento do pedido na página baseado no seletor fornecido
+        this.editUrl = editUrl; // Armazena a URL de edição do pedido
+        this.pedidoManager = pedidoManager; // Armazena a instância do PedidoManager
+        this.initEventListeners(); // Inicializa os ouvintes de eventos
     }
 
     initEventListeners() {
-        if (this.pedido) {
-            this.pedido.addEventListener('click', () => this.redirecionarParaEdicao());
+        if (this.pedidoElement) { // Verifica se o elemento do pedido existe
+            this.pedidoElement.addEventListener('click', () => this.redirecionarParaEdicao()); // Adiciona um ouvinte de clique que chama a função de redirecionamento para edição
         }
     }
 
     redirecionarParaEdicao() {
-        window.location.href = this.editUrl;
+        const pedidoId = this.pedidoElement.dataset.id; // Obtém o ID do pedido a partir de um atributo data do elemento
+        const pedido = this.pedidoManager.pedidos.find(p => p.idPedido === pedidoId); // Encontra o pedido correspondente ao ID
+
+        if (pedido) {
+            this.pedidoManager.abrirModalParaEdicao(pedido); // Abre o modal para edição se o pedido for encontrado
+        }
     }
 }
 
-// Classe para gerenciar o redirecionamento de novos pedidos
+// Classe para gerenciar novos pedidos
 class NovoPedido {
-    constructor(buttonSelector, newUrl) {
-        this.novoPedidoButton = document.querySelector(buttonSelector);
-        this.newUrl = newUrl;
-        this.initEventListeners();
+    constructor(buttonSelector, newUrl, pedidoManager) {
+        this.novoPedidoButton = document.querySelector(buttonSelector); // Seleciona o botão para novo pedido
+        this.newUrl = newUrl; // Armazena a URL para a nova página de pedido
+        this.pedidoManager = pedidoManager; // Armazena a instância do PedidoManager
+        this.initEventListeners(); // Inicializa os ouvintes de eventos
     }
 
     initEventListeners() {
-        if (this.novoPedidoButton) {
-            this.novoPedidoButton.addEventListener('click', () => this.redirecionarParaNovoPedido());
+        if (this.novoPedidoButton) { // Verifica se o botão existe
+            this.novoPedidoButton.addEventListener('click', () => this.redirecionarParaNovoPedido()); // Adiciona um ouvinte de clique para redirecionar para a nova página de pedido
         }
     }
 
     redirecionarParaNovoPedido() {
-        window.location.href = this.newUrl;
+        window.location.href = this.newUrl; // Redireciona o navegador para a nova URL
     }
 }
 
 // Classe para gerenciar o botão de voltar
 class VoltarButton {
     constructor(buttonSelector, backUrl) {
-        this.voltarButton = document.querySelector(buttonSelector);
-        this.backUrl = backUrl;
-        this.initEventListeners();
+        this.voltarButton = document.querySelector(buttonSelector); // Seleciona o botão de voltar
+        this.backUrl = backUrl; // Armazena a URL de onde voltar
+        this.initEventListeners(); // Inicializa os ouvintes de eventos
     }
 
     initEventListeners() {
-        if (this.voltarButton) {
-            this.voltarButton.addEventListener('click', () => this.voltarTelaAnterior());
+        if (this.voltarButton) { // Verifica se o botão existe
+            this.voltarButton.addEventListener('click', () => this.voltarTelaAnterior()); // Adiciona um ouvinte de clique para voltar à tela anterior
         }
     }
 
     voltarTelaAnterior() {
-        window.location.href = this.backUrl;
+        window.location.href = this.backUrl; // Redireciona o navegador para a URL anterior
     }
 }
 
-// Função para deletar um pedido pelo ID
-function deletarPedido(id) {
-    if (confirm(`Tem certeza que deseja excluir o pedido com ID ${id}?`)) {
-        let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-        pedidos = pedidos.filter(pedido => pedido.idPedido !== id);
-
-        localStorage.setItem('pedidos', JSON.stringify(pedidos));
-        alert(`Pedido com ID ${id} excluído com sucesso!`);
-        window.location.reload();
+// Classe para gerenciar o botão "Home"
+class HomeButton {
+    constructor(buttonSelector, targetUrl) {
+        this.homeButton = document.querySelector(buttonSelector); // Seleciona o botão "Home"
+        this.targetUrl = targetUrl; // Armazena a URL para redirecionar ao clicar
+        this.initEventListeners(); // Inicializa os ouvintes de eventos
     }
-}
 
-// Função para abrir o modal e permitir a edição dos dados do pedido
-function abrirModalParaEdicao(pedido) {
-    const modal = document.getElementById('modal');
-    const modalDetails = document.getElementById('modal-details');
-
-    // Preenche o modal com os dados atuais do pedido e adiciona campos editáveis, incluindo Empresa Responsável
-    modalDetails.innerHTML = `
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" value="${pedido.nome}"><br>
-        <label for="quantidade">Quantidade:</label>
-        <input type="number" id="quantidade" value="${pedido.quantidade}"><br>
-        <label for="valor">Valor:</label>
-        <input type="text" id="valor" value="${pedido.valor}"><br>
-        <label for="empresa">Empresa Responsável:</label>
-        <input type="text" id="empresa" value="${pedido.empresa}"><br>
-    `;
-    modal.style.display = "block";
-
-    // Adiciona evento de clique ao botão "Salvar" para salvar as edições
-    document.getElementById('salvar-alteracoes').addEventListener('click', () => salvarAlteracoes(pedido.idPedido));
-}
-
-// Função para salvar as alterações no localStorage e atualizar as páginas
-function salvarAlteracoes(idPedido) {
-    let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-
-    // Localiza o pedido pelo ID e atualiza seus dados, incluindo Empresa Responsável
-    pedidos = pedidos.map(pedido => {
-        if (pedido.idPedido === idPedido) {
-            pedido.nome = document.getElementById('nome').value;
-            pedido.quantidade = document.getElementById('quantidade').value;
-            pedido.valor = document.getElementById('valor').value;
-            pedido.empresa = document.getElementById('empresa').value;  // Atualiza empresa responsável
+    initEventListeners() {
+        if (this.homeButton) { // Verifica se o botão existe
+            this.homeButton.addEventListener('click', () => this.redirecionar()); // Adiciona um ouvinte de clique para redirecionar
         }
-        return pedido;
-    });
-
-    // Salva os dados atualizados no localStorage
-    localStorage.setItem('pedidos', JSON.stringify(pedidos));
-
-    // Fecha o modal e recarrega as páginas relevantes
-    fecharModal();
-    alert('Alterações salvas com sucesso!');
-    atualizarListaPedidos();
-    atualizarTelaVendas();
-}
-
-// Função para fechar o modal
-function fecharModal() {
-    const modal = document.getElementById('modal');
-    modal.style.display = "none";
-}
-
-// Função para atualizar a lista de pedidos na página ListaPedidos.html
-function atualizarListaPedidos() {
-    const pedidosContainer = document.getElementById('pedidos-lista');
-    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-    
-    pedidosContainer.innerHTML = ''; // Limpa a lista para re-renderizar
-    
-    pedidos.forEach(pedido => {
-        const pedidoElement = document.createElement('div');
-        pedidoElement.textContent = `Pedido: ${pedido.nome}, Quantidade: ${pedido.quantidade}, Valor: ${pedido.valor}, Empresa: ${pedido.empresa}`;
-        pedidoElement.addEventListener('click', () => abrirModalParaEdicao(pedido));
-        pedidosContainer.appendChild(pedidoElement);
-    });
-}
-
-// Função para atualizar os dados na página Vendas.html
-function atualizarTelaVendas() {
-    const vendasContainer = document.getElementById('vendas-lista');
-    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-
-    vendasContainer.innerHTML = ''; // Limpa a lista para re-renderizar
-
-    pedidos.forEach(pedido => {
-        const pedidoElement = document.createElement('div');
-        pedidoElement.textContent = `Pedido: ${pedido.nome}, Quantidade: ${pedido.quantidade}, Valor: ${pedido.valor}, Empresa: ${pedido.empresa}`;
-        pedidoElement.addEventListener('click', () => abrirModalParaEdicao(pedido));
-        vendasContainer.appendChild(pedidoElement);
-    });
-}
-
-// Função para inicializar os pedidos dinamicamente
-function inicializarPedidos() {
-    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-
-    pedidos.forEach(pedido => {
-        // Adiciona evento de clique para abrir o modal de edição
-        document.querySelector(pedido.selector).addEventListener('click', () => abrirModalParaEdicao(pedido));
-    });
-}
-
-// Inicializa o sistema de gerenciamento de pedidos após o carregamento do DOM
-document.addEventListener('DOMContentLoaded', () => {
-    new NovoPedido('.novo-pedido', 'NovoPedidoF.html');
-    new VoltarButton('.back-button', 'inicialF.html');
-
-    const excluirButton = document.querySelector('.delete-button');
-    if (excluirButton) {
-        excluirButton.addEventListener('click', () => {
-            const idPedido = prompt("Digite o ID do pedido que deseja excluir:");
-            if (idPedido) {
-                deletarPedido(idPedido);
-            }
-        });
     }
 
-    inicializarPedidos(); // Inicializa os pedidos dinamicamente
-    atualizarListaPedidos(); // Atualiza a lista de pedidos na tela de lista de pedidos
-    atualizarTelaVendas(); // Atualiza a lista de vendas na tela de vendas
-});
+    redirecionar() {
+        window.location.href = this.targetUrl; // Redireciona para a URL do botão "Home"
+    }
+}
+
+// Inicialização das classes
+const pedidoManager = new PedidoManager();
+const pedidos = document.querySelectorAll('.pedido'); // Seleciona todos os elementos que representam pedidos
+pedidos.forEach(pedidoElement => new Pedido(pedidoElement, 'editUrl', pedidoManager)); // Instancia a classe Pedido para cada elemento
+const novoPedidoButton = new NovoPedido('#novo-pedido-button', 'nova-pagina.html', pedidoManager); // Instancia a classe NovoPedido
+const voltarButton = new VoltarButton('#voltar-button', 'pagina_anterior.html'); // Instancia a classe VoltarButton
+const homeButton = new HomeButton('#home-button', 'home.html'); // Instancia a classe HomeButton
+
+// Atualiza a lista de pedidos ao carregar a página
+pedidoManager.atualizarListaPedidos();

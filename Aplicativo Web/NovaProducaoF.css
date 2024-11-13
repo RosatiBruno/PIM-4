@@ -1,154 +1,153 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Remove margens padrão de todos os elementos */
+    padding: 0; /* Remove preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui padding e borda no cálculo da largura e altura de um elemento */
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif; /* Define a fonte padrão do corpo da página */
+    display: flex; /* Utiliza flexbox para layout */
+    height: 100vh; /* Define a altura do corpo para 100% da altura da janela de visualização */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo dentro do body */
+    align-items: center; /* Centraliza verticalmente o conteúdo dentro do body */
+    background-color: #f9f9f9; /* Define uma cor de fundo clara para o corpo */
 }
 
 .container {
-    display: flex;
-    width: 100%;
-    height: 100vh;
+    display: flex; /* Utiliza flexbox para o layout da container principal */
+    width: 100%; /* Define a largura da container para 100% da largura da tela */
+    height: 100vh; /* Define a altura da container para 100% da altura da janela de visualização */
 }
 
 .sidebar {
-    width: 20%;
-    background-color: #e0f2e9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 0;
+    width: 20%; /* Define a largura da barra lateral como 20% da container */
+    background-color: #e0f2e9; /* Define uma cor de fundo verde claro para a barra lateral */
+    display: flex; /* Utiliza flexbox para o layout dentro da sidebar */
+    flex-direction: column; /* Organiza os elementos da sidebar verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: space-between; /* Distribui espaço entre os itens da sidebar */
+    padding: 20px 0; /* Adiciona preenchimento superior e inferior à sidebar */
 }
 
 .profile {
-    text-align: center;
+    text-align: center; /* Centraliza o texto dentro do bloco de perfil */
 }
 
 .profile img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+    width: 80px; /* Define a largura da imagem do perfil */
+    height: 80px; /* Define a altura da imagem do perfil */
+    border-radius: 50%; /* Faz a imagem ter bordas arredondadas (circular) */
+    margin-bottom: 10px; /* Adiciona espaço abaixo da imagem do perfil */
 }
 
 .profile h2 {
-    font-size: 18px;
-    color: #333;
+    font-size: 18px; /* Define o tamanho da fonte do nome do perfil */
+    color: #333; /* Define a cor do texto do nome do perfil */
 }
 
 .logo {
-    text-align: center;
+    text-align: center; /* Centraliza o texto dentro do bloco do logo */
 }
 
 .logo img {
-    width: 60px;
-    margin-bottom: 10px;
+    width: 60px; /* Define a largura da imagem do logo */
+    margin-bottom: 10px; /* Adiciona espaço abaixo da imagem do logo */
 }
 
 .logo h3 {
-    font-size: 20px;
-    color: #333;
+    font-size: 20px; /* Define o tamanho da fonte do título do logo */
+    color: #333; /* Define a cor do texto do título do logo */
 }
 
 .content {
-    width: 80%;
-    padding: 40px;
+    width: 80%; /* Define a largura da área de conteúdo como 80% da container */
+    padding: 40px; /* Adiciona preenchimento em torno da área de conteúdo */
 }
 
 .content h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 24px;
-    color: #333;
+    text-align: center; /* Centraliza o texto do título na área de conteúdo */
+    margin-bottom: 30px; /* Adiciona espaço abaixo do título */
+    font-size: 24px; /* Define o tamanho da fonte do título */
+    color: #333; /* Define a cor do texto do título */
 }
 
 .form-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    display: flex; /* Utiliza flexbox para o layout das linhas do formulário */
+    justify-content: space-between; /* Distribui espaço entre os itens da linha do formulário */
+    margin-bottom: 20px; /* Adiciona espaço abaixo da linha do formulário */
 }
 
 .form-group {
-    flex-basis: 48%;
+    flex-basis: 48%; /* Define a base flexível para os grupos de formulário como 48% da linha */
 }
 
 .form-group label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
+    display: block; /* Faz o rótulo ocupar toda a largura disponível */
+    font-size: 14px; /* Define o tamanho da fonte dos rótulos */
+    margin-bottom: 5px; /* Adiciona espaço abaixo dos rótulos */
 }
 
 .form-group input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    background-color: #e3e3e3;
+    width: 100%; /* Define a largura dos campos de entrada para 100% do espaço disponível */
+    padding: 10px; /* Adiciona preenchimento interno aos campos de entrada */
+    border-radius: 20px; /* Faz os campos de entrada terem bordas arredondadas */
+    border: 1px solid #ccc; /* Define uma borda cinza clara ao redor dos campos de entrada */
+    background-color: #e3e3e3; /* Define uma cor de fundo cinza claro para os campos de entrada */
 }
 
 .form-buttons {
-    text-align: right;
+    text-align: right; /* Alinha os botões do formulário à direita */
 }
 
 .submit-button {
-    padding: 10px 30px;
-    background-color: #c0e1c4;
-    color: #333;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
+    padding: 10px 30px; /* Adiciona preenchimento interno aos botões de envio */
+    background-color: #c0e1c4; /* Define uma cor de fundo verde claro para os botões de envio */
+    color: #333; /* Define a cor do texto do botão de envio */
+    border: none; /* Remove bordas do botão */
+    border-radius: 20px; /* Faz o botão ter bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
 }
 
 .back-button-container {
-    position: fixed; /* Mantém o botão na tela */
-    bottom: 40px; /* Distância do fundo */
-    left: 25%; /* Ajuste a posição horizontal */
-    transform: translateX(-50%); /* Centraliza horizontalmente */
+    position: fixed; /* Mantém o botão de voltar fixo na tela */
+    bottom: 40px; /* Define a distância do fundo da tela */
+    left: 25%; /* Ajusta a posição horizontal do botão */
+    transform: translateX(-50%); /* Centraliza horizontalmente o botão em relação à sua posição */
 }
 
 .back-button {
-    background-color: #4CAF50; /* Verde */
-    color: white; /* Cor do texto */
-    padding: 10px 20px; /* Ajusta o padding */
-    border: none; /* Remove bordas */
-    border-radius: 20px; /* Bordas arredondadas */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
-    cursor: pointer; /* Indica que é clicável */
+    background-color: #4CAF50; /* Define uma cor de fundo verde para o botão de voltar */
+    color: white; /* Define a cor do texto do botão de voltar como branco */
+    padding: 10px 20px; /* Adiciona preenchimento interno ao botão de voltar */
+    border: none; /* Remove bordas do botão de voltar */
+    border-radius: 20px; /* Faz o botão de voltar ter bordas arredondadas */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao botão para destaque */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
     overflow: hidden; /* Garante que nada saia do botão */
-    display: flex; /* Para alinhar o texto corretamente */
-    align-items: center; /* Alinha o texto verticalmente */
-    justify-content: center; /* Alinha o texto horizontalmente */
+    display: flex; /* Utiliza flexbox para alinhar o texto do botão */
+    align-items: center; /* Alinha o texto verticalmente no botão */
+    justify-content: center; /* Alinha o texto horizontalmente no botão */
 }
 
-
 .home-icon {
-    position: absolute;
-    top: 20px;
-    right: 30px;
+    position: absolute; /* Posiciona o ícone home de forma absoluta em relação ao seu elemento pai */
+    top: 20px; /* Define a distância do topo da tela */
+    right: 30px; /* Define a distância da direita da tela */
 }
 
 .home-icon img {
-    width: 40px;
-    height: 40px;
+    width: 40px; /* Define a largura da imagem do ícone home */
+    height: 40px; /* Define a altura da imagem do ícone home */
 }
 
 .logo img {
-    width: 150px; 
-    height: auto;
-    border-radius: 10px; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
-    transition: transform 0.3s ease; 
+    width: 150px; /* Define a largura da imagem do logo como 150px */
+    height: auto; /* Define a altura da imagem do logo como automática para manter a proporção */
+    border-radius: 10px; /* Faz a imagem do logo ter bordas arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra à imagem do logo para destaque */
+    transition: transform 0.3s ease; /* Define uma transição suave para transformações */
 }
 
 .logo img:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1); /* Aumenta a escala da imagem do logo em 10% quando o mouse passa sobre ela */
 }

@@ -96,6 +96,7 @@ body {
     margin-top: 20px; /* Adiciona um espaçamento superior de 20 pixels à seção de botões */
 }
 
+/* Estilos para todos os botões */
 .back-button, .new-product-button, .delete-button {
     background-color: #c6e2b3; /* Define a cor de fundo dos botões como um verde claro */
     border: none; /* Remove as bordas padrão dos botões */
@@ -161,14 +162,16 @@ body {
     cursor: pointer; /* Altera o cursor para pointer */
 }
 
+/* Estilo da imagem da logo com ajustes para hover */
 .logo img {
     width: 150px; /* Ajuste o tamanho conforme necessário */
-    height: auto;
+    height: auto; /* Mantém a proporção da altura */
     border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
     transition: transform 0.3s ease; /* Animação suave ao passar o mouse */
 }
 
+/* Efeito ao passar o mouse sobre a imagem da logo */
 .logo img:hover {
     transform: scale(1.1); /* Aumenta a logo ao passar o mouse */
 }

@@ -14,7 +14,7 @@ namespace TelaPimExercicio
                 Size = new Size(85, 85),
                 Location = new Point((form.ClientSize.Width - 85) / 2, 16),
                 SizeMode = PictureBoxSizeMode.StretchImage,
-                Image = Image.FromFile("C:\\Users\\bruno\\Desktop\\PIM-4\\Aplicativo Desktop\\TelaPimExercicio\\logoFinal.png") // Verifique o caminho
+                Image = Image.FromFile("C:\\Users\\Marcia\\Desktop\\PIM-4\\Aplicativo Desktop\\TelaPimExercicio\\logoFinal.png") // Verifique o caminho
             };
         }
     }

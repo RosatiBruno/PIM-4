@@ -1,88 +1,134 @@
 <!DOCTYPE html>
+<!-- Declaração do tipo de documento, informa que o documento é HTML5 -->
 <html lang="pt-BR">
+<!-- Início do documento HTML, especificando o idioma como português do Brasil -->
 <head>
     <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8, que suporta a maioria dos caracteres -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura a viewport para um layout responsivo, apropriado para dispositivos móveis -->
     <title>Fornecedores</title>
+    <!-- Define o título da aba do navegador -->
     <link rel="stylesheet" href="FornecedoresG.css">
+    <!-- Inclui o arquivo CSS para estilizar a página -->
 </head>
 <body>
     <div class="sidebar">
+        <!-- Sidebar (barra lateral) que contém o perfil e logo -->
         <img src="profile.png" alt="Gabriel Igor Dias Gomes">
+        <!-- Imagem do perfil do usuário -->
         <div class="logo">
             <img src="logo.png" alt="UrbAgro">
+            <!-- Imagem do logotipo da empresa -->
         </div>
     </div>
     <div class="content">
+        <!-- Div principal que contém o conteúdo da página -->
         <div class="search-bar">
+            <!-- Barra de pesquisa para buscar fornecedores -->
             <input type="text" placeholder="Digite o CNPJ/CPF do Fornecedor">
+            <!-- Campo de entrada de texto para o CNPJ/CPF do fornecedor -->
             <button>
                 <img src="https://via.placeholder.com/20" alt="Buscar">
+                <!-- Botão de busca com um ícone placeholder -->
             </button>
         </div>
         <ul class="supplier-list">
+            <!-- Lista não ordenada que contém os fornecedores -->
             <li id="empresa1" class="fornecedor-item">EMPRESA 1</li>
+            <!-- Item da lista para EMPRESA 1 -->
             <li id="empresa2" class="fornecedor-item">EMPRESA 2</li>
+            <!-- Item da lista para EMPRESA 2 -->
             <li id="empresa3" class="fornecedor-item">EMPRESA 3</li>
+            <!-- Item da lista para EMPRESA 3 -->
             <li id="empresa4" class="fornecedor-item">EMPRESA 4</li>
+            <!-- Item da lista para EMPRESA 4 -->
             <li id="empresa5" class="fornecedor-item">EMPRESA 5</li>
+            <!-- Item da lista para EMPRESA 5 -->
             <li id="empresa6" class="fornecedor-item">EMPRESA 6</li>
+            <!-- Item da lista para EMPRESA 6 -->
         </ul>
         <div class="buttons">
+            <!-- Div que contém os botões de ação -->
             <button class="back-button">← Voltar</button>
+            <!-- Botão para voltar à página anterior -->
             <button>CADASTRAR NOVO FORNECEDOR</button>
+            <!-- Botão para cadastrar um novo fornecedor -->
             <button class="inactivate-button">INATIVAÇÃO DE FORNECEDOR</button>
+            <!-- Botão para inativar um fornecedor -->
             <button class="inactivated-suppliers-button">LISTA FORNECEDORES INATIVADOS</button>
+            <!-- Botão para listar fornecedores inativados -->
         </div>
     </div>
 
     <!-- Modal para detalhes do fornecedor -->
     <div id="modal" class="modal">
+        <!-- Div modal que contém informações detalhadas sobre um fornecedor -->
         <div class="modal-content">
             <span class="close-button">&times;</span>
+            <!-- Botão para fechar o modal -->
             <div id="detalhes-fornecedor"></div>
+            <!-- Div onde os detalhes do fornecedor serão exibidos -->
         </div>
     </div>
     
     <!-- Modal para editar os dados do fornecedor -->
     <!-- Modal de Edição de Fornecedores -->
-<div id="fornecedorModal" class="modal">
-    <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>Editar Fornecedor</h2>
-        <label for="editNome">Nome:</label>
-        <input type="text" id="editNome">
-        <label for="editCep">CEP:</label>
-        <input type="text" id="editCep">
-        <label for="editTelefone">Telefone:</label>
-        <input type="text" id="editTelefone">
-        <label for="editCNPJ">CNPJ/CPF:</label>
-        <input type="text" id="editCNPJ">
-        <label for="editEndereco">Endereço:</label>
-        <input type="text" id="editEndereco">
-        <label for="editEmail">Email:</label>
-        <input type="email" id="editEmail">
-        <label for="editSituacao">Situação:</label>
-        <input type="text" id="editSituacao">
-        <label for="editComplemento">Complemento:</label>
-        <input type="text" id="editComplemento">
-        <label for="editRepresentante">Representante:</label>
-        <input type="text" id="editRepresentante">
-        <label for="editCodigo">Código:</label>
-        <input type="text" id="editCodigo">
-        <label for="editCidade">Cidade:</label>
-        <input type="text" id="editCidade">
-        <label for="editEstado">Estado:</label>
-        <input type="text" id="editEstado">
-        <label for="editMateriaPrima">Matéria-prima:</label>
-        <input type="text" id="editMateriaPrima">
-        <label for="editRazaoSocial">Razão Social:</label>
-        <input type="text" id="editRazaoSocial">
-        <button id="salvarAlteracoes">Salvar Alterações</button>
+    <div id="fornecedorModal" class="modal">
+        <!-- Div modal para editar informações de um fornecedor -->
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <!-- Botão para fechar o modal de edição -->
+            <h2>Editar Fornecedor</h2>
+            <!-- Título do modal de edição -->
+            <label for="editNome">Nome:</label>
+            <input type="text" id="editNome">
+            <!-- Campo para editar o nome do fornecedor -->
+            <label for="editCep">CEP:</label>
+            <input type="text" id="editCep">
+            <!-- Campo para editar o CEP do fornecedor -->
+            <label for="editTelefone">Telefone:</label>
+            <input type="text" id="editTelefone">
+            <!-- Campo para editar o telefone do fornecedor -->
+            <label for="editCNPJ">CNPJ/CPF:</label>
+            <input type="text" id="editCNPJ">
+            <!-- Campo para editar o CNPJ/CPF do fornecedor -->
+            <label for="editEndereco">Endereço:</label>
+            <input type="text" id="editEndereco">
+            <!-- Campo para editar o endereço do fornecedor -->
+            <label for="editEmail">Email:</label>
+            <input type="email" id="editEmail">
+            <!-- Campo para editar o e-mail do fornecedor -->
+            <label for="editSituacao">Situação:</label>
+            <input type="text" id="editSituacao">
+            <!-- Campo para editar a situação do fornecedor -->
+            <label for="editComplemento">Complemento:</label>
+            <input type="text" id="editComplemento">
+            <!-- Campo para editar o complemento do endereço do fornecedor -->
+            <label for="editRepresentante">Representante:</label>
+            <input type="text" id="editRepresentante">
+            <!-- Campo para editar o representante do fornecedor -->
+            <label for="editCodigo">Código:</label>
+            <input type="text" id="editCodigo">
+            <!-- Campo para editar o código do fornecedor -->
+            <label for="editCidade">Cidade:</label>
+            <input type="text" id="editCidade">
+            <!-- Campo para editar a cidade do fornecedor -->
+            <label for="editEstado">Estado:</label>
+            <input type="text" id="editEstado">
+            <!-- Campo para editar o estado do fornecedor -->
+            <label for="editMateriaPrima">Matéria-prima:</label>
+            <input type="text" id="editMateriaPrima">
+            <!-- Campo para editar a matéria-prima do fornecedor -->
+            <label for="editRazaoSocial">Razão Social:</label>
+            <input type="text" id="editRazaoSocial">
+            <!-- Campo para editar a razão social do fornecedor -->
+            <button id="salvarAlteracoes">Salvar Alterações</button>
+            <!-- Botão para salvar as alterações feitas no modal -->
+        </div>
     </div>
-</div>
-
 
     <script src="FornecedoresG.js"></script>
+    <!-- Inclui o arquivo JavaScript para funcionalidade da página -->
 </body>
 </html>

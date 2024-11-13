@@ -1,136 +1,170 @@
 // Classe para manipular o formulário de login
 class LoginForm {
+    // Construtor da classe LoginForm que recebe o seletor do formulário e os callbacks de submissão e esquecimento de senha
     constructor(formSelector, submitCallback, forgotPasswordCallback) {
-        // Seleciona o formulário com o seletor fornecido e atribui as funções de callback
+        // Seleciona o formulário no DOM usando o seletor fornecido
         this.form = document.querySelector(formSelector);
+        // Atribui o callback de submissão ao objeto
         this.submitCallback = submitCallback;
+        // Atribui o callback de esquecimento de senha ao objeto
         this.forgotPasswordCallback = forgotPasswordCallback;
-        this.initEventListeners(); // Inicializa os ouvintes de eventos
+        // Inicializa os ouvintes de eventos no formulário
+        this.initEventListeners();
     }
 
-    // Inicializa os eventos de submissão do formulário e clique no link de "Esqueci minha senha"
+    // Método para configurar os ouvintes de eventos
     initEventListeners() {
-        // Evento de submissão do formulário que chama o callback de login
+        // Adiciona um ouvinte para o evento de submissão do formulário
         this.form.addEventListener('submit', (event) => this.submitCallback(event));
-
-        // Adiciona evento ao link de "Esqueci minha senha"
+        // Seleciona o link de esquecimento de senha no DOM
         const forgotPasswordLink = document.getElementById('forgot-password-link');
+        // Adiciona um ouvinte para o clique no link de esquecimento de senha
         forgotPasswordLink.addEventListener('click', (event) => this.forgotPasswordCallback(event));
     }
 
-    // Coleta as credenciais inseridas no formulário de login
+    // Método para obter as credenciais (ID e senha) inseridas no formulário
     getCredentials() {
-        const userId = this.form.querySelector('input[name="id"]').value; // Pega o valor do campo ID
-        const password = this.form.querySelector('input[name="senha"]').value; // Pega o valor do campo senha
-        return { userId, password }; // Retorna um objeto com ID e senha
+        // Seleciona o valor do campo de entrada de ID
+        const userId = this.form.querySelector('input[name="id"]').value;
+        // Seleciona o valor do campo de entrada de senha
+        const password = this.form.querySelector('input[name="senha"]').value;
+        // Retorna as credenciais como um objeto
+        return { userId, password };
     }
 }
 
 // Classe responsável pela validação das credenciais
 class CredentialsValidator {
+    // Construtor que recebe uma lista de credenciais válidas
     constructor(validCredentials) {
-        // Inicializa as credenciais válidas predefinidas
+        // Armazena as credenciais válidas
         this.validCredentials = validCredentials;
     }
 
-    // Valida as credenciais inseridas comparando com as predefinidas ou armazenadas
+    // Método para validar o ID e senha fornecidos
     validate(userId, password) {
-        // Verifica se as credenciais inseridas correspondem às credenciais fixas
-        const validCredential = this.validCredentials.find(credentials => 
+        // Procura nas credenciais válidas uma combinação de ID e senha correspondentes
+        const validCredential = this.validCredentials.find(credentials =>
             credentials.id === userId && credentials.password === password
         );
 
+        // Se encontrou uma credencial válida, retorna-a
         if (validCredential) {
-            return validCredential; // Retorna credenciais válidas se encontradas
+            return validCredential;
         }
 
-        // Se não encontrar, verifica se há credenciais no localStorage
+        // Se não encontrou, verifica se há credenciais salvas localmente no localStorage
         const storedCredentials = JSON.parse(localStorage.getItem('funcionarios')) || [];
-        return storedCredentials.find(funcionario => 
+        // Procura a combinação de ID e senha nas credenciais armazenadas
+        return storedCredentials.find(funcionario =>
             funcionario.idFuncionario === userId && funcionario.senha === password
         );
     }
 }
 
-// Classe responsável por gerenciar a navegação
+// Classe responsável por gerenciar a navegação e interações de mensagens
 class NavigationManager {
-    // Redireciona para a página desejada após login bem-sucedido
+    // Método para redirecionar para uma página específica
     redirectToPage(page) {
-        alert("Login realizado com sucesso!"); // Exibe uma mensagem de sucesso
-        window.location.href = page; // Redireciona para a página passada como argumento
+        // Exibe uma mensagem de sucesso
+        alert("Login realizado com sucesso!");
+        // Redireciona para a página especificada
+        window.location.href = page;
     }
 
-    // Exibe uma mensagem de erro
+    // Método para exibir uma mensagem de erro
     showErrorMessage(message) {
-        alert(message); // Mostra um alerta com a mensagem de erro
+        // Exibe uma mensagem de alerta com o erro
+        alert(message);
     }
 
-    // Redireciona para a página de "Esqueci minha senha"
+    // Método para redirecionar para a página de recuperação de senha
     redirectToForgotPasswordPage() {
-        window.location.href = "Senha.html"; // Redireciona para a página de recuperação de senha
+        // Redireciona para a página de recuperação de senha
+        window.location.href = "Senha.html";
     }
 
-    // Solicita o e-mail do usuário para envio de código de verificação
+    // Método para solicitar o e-mail do usuário para verificação
     requestEmail() {
         let email;
+        // Solicita o e-mail até que o usuário forneça um e-mail válido
         do {
             email = prompt("Digite seu e-mail para receber o código de verificação:");
-        } while (!this.isValidEmail(email)); // Continua solicitando até que o e-mail seja válido
-        return email; // Retorna o e-mail válido
+        } while (!this.isValidEmail(email)); // Valida o e-mail com o método isValidEmail
+        // Retorna o e-mail fornecido
+        return email;
     }
 
-    // Verifica se o e-mail é válido usando expressão regular
+    // Método para validar o formato do e-mail
     isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expressão regular para validar e-mail
-        return emailRegex.test(email); // Retorna true se o e-mail for válido
+        // Expressão regular para verificar o formato de um e-mail válido
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // Retorna true se o e-mail for válido, false caso contrário
+        return emailRegex.test(email);
     }
 
-    // Solicita o código de verificação que foi enviado por e-mail
+    // Método para solicitar o código de verificação ao usuário
     requestVerificationCode() {
+        // Solicita o código ao usuário
         const code = prompt("Digite o código de verificação recebido por e-mail:");
-        return code; // Retorna o código inserido pelo usuário
+        // Retorna o código fornecido
+        return code;
     }
 }
 
-// Classe principal para orquestrar o sistema de login
+// Classe principal que orquestra o sistema de login
 class LoginSystem {
+    // Construtor que inicializa as classes e recebe as credenciais válidas
     constructor(validCredentials) {
-        // Inicializa o validador de credenciais e o gerenciador de navegação
+        // Inicializa o validador de credenciais com as credenciais válidas
         this.validator = new CredentialsValidator(validCredentials);
+        // Inicializa o gerenciador de navegação
         this.navigationManager = new NavigationManager();
-        // Inicializa o formulário de login com os callbacks de login e de "Esqueci minha senha"
+        // Inicializa o formulário de login com os callbacks para login e esquecimento de senha
         this.loginForm = new LoginForm(
             'form',
-            (event) => this.handleLogin(event), // Callback para lidar com o login
-            (event) => this.handleForgotPassword(event) // Callback para "Esqueci minha senha"
+            (event) => this.handleLogin(event),
+            (event) => this.handleForgotPassword(event)
         );
-        this.generatedCode = null; // Armazena o código de verificação gerado
+        // Inicializa o código de verificação gerado como null
+        this.generatedCode = null;
     }
 
-    // Manipula o evento de login
+    // Método para tratar o evento de login
     handleLogin(event) {
-        event.preventDefault(); // Impede o comportamento padrão de submissão do formulário
-        const { userId, password } = this.loginForm.getCredentials(); // Obtém as credenciais inseridas
-        const validCredential = this.validator.validate(userId, password); // Valida as credenciais
+        // Previne o comportamento padrão do formulário
+        event.preventDefault();
+        // Obtém as credenciais fornecidas pelo usuário
+        const { userId, password } = this.loginForm.getCredentials();
+        // Valida as credenciais
+        const validCredential = this.validator.validate(userId, password);
 
+        // Se as credenciais são válidas
         if (validCredential) {
-            const email = this.navigationManager.requestEmail(); // Solicita o e-mail para verificação
+            // Solicita o e-mail do usuário
+            const email = this.navigationManager.requestEmail();
+            // Se o e-mail foi fornecido e é válido
             if (email) {
-                // Gera e envia (simulado) um código de verificação por e-mail
+                // Gera um código de verificação e armazena em generatedCode
                 this.generatedCode = this.generateVerificationCode();
-                alert(`Código de verificação enviado para ${email}: ${this.generatedCode}`); // Simula envio do código
-                this.handleTwoFactorAuthentication(userId, password); // Inicia a autenticação em duas etapas
+                // Exibe uma mensagem com o código gerado
+                alert(`Código de verificação enviado para ${email}: ${this.generatedCode}`);
+                // Inicia o processo de autenticação em duas etapas
+                this.handleTwoFactorAuthentication(userId, password);
             }
         } else {
-            this.navigationManager.showErrorMessage("ID ou senha incorretos. Tente novamente."); // Exibe mensagem de erro
+            // Se as credenciais são inválidas, exibe uma mensagem de erro
+            this.navigationManager.showErrorMessage("ID ou senha incorretos. Tente novamente.");
         }
     }
 
-    // Manipula a autenticação em duas etapas
+    // Método para realizar a autenticação em duas etapas
     handleTwoFactorAuthentication(userId, password) {
-        const enteredCode = this.navigationManager.requestVerificationCode(); // Solicita o código de verificação
+        // Solicita ao usuário o código de verificação
+        const enteredCode = this.navigationManager.requestVerificationCode();
+        // Se o código inserido é igual ao gerado
         if (enteredCode === this.generatedCode) {
-            // Redireciona para a página correta baseado nas credenciais
+            // Redireciona o usuário para a página correspondente ao ID e senha fornecidos
             if (userId === '1234' && password === '1234') {
                 this.navigationManager.redirectToPage('inicial.html');
             } else if (userId === '1215' && password === '1215') {
@@ -138,35 +172,38 @@ class LoginSystem {
             } else if (userId === '6258' && password === '6258') {
                 this.navigationManager.redirectToPage('inicialGerente.html');
             } else {
-                // Redireciona para a página de funcionários se for um funcionário cadastrado
                 this.navigationManager.redirectToPage('inicialF.html');
             }
         } else {
-            this.navigationManager.showErrorMessage("Código de verificação inválido."); // Exibe erro se o código estiver incorreto
+            // Se o código de verificação está incorreto, exibe uma mensagem de erro
+            this.navigationManager.showErrorMessage("Código de verificação inválido.");
         }
     }
 
-    // Gera um código de verificação aleatório de 6 dígitos
+    // Método para gerar um código de verificação de 6 dígitos
     generateVerificationCode() {
-        return Math.floor(100000 + Math.random() * 900000).toString(); // Retorna um número aleatório de 6 dígitos
+        // Retorna um número aleatório de 6 dígitos como string
+        return Math.floor(100000 + Math.random() * 900000).toString();
     }
 
-    // Manipula o evento de "Esqueci minha senha"
+    // Método para tratar o evento de esquecimento de senha
     handleForgotPassword(event) {
-        event.preventDefault(); // Impede o comportamento padrão
-        this.navigationManager.redirectToForgotPasswordPage(); // Redireciona para a página de recuperação de senha
+        // Previne o comportamento padrão do link
+        event.preventDefault();
+        // Redireciona para a página de recuperação de senha
+        this.navigationManager.redirectToForgotPasswordPage();
     }
 }
 
 // Inicializa o sistema de login após o carregamento do DOM
 document.addEventListener('DOMContentLoaded', () => {
-    // Credenciais fixas para fins de exemplo
+    // Define as credenciais válidas para comparação
     const validCredentials = [
-        { id: '1234', password: '1234' },   // Credenciais para inicial.html
-        { id: '1215', password: '1215' },   // Credenciais para InicialFuncionario.html
-        { id: '6258', password: '6258' }    // Credenciais para inicialGerente.html
+        { id: '1234', password: '1234' },
+        { id: '1215', password: '1215' },
+        { id: '6258', password: '6258' }
     ];
 
-    // Inicializa o sistema de login com as credenciais predefinidas
+    // Cria uma nova instância do sistema de login com as credenciais válidas
     new LoginSystem(validCredentials);
 });

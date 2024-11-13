@@ -85,17 +85,17 @@ body {
 
 /* CSS para melhorar a logo */
 .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
+    display: flex; /* Usa Flexbox para organizar o conteúdo da logo */
+    justify-content: center; /* Centraliza a logo horizontalmente */
+    align-items: center; /* Centraliza a logo verticalmente */
+    margin: 20px 0; /* Margem superior e inferior de 20px */
 }
 
 .logo img {
-    width: 150px; /* Ajuste o tamanho conforme necessário */
-    height: auto;
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
+    width: 150px; /* Ajuste o tamanho da logo conforme necessário */
+    height: auto; /* Mantém a proporção da altura da imagem */
+    border-radius: 10px; /* Bordas arredondadas para a imagem da logo */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque à logo */
     transition: transform 0.3s ease; /* Animação suave ao passar o mouse */
 }
 

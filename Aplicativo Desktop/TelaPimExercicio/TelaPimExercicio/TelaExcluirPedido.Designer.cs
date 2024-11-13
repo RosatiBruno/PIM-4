@@ -193,7 +193,7 @@
             this.Controls.Add(this.btnLogout2);
             this.Name = "TelaExcluirPedido";
             this.Text = "Excluir Pedido";
-            this.Load += new System.EventHandler(this.TelaExcluirPedido_Load);
+//            this.Load += new System.EventHandler(this.TelaExcluirPedido_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

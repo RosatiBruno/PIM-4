@@ -1,139 +1,139 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui o preenchimento e a borda no cálculo da largura e altura total dos elementos */
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    font-family: Arial, sans-serif; /* Define a fonte do corpo da página como Arial ou uma fonte sans-serif alternativa */
+    background-color: #f5f5f5; /* Define a cor de fundo da página como um tom claro de cinza */
 }
 
 .container {
-    display: flex;
-    height: 100vh;
+    display: flex; /* Usa flexbox para organizar os filhos em linha */
+    height: 100vh; /* Define a altura do contêiner como 100% da altura da janela de visualização */
 }
 
 .sidebar {
-    width: 20%;
-    background-color: #e0f2e9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
+    width: 20%; /* Define a largura da barra lateral como 20% da largura total do contêiner */
+    background-color: #e0f2e9; /* Define a cor de fundo da barra lateral como um tom claro de verde */
+    display: flex; /* Usa flexbox para organizar os filhos dentro da barra lateral */
+    flex-direction: column; /* Alinha os filhos em uma coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    padding: 20px; /* Adiciona preenchimento interno de 20px */
 }
 
 .profile {
-    text-align: center;
+    text-align: center; /* Centraliza o texto dentro da seção do perfil */
 }
 
 .profile-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+    width: 80px; /* Define a largura da imagem do perfil como 80px */
+    height: 80px; /* Define a altura da imagem do perfil como 80px */
+    border-radius: 50%; /* Faz a imagem ter bordas arredondadas, tornando-a circular */
+    margin-bottom: 10px; /* Adiciona uma margem inferior de 10px */
 }
 
 .profile-name {
-    font-weight: bold;
-    color: #000;
+    font-weight: bold; /* Define o texto como negrito */
+    color: #000; /* Define a cor do texto como preto */
 }
 
 .logo img {
-    width: 150px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    width: 150px; /* Define a largura da imagem do logo como 150px */
+    height: auto; /* Define a altura da imagem automaticamente para manter a proporção */
+    border-radius: 10px; /* Faz as bordas da imagem do logo serem levemente arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra ao logo */
+    transition: transform 0.3s ease; /* Adiciona uma transição suave ao transformar a imagem */
 }
 
 .logo img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Aumenta o logo em 10% ao passar o mouse */
 }
 
 .main-content {
-    width: 80%;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    width: 80%; /* Define a largura do conteúdo principal como 80% da largura total do contêiner */
+    padding: 40px; /* Adiciona um preenchimento interno de 40px */
+    display: flex; /* Usa flexbox para organizar os filhos dentro do conteúdo principal */
+    flex-direction: column; /* Alinha os filhos em uma coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: flex-start; /* Alinha os itens ao início da coluna */
 }
 
 .main-content h1 {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 24px; /* Define o tamanho da fonte do título como 24px */
+    margin-bottom: 30px; /* Adiciona uma margem inferior de 30px ao título */
 }
 
 .orders {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%; /* Define a largura da seção de pedidos como 100% */
+    display: flex; /* Usa flexbox para organizar os filhos na seção de pedidos */
+    flex-direction: column; /* Alinha os filhos em uma coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
 }
 
 .supplier-list-inactive {
-    width: 100%;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 20px;
-    position: relative; /* Para posicionamento relativo do botão */
+    width: 100%; /* Define a largura da lista de fornecedores inativos como 100% */
+    background-color: #ffffff; /* Define a cor de fundo da lista como branco */
+    border-radius: 8px; /* Faz as bordas da lista serem arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave à lista */
+    padding: 20px; /* Adiciona um preenchimento interno de 20px */
+    margin-top: 20px; /* Adiciona uma margem superior de 20px */
+    position: relative; /* Permite que os filhos dentro da lista sejam posicionados em relação a ela */
 }
 
 .supplier-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #eee;
+    display: flex; /* Usa flexbox para organizar os filhos do item do fornecedor */
+    justify-content: space-between; /* Distribui o espaço entre os itens do fornecedor */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    padding: 15px; /* Adiciona um preenchimento interno de 15px */
+    border-bottom: 1px solid #eee; /* Adiciona uma borda inferior leve ao item */
 }
 
 .supplier-item:last-child {
-    border-bottom: none;
+    border-bottom: none; /* Remove a borda inferior do último item */
 }
 
 .supplier-info {
-    flex-grow: 1;
+    flex-grow: 1; /* Permite que esta seção cresça e ocupe o espaço disponível */
 }
 
 .supplier-name {
-    font-weight: bold;
-    color: #333;
+    font-weight: bold; /* Define o texto do nome do fornecedor como negrito */
+    color: #333; /* Define a cor do texto como um tom escuro de cinza */
 }
 
 .supplier-status {
-    color: #999;
+    color: #999; /* Define a cor do status do fornecedor como um tom claro de cinza */
 }
 
-/* Botão Reativar Fornecedor */
+/* Estilização do Botão Reativar Fornecedor */
 .reactivate-button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px; /* Mantém um espaço acima do botão */
-    transition: background-color 0.3s;
+    background-color: #4CAF50; /* Define a cor de fundo do botão como um tom de verde */
+    border: none; /* Remove bordas do botão */
+    color: white; /* Define a cor do texto do botão como branco */
+    padding: 10px 20px; /* Adiciona um preenchimento interno de 10px em cima e embaixo, e 20px nas laterais */
+    border-radius: 5px; /* Arredonda as bordas do botão */
+    font-size: 16px; /* Define o tamanho da fonte do botão como 16px */
+    cursor: pointer; /* Muda o cursor para um ponteiro ao passar o mouse sobre o botão */
+    margin-top: 20px; /* Adiciona uma margem superior de 20px ao botão */
+    transition: background-color 0.3s; /* Adiciona uma transição suave à cor de fundo do botão */
 
     /* Ajusta o botão para ficar na parte inferior da lista */
-    display: block; /* Para ocupar toda a largura */
-    width: 100%; /* Faz o botão ocupar a largura total da lista */
+    display: block; /* Faz o botão ocupar toda a largura do contêiner */
+    width: 100%; /* Define a largura do botão como 100% */
 }
 
 .reactivate-button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Muda a cor de fundo do botão ao passar o mouse para um verde mais escuro */
 }
 
 .back-button {
-    background-color: #c6e2b3; /* Fundo verde claro */
-    border: none; /* Remove bordas */
-    padding: 10px 20px; /* Espaçamento interno dos botões */
-    font-size: 1em; /* Tamanho da fonte */
-    cursor: pointer; /* Cursor pointer */
-    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #c6e2b3; /* Define a cor de fundo do botão de voltar como um verde claro */
+    border: none; /* Remove bordas do botão */
+    padding: 10px 20px; /* Adiciona um preenchimento interno de 10px em cima e embaixo, e 20px nas laterais */
+    font-size: 1em; /* Define o tamanho da fonte do botão de voltar */
+    cursor: pointer; /* Muda o cursor para um ponteiro ao passar o mouse sobre o botão */
+    border-radius: 5px; /* Arredonda as bordas do botão de voltar */
 }

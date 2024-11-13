@@ -1,55 +1,55 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html> <!-- Declaração do tipo de documento, informa que este é um documento HTML5 -->
+<html lang="pt-br"> <!-- Início do elemento HTML com atributo de linguagem definido como português do Brasil -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Funcionários</title>
-    <link rel="stylesheet" href="CadastroFuncionario.css">
-    <script src="CadastroFuncionario.js"></script>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8, suportando caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para responsividade em dispositivos móveis -->
+    <title>Cadastro Funcionários</title> <!-- Define o título da página que aparece na aba do navegador -->
+    <link rel="stylesheet" href="CadastroFuncionario.css"> <!-- Link para o arquivo CSS que estiliza a página -->
+    <script src="CadastroFuncionario.js"></script> <!-- Link para o arquivo JavaScript que contém a lógica da página -->
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <div class="profile-section">
-                <img src="profile.png" alt="Profile Image" class="profile-image">
+    <div class="container"> <!-- Div principal que agrupa todo o conteúdo da página -->
+        <div class="sidebar"> <!-- Div da barra lateral -->
+            <div class="profile-section"> <!-- Seção para exibir a imagem de perfil -->
+                <img src="profile.png" alt="Profile Image" class="profile-image"> <!-- Imagem do perfil do usuário -->
             </div>
-            <div class="logo">
-                <img src="logo.png" alt="UrbAgro Logo" class="logo">
+            <div class="logo"> <!-- Seção para exibir o logo da empresa -->
+                <img src="logo.png" alt="UrbAgro Logo" class="logo"> <!-- Imagem do logo da empresa -->
             </div>
-            <div class="back-button">
-                <button type="button" class="back-button">← Voltar</button>
+            <div class="back-button"> <!-- Div para o botão de voltar -->
+                <button type="button" class="back-button">← Voltar</button> <!-- Botão que permite voltar para a tela anterior -->
             </div>
         </div>
 
-        <div class="main-content">
-            <h1>Cadastrar Funcionário</h1>
-            <form>
-                <div class="form-group">
-                    <label for="nome">Nome Funcionário</label>
-                    <input type="text" id="nome" name="nome" maxlength="50" placeholder="Até 50 caracteres">
+        <div class="main-content"> <!-- Div que contém o conteúdo principal da página -->
+            <h1>Cadastrar Funcionário</h1> <!-- Título da seção de cadastro -->
+            <form> <!-- Início do formulário para cadastro de funcionários -->
+                <div class="form-group"> <!-- Grupo para o campo de nome -->
+                    <label for="nome">Nome Funcionário</label> <!-- Rótulo para o campo de nome -->
+                    <input type="text" id="nome" name="nome" maxlength="50" placeholder="Até 50 caracteres"> <!-- Campo de entrada para o nome do funcionário -->
                 </div>
 
-                <div class="form-group">
-                    <label for="id_funcionario">Id_Funcionário</label>
-                    <input type="text" id="id_funcionario" name="id_funcionario" maxlength="10" placeholder="Até 4 caracteres">
+                <div class="form-group"> <!-- Grupo para o campo de ID do funcionário -->
+                    <label for="id_funcionario">Id_Funcionário</label> <!-- Rótulo para o campo de ID -->
+                    <input type="text" id="id_funcionario" name="id_funcionario" maxlength="10" placeholder="Até 4 caracteres"> <!-- Campo de entrada para o ID do funcionário -->
                 </div>
 
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" maxlength="50" placeholder="Ex: exemplo@dominio.com">
+                <div class="form-group"> <!-- Grupo para o campo de e-mail -->
+                    <label for="email">E-mail</label> <!-- Rótulo para o campo de e-mail -->
+                    <input type="email" id="email" name="email" maxlength="50" placeholder="Ex: exemplo@dominio.com"> <!-- Campo de entrada para o e-mail do funcionário -->
                 </div>
 
-                <div class="form-group">
-                    <label for="senha">Senha</label>
-                    <input type="password" id="senha" name="senha" maxlength="20" placeholder="Máx. 4 caracteres">
+                <div class="form-group"> <!-- Grupo para o campo de senha -->
+                    <label for="senha">Senha</label> <!-- Rótulo para o campo de senha -->
+                    <input type="password" id="senha" name="senha" maxlength="20" placeholder="Máx. 4 caracteres"> <!-- Campo de entrada para a senha do funcionário -->
                 </div>
 
-                <button type="submit" class="save-button">Salvar</button>
+                <button type="submit" class="save-button">Salvar</button> <!-- Botão para salvar os dados do funcionário -->
             </form>
         </div>
 
         <!-- Substituí o ícone por um botão com a classe home-button -->
-        <button class="home-button" onclick="window.location.href='inicial.html'"></button>
+        <button class="home-button" onclick="window.location.href='inicial.html'"></button> <!-- Botão que redireciona para a página inicial ao ser clicado -->
     </div>
 </body>
 </html>

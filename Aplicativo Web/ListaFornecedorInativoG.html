@@ -1,53 +1,84 @@
 <!DOCTYPE html>
+<!-- Declara que o documento é um documento HTML5 -->
 <html lang="pt-BR">
+<!-- Início do documento HTML, especificando o idioma como português do Brasil -->
 <head>
     <meta charset="UTF-8">
+    <!-- Define o conjunto de caracteres como UTF-8 para suportar caracteres especiais -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura a viewport para garantir que o layout se ajuste corretamente em dispositivos móveis -->
     <title>Lista de Fornecedores Inativos</title>
+    <!-- Título da página que aparecerá na aba do navegador -->
     <link rel="stylesheet" href="listafornecedorinativog.css">
+    <!-- Link para o arquivo CSS que estiliza a página -->
 </head>
 <body>
     <div class="container">
+    <!-- Container principal que envolve todo o conteúdo da página -->
         <div class="sidebar">
+        <!-- Seção lateral para navegação e informações do perfil -->
             <div class="profile">
+            <!-- Container para exibir as informações do perfil -->
                 <img src="profile.png" alt="Foto de perfil" class="profile-img">
+                <!-- Imagem do perfil do usuário -->
                 <p class="profile-name">Gabriel Igor Dias Gomes</p>
+                <!-- Nome do usuário exibido abaixo da imagem -->
             </div>
             <div class="logo">
+            <!-- Container para exibir o logo da empresa -->
                 <img src="logo.png" alt="UrbAgro Logo">
+                <!-- Imagem do logo da empresa -->
             </div>
         </div>
 
         <div class="main-content">
+        <!-- Seção principal que contém o conteúdo da página -->
             <h1>Fornecedores Inativos</h1>
+            <!-- Título principal da seção, indicando que a lista contém fornecedores inativos -->
             <div class="orders">
+            <!-- Container para agrupar os itens de fornecedores -->
                 <div class="supplier-list-inactive">
+                <!-- Lista de fornecedores inativos -->
                     <div class="supplier-item">
+                    <!-- Item individual da lista de fornecedores -->
                         <div class="supplier-info">
+                        <!-- Container para as informações do fornecedor -->
                             <p class="supplier-name">Fornecedor Inativo 1</p>
+                            <!-- Nome do fornecedor inativo -->
                             <p class="supplier-status">Status: Inativo</p>
+                            <!-- Status do fornecedor, indicando que está inativo -->
                         </div>
                         <button class="reactivate-button">Reativar Fornecedor</button>
+                        <!-- Botão para reativar o fornecedor -->
                     </div>
 
                     <div class="supplier-item">
+                    <!-- Outro item individual da lista de fornecedores -->
                         <div class="supplier-info">
+                        <!-- Container para as informações do fornecedor -->
                             <p class="supplier-name">Fornecedor Inativo 2</p>
+                            <!-- Nome do fornecedor inativo -->
                             <p class="supplier-status">Status: Inativo</p>
+                            <!-- Status do fornecedor, indicando que está inativo -->
                         </div>
                         <button class="reactivate-button">Reativar Fornecedor</button>
+                        <!-- Botão para reativar o fornecedor -->
                     </div>
                 </div>
             </div>
 
             <!-- Seção para os botões centralizados -->
             <div class="actions">
-                <button class="back-button">&#8592; Voltar</button> <!-- Botão para voltar -->
+            <!-- Container para os botões de ação -->
+                <button class="back-button">&#8592; Voltar</button> 
+                <!-- Botão para voltar à página anterior -->
                 <button class="reactivate-button">Reativar Fornecedor</button>
+                <!-- Botão para reativar um fornecedor (geralmente seria usado após selecionar um fornecedor específico) -->
             </div>
         </div>
     </div>
 
     <script src="listafornecedorinativog.js"></script>
+    <!-- Link para o arquivo JavaScript que adiciona interatividade à página -->
 </body>
 </html>
