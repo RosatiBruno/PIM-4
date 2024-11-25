@@ -81,7 +81,7 @@ class ProductManager {
         localStorage.setItem('produtos', JSON.stringify(this.produtos));
 
         alert('Produto adicionado com sucesso!'); // Exibe uma mensagem de sucesso
-        window.location.href = 'Produtos.html'; // Redireciona para a página de produtos
+        window.location.href = 'ProdutosG.html'; // Redireciona para a página de produtos
     }
 }
 

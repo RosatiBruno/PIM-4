@@ -1,0 +1,7 @@
+Ti: 1234 e 1234
+Gerente: 6258 e 6258
+Funcionário: Qualquer um que vc cadastrar com o login de TI ou 1215 e 1215
+
+
+
+Logins WEB

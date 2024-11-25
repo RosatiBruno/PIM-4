@@ -89,7 +89,7 @@ class FornecedorManager {
         // Adiciona o novo fornecedor ao armazenamento local
         this.cadastrarFornecedor(fornecedor);
         // Redireciona o usuário para a página 'Fornecedores.html'
-        window.location.href = 'Fornecedores.html';
+        window.location.href = 'FornecedoresG.html';
     }
 
     // Método que verifica se todos os campos do formulário estão preenchidos

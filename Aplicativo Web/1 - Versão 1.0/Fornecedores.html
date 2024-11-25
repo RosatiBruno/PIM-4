@@ -1,0 +1,86 @@
+<!DOCTYPE html> <!-- Declaração do tipo de documento, especificando que é um HTML5 -->
+<html lang="pt-BR"> <!-- Início do documento HTML, especificando que o idioma é português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para que a página se ajuste ao tamanho da tela -->
+    <title>Fornecedores</title> <!-- Define o título da página, que aparece na aba do navegador -->
+    <link rel="stylesheet" href="fornecedores.css"> <!-- Link para o arquivo CSS que estiliza a página -->
+</head>
+<body>
+    <div class="sidebar"> <!-- Divisão lateral da página (sidebar) -->
+        <img src="profile.png" alt="Gabriel Igor Dias Gomes"> <!-- Imagem de perfil do usuário -->
+        <div class="logo"> <!-- Divisão para o logo da empresa -->
+            <img src="logo.png" alt="UrbAgro"> <!-- Imagem do logo da empresa -->
+        </div>
+    </div>
+    <div class="content"> <!-- Divisão principal da página que contém o conteúdo -->
+        <div class="search-bar"> <!-- Barra de pesquisa para buscar fornecedores -->
+            <input type="text" placeholder="Digite o CNPJ/CPF do Fornecedor"> <!-- Campo de texto para digitar o CNPJ/CPF -->
+            <button> <!-- Botão de busca -->
+                <img src="https://via.placeholder.com/20" alt="Buscar"> <!-- Ícone para o botão de busca -->
+            </button>
+        </div>
+        <ul class="supplier-list"> <!-- Lista não ordenada de fornecedores -->
+            <li id="empresa1" class="fornecedor-item">EMPRESA 1</li> <!-- Item de fornecedor 1 -->
+            <li id="empresa2" class="fornecedor-item">EMPRESA 2</li> <!-- Item de fornecedor 2 -->
+            <li id="empresa3" class="fornecedor-item">EMPRESA 3</li> <!-- Item de fornecedor 3 -->
+            <li id="empresa4" class="fornecedor-item">EMPRESA 4</li> <!-- Item de fornecedor 4 -->
+            <li id="empresa5" class="fornecedor-item">EMPRESA 5</li> <!-- Item de fornecedor 5 -->
+            <li id="empresa6" class="fornecedor-item">EMPRESA 6</li> <!-- Item de fornecedor 6 -->
+        </ul>
+        <div class="buttons"> <!-- Divisão para os botões de ação -->
+            <button class="back-button">← Voltar</button> <!-- Botão para voltar à página anterior -->
+            <button>CADASTRAR NOVO FORNECEDOR</button> <!-- Botão para cadastrar um novo fornecedor -->
+            <button class="inactivate-button">INATIVAÇÃO DE FORNECEDOR</button> <!-- Botão para inativar um fornecedor -->
+            <button class="inactivated-suppliers-button">LISTA FORNECEDORES INATIVADOS</button> <!-- Botão para listar fornecedores inativados -->
+        </div>
+    </div>
+
+    <!-- Modal para detalhes do fornecedor -->
+    <div id="modal" class="modal"> <!-- Divisão para o modal que exibe os detalhes do fornecedor -->
+        <div class="modal-content"> <!-- Conteúdo do modal -->
+            <span class="close-button">&times;</span> <!-- Botão para fechar o modal (×) -->
+            <div id="detalhes-fornecedor"></div> <!-- Divisão para exibir detalhes do fornecedor -->
+        </div>
+    </div>
+    
+    <!-- Modal para editar os dados do fornecedor -->
+    <div id="fornecedorModal" class="modal"> <!-- Modal para editar os dados de um fornecedor -->
+        <div class="modal-content"> <!-- Conteúdo do modal de edição -->
+            <span class="close-button">&times;</span> <!-- Botão para fechar o modal de edição -->
+            <h2>Editar Fornecedor</h2> <!-- Título do modal de edição -->
+            <label for="editNome">Nome:</label> <!-- Rótulo para o campo nome -->
+            <input type="text" id="editNome"> <!-- Campo de texto para editar o nome do fornecedor -->
+            <label for="editCep">CEP:</label> <!-- Rótulo para o campo CEP -->
+            <input type="text" id="editCep"> <!-- Campo de texto para editar o CEP do fornecedor -->
+            <label for="editTelefone">Telefone:</label> <!-- Rótulo para o campo telefone -->
+            <input type="text" id="editTelefone"> <!-- Campo de texto para editar o telefone do fornecedor -->
+            <label for="editCNPJ">CNPJ/CPF:</label> <!-- Rótulo para o campo CNPJ/CPF -->
+            <input type="text" id="editCNPJ"> <!-- Campo de texto para editar o CNPJ/CPF do fornecedor -->
+            <label for="editEndereco">Endereço:</label> <!-- Rótulo para o campo endereço -->
+            <input type="text" id="editEndereco"> <!-- Campo de texto para editar o endereço do fornecedor -->
+            <label for="editEmail">Email:</label> <!-- Rótulo para o campo email -->
+            <input type="email" id="editEmail"> <!-- Campo de email para editar o email do fornecedor -->
+            <label for="editSituacao">Situação:</label> <!-- Rótulo para o campo situação -->
+            <input type="text" id="editSituacao"> <!-- Campo de texto para editar a situação do fornecedor -->
+            <label for="editComplemento">Complemento:</label> <!-- Rótulo para o campo complemento -->
+            <input type="text" id="editComplemento"> <!-- Campo de texto para editar o complemento do endereço do fornecedor -->
+            <label for="editRepresentante">Representante:</label> <!-- Rótulo para o campo representante -->
+            <input type="text" id="editRepresentante"> <!-- Campo de texto para editar o nome do representante do fornecedor -->
+            <label for="editCodigo">Código:</label> <!-- Rótulo para o campo código -->
+            <input type="text" id="editCodigo"> <!-- Campo de texto para editar o código do fornecedor -->
+            <label for="editCidade">Cidade:</label> <!-- Rótulo para o campo cidade -->
+            <input type="text" id="editCidade"> <!-- Campo de texto para editar a cidade do fornecedor -->
+            <label for="editEstado">Estado:</label> <!-- Rótulo para o campo estado -->
+            <input type="text" id="editEstado"> <!-- Campo de texto para editar o estado do fornecedor -->
+            <label for="editMateriaPrima">Matéria-prima:</label> <!-- Rótulo para o campo matéria-prima -->
+            <input type="text" id="editMateriaPrima"> <!-- Campo de texto para editar a matéria-prima do fornecedor -->
+            <label for="editRazaoSocial">Razão Social:</label> <!-- Rótulo para o campo razão social -->
+            <input type="text" id="editRazaoSocial"> <!-- Campo de texto para editar a razão social do fornecedor -->
+            <button id="salvarAlteracoes">Salvar Alterações</button> <!-- Botão para salvar as alterações feitas -->
+        </div>
+    </div>
+
+    <script src="fornecedores.js"></script> <!-- Link para o arquivo JavaScript que contém a lógica da página -->
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html> <!-- Declara o tipo de documento como HTML5 -->
+<html lang="pt-BR"> <!-- Início do documento HTML, especificando o idioma como português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define as configurações da viewport para responsividade -->
+    <title>Produtos</title> <!-- Define o título da página que aparecerá na aba do navegador -->
+    <link rel="stylesheet" href="produtos.css"> <!-- Link para o arquivo CSS que estiliza a página de produtos -->
+</head>
+<body>
+    <div class="container"> <!-- Container principal que envolve todo o conteúdo da página -->
+        <div class="sidebar"> <!-- Seção lateral para exibir informações do usuário e logo -->
+            <img src="profile.png" alt="Profile Picture" class="profile-picture"> <!-- Imagem do perfil do usuário -->
+            <div class="logo"> <!-- Seção para o logo da UrbAgro -->
+                <img src="logo.png" alt="UrbAgro Logo"> <!-- Imagem do logo da UrbAgro -->
+            </div>
+        </div>
+        <div class="content"> <!-- Seção principal para exibir a lista de produtos -->
+            <h1>Produtos</h1> <!-- Título da seção que indica que a página é para exibir produtos -->
+
+            <ul class="product-list"> <!-- Lista não ordenada para exibir os produtos -->
+                <!-- Aqui os produtos serão carregados dinamicamente pelo JS -->
+                <li id="alface" class="produto-item">ALFACE</li> <!-- Item de produto com ID e classe -->
+                <li id="batata" class="produto-item">BATATA</li> <!-- Item de produto com ID e classe -->
+                <li id="mandioquinha" class="produto-item">MANDIOQUINHA</li> <!-- Item de produto com ID e classe -->
+                <li id="cenoura" class="produto-item">CENOURA</li> <!-- Item de produto com ID e classe -->
+                <li id="couve" class="produto-item">COUVE</li> <!-- Item de produto com ID e classe -->
+                <li id="repolho" class="produto-item">REPOLHO</li> <!-- Item de produto com ID e classe -->
+            </ul>
+
+            <div class="buttons"> <!-- Seção para os botões de ação -->
+                <button class="back-button">&#8592; Voltar</button> <!-- Botão para voltar, com uma seta para a esquerda -->
+                <button class="new-product-button">CADASTRAR NOVO PRODUTO</button> <!-- Botão para adicionar um novo produto -->
+                <button class="delete-button">EXCLUIR PRODUTO</button> <!-- Botão para excluir um produto -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para exibir detalhes do produto -->
+    <div id="modal" class="modal" style="display: none;"> <!-- Modal oculto inicialmente -->
+        <div class="modal-content"> <!-- Conteúdo do modal -->
+            <span class="close-button">&times;</span> <!-- Botão para fechar o modal, representado por um "X" -->
+            <h2>Detalhes do Produto</h2> <!-- Título do modal -->
+            <div id="modal-details"> <!-- Área para os detalhes do produto, que será preenchida dinamicamente pelo JS -->
+                <!-- Os inputs de edição serão inseridos aqui via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="produtos.js"></script> <!-- Link para o arquivo JavaScript que contém a lógica da página -->
+</body>
+</html>

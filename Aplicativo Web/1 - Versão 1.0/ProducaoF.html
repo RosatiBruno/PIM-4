@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8, suportando caracteres especiais. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a escala e o layout da página para dispositivos móveis. -->
+    <title>Produção</title> <!-- Define o título da página como "Produção". -->
+    <link rel="stylesheet" href="ProducaoF.css"> <!-- Linka o arquivo CSS externo para estilização da página. -->
+    <script src="ProducaoF.js" defer></script> <!-- Linka o arquivo JavaScript externo e o carrega após o HTML ser renderizado. -->
+</head>
+<body>
+    <div class="container"> <!-- Div principal para organizar a estrutura de layout da página. -->
+        <div class="sidebar"> <!-- Div para o menu lateral (sidebar). -->
+            <div class="profile"> <!-- Seção para exibir a imagem do perfil do usuário. -->
+                <img src="profile.png" alt="Foto de Gabriel Igor Dias Gomes"> <!-- Imagem do perfil com descrição alternativa. -->
+            </div>
+            <div class="logo"> <!-- Seção para exibir o logo da empresa. -->
+                <img src="logo.png" alt="Logo UrbAgro"> <!-- Imagem do logo com descrição alternativa. -->
+            </div>
+        </div>
+
+        <div class="main"> <!-- Div para o conteúdo principal da página. -->
+            <h1>Produção</h1> <!-- Título da página "Produção". -->
+            <div class="production-list"> <!-- Div para a lista de produções exibida na página. -->
+                <!-- Cada produção é representada por um item com um nome e um tipo de produto. -->
+                <div class="production-item" data-produto="1">PRODUÇÃO 1<span>Alface</span></div>
+                <div class="production-item" data-produto="2">PRODUÇÃO 2<span>Cenoura</span></div>
+                <div class="production-item" data-produto="3">PRODUÇÃO 3<span>Batata</span></div>
+                <div class="production-item" data-produto="4">PRODUÇÃO 4<span>Mandioquinha</span></div>
+                <div class="production-item" data-produto="5">PRODUÇÃO 5<span>Couve</span></div>
+                <div class="production-item" data-produto="6">PRODUÇÃO 6<span>Repolho</span></div>
+            </div>
+
+            <!-- Modal para exibir detalhes de uma produção selecionada. -->
+            <div id="productionModal" class="modal">
+                <div class="modal-content"> <!-- Conteúdo do modal. -->
+                    <span id="closeModal" class="close">&times;</span> <!-- Botão para fechar o modal (ícone "x"). -->
+                    <h2>Detalhes da Produção</h2> <!-- Título do modal. -->
+                    <div id="production-details"></div> <!-- Div onde os detalhes da produção serão exibidos. -->
+                </div>
+            </div>
+
+            <!-- Botão para cadastrar uma nova produção. -->
+            <button class="new-production-btn">CADASTRAR NOVA PRODUÇÃO</button>
+            <!-- Botão para voltar à página anterior. -->
+            <button class="back-button" id="backButton">← Voltar</button>
+        </div>
+    </div>
+
+    <script>
+        // Script para exibir o nome do funcionário na mensagem de boas-vindas.
+        document.addEventListener('DOMContentLoaded', () => { // Aguarda o carregamento completo do DOM.
+            const userName = localStorage.getItem('nomeFuncionario'); // Recupera o nome do funcionário do armazenamento local.
+            document.getElementById('userName').textContent = userName || 'Funcionário'; // Exibe o nome do funcionário ou 'Funcionário' como padrão.
+        });
+    </script>
+</body>
+</html>

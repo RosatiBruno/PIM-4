@@ -77,7 +77,7 @@ class FornecedorManager {
 
         const fornecedor = this.collectFormData(); // Coleta os dados do formulário
         this.cadastrarFornecedor(fornecedor); // Chama o método para cadastrar o fornecedor
-        window.location.href = 'Fornecedores.html'; // Redireciona para a página de fornecedores
+        window.location.href = 'FornecedoresF.html'; // Redireciona para a página de fornecedores
     }
 
     // Método para verificar se todos os campos do formulário estão preenchidos

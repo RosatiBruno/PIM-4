@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Define o tipo do documento como HTML5 e o idioma da página como português brasileiro -->
+    
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 para garantir a correta exibição de caracteres especiais -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura a página para ser responsiva, adaptando-se automaticamente ao tamanho da tela, como dispositivos móveis -->
+
+    <title>Novo Pedido</title>
+    <!-- Define o título da página, que aparece na aba do navegador -->
+
+    <link rel="stylesheet" href="NovoPedidoF.css">
+    <!-- Vincula o arquivo CSS externo 'NovoPedidoF.css', que contém a estilização da página -->
+
+    <script src="NovoPedidoF.js" defer></script>
+    <!-- Vincula o arquivo JavaScript 'NovoPedidoF.js'. O atributo 'defer' faz com que o script seja executado após o carregamento completo da página -->
+</head>
+<body>
+    <!-- Início do corpo da página, onde todo o conteúdo visível será renderizado -->
+
+    <div class="container">
+        <!-- Div principal que serve como contêiner para agrupar todo o conteúdo da página -->
+
+        <aside class="sidebar">
+            <!-- Seção lateral da página (sidebar), que contém informações sobre o perfil do usuário e o logo da empresa -->
+
+            <div class="profile">
+                <!-- Div que exibe o perfil do usuário -->
+                <img src="profile.png" alt="Foto de perfil">
+                <!-- Imagem do perfil do usuário com o atributo 'alt' para acessibilidade -->
+            </div>
+
+            <div class="logo">
+                <!-- Div que exibe o logotipo da empresa -->
+                <img src="logo.png" alt="Logo UrbAgro">
+                <!-- Imagem do logotipo da UrbAgro com o atributo 'alt' para acessibilidade -->
+                <h3>UrbAgro</h3>
+                <!-- Nome da empresa abaixo do logotipo -->
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- Seção principal da página, onde o conteúdo relevante é exibido, no caso, o formulário para criação de um novo pedido -->
+
+            <h1>Novo Pedido</h1>
+            <!-- Título principal da página indicando que é um formulário para criar um novo pedido -->
+
+            <form>
+                <!-- Início do formulário onde o usuário preenche as informações para criar um novo pedido -->
+
+                <div class="form-group">
+                    <!-- Grupo de campos do formulário -->
+                    <label for="nome-produto">Nome do Produto</label>
+                    <!-- Rótulo para o campo de nome do produto -->
+                    <input type="text" id="nome-produto" name="nome-produto" maxlength="100" placeholder="Até 100 caracteres" required>
+                    <!-- Campo de entrada para o nome do produto com uma restrição de 100 caracteres e obrigatório para envio -->
+                </div>
+
+                <div class="form-group">
+                    <label for="id-pedido">ID do Pedido</label>
+                    <!-- Rótulo para o campo de ID do pedido -->
+                    <input type="text" id="id-pedido" name="id-pedido" maxlength="10" placeholder="Até 2 caracteres" required>
+                    <!-- Campo de entrada para o ID do pedido, limitado a 10 caracteres e obrigatório -->
+                </div>
+
+                <div class="form-group">
+                    <label for="quantidade">Quantidade</label>
+                    <!-- Rótulo para o campo de quantidade -->
+                    <input type="number" id="quantidade" name="quantidade" min="1" max="1000" required placeholder="1 a 1000">
+                    <!-- Campo de entrada do tipo número para a quantidade, com um valor mínimo de 1 e máximo de 1000, obrigatório -->
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Valor Unitário</label>
+                    <!-- Rótulo para o campo de valor -->
+                    <input type="text" id="valor" name="valor" maxlength="10" placeholder="Ex: 100.00" required>
+                    <!-- Campo de entrada para o valor do produto, com formato de exemplo "100.00" e obrigatório -->
+                </div>
+
+                <div class="form-group">
+                    <label for="empresa-responsavel">Empresa Responsável pela Compra</label>
+                    <!-- Rótulo para o campo de empresa responsável pela compra -->
+                    <input type="text" id="empresa-responsavel" name="empresa-responsavel" maxlength="100" placeholder="Até 100 caracteres" required>
+                    <!-- Campo de entrada para o nome da empresa responsável, limitado a 100 caracteres e obrigatório -->
+                </div>
+
+                <div class="buttons">
+                    <!-- Div que agrupa os botões de ação -->
+
+                    <button type="button" class="back-button">&larr; Voltar</button>
+                    <!-- Botão de voltar, com o símbolo de seta à esquerda para indicar retorno à página anterior -->
+
+                    <button type="submit" class="add-button">ADICIONAR</button>
+                    <!-- Botão de envio do formulário para adicionar um novo pedido, com o texto "ADICIONAR" -->
+                </div>
+            </form>
+        </main>
+
+        <img id="homeButton" src="web-house.png" alt="Home" class="home-icon">
+        <!-- Imagem de ícone de home, que provavelmente redireciona para a página inicial ao ser clicada -->
+    </div>
+</body>
+</html>

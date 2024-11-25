@@ -1,0 +1,238 @@
+* {
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimento padrão */
+    box-sizing: border-box; /* Inclui preenchimento e bordas na largura total */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Define a fonte do corpo */
+    display: flex; /* Usa flexbox para layout */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Altura total da viewport */
+    background-color: #f5f5f5; /* Cor de fundo */
+}
+
+.container {
+    display: flex; /* Usa flexbox para layout */
+    width: 90%; /* Largura de 90% da tela */
+    max-width: 1200px; /* Largura máxima de 1200px */
+    background-color: white; /* Cor de fundo do container */
+    border-radius: 10px; /* Bordas arredondadas */
+    overflow: hidden; /* Esconde conteúdo que ultrapassa o container */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    gap: 20px; /* Espaço entre os itens do flex */
+}
+
+.sidebar {
+    background-color: #e0f2e9; /* Cor de fundo da barra lateral */
+    padding: 30px; /* Preenchimento interno */
+    text-align: center; /* Alinha o texto ao centro */
+    width: 25%; /* Largura da barra lateral */
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Organiza itens em coluna */
+    align-items: center; /* Alinha itens ao centro */
+    justify-content: space-between; /* Espaça os itens */
+}
+
+.profile-image {
+    width: 100px; /* Largura da imagem de perfil */
+    height: 100px; /* Altura da imagem de perfil */
+    border-radius: 50%; /* Torna a imagem circular */
+    margin-bottom: 20px; /* Margem abaixo da imagem */
+}
+
+.profile h2 {
+    font-size: 1.2em; /* Tamanho da fonte do título */
+    color: #333; /* Cor do texto */
+    margin-top: 10px; /* Margem acima do título */
+}
+
+.logo img {
+    width: 140px; /* Largura da imagem do logo */
+    margin-top: 20px; /* Margem acima da imagem */
+    border-radius: 12px; /* Bordas arredondadas */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Sombra da imagem */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transições suaves */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Aumenta a imagem ao passar o mouse */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4); /* Aumenta a sombra ao passar o mouse */
+}
+
+.main-content {
+    width: 75%; /* Largura do conteúdo principal */
+    padding: 40px; /* Preenchimento interno */
+    position: relative; /* Posicionamento relativo */
+    gap: 20px; /* Espaço entre os itens do flex */
+}
+
+.header {
+    display: flex; /* Usa flexbox para layout */
+    justify-content: space-between; /* Espaça os itens */
+    align-items: center; /* Alinha itens ao centro */
+    margin-bottom: 30px; /* Margem abaixo do cabeçalho */
+}
+
+.header h1 {
+    font-size: 1.8em; /* Tamanho da fonte do título */
+    color: #333; /* Cor do texto */
+}
+
+.home-icon {
+    text-decoration: none; /* Remove sublinhado de links */
+    color: #333; /* Cor do texto */
+}
+
+/* Estilos para home-button */
+.home-button {
+    font-size: 1em; /* Tamanho de fonte reduzido */
+    padding: 6px 10px; /* Padding menor */
+    background-color: #28a745; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Remove bordas */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+.home-button:hover {
+    background-color: #218838; /* Cor de fundo ao passar o mouse */
+}
+
+.form-container {
+    display: flex; /* Usa flexbox para layout */
+    justify-content: space-between; /* Espaça os itens */
+    flex-wrap: wrap; /* Permite quebra de linha */
+    gap: 30px; /* Espaço entre os itens do flex */
+}
+
+.form-group {
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Organiza itens em coluna */
+    width: 45%; /* Largura do grupo de formulário */
+    gap: 10px; /* Espaço entre os itens do grupo */
+}
+
+.form-group label {
+    font-weight: bold; /* Texto em negrito */
+    color: black; /* Cor do texto */
+}
+
+.form-group input {
+    padding: 12px; /* Preenchimento interno do campo */
+    border: 1px solid #ccc; /* Borda do campo */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #f0f0f0; /* Cor de fundo do campo */
+    outline: none; /* Remove contorno padrão ao focar */
+}
+
+.footer {
+    display: flex; /* Usa flexbox para layout */
+    justify-content: space-between; /* Espaça os itens */
+    position: absolute; /* Posicionamento absoluto */
+    bottom: 20px; /* Distância do fundo */
+    width: 100%; /* Largura total */
+}
+
+.back-button, .save-button {
+    background-color: #28a745; /* Cor de fundo do botão */
+    border: none; /* Remove bordas */
+    padding: 12px 25px; /* Preenchimento interno do botão */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 1em; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de ponteiro */
+    color: white; /* Cor do texto */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+.back-button:hover, .save-button:hover {
+    background-color: #218838; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo do botão "Home" com o ícone */
+.home-button {
+    background-image: url("web-house.png"); /* Imagem de fundo */
+    background-size: contain; /* Tamanho da imagem de fundo */
+    background-repeat: no-repeat; /* Não repete a imagem */
+    background-position: center; /* Centraliza a imagem */
+    width: 40px; /* Largura do botão */
+    height: 40px; /* Altura do botão */
+    border: none; /* Remove bordas */
+    cursor: pointer; /* Alterar o cursor ao passar o mouse */
+    position: absolute; /* Posicionamento absoluto */
+    top: 20px; /* Distância do topo */
+    right: 20px; /* Distância da direita */
+    background-color: transparent; /* Fundo transparente */
+}
+
+.home-button:hover {
+    opacity: 0.8; /* Efeito ao passar o mouse */
+}
+
+/* Restante do CSS para outros elementos da página */
+.container {
+    display: flex; /* Usa flexbox para layout */
+}
+
+.sidebar {
+    width: 200px; /* Largura da barra lateral */
+    background-color: #f3f3f3; /* Cor de fundo da barra lateral */
+    padding: 20px; /* Preenchimento interno */
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Organiza itens em coluna */
+    align-items: center; /* Alinha itens ao centro */
+}
+
+.profile-section {
+    margin-bottom: 20px; /* Margem abaixo da seção de perfil */
+}
+
+.profile-image {
+    width: 80px; /* Largura da imagem de perfil */
+    height: 80px; /* Altura da imagem de perfil */
+    border-radius: 50%; /* Torna a imagem circular */
+}
+
+.logo {
+    width: 100%; /* Largura total do logo */
+    text-align: center; /* Alinha o logo ao centro */
+    margin-bottom: 20px; /* Margem abaixo do logo */
+}
+
+.logo img {
+    width: 60%; /* Largura da imagem do logo */
+}
+
+.back-button {
+    margin-top: auto; /* Margem automática acima para alinhar ao fundo */
+}
+
+.main-content {
+    flex-grow: 1; /* Cresce para preencher o espaço restante */
+    padding: 40px; /* Preenchimento interno */
+}
+
+h1 {
+    font-size: 24px; /* Tamanho da fonte do título */
+    margin-bottom: 20px; /* Margem abaixo do título */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Margem abaixo do grupo de formulário */
+}
+
+.form-group label {
+    display: block; /* Exibe o rótulo como bloco */
+    margin-bottom: 5px; /* Margem abaixo do rótulo */
+}
+
+.form-group input {
+    width: 100%; /* Largura total do campo */
+}
+
+.footer {
+    text-align: center; /* Alinha o texto ao centro */
+    margin-top: 20px; /* Margem acima do rodapé */
+}

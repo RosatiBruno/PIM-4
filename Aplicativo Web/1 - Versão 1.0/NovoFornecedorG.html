@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8, permitindo a exibição correta de caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a página para ser responsiva, ajustando-se ao tamanho da tela de diferentes dispositivos -->
+    <title>Cadastro de Fornecedores</title> <!-- Define o título da página, que aparece na aba do navegador -->
+    <link rel="stylesheet" href="NovoFornecedorG.css"> <!-- Importa o arquivo de estilo CSS para aplicar a formatação na página -->
+</head>
+<body>
+    <div class="container"> <!-- Div principal que agrupa toda a estrutura da página -->
+        
+        <!-- Barra lateral contendo informações de perfil e logo -->
+        <div class="sidebar">
+            <!-- Imagem de perfil do usuário com descrição alternativa para acessibilidade -->
+            <img src="profile.png" alt="Foto de Perfil">
+
+            <!-- Área para exibição do logo da empresa UrbAgro -->
+            <div class="logo">
+                <img src="logo.png" alt="Logo UrbAgro"> <!-- Logo da empresa com texto alternativo -->
+                <p>UrbAgro</p> <!-- Nome da empresa exibido como texto -->
+            </div>
+        </div>
+
+        <!-- Área principal do conteúdo -->
+        <div class="content">
+            <!-- Título da página -->
+            <h1>Cadastro de Fornecedores</h1>
+
+            <!-- Formulário organizado em grid para cadastro de fornecedores -->
+            <div class="form-grid">
+                <!-- Campos do formulário, cada um com seu respectivo label e input -->
+                <div>
+                    <label for="nome">Nome</label> <!-- Rótulo para o campo de nome do fornecedor -->
+                    <input type="text" id="nome" maxlength="50" placeholder="Até 50 caracteres"> <!-- Campo de texto para inserir o nome, com limite de 50 caracteres -->
+                </div>
+                <div>
+                    <label for="cep">CEP</label> <!-- Rótulo para o campo de CEP -->
+                    <input type="text" id="cep" maxlength="9" placeholder="Formato: 00000-000"> <!-- Campo de texto para inserir o CEP, limitado a 9 caracteres -->
+                </div>
+                <div>
+                    <label for="telefone">Telefone</label> <!-- Rótulo para o campo de telefone -->
+                    <input type="text" id="telefone" maxlength="15" placeholder="Formato: (00) 00000-0000"> <!-- Campo de texto para inserir o telefone, com limite de 15 caracteres -->
+                </div>
+                <div>
+                    <label for="cnpj">CNPJ/CPF</label> <!-- Rótulo para o campo de CNPJ ou CPF -->
+                    <input type="text" id="cnpj" maxlength="18" placeholder="Até 18 caracteres"> <!-- Campo de texto para inserir CNPJ ou CPF, com limite de 18 caracteres -->
+                </div>
+                <div>
+                    <label for="endereco">Endereço</label> <!-- Rótulo para o campo de endereço -->
+                    <input type="text" id="endereco" maxlength="100" placeholder="Até 100 caracteres"> <!-- Campo de texto para inserir o endereço, com limite de 100 caracteres -->
+                </div>
+                <div>
+                    <label for="email">E-mail</label> <!-- Rótulo para o campo de e-mail -->
+                    <input type="email" id="email" maxlength="50" placeholder="Até 50 caracteres"> <!-- Campo de texto para inserir o e-mail, com limite de 50 caracteres -->
+                </div>
+                <div>
+                    <label for="situacao">Situação do Fornecedor</label> <!-- Rótulo para o campo de situação do fornecedor -->
+                    <input type="text" id="situacao" maxlength="20" placeholder="Até 20 caracteres"> <!-- Campo de texto para inserir a situação do fornecedor, com limite de 20 caracteres -->
+                </div>
+                <div>
+                    <label for="complemento">Complemento</label> <!-- Rótulo para o campo de complemento -->
+                    <input type="text" id="complemento" maxlength="50" placeholder="Até 50 caracteres"> <!-- Campo de texto para inserir o complemento, com limite de 50 caracteres -->
+                </div>
+                <div>
+                    <label for="representante">Representante</label> <!-- Rótulo para o campo de representante -->
+                    <input type="text" id="representante" maxlength="50" placeholder="Até 50 caracteres"> <!-- Campo de texto para inserir o nome do representante, com limite de 50 caracteres -->
+                </div>
+                <div>
+                    <label for="codigo">Código</label> <!-- Rótulo para o campo de código do fornecedor -->
+                    <input type="text" id="codigo" maxlength="10" placeholder="Até 2 caracteres"> <!-- Campo de texto para inserir o código do fornecedor, com limite de 2 caracteres -->
+                </div>
+                <div>
+                    <label for="cidade">Cidade</label> <!-- Rótulo para o campo de cidade -->
+                    <input type="text" id="cidade" maxlength="50" placeholder="Até 50 caracteres"> <!-- Campo de texto para inserir a cidade, com limite de 50 caracteres -->
+                </div>
+                <div>
+                    <label for="materia-prima">Matéria-Prima</label> <!-- Rótulo para o campo de matéria-prima -->
+                    <input type="text" id="materia-prima" maxlength="50" placeholder="Até 50 caracteres"> <!-- Campo de texto para inserir a matéria-prima do fornecedor, com limite de 50 caracteres -->
+                </div>
+                <div>
+                    <label for="razao-social">Razão Social</label> <!-- Rótulo para o campo de razão social -->
+                    <input type="text" id="razao-social" maxlength="50" placeholder="Até 50 caracteres"> <!-- Campo de texto para inserir a razão social, com limite de 50 caracteres -->
+                </div>
+                <div>
+                    <label for="estado">Estado</label> <!-- Rótulo para o campo de estado -->
+                    <input type="text" id="estado" maxlength="2" placeholder="Ex: SP"> <!-- Campo de texto para inserir o estado, com limite de 2 caracteres (por exemplo, SP) -->
+                </div>
+            </div>
+
+            <!-- Botões de interação do formulário -->
+            <div class="buttons">
+                <!-- Botão de voltar para a tela anterior -->
+                <button class="back-button">← Voltar</button>
+                <!-- Botão para enviar o formulário de cadastro -->
+                <button class="submit-button">CADASTRAR</button>
+            </div>
+
+            <!-- Ícone de "Home" para voltar à página inicial -->
+            <img id="homeButton" src="web-house.png" alt="Home" class="home-icon">
+        </div>
+    </div>
+
+    <!-- Importa o arquivo JavaScript que será utilizado para adicionar interatividade ao formulário -->
+    <script src="NovoFornecedorG.js"></script>
+</body>
+</html>

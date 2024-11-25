@@ -1,0 +1,192 @@
+/* Reset global de estilos */
+* {
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o padding padrão de todos os elementos */
+    box-sizing: border-box; /* Ajusta o box-sizing para incluir bordas e padding no cálculo do tamanho */
+    font-family: Arial, sans-serif; /* Define a fonte padrão como Arial */
+}
+
+/* Estilização do corpo da página */
+body {
+    display: flex; /* Utiliza flexbox para layout */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    height: 100vh; /* Define a altura do corpo como 100% da altura da viewport */
+    background-color: #f5f5f5; /* Define uma cor de fundo cinza claro */
+}
+
+/* Estilização do contêiner principal */
+.container {
+    display: flex; /* Utiliza flexbox para layout */
+    width: 80%; /* Define a largura como 80% da tela */
+    max-width: 1200px; /* Define uma largura máxima de 1200px */
+    border: 1px solid #ccc; /* Adiciona uma borda cinza clara */
+    border-radius: 10px; /* Arredonda os cantos do contêiner */
+    overflow: hidden; /* Esconde conteúdo que extrapola o contêiner */
+    background-color: white; /* Define o fundo como branco */
+}
+
+/* Estilização da barra lateral */
+.sidebar {
+    width: 25%; /* Define a largura da barra lateral como 25% */
+    background-color: #e0f2e9; /* Define uma cor de fundo verde claro */
+    display: flex; /* Utiliza flexbox para layout */
+    flex-direction: column; /* Alinha o conteúdo em coluna */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    padding: 20px; /* Adiciona padding interno de 20px */
+}
+
+/* Estilização da seção de perfil */
+.profile {
+    text-align: center; /* Alinha o texto ao centro */
+    margin-bottom: 20px; /* Adiciona uma margem inferior de 20px */
+}
+
+/* Estilização da imagem de perfil */
+.profile img {
+    width: 100px; /* Define a largura da imagem do perfil */
+    height: 100px; /* Define a altura da imagem do perfil */
+    border-radius: 50%; /* Arredonda a imagem para formato circular */
+    margin-bottom: 10px; /* Adiciona uma margem inferior de 10px */
+}
+
+/* Estilização da seção do logotipo */
+.logo {
+    margin-top: auto; /* Mantém a logo no final da barra lateral */
+    margin-bottom: 20px; /* Adiciona uma margem inferior de 20px */
+}
+
+/* Estilização da imagem do logotipo */
+.logo img {
+    width: 80%; /* Define que a imagem da logo ocupará 80% da largura do contêiner */
+}
+
+/* Estilização da área principal da página */
+.main {
+    width: 75%; /* Define a largura da área principal como 75% */
+    padding: 20px; /* Adiciona padding de 20px */
+}
+
+/* Estilização do título da página */
+h1 {
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 20px; /* Adiciona uma margem inferior de 20px */
+}
+
+/* Estilização da lista de produções */
+.production-list {
+    display: flex; /* Utiliza flexbox para layout */
+    flex-direction: column; /* Alinha os itens em coluna */
+    gap: 10px; /* Adiciona espaçamento de 10px entre os itens */
+}
+
+/* Estilização de cada item de produção */
+.production-item {
+    display: flex; /* Utiliza flexbox para layout */
+    justify-content: space-between; /* Adiciona espaçamento entre os elementos do item */
+    padding: 15px; /* Adiciona padding de 15px */
+    background-color: #e0e0e0; /* Define uma cor de fundo cinza claro */
+    border-radius: 5px; /* Arredonda os cantos do item */
+}
+
+/* Estilização do botão de nova produção */
+.new-production-btn {
+    display: block; /* Exibe o botão como bloco */
+    margin: 20px auto; /* Centraliza o botão com margens automáticas */
+    padding: 10px 20px; /* Adiciona padding de 10px em cima e embaixo, 20px nas laterais */
+    background-color: #c6e2b3; /* Define uma cor de fundo verde claro */
+    border: none; /* Remove a borda do botão */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    color: black; /* Define a cor do texto como preto */
+    cursor: pointer; /* Muda o cursor para ponteiro ao passar sobre o botão */
+}
+
+/* Estilização do estado de hover do botão de nova produção */
+.new-production-btn:hover {
+    background-color: #8ebf75; /* Muda a cor de fundo para um verde mais escuro ao passar o mouse */
+}
+
+/* Estilização do botão de voltar */
+.back-button {
+    background-color: #c6e2b3; /* Cor verde */
+    border: 1px solid #ccc; /* Adiciona uma borda cinza clara */
+    padding: 10px 20px; /* Adiciona padding de 10px em cima e embaixo, 20px nas laterais */
+    cursor: pointer; /* Muda o cursor para ponteiro ao passar sobre o botão */
+    font-size: 16px; /* Define o tamanho da fonte do botão */
+    margin-top: 5px; /* Diminui a margem superior para subir o botão ainda mais */
+}
+
+/* Estilização do estado de hover do botão de voltar */
+.back-button:hover {
+    background-color: #45a049; /* Muda a cor para um verde mais escuro ao passar o mouse */
+}
+
+/* Estilos para o modal */
+.modal {
+    display: none; /* O modal é oculto por padrão */
+    position: fixed; /* Fixa o modal na tela */
+    z-index: 1; /* Define a camada do modal para aparecer sobre outros elementos */
+    left: 0; /* Posiciona o modal à esquerda */
+    top: 0; /* Posiciona o modal no topo */
+    width: 100%; /* Define a largura do modal como 100% da tela */
+    height: 100%; /* Define a altura do modal como 100% da tela */
+    overflow: auto; /* Permite rolagem se o conteúdo exceder a altura */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo preto translúcido com opacidade de 0.4 */
+}
+
+/* Estilização do conteúdo do modal */
+.modal-content {
+    background-color: #fefefe; /* Define um fundo branco para o conteúdo do modal */
+    margin: 15% auto; /* Centraliza o conteúdo com margem automática */
+    padding: 20px; /* Adiciona padding de 20px */
+    border: 1px solid #888; /* Adiciona uma borda cinza */
+    width: 80%; /* Define a largura do conteúdo do modal como 80% */
+    max-width: 600px; /* Define uma largura máxima de 600px */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Adiciona sombra ao conteúdo do modal */
+    border-radius: 10px; /* Arredonda os cantos do conteúdo do modal */
+}
+
+/* Estilização do botão de fechar do modal */
+.close {
+    color: #aaa; /* Define a cor do botão de fechar como cinza claro */
+    float: right; /* Posiciona o botão à direita */
+    font-size: 28px; /* Define o tamanho da fonte do botão de fechar */
+    font-weight: bold; /* Define o texto do botão de fechar como negrito */
+}
+
+/* Estilização do estado de hover e foco do botão de fechar */
+.close:hover,
+.close:focus {
+    color: black; /* Muda a cor para preto ao passar o mouse ou focar no botão */
+    text-decoration: none; /* Remove o sublinhado ao focar */
+    cursor: pointer; /* Muda o cursor para ponteiro ao passar sobre o botão */
+}
+
+/* Estilização da imagem do logotipo */
+.logo img {
+    width: 150px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
+    transition: transform 0.3s ease; /* Animação suave ao passar o mouse */
+}
+
+/* Efeito de zoom na imagem do logotipo ao passar o mouse */
+.logo img:hover {
+    transform: scale(1.1); /* Aumenta a logo ao passar o mouse */
+}
+
+/* Estilização do botão de excluir produção */
+.delete-production-btn {
+    background-color: #af4c4c; /* Define o fundo como vermelho */
+    color: white; /* Define o texto como branco para contraste */
+    border: none; /* Remove a borda do botão */
+    padding: 10px 15px; /* Padding para o botão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para ponteiro ao passar sobre o botão */
+}
+
+/* Estilização do estado de hover do botão de excluir produção */
+.delete-production-btn:hover {
+    background-color: #8b2b2b; /* Muda a cor do fundo para um vermelho mais escuro ao passar o mouse */
+}

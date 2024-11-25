@@ -214,6 +214,29 @@ function carregarFornecedores() {
     });
 }
 
+// Seleciona os elementos do modal e os botões de fechar
+const modal = document.getElementById('modal');
+const fornecedorModal = document.getElementById('fornecedorModal');
+const closeButtons = document.querySelectorAll('.close-button');
+
+// Adiciona evento para fechar o modal quando o botão for clicado
+closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        modal.style.display = 'none';
+        fornecedorModal.style.display = 'none';
+    });
+});
+
+// Fechar o modal ao clicar fora dele
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+    if (event.target === fornecedorModal) {
+        fornecedorModal.style.display = 'none';
+    }
+});
+
 // Inicializa o sistema de gerenciamento de fornecedores após o carregamento do DOM
 document.addEventListener('DOMContentLoaded', () => {
     new FornecedorSearch('.search-bar input', '.supplier-list');

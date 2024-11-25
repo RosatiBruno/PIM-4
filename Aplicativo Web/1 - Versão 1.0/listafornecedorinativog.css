@@ -1,0 +1,139 @@
+* {
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Faz com que a largura e a altura de um elemento incluam o padding e a borda */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Define a fonte do corpo da página como Arial, com uma alternativa sans-serif */
+    background-color: #f5f5f5; /* Define uma cor de fundo suave para o corpo da página */
+}
+
+.container {
+    display: flex; /* Usar flexbox para layout */
+    height: 100vh; /* Define a altura do container como 100% da altura da viewport */
+}
+
+.sidebar {
+    width: 20%; /* Define a largura da barra lateral como 20% da largura total */
+    background-color: #e0f2e9; /* Define uma cor de fundo verde claro para a sidebar */
+    display: flex; /* Usa flexbox para organizar os elementos internos */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: space-between; /* Distribui o espaço entre os itens verticalmente */
+    padding: 20px; /* Adiciona um espaço interno de 20 pixels */
+}
+
+.profile {
+    text-align: center; /* Centraliza o texto dentro do bloco de perfil */
+}
+
+.profile-img {
+    width: 80px; /* Define a largura da imagem do perfil */
+    height: 80px; /* Define a altura da imagem do perfil */
+    border-radius: 50%; /* Torna a imagem circular */
+    margin-bottom: 10px; /* Adiciona um espaço abaixo da imagem */
+}
+
+.profile-name {
+    font-weight: bold; /* Torna o nome em negrito */
+    color: #000; /* Define a cor do texto como preto */
+}
+
+.logo img {
+    width: 150px; /* Define a largura da imagem do logo */
+    height: auto; /* Mantém a proporção da imagem automaticamente */
+    border-radius: 10px; /* Arredonda os cantos da imagem do logo */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra à imagem do logo */
+    transition: transform 0.3s ease; /* Define uma transição suave para transformações */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Aumenta o logo em 10% ao passar o mouse sobre ele */
+}
+
+.main-content {
+    width: 80%; /* Define a largura da área principal como 80% da largura total */
+    padding: 40px; /* Adiciona um espaço interno de 40 pixels */
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: flex-start; /* Alinha os itens ao topo da área principal */
+}
+
+.main-content h1 {
+    font-size: 24px; /* Define o tamanho da fonte do título principal */
+    margin-bottom: 30px; /* Adiciona um espaço abaixo do título */
+}
+
+.orders {
+    width: 100%; /* Define a largura da seção de pedidos como 100% da largura disponível */
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+.supplier-list-inactive {
+    width: 100%; /* Define a largura da lista de fornecedores inativos como 100% */
+    background-color: #ffffff; /* Define a cor de fundo da lista como branca */
+    border-radius: 8px; /* Arredonda os cantos da lista */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil à lista */
+    padding: 20px; /* Adiciona um espaço interno de 20 pixels */
+    margin-top: 20px; /* Adiciona um espaço acima da lista */
+    position: relative; /* Permite o posicionamento relativo dos itens dentro */
+}
+
+.supplier-item {
+    display: flex; /* Usa flexbox para organizar os itens do fornecedor */
+    justify-content: space-between; /* Distribui os itens com espaço entre eles */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    padding: 15px; /* Adiciona um espaço interno de 15 pixels */
+    border-bottom: 1px solid #eee; /* Adiciona uma borda inferior leve aos itens */
+}
+
+.supplier-item:last-child {
+    border-bottom: none; /* Remove a borda inferior do último item da lista */
+}
+
+.supplier-info {
+    flex-grow: 1; /* Permite que o contêiner de informações do fornecedor cresça para ocupar espaço */
+}
+
+.supplier-name {
+    font-weight: bold; /* Torna o nome do fornecedor em negrito */
+    color: #333; /* Define a cor do nome do fornecedor como um cinza escuro */
+}
+
+.supplier-status {
+    color: #999; /* Define a cor do status do fornecedor como um cinza claro */
+}
+
+/* Estilo para o botão de reativar fornecedor */
+.reactivate-button {
+    background-color: #4CAF50; /* Define a cor de fundo do botão como verde */
+    border: none; /* Remove bordas do botão */
+    color: white; /* Define a cor do texto do botão como branco */
+    padding: 10px 20px; /* Adiciona espaçamento interno ao botão */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    font-size: 16px; /* Define o tamanho da fonte do botão */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    margin-top: 20px; /* Adiciona um espaço acima do botão */
+    transition: background-color 0.3s; /* Define uma transição suave para a cor de fundo */
+    
+    /* Ajusta o botão para ficar na parte inferior da lista */
+    display: block; /* Faz com que o botão ocupe toda a largura disponível */
+    width: 100%; /* Faz o botão ocupar a largura total da lista */
+}
+
+.reactivate-button:hover {
+    background-color: #45a049; /* Altera a cor de fundo do botão quando o mouse passa sobre ele */
+}
+
+.back-button {
+    background-color: #c6e2b3; /* Define a cor de fundo do botão de voltar como verde claro */
+    border: none; /* Remove bordas do botão */
+    padding: 10px 20px; /* Adiciona espaçamento interno ao botão */
+    font-size: 1em; /* Define o tamanho da fonte do botão */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+}

@@ -1,0 +1,59 @@
+* {
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Define que a largura e altura de elementos incluem bordas e preenchimento */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Define a fonte do corpo como Arial, com uma fonte alternativa sem serifa */
+    background-color: #7A9273; /* Define a cor de fundo do corpo */
+    display: flex; /* Utiliza o modelo de layout Flexbox */
+    justify-content: center; /* Centraliza horizontalmente os itens flexíveis */
+    align-items: center; /* Centraliza verticalmente os itens flexíveis */
+    height: 100vh; /* Define a altura do corpo para 100% da altura da viewport */
+}
+
+.container {
+    text-align: center; /* Centraliza o texto dentro do contêiner */
+}
+
+.header {
+    margin-bottom: 20px; /* Adiciona uma margem inferior de 20px ao cabeçalho */
+}
+
+.logo {
+    width: 150px; /* Define a largura da imagem do logo como 150px */
+}
+
+.box {
+    background-color: #E5E5E5; /* Define a cor de fundo da caixa */
+    padding: 40px; /* Adiciona 40px de preenchimento interno à caixa */
+    border-radius: 10px; /* Arredonda os cantos da caixa com um raio de 10px */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra à caixa */
+    width: 300px; /* Define a largura da caixa como 300px */
+    text-align: center; /* Centraliza o texto dentro da caixa */
+}
+
+h2 {
+    color: #4B4B4B; /* Define a cor do texto do título h2 */
+    margin-bottom: 20px; /* Adiciona uma margem inferior de 20px ao título */
+}
+
+p {
+    color: #4B4B4B; /* Define a cor do texto dos parágrafos */
+    margin-bottom: 30px; /* Adiciona uma margem inferior de 30px aos parágrafos */
+}
+
+.back-button {
+    background-color: #9ACD32; /* Define a cor de fundo do botão de voltar */
+    color: white; /* Define a cor do texto do botão como branco */
+    border: none; /* Remove a borda padrão do botão */
+    padding: 10px 20px; /* Adiciona 10px de preenchimento vertical e 20px de preenchimento horizontal ao botão */
+    border-radius: 5px; /* Arredonda os cantos do botão com um raio de 5px */
+    cursor: pointer; /* Muda o cursor para uma mão quando passa sobre o botão */
+    font-size: 16px; /* Define o tamanho da fonte do texto do botão */
+}
+
+.back-button:hover {
+    background-color: #7AA12A; /* Muda a cor de fundo do botão ao passar o mouse sobre ele */
+}
